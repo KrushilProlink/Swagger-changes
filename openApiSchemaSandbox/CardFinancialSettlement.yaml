@@ -1,0 +1,1601 @@
+openapi: 3.0.1
+info:
+  title: Card Financial Settlement
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain
+    orchestrates the settlement of the transactions between the Issuers and the
+    Acquirers through the Card Networks.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CardFinancialSettlement
+paths:
+   '/CardFinancialSettlementProcedure/{cardfinancialsettlementprocedureid}/Initiate':
+      post:
+        tags:
+           - CR - CardFinancialSettlementProcedure
+        summary: InCR Initiate card financial settlement processing
+        description: InCR Initiate card financial settlement processing
+        operationId: CardFinancialSettlementProcedure/Initiate
+        parameters:
+           - $ref: '#/components/parameters/cardfinancialsettlementprocedureid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/InitiateCardFinancialSettlementProcedureRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CardFinancialSettlementProcedure/{cardfinancialsettlementprocedureid}/Update':
+      put:
+        tags:
+           - CR - CardFinancialSettlementProcedure
+        summary: UpCR Update the card financial settlement processing
+        description: UpCR Update the card financial settlement processing
+        operationId: CardFinancialSettlementProcedure/Update
+        parameters:
+           - $ref: '#/components/parameters/cardfinancialsettlementprocedureid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateCardFinancialSettlementProcedureRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CardFinancialSettlementProcedure/{cardfinancialsettlementprocedureid}/Retrieve':
+      get:
+        tags:
+           - CR - CardFinancialSettlementProcedure
+        summary: ReCR Retrieve details and reports about the card settlement processing
+        description: ReCR Retrieve details and reports about the card settlement processing
+        operationId: CardFinancialSettlementProcedure/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/cardfinancialsettlementprocedureid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveCardFinancialSettlementProcedureResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Consolidation/{consolidationid}/Update':
+      put:
+        tags:
+           - BQ - Consolidation
+        summary: >-
+          UpBQ Update consolidated transaction details for a settlement
+          procedure
+        description: >-
+          UpBQ Update consolidated transaction details for a settlement
+          procedure
+        operationId: Consolidation/Update
+        parameters:
+           - $ref: '#/components/parameters/consolidationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateConsolidationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Consolidation/{consolidationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Consolidation
+        summary: >-
+          ReBQ Retrieve consolidated transaction details for a settlement
+          procedure
+        description: >-
+          ReBQ Retrieve consolidated transaction details for a settlement
+          procedure
+        operationId: Consolidation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/consolidationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveConsolidationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Processing/{processingid}/Update':
+      put:
+        tags:
+           - BQ - Processing
+        summary: UpBQ Update processing transaction details for a settlement procedure
+        description: UpBQ Update processing transaction details for a settlement procedure
+        operationId: Processing/Update
+        parameters:
+           - $ref: '#/components/parameters/processingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateProcessingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Processing/{processingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Processing
+        summary: >-
+          ReBQ Retrieve processing transaction details for a settlement
+          procedure
+        description: >-
+          ReBQ Retrieve processing transaction details for a settlement
+          procedure
+        operationId: Processing/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/processingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveProcessingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Instruction/{instructionid}/Update':
+      put:
+        tags:
+           - BQ - Instruction
+        summary: UpBQ Update payment instruction details for a settlement procedure
+        description: UpBQ Update payment instruction details for a settlement procedure
+        operationId: Instruction/Update
+        parameters:
+           - $ref: '#/components/parameters/instructionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateInstructionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Instruction/{instructionid}/Retrieve':
+      get:
+        tags:
+           - BQ - Instruction
+        summary: ReBQ Retrieve payment instruction details for a settlement procedure
+        description: ReBQ Retrieve payment instruction details for a settlement procedure
+        operationId: Instruction/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/instructionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveInstructionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Payment/{paymentid}/Update':
+      put:
+        tags:
+           - BQ - Payment
+        summary: UpBQ Update payment processing details for a settlement procedure
+        description: UpBQ Update payment processing details for a settlement procedure
+        operationId: Payment/Update
+        parameters:
+           - $ref: '#/components/parameters/paymentid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePaymentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Payment/{paymentid}/Retrieve':
+      get:
+        tags:
+           - BQ - Payment
+        summary: ReBQ Retrieve payment processing details for a settlement procedure
+        description: ReBQ Retrieve payment processing details for a settlement procedure
+        operationId: Payment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/paymentid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePaymentResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateCardFinancialSettlementProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           CardFinancialSettlementProcessType:
+              type: string
+              description: >-
+                Defines the type of settlement process (e.g. scheduled
+                processing, adhoc processing)
+              format: String
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+     InitiateCardFinancialSettlementProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           CardFinancialSettlementProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+     Date:
+        type: object
+        description: >-
+          The scheduled time for the process  likely initiation time
+          ISODate|ISODate
+          (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022
+          BM ()
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     InitiateCardFinancialSettlementProcedure:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           CardFinancialSettlementProcessType:
+              type: string
+              description: >-
+                Defines the type of settlement process (e.g. scheduled
+                processing, adhoc processing)
+              format: String
+           CardFinancialSettlementProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+     UpdateCardFinancialSettlementProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           CardFinancialSettlementProcessType:
+              type: string
+              description: >-
+                Defines the type of settlement process (e.g. scheduled
+                processing, adhoc processing)
+              format: String
+           CardFinancialSettlementProcessDateTime:
+              $ref: '#/components/schemas/Date'
+              description: The scheduled time for the process  likely initiation time
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+     UpdateCardFinancialSettlementProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           CardFinancialSettlementProcessType:
+              type: string
+              description: >-
+                Defines the type of settlement process (e.g. scheduled
+                processing, adhoc processing)
+              format: String
+           CardFinancialSettlementProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+     UpdateCardFinancialSettlementProcedure:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           CardFinancialSettlementProcessType:
+              type: string
+              description: >-
+                Defines the type of settlement process (e.g. scheduled
+                processing, adhoc processing)
+              format: String
+           CardFinancialSettlementProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+     RetrieveCardFinancialSettlementProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           CardFinancialSettlementProcessType:
+              type: string
+              description: >-
+                Defines the type of settlement process (e.g. scheduled
+                processing, adhoc processing)
+              format: String
+           CardFinancialSettlementProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+     RetrieveCardFinancialSettlementProcedure:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           CardFinancialSettlementProcessType:
+              type: string
+              description: >-
+                Defines the type of settlement process (e.g. scheduled
+                processing, adhoc processing)
+              format: String
+           CardFinancialSettlementProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+     UpdateConsolidationRequest:
+        type: object
+        description: ''
+        properties:
+           CardTransactionRecordReference:
+              type: string
+              description: >-
+                Refers to the card transaction as recorded by issuer and/or
+                acquirer  these are consolidated for the settlement
+                period/window
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: Refers to the card holder's issuing bank
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: Refers to the merchant's acquiring bank
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: The currency that the transaction is made in
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+              description: Significant dates and times associated with the transaction
+     Currencycode:
+        type: object
+        description: >-
+          The currency that the transaction is made in CurrencyCode|CurrencyCode
+          (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022
+          BM ()
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     UpdateConsolidationResponse:
+        type: object
+        description: ''
+        properties:
+           CardTransactionRecordReference:
+              type: string
+              description: >-
+                Refers to the card transaction as recorded by issuer and/or
+                acquirer  these are consolidated for the settlement
+                period/window
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: Refers to the card holder's issuing bank
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: Refers to the merchant's acquiring bank
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+     UpdateConsolidation:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           CardFinancialSettlementProcessType:
+              type: string
+              description: >-
+                Defines the type of settlement process (e.g. scheduled
+                processing, adhoc processing)
+              format: String
+           CardFinancialSettlementProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+     RetrieveConsolidationResponse:
+        type: object
+        description: ''
+        properties:
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           CardTransactionRecordReference:
+              type: string
+              description: >-
+                Refers to the card transaction as recorded by issuer and/or
+                acquirer  these are consolidated for the settlement
+                period/window
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: Refers to the card holder's issuing bank
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: Refers to the merchant's acquiring bank
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+     RetrieveConsolidation:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           CardFinancialSettlementProcessType:
+              type: string
+              description: >-
+                Defines the type of settlement process (e.g. scheduled
+                processing, adhoc processing)
+              format: String
+           CardFinancialSettlementProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+     UpdateProcessingRequest:
+        type: object
+        description: ''
+        properties:
+           ParticipantAcquirerBankSettlementTerms:
+              type: string
+              description: Defines the card settlement fees/terms in force
+              format: String
+           ParticipantIssuerBankSettlementTerms:
+              type: string
+              description: Defines card settlement fees/terms in force
+              format: String
+     UpdateProcessingResponse:
+        type: object
+        description: ''
+        properties:
+           ParticipantAcquirerBankSettlementTerms:
+              type: string
+              description: Defines the card settlement fees/terms in force
+              format: String
+           ParticipantIssuerBankSettlementTerms:
+              type: string
+              description: Defines card settlement fees/terms in force
+              format: String
+     UpdateProcessing:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           CardFinancialSettlementProcessType:
+              type: string
+              description: >-
+                Defines the type of settlement process (e.g. scheduled
+                processing, adhoc processing)
+              format: String
+           CardFinancialSettlementProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+     RetrieveProcessingResponse:
+        type: object
+        description: ''
+        properties:
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           CardTransactionRecordReference:
+              type: string
+              description: >-
+                Refers to the card transaction as recorded by issuer and/or
+                acquirer  these are consolidated for the settlement
+                period/window
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: Refers to the card holder's issuing bank
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: Refers to the merchant's acquiring bank
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           ParticipantAcquirerBankSettlementTerms:
+              type: string
+              description: Defines the card settlement fees/terms in force
+              format: String
+           ParticipantIssuerBankSettlementTerms:
+              type: string
+              description: Defines card settlement fees/terms in force
+              format: String
+     RetrieveProcessing:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           CardFinancialSettlementProcessType:
+              type: string
+              description: >-
+                Defines the type of settlement process (e.g. scheduled
+                processing, adhoc processing)
+              format: String
+           CardFinancialSettlementProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+     UpdateInstructionRequest:
+        type: object
+        description: ''
+        properties:
+           ParticipantAcquirerBankSettlementAccountStatement:
+              type: string
+              description: >-
+                Settlement account statement for processing window  used to
+                confirm payments
+              format: String
+           ParticipantIssuerBankSettlementAccountStatement:
+              type: string
+              description: >-
+                Settlement account statement for processing window  used to
+                confirm payments
+              format: String
+     UpdateInstructionResponse:
+        type: object
+        description: ''
+        properties:
+           ParticipantAcquirerBankSettlementAccountStatement:
+              type: string
+              description: >-
+                Settlement account statement for processing window  used to
+                confirm payments
+              format: String
+           ParticipantIssuerBankSettlementAccountStatement:
+              type: string
+              description: >-
+                Settlement account statement for processing window  used to
+                confirm payments
+              format: String
+     UpdateInstruction:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           CardFinancialSettlementProcessType:
+              type: string
+              description: >-
+                Defines the type of settlement process (e.g. scheduled
+                processing, adhoc processing)
+              format: String
+           CardFinancialSettlementProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+     RetrieveInstructionResponse:
+        type: object
+        description: ''
+        properties:
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           CardTransactionRecordReference:
+              type: string
+              description: >-
+                Refers to the card transaction as recorded by issuer and/or
+                acquirer  these are consolidated for the settlement
+                period/window
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: Refers to the card holder's issuing bank
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: Refers to the merchant's acquiring bank
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           ParticipantAcquirerBankSettlementTerms:
+              type: string
+              description: Defines the card settlement fees/terms in force
+              format: String
+           ParticipantIssuerBankSettlementTerms:
+              type: string
+              description: Defines card settlement fees/terms in force
+              format: String
+           ParticipantAcquirerBankSettlementAccountStatement:
+              type: string
+              description: >-
+                Settlement account statement for processing window  used to
+                confirm payments
+              format: String
+           ParticipantIssuerBankSettlementAccountStatement:
+              type: string
+              description: >-
+                Settlement account statement for processing window  used to
+                confirm payments
+              format: String
+     RetrieveInstruction:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           CardFinancialSettlementProcessType:
+              type: string
+              description: >-
+                Defines the type of settlement process (e.g. scheduled
+                processing, adhoc processing)
+              format: String
+           CardFinancialSettlementProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+     UpdatePaymentRequest:
+        type: object
+        description: ''
+        properties:
+           ParticipantPaymentTransaction:
+              type: string
+              description: Transaction details
+              format: String
+     UpdatePaymentResponse:
+        type: object
+        description: ''
+        properties:
+           ParticipantPaymentTransaction:
+              type: string
+              description: Transaction details
+              format: String
+     UpdatePayment:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           CardFinancialSettlementProcessType:
+              type: string
+              description: >-
+                Defines the type of settlement process (e.g. scheduled
+                processing, adhoc processing)
+              format: String
+           CardFinancialSettlementProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+     RetrievePaymentResponse:
+        type: object
+        description: ''
+        properties:
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           CardTransactionRecordReference:
+              type: string
+              description: >-
+                Refers to the card transaction as recorded by issuer and/or
+                acquirer  these are consolidated for the settlement
+                period/window
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: Refers to the card holder's issuing bank
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: Refers to the merchant's acquiring bank
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           ParticipantAcquirerBankSettlementTerms:
+              type: string
+              description: Defines the card settlement fees/terms in force
+              format: String
+           ParticipantIssuerBankSettlementTerms:
+              type: string
+              description: Defines card settlement fees/terms in force
+              format: String
+           ParticipantAcquirerBankSettlementAccountStatement:
+              type: string
+              description: >-
+                Settlement account statement for processing window  used to
+                confirm payments
+              format: String
+           ParticipantIssuerBankSettlementAccountStatement:
+              type: string
+              description: >-
+                Settlement account statement for processing window  used to
+                confirm payments
+              format: String
+           ParticipantPaymentTransaction:
+              type: string
+              description: Transaction details
+              format: String
+     RetrievePayment:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           CardFinancialSettlementProcessType:
+              type: string
+              description: >-
+                Defines the type of settlement process (e.g. scheduled
+                processing, adhoc processing)
+              format: String
+           CardFinancialSettlementProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardFinancialSettlementServiceSchedule:
+              type: string
+              description: >-
+                Defines the type and scheduling of card settlement processing,
+                includes Issuer and Acquirer involvement/scheduling details as
+                necessary
+              format: String
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Refers to the Acquiring bank for which the Network orchestrates
+                settlement processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Refers to the Issuing bank for which the Network orchestrates
+                settlement processing
+              format: Object
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateCardFinancialSettlementProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateCardFinancialSettlementProcedureRequest
+        required: true
+     UpdateCardFinancialSettlementProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCardFinancialSettlementProcedureRequest
+        required: true
+     RetrieveCardFinancialSettlementProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateConsolidationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateConsolidationRequest'
+        required: true
+     RetrieveConsolidationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateProcessingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProcessingRequest'
+        required: true
+     RetrieveProcessingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateInstructionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInstructionRequest'
+        required: true
+     RetrieveInstructionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdatePaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePaymentRequest'
+        required: true
+     RetrievePaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     cardfinancialsettlementprocedureid:
+        name: cardfinancialsettlementprocedureid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     consolidationid:
+        name: consolidationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     processingid:
+        name: processingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     instructionid:
+        name: instructionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     paymentid:
+        name: paymentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateCardFinancialSettlementProcedureResponse:
+        description: CardFinancialSettlementProcedureInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateCardFinancialSettlementProcedureResponse
+     UpdateCardFinancialSettlementProcedureResponse:
+        description: CardFinancialSettlementProcedureUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCardFinancialSettlementProcedureResponse
+     RetrieveCardFinancialSettlementProcedureResponse:
+        description: CardFinancialSettlementProcedureRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveCardFinancialSettlementProcedureResponse
+     UpdateConsolidationResponse:
+        description: ConsolidationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateConsolidationResponse'
+     RetrieveConsolidationResponse:
+        description: ConsolidationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveConsolidationResponse'
+     UpdateProcessingResponse:
+        description: ProcessingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProcessingResponse'
+     RetrieveProcessingResponse:
+        description: ProcessingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveProcessingResponse'
+     UpdateInstructionResponse:
+        description: InstructionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInstructionResponse'
+     RetrieveInstructionResponse:
+        description: InstructionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveInstructionResponse'
+     UpdatePaymentResponse:
+        description: PaymentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePaymentResponse'
+     RetrievePaymentResponse:
+        description: PaymentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePaymentResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

@@ -1,0 +1,1206 @@
+openapi: 3.0.1
+info:
+  title: Servicing Activity Analysis
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain analyzes
+    servicing activity to support continual service improvement
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/ServicingActivityAnalysis
+paths:
+   '/ServicingRootCauseAnalysis/{servicingrootcauseanalysisid}/Initiate':
+      post:
+        tags:
+           - CR - ServicingRootCauseAnalysis
+        summary: EvCR Initialize servicing root cause analysis
+        description: EvCR Initialize servicing root cause analysis
+        operationId: ServicingRootCauseAnalysis/Initiate
+        parameters:
+           - $ref: '#/components/parameters/servicingrootcauseanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateServicingRootCauseAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ServicingRootCauseAnalysis/{servicingrootcauseanalysisid}/Update':
+      put:
+        tags:
+           - CR - ServicingRootCauseAnalysis
+        summary: UpCR Update aspects of servicing root cause analysis
+        description: UpCR Update aspects of servicing root cause analysis
+        operationId: ServicingRootCauseAnalysis/Update
+        parameters:
+           - $ref: '#/components/parameters/servicingrootcauseanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateServicingRootCauseAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ServicingRootCauseAnalysis/{servicingrootcauseanalysisid}/Execute':
+      put:
+        tags:
+           - CR - ServicingRootCauseAnalysis
+        summary: ExCR Execute an automated aspect of root cause analysis
+        description: ExCR Execute an automated aspect of root cause analysis
+        operationId: ServicingRootCauseAnalysis/Execute
+        parameters:
+           - $ref: '#/components/parameters/servicingrootcauseanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteServicingRootCauseAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ServicingRootCauseAnalysis/{servicingrootcauseanalysisid}/Request':
+      put:
+        tags:
+           - CR - ServicingRootCauseAnalysis
+        summary: RqCR Request manual intervention in servicing root cause analysis
+        description: RqCR Request manual intervention in servicing root cause analysis
+        operationId: ServicingRootCauseAnalysis/Request
+        parameters:
+           - $ref: '#/components/parameters/servicingrootcauseanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestServicingRootCauseAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ServicingRootCauseAnalysis/{servicingrootcauseanalysisid}/Retrieve':
+      get:
+        tags:
+           - CR - ServicingRootCauseAnalysis
+        summary: ReCR Retrieve details about servicing root cause analysis
+        description: ReCR Retrieve details about servicing root cause analysis
+        operationId: ServicingRootCauseAnalysis/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/servicingrootcauseanalysisid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveServicingRootCauseAnalysisResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RootCauseAlgorithm/{rootcausealgorithmid}/Initiate':
+      post:
+        tags:
+           - BQ - RootCauseAlgorithm
+        summary: >-
+          EvBQ Initialize application of a specific algorithm for root cause
+          analysis
+        description: >-
+          EvBQ Initialize application of a specific algorithm for root cause
+          analysis
+        operationId: RootCauseAlgorithm/Initiate
+        parameters:
+           - $ref: '#/components/parameters/rootcausealgorithmid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateRootCauseAlgorithmRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RootCauseAlgorithm/{rootcausealgorithmid}/Request':
+      put:
+        tags:
+           - BQ - RootCauseAlgorithm
+        summary: >-
+          RqBQ Request manual intervention to the application of a root cause
+          algorithm
+        description: >-
+          RqBQ Request manual intervention to the application of a root cause
+          algorithm
+        operationId: RootCauseAlgorithm/Request
+        parameters:
+           - $ref: '#/components/parameters/rootcausealgorithmid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestRootCauseAlgorithmRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RootCauseAlgorithm/{rootcausealgorithmid}/Retrieve':
+      get:
+        tags:
+           - BQ - RootCauseAlgorithm
+        summary: >-
+          ReBQ Retrieve details about the application of a specific root cause
+          algorithm analysis
+        description: >-
+          ReBQ Retrieve details about the application of a specific root cause
+          algorithm analysis
+        operationId: RootCauseAlgorithm/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/rootcausealgorithmid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveRootCauseAlgorithmResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateServicingRootCauseAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateServicingRootCauseAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisDetermination:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateServicingRootCauseAnalysis:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: >-
+                The type of servicing activity for which the analysis is
+                performed (e.g. self service, contact center assisted,  ATM
+                access)
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: The period covered by the analysis (from to date time)
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: >-
+                The type of root cause analysis  defines the scope and type of
+                root cause issue that is being detected (e.g. service dialogue,
+                clickstream, product processing issues, servicing
+                representative performance)
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: >-
+                The result of the servicing activity analysis  typically the
+                consolidated view from applying multiple underlying root cause
+                algorithms to highlight patterns that indicate potential root
+                cause issues
+              format: String
+           ServicingActivityAnalysisDetermination:
+              type: string
+              description: >-
+                An analysis of the root causes for the detected service
+                anomalies
+              format: String
+           ServicingActivityAnalysisRecommendation:
+              type: string
+              description: >-
+                Proposed changes to procedures/organization etc that can
+                mitigate the detected servicing issues
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: >-
+                The raw data used in the analysis (retrieved from Servicing
+                Activity History)
+              format: String
+     UpdateServicingRootCauseAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisDetermination:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateServicingRootCauseAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisDetermination:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateServicingRootCauseAnalysis:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: >-
+                The type of servicing activity for which the analysis is
+                performed (e.g. self service, contact center assisted,  ATM
+                access)
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: The period covered by the analysis (from to date time)
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: >-
+                The type of root cause analysis  defines the scope and type of
+                root cause issue that is being detected (e.g. service dialogue,
+                clickstream, product processing issues, servicing
+                representative performance)
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: >-
+                The result of the servicing activity analysis  typically the
+                consolidated view from applying multiple underlying root cause
+                algorithms to highlight patterns that indicate potential root
+                cause issues
+              format: String
+           ServicingActivityAnalysisDetermination:
+              type: string
+              description: >-
+                An analysis of the root causes for the detected service
+                anomalies
+              format: String
+           ServicingActivityAnalysisRecommendation:
+              type: string
+              description: >-
+                Proposed changes to procedures/organization etc that can
+                mitigate the detected servicing issues
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: >-
+                The raw data used in the analysis (retrieved from Servicing
+                Activity History)
+              format: String
+     ExecuteServicingRootCauseAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteServicingRootCauseAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisDetermination:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteServicingRootCauseAnalysis:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: >-
+                The type of servicing activity for which the analysis is
+                performed (e.g. self service, contact center assisted,  ATM
+                access)
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: The period covered by the analysis (from to date time)
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: >-
+                The type of root cause analysis  defines the scope and type of
+                root cause issue that is being detected (e.g. service dialogue,
+                clickstream, product processing issues, servicing
+                representative performance)
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: >-
+                The result of the servicing activity analysis  typically the
+                consolidated view from applying multiple underlying root cause
+                algorithms to highlight patterns that indicate potential root
+                cause issues
+              format: String
+           ServicingActivityAnalysisDetermination:
+              type: string
+              description: >-
+                An analysis of the root causes for the detected service
+                anomalies
+              format: String
+           ServicingActivityAnalysisRecommendation:
+              type: string
+              description: >-
+                Proposed changes to procedures/organization etc that can
+                mitigate the detected servicing issues
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: >-
+                The raw data used in the analysis (retrieved from Servicing
+                Activity History)
+              format: String
+     RequestServicingRootCauseAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestServicingRootCauseAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisDetermination:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestServicingRootCauseAnalysis:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: >-
+                The type of servicing activity for which the analysis is
+                performed (e.g. self service, contact center assisted,  ATM
+                access)
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: The period covered by the analysis (from to date time)
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: >-
+                The type of root cause analysis  defines the scope and type of
+                root cause issue that is being detected (e.g. service dialogue,
+                clickstream, product processing issues, servicing
+                representative performance)
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: >-
+                The result of the servicing activity analysis  typically the
+                consolidated view from applying multiple underlying root cause
+                algorithms to highlight patterns that indicate potential root
+                cause issues
+              format: String
+           ServicingActivityAnalysisDetermination:
+              type: string
+              description: >-
+                An analysis of the root causes for the detected service
+                anomalies
+              format: String
+           ServicingActivityAnalysisRecommendation:
+              type: string
+              description: >-
+                Proposed changes to procedures/organization etc that can
+                mitigate the detected servicing issues
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: >-
+                The raw data used in the analysis (retrieved from Servicing
+                Activity History)
+              format: String
+     RetrieveServicingRootCauseAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisDetermination:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveServicingRootCauseAnalysis:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: >-
+                The type of servicing activity for which the analysis is
+                performed (e.g. self service, contact center assisted,  ATM
+                access)
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: The period covered by the analysis (from to date time)
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: >-
+                The type of root cause analysis  defines the scope and type of
+                root cause issue that is being detected (e.g. service dialogue,
+                clickstream, product processing issues, servicing
+                representative performance)
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: >-
+                The result of the servicing activity analysis  typically the
+                consolidated view from applying multiple underlying root cause
+                algorithms to highlight patterns that indicate potential root
+                cause issues
+              format: String
+           ServicingActivityAnalysisDetermination:
+              type: string
+              description: >-
+                An analysis of the root causes for the detected service
+                anomalies
+              format: String
+           ServicingActivityAnalysisRecommendation:
+              type: string
+              description: >-
+                Proposed changes to procedures/organization etc that can
+                mitigate the detected servicing issues
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: >-
+                The raw data used in the analysis (retrieved from Servicing
+                Activity History)
+              format: String
+     InitiateRootCauseAlgorithmRequest:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAlgorithmSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     InitiateRootCauseAlgorithmResponse:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAlgorithmSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     InitiateRootCauseAlgorithm:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: >-
+                The type of servicing activity for which the analysis is
+                performed (e.g. self service, contact center assisted,  ATM
+                access)
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: The period covered by the analysis (from to date time)
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: >-
+                The type of root cause analysis  defines the scope and type of
+                root cause issue that is being detected (e.g. service dialogue,
+                clickstream, product processing issues, servicing
+                representative performance)
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: >-
+                The result of the servicing activity analysis  typically the
+                consolidated view from applying multiple underlying root cause
+                algorithms to highlight patterns that indicate potential root
+                cause issues
+              format: String
+           ServicingActivityAnalysisDetermination:
+              type: string
+              description: >-
+                An analysis of the root causes for the detected service
+                anomalies
+              format: String
+           ServicingActivityAnalysisRecommendation:
+              type: string
+              description: >-
+                Proposed changes to procedures/organization etc that can
+                mitigate the detected servicing issues
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: >-
+                The raw data used in the analysis (retrieved from Servicing
+                Activity History)
+              format: String
+     RequestRootCauseAlgorithmRequest:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityRootCauseAlgorithmSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     RequestRootCauseAlgorithmResponse:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityRootCauseAlgorithmSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     RequestRootCauseAlgorithm:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: >-
+                The type of servicing activity for which the analysis is
+                performed (e.g. self service, contact center assisted,  ATM
+                access)
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: The period covered by the analysis (from to date time)
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: >-
+                The type of root cause analysis  defines the scope and type of
+                root cause issue that is being detected (e.g. service dialogue,
+                clickstream, product processing issues, servicing
+                representative performance)
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: >-
+                The result of the servicing activity analysis  typically the
+                consolidated view from applying multiple underlying root cause
+                algorithms to highlight patterns that indicate potential root
+                cause issues
+              format: String
+           ServicingActivityAnalysisDetermination:
+              type: string
+              description: >-
+                An analysis of the root causes for the detected service
+                anomalies
+              format: String
+           ServicingActivityAnalysisRecommendation:
+              type: string
+              description: >-
+                Proposed changes to procedures/organization etc that can
+                mitigate the detected servicing issues
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: >-
+                The raw data used in the analysis (retrieved from Servicing
+                Activity History)
+              format: String
+     RetrieveRootCauseAlgorithmResponse:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAlgorithmSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingActivityRootCauseAnalysisWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     RetrieveRootCauseAlgorithm:
+        type: object
+        description: ''
+        properties:
+           ServicingActivityType:
+              type: string
+              description: >-
+                The type of servicing activity for which the analysis is
+                performed (e.g. self service, contact center assisted,  ATM
+                access)
+              format: String
+           ServicingActivityAnalysisPeriod:
+              type: string
+              description: The period covered by the analysis (from to date time)
+              format: String
+           ServicingActivityAnalysisType:
+              type: string
+              description: >-
+                The type of root cause analysis  defines the scope and type of
+                root cause issue that is being detected (e.g. service dialogue,
+                clickstream, product processing issues, servicing
+                representative performance)
+              format: String
+           ServicingActivityAnalysisResult:
+              type: string
+              description: >-
+                The result of the servicing activity analysis  typically the
+                consolidated view from applying multiple underlying root cause
+                algorithms to highlight patterns that indicate potential root
+                cause issues
+              format: String
+           ServicingActivityAnalysisDetermination:
+              type: string
+              description: >-
+                An analysis of the root causes for the detected service
+                anomalies
+              format: String
+           ServicingActivityAnalysisRecommendation:
+              type: string
+              description: >-
+                Proposed changes to procedures/organization etc that can
+                mitigate the detected servicing issues
+              format: String
+           ServicingActivityHistoryReport:
+              type: string
+              description: >-
+                The raw data used in the analysis (retrieved from Servicing
+                Activity History)
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateServicingRootCauseAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateServicingRootCauseAnalysisRequest'
+        required: true
+     UpdateServicingRootCauseAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateServicingRootCauseAnalysisRequest'
+        required: true
+     ExecuteServicingRootCauseAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteServicingRootCauseAnalysisRequest'
+        required: true
+     RequestServicingRootCauseAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestServicingRootCauseAnalysisRequest'
+        required: true
+     RetrieveServicingRootCauseAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateRootCauseAlgorithmRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateRootCauseAlgorithmRequest'
+        required: true
+     RequestRootCauseAlgorithmRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestRootCauseAlgorithmRequest'
+        required: true
+     RetrieveRootCauseAlgorithmRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     servicingrootcauseanalysisid:
+        name: servicingrootcauseanalysisid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     rootcausealgorithmid:
+        name: rootcausealgorithmid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateServicingRootCauseAnalysisResponse:
+        description: ServicingRootCauseAnalysisInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateServicingRootCauseAnalysisResponse'
+     UpdateServicingRootCauseAnalysisResponse:
+        description: ServicingRootCauseAnalysisUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateServicingRootCauseAnalysisResponse'
+     ExecuteServicingRootCauseAnalysisResponse:
+        description: ServicingRootCauseAnalysisExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteServicingRootCauseAnalysisResponse'
+     RequestServicingRootCauseAnalysisResponse:
+        description: ServicingRootCauseAnalysisRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestServicingRootCauseAnalysisResponse'
+     RetrieveServicingRootCauseAnalysisResponse:
+        description: ServicingRootCauseAnalysisRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveServicingRootCauseAnalysisResponse'
+     InitiateRootCauseAlgorithmResponse:
+        description: RootCauseAlgorithmInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateRootCauseAlgorithmResponse'
+     RequestRootCauseAlgorithmResponse:
+        description: RootCauseAlgorithmRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestRootCauseAlgorithmResponse'
+     RetrieveRootCauseAlgorithmResponse:
+        description: RootCauseAlgorithmRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveRootCauseAlgorithmResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

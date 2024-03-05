@@ -1,0 +1,1444 @@
+openapi: 3.0.1
+info:
+  title: Market Order
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Market Order records an
+    instruction from a customer or his or her representative to buy or sell
+    securities. It follows the order during its lifetime and reports back to the
+    requestor on the execution.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/MarketOrder
+paths:
+   '/MarketOrderTransaction/{marketordertransactionid}/Initiate':
+      post:
+        tags:
+           - CR - MarketOrderTransaction
+        summary: InCR Initiate a market order
+        description: InCR Initiate a market order
+        operationId: MarketOrderTransaction/Initiate
+        parameters:
+           - $ref: '#/components/parameters/marketordertransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateMarketOrderTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/MarketOrderTransaction/{marketordertransactionid}/Update':
+      put:
+        tags:
+           - CR - MarketOrderTransaction
+        summary: UpCR Update details on an active market order
+        description: UpCR Update details on an active market order
+        operationId: MarketOrderTransaction/Update
+        parameters:
+           - $ref: '#/components/parameters/marketordertransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateMarketOrderTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/MarketOrderTransaction/{marketordertransactionid}/Retrieve':
+      get:
+        tags:
+           - CR - MarketOrderTransaction
+        summary: ReCR Retrieve details about a market order
+        description: ReCR Retrieve details about a market order
+        operationId: MarketOrderTransaction/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/marketordertransactionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveMarketOrderTransactionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Compliance/{complianceid}/Retrieve':
+      get:
+        tags:
+           - BQ - Compliance
+        summary: ReBQ Retrieve details about a market order compliance check
+        description: ReBQ Retrieve details about a market order compliance check
+        operationId: Compliance/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/complianceid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveComplianceResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FundingCheck/{fundingcheckid}/Retrieve':
+      get:
+        tags:
+           - BQ - FundingCheck
+        summary: ReBQ Retrieve details about a market order funding check
+        description: ReBQ Retrieve details about a market order funding check
+        operationId: FundingCheck/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/fundingcheckid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveFundingCheckResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerProcessing/{customerprocessingid}/Retrieve':
+      get:
+        tags:
+           - BQ - CustomerProcessing
+        summary: >-
+          ReBQ Retrieve details about customer specific processing for a market
+          order
+        description: >-
+          ReBQ Retrieve details about customer specific processing for a market
+          order
+        operationId: CustomerProcessing/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customerprocessingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCustomerProcessingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TradeInitiation/{tradeinitiationid}/Retrieve':
+      get:
+        tags:
+           - BQ - TradeInitiation
+        summary: ReBQ Retrieve details about a market order's market trade
+        description: ReBQ Retrieve details about a market order's market trade
+        operationId: TradeInitiation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/tradeinitiationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveTradeInitiationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateMarketOrderTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketOrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateMarketOrderTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketOrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateMarketOrderTransaction:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: >-
+                The type of market order request (e.g. Managed Investment,
+                Corporate Finance)
+              format: String
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the account primary party/owner for the market
+                order
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit placing the market order
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the associated investment portfolio record of all
+                holdings (referenced to check securities availability if
+                necessary)
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: Any customer specific processing preferences or requirements
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: The document reference for the order confirmation notice
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: >-
+                Reference to the correspondence generated for the order
+                confirmation
+              format: Object
+           MarketOrderTransaction:
+              type: string
+              description: The details of the market order transaction
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying investment account supporting the
+                transaction
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying cash account supporting the
+                transaction
+              format: Object
+           MarketOrderType:
+              type: string
+              description: >-
+                The type of market order (e.g. Day Order. Order on Open/Close,
+                Fill or Kill, Limit Order)
+              format: String
+           SecurityType:
+              type: string
+              description: The security to be traded
+              format: String
+           Amount:
+              type: string
+              description: The volume of shares to be bought or sold
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the transaction (e.g. order capture,
+                trade execution, order completion)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+     UpdateMarketOrderTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketOrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateMarketOrderTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketOrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateMarketOrderTransaction:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: >-
+                The type of market order request (e.g. Managed Investment,
+                Corporate Finance)
+              format: String
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the account primary party/owner for the market
+                order
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit placing the market order
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the associated investment portfolio record of all
+                holdings (referenced to check securities availability if
+                necessary)
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: Any customer specific processing preferences or requirements
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: The document reference for the order confirmation notice
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: >-
+                Reference to the correspondence generated for the order
+                confirmation
+              format: Object
+           MarketOrderTransaction:
+              type: string
+              description: The details of the market order transaction
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying investment account supporting the
+                transaction
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying cash account supporting the
+                transaction
+              format: Object
+           MarketOrderType:
+              type: string
+              description: >-
+                The type of market order (e.g. Day Order. Order on Open/Close,
+                Fill or Kill, Limit Order)
+              format: String
+           SecurityType:
+              type: string
+              description: The security to be traded
+              format: String
+           Amount:
+              type: string
+              description: The volume of shares to be bought or sold
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the transaction (e.g. order capture,
+                trade execution, order completion)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+     RetrieveMarketOrderTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketOrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveMarketOrderTransaction:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: >-
+                The type of market order request (e.g. Managed Investment,
+                Corporate Finance)
+              format: String
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the account primary party/owner for the market
+                order
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit placing the market order
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the associated investment portfolio record of all
+                holdings (referenced to check securities availability if
+                necessary)
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: Any customer specific processing preferences or requirements
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: The document reference for the order confirmation notice
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: >-
+                Reference to the correspondence generated for the order
+                confirmation
+              format: Object
+           MarketOrderTransaction:
+              type: string
+              description: The details of the market order transaction
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying investment account supporting the
+                transaction
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying cash account supporting the
+                transaction
+              format: Object
+           MarketOrderType:
+              type: string
+              description: >-
+                The type of market order (e.g. Day Order. Order on Open/Close,
+                Fill or Kill, Limit Order)
+              format: String
+           SecurityType:
+              type: string
+              description: The security to be traded
+              format: String
+           Amount:
+              type: string
+              description: The volume of shares to be bought or sold
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the transaction (e.g. order capture,
+                trade execution, order completion)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+     RetrieveComplianceResponse:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketOrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketOrderTransactionComplianceCheckType:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketOrderTransactionComplianceCheckResult:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketOrderTransactionComplianceTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCompliance:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: >-
+                The type of market order request (e.g. Managed Investment,
+                Corporate Finance)
+              format: String
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the account primary party/owner for the market
+                order
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit placing the market order
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the associated investment portfolio record of all
+                holdings (referenced to check securities availability if
+                necessary)
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: Any customer specific processing preferences or requirements
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: The document reference for the order confirmation notice
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: >-
+                Reference to the correspondence generated for the order
+                confirmation
+              format: Object
+           MarketOrderTransaction:
+              type: string
+              description: The details of the market order transaction
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying investment account supporting the
+                transaction
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying cash account supporting the
+                transaction
+              format: Object
+           MarketOrderType:
+              type: string
+              description: >-
+                The type of market order (e.g. Day Order. Order on Open/Close,
+                Fill or Kill, Limit Order)
+              format: String
+           SecurityType:
+              type: string
+              description: The security to be traded
+              format: String
+           Amount:
+              type: string
+              description: The volume of shares to be bought or sold
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the transaction (e.g. order capture,
+                trade execution, order completion)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+     RetrieveFundingCheckResponse:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketOrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketOrderTransactionFundingCheckResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveFundingCheck:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: >-
+                The type of market order request (e.g. Managed Investment,
+                Corporate Finance)
+              format: String
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the account primary party/owner for the market
+                order
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit placing the market order
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the associated investment portfolio record of all
+                holdings (referenced to check securities availability if
+                necessary)
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: Any customer specific processing preferences or requirements
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: The document reference for the order confirmation notice
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: >-
+                Reference to the correspondence generated for the order
+                confirmation
+              format: Object
+           MarketOrderTransaction:
+              type: string
+              description: The details of the market order transaction
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying investment account supporting the
+                transaction
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying cash account supporting the
+                transaction
+              format: Object
+           MarketOrderType:
+              type: string
+              description: >-
+                The type of market order (e.g. Day Order. Order on Open/Close,
+                Fill or Kill, Limit Order)
+              format: String
+           SecurityType:
+              type: string
+              description: The security to be traded
+              format: String
+           Amount:
+              type: string
+              description: The volume of shares to be bought or sold
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the transaction (e.g. order capture,
+                trade execution, order completion)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+     RetrieveCustomerProcessingResponse:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketOrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketOrderCustomerProcessingCheckResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCustomerProcessing:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: >-
+                The type of market order request (e.g. Managed Investment,
+                Corporate Finance)
+              format: String
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the account primary party/owner for the market
+                order
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit placing the market order
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the associated investment portfolio record of all
+                holdings (referenced to check securities availability if
+                necessary)
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: Any customer specific processing preferences or requirements
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: The document reference for the order confirmation notice
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: >-
+                Reference to the correspondence generated for the order
+                confirmation
+              format: Object
+           MarketOrderTransaction:
+              type: string
+              description: The details of the market order transaction
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying investment account supporting the
+                transaction
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying cash account supporting the
+                transaction
+              format: Object
+           MarketOrderType:
+              type: string
+              description: >-
+                The type of market order (e.g. Day Order. Order on Open/Close,
+                Fill or Kill, Limit Order)
+              format: String
+           SecurityType:
+              type: string
+              description: The security to be traded
+              format: String
+           Amount:
+              type: string
+              description: The volume of shares to be bought or sold
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the transaction (e.g. order capture,
+                trade execution, order completion)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+     RetrieveTradeInitiationResponse:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketOrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketTradeTransactionInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketTradeTransactionInstanceStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketTradeInitiationTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveTradeInitiation:
+        type: object
+        description: ''
+        properties:
+           MarketOrderInstructionType:
+              type: string
+              description: >-
+                The type of market order request (e.g. Managed Investment,
+                Corporate Finance)
+              format: String
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the account primary party/owner for the market
+                order
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit placing the market order
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the associated investment portfolio record of all
+                holdings (referenced to check securities availability if
+                necessary)
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: Any customer specific processing preferences or requirements
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: The document reference for the order confirmation notice
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: >-
+                Reference to the correspondence generated for the order
+                confirmation
+              format: Object
+           MarketOrderTransaction:
+              type: string
+              description: The details of the market order transaction
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying investment account supporting the
+                transaction
+              format: Object
+           CurrentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying cash account supporting the
+                transaction
+              format: Object
+           MarketOrderType:
+              type: string
+              description: >-
+                The type of market order (e.g. Day Order. Order on Open/Close,
+                Fill or Kill, Limit Order)
+              format: String
+           SecurityType:
+              type: string
+              description: The security to be traded
+              format: String
+           Amount:
+              type: string
+              description: The volume of shares to be bought or sold
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the transaction (e.g. order capture,
+                trade execution, order completion)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateMarketOrderTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateMarketOrderTransactionRequest'
+        required: true
+     UpdateMarketOrderTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateMarketOrderTransactionRequest'
+        required: true
+     RetrieveMarketOrderTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveComplianceRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveFundingCheckRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveCustomerProcessingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveTradeInitiationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     marketordertransactionid:
+        name: marketordertransactionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     complianceid:
+        name: complianceid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     fundingcheckid:
+        name: fundingcheckid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     customerprocessingid:
+        name: customerprocessingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     tradeinitiationid:
+        name: tradeinitiationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateMarketOrderTransactionResponse:
+        description: MarketOrderTransactionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateMarketOrderTransactionResponse'
+     UpdateMarketOrderTransactionResponse:
+        description: MarketOrderTransactionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateMarketOrderTransactionResponse'
+     RetrieveMarketOrderTransactionResponse:
+        description: MarketOrderTransactionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveMarketOrderTransactionResponse'
+     RetrieveComplianceResponse:
+        description: ComplianceRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveComplianceResponse'
+     RetrieveFundingCheckResponse:
+        description: FundingCheckRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveFundingCheckResponse'
+     RetrieveCustomerProcessingResponse:
+        description: CustomerProcessingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCustomerProcessingResponse'
+     RetrieveTradeInitiationResponse:
+        description: TradeInitiationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveTradeInitiationResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

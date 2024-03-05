@@ -1,0 +1,817 @@
+openapi: 3.0.1
+info:
+  title: Regulatory Compliance
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain provides
+    a service to interpret regulatory requirements, provide guidance and define
+    and implement a portfolio of regulatory compliance tests across all
+    appropriate bank activities
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/RegulatoryCompliance
+paths:
+   '/RegulatoryComplianceAssessment/{regulatorycomplianceassessmentid}/Evaluate':
+      post:
+        tags:
+           - CR - RegulatoryComplianceAssessment
+        summary: EvCR Start a compliance evaluation assessment
+        description: EvCR Start a compliance evaluation assessment
+        operationId: RegulatoryComplianceAssessment/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/regulatorycomplianceassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/EvaluateRegulatoryComplianceAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RegulatoryComplianceAssessment/{regulatorycomplianceassessmentid}/Update':
+      put:
+        tags:
+           - CR - RegulatoryComplianceAssessment
+        summary: >-
+          UpCR Update submitted details or content for an ongoing compliance
+          assessment
+        description: >-
+          UpCR Update submitted details or content for an ongoing compliance
+          assessment
+        operationId: RegulatoryComplianceAssessment/Update
+        parameters:
+           - $ref: '#/components/parameters/regulatorycomplianceassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateRegulatoryComplianceAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RegulatoryComplianceAssessment/{regulatorycomplianceassessmentid}/Request':
+      put:
+        tags:
+           - CR - RegulatoryComplianceAssessment
+        summary: RqCR Request a review or adjudication for an assessment
+        description: RqCR Request a review or adjudication for an assessment
+        operationId: RegulatoryComplianceAssessment/Request
+        parameters:
+           - $ref: '#/components/parameters/regulatorycomplianceassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestRegulatoryComplianceAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RegulatoryComplianceAssessment/{regulatorycomplianceassessmentid}/Retrieve':
+      get:
+        tags:
+           - CR - RegulatoryComplianceAssessment
+        summary: ReCR Retrieve details and content from an active compliance assessment
+        description: ReCR Retrieve details and content from an active compliance assessment
+        operationId: RegulatoryComplianceAssessment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/regulatorycomplianceassessmentid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveRegulatoryComplianceAssessmentResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateRegulatoryComplianceAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAuthorityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateRegulatoryComplianceAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulationDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulationComplianceandReportingRequirements:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulationAccountability:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulationPenalties:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulationGuideline:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulatoryAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateRegulatoryComplianceAssessment:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAssessmentType:
+              type: string
+              description: >-
+                The type and makeup of regulatory tests referenced in the
+                assessment
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: >-
+                The business function or unit assessed for compliance if
+                appropriate
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: The associated product/service being assessed if appropriate
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer assessed if appropriate
+              format: Object
+           RegulatoryAuthorityReference:
+              type: string
+              description: Indication of the authority pertaining to the applied regulation
+              format: Object
+           RegulationReference:
+              type: string
+              description: Reference to the specific regulation
+              format: Object
+           RegulationDefinition:
+              type: string
+              description: >-
+                A definition of the goals/required actions addressed by the
+                regulation
+              format: String
+           RegulationComplianceandReportingRequirements:
+              type: string
+              description: >-
+                Description of the measurements and reporting required to
+                demonstrate compliance
+              format: String
+           RegulationAccountability:
+              type: string
+              description: >-
+                Explanation of the business context, responsibility and
+                accountability for compliance
+              format: String
+           RegulationPenalties:
+              type: string
+              description: Outline of the possible implications of noncompliance
+              format: String
+           RegulationGuideline:
+              type: string
+              description: Guidelines and requirements for compliance
+              format: String
+           DocumentReference:
+              type: string
+              description: >-
+                Reference to any documentation classified/archived as
+                appropriate
+              format: Object
+           RegulatoryAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the assessment
+              format: String
+           RegulatoryAssessmentResult:
+              type: string
+              description: Outcome/result of the assessment, can include remedial actions
+              format: String
+     UpdateRegulatoryComplianceAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAuthorityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateRegulatoryComplianceAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAuthorityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateRegulatoryComplianceAssessment:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAssessmentType:
+              type: string
+              description: >-
+                The type and makeup of regulatory tests referenced in the
+                assessment
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: >-
+                The business function or unit assessed for compliance if
+                appropriate
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: The associated product/service being assessed if appropriate
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer assessed if appropriate
+              format: Object
+           RegulatoryAuthorityReference:
+              type: string
+              description: Indication of the authority pertaining to the applied regulation
+              format: Object
+           RegulationReference:
+              type: string
+              description: Reference to the specific regulation
+              format: Object
+           RegulationDefinition:
+              type: string
+              description: >-
+                A definition of the goals/required actions addressed by the
+                regulation
+              format: String
+           RegulationComplianceandReportingRequirements:
+              type: string
+              description: >-
+                Description of the measurements and reporting required to
+                demonstrate compliance
+              format: String
+           RegulationAccountability:
+              type: string
+              description: >-
+                Explanation of the business context, responsibility and
+                accountability for compliance
+              format: String
+           RegulationPenalties:
+              type: string
+              description: Outline of the possible implications of noncompliance
+              format: String
+           RegulationGuideline:
+              type: string
+              description: Guidelines and requirements for compliance
+              format: String
+           DocumentReference:
+              type: string
+              description: >-
+                Reference to any documentation classified/archived as
+                appropriate
+              format: Object
+           RegulatoryAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the assessment
+              format: String
+           RegulatoryAssessmentResult:
+              type: string
+              description: Outcome/result of the assessment, can include remedial actions
+              format: String
+     RequestRegulatoryComplianceAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAuthorityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestRegulatoryComplianceAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAuthorityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulatoryAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestRegulatoryComplianceAssessment:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAssessmentType:
+              type: string
+              description: >-
+                The type and makeup of regulatory tests referenced in the
+                assessment
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: >-
+                The business function or unit assessed for compliance if
+                appropriate
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: The associated product/service being assessed if appropriate
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer assessed if appropriate
+              format: Object
+           RegulatoryAuthorityReference:
+              type: string
+              description: Indication of the authority pertaining to the applied regulation
+              format: Object
+           RegulationReference:
+              type: string
+              description: Reference to the specific regulation
+              format: Object
+           RegulationDefinition:
+              type: string
+              description: >-
+                A definition of the goals/required actions addressed by the
+                regulation
+              format: String
+           RegulationComplianceandReportingRequirements:
+              type: string
+              description: >-
+                Description of the measurements and reporting required to
+                demonstrate compliance
+              format: String
+           RegulationAccountability:
+              type: string
+              description: >-
+                Explanation of the business context, responsibility and
+                accountability for compliance
+              format: String
+           RegulationPenalties:
+              type: string
+              description: Outline of the possible implications of noncompliance
+              format: String
+           RegulationGuideline:
+              type: string
+              description: Guidelines and requirements for compliance
+              format: String
+           DocumentReference:
+              type: string
+              description: >-
+                Reference to any documentation classified/archived as
+                appropriate
+              format: Object
+           RegulatoryAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the assessment
+              format: String
+           RegulatoryAssessmentResult:
+              type: string
+              description: Outcome/result of the assessment, can include remedial actions
+              format: String
+     RetrieveRegulatoryComplianceAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAuthorityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulationDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulationComplianceandReportingRequirements:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulationAccountability:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulationPenalties:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulationGuideline:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulatoryAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveRegulatoryComplianceAssessment:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAssessmentType:
+              type: string
+              description: >-
+                The type and makeup of regulatory tests referenced in the
+                assessment
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: >-
+                The business function or unit assessed for compliance if
+                appropriate
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: The associated product/service being assessed if appropriate
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer assessed if appropriate
+              format: Object
+           RegulatoryAuthorityReference:
+              type: string
+              description: Indication of the authority pertaining to the applied regulation
+              format: Object
+           RegulationReference:
+              type: string
+              description: Reference to the specific regulation
+              format: Object
+           RegulationDefinition:
+              type: string
+              description: >-
+                A definition of the goals/required actions addressed by the
+                regulation
+              format: String
+           RegulationComplianceandReportingRequirements:
+              type: string
+              description: >-
+                Description of the measurements and reporting required to
+                demonstrate compliance
+              format: String
+           RegulationAccountability:
+              type: string
+              description: >-
+                Explanation of the business context, responsibility and
+                accountability for compliance
+              format: String
+           RegulationPenalties:
+              type: string
+              description: Outline of the possible implications of noncompliance
+              format: String
+           RegulationGuideline:
+              type: string
+              description: Guidelines and requirements for compliance
+              format: String
+           DocumentReference:
+              type: string
+              description: >-
+                Reference to any documentation classified/archived as
+                appropriate
+              format: Object
+           RegulatoryAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the assessment
+              format: String
+           RegulatoryAssessmentResult:
+              type: string
+              description: Outcome/result of the assessment, can include remedial actions
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateRegulatoryComplianceAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateRegulatoryComplianceAssessmentRequest
+        required: true
+     UpdateRegulatoryComplianceAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRegulatoryComplianceAssessmentRequest'
+        required: true
+     RequestRegulatoryComplianceAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestRegulatoryComplianceAssessmentRequest
+        required: true
+     RetrieveRegulatoryComplianceAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     regulatorycomplianceassessmentid:
+        name: regulatorycomplianceassessmentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateRegulatoryComplianceAssessmentResponse:
+        description: RegulatoryComplianceAssessmentEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateRegulatoryComplianceAssessmentResponse
+     UpdateRegulatoryComplianceAssessmentResponse:
+        description: RegulatoryComplianceAssessmentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateRegulatoryComplianceAssessmentResponse
+     RequestRegulatoryComplianceAssessmentResponse:
+        description: RegulatoryComplianceAssessmentRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestRegulatoryComplianceAssessmentResponse
+     RetrieveRegulatoryComplianceAssessmentResponse:
+        description: RegulatoryComplianceAssessmentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveRegulatoryComplianceAssessmentResponse
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

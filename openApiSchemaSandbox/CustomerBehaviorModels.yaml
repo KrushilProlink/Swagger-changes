@@ -1,0 +1,1999 @@
+openapi: 3.0.1
+info:
+  title: Customer Behavior Models
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain handles
+    the design and maintenance of a portfolio of customer behavior models that
+    might be used in all aspects of customer relationship development, sales,
+    servicing and product fulfillment
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CustomerBehaviorModels
+paths:
+   '/CustomerBehaviorModelSpecification/{customerbehaviormodelspecificationid}/Create':
+      post:
+        tags:
+           - CR - CustomerBehaviorModelSpecification
+        summary: CrCR Create or register an imported customer behavior model
+        description: CrCR Create or register an imported customer behavior model
+        operationId: CustomerBehaviorModelSpecification/Create
+        parameters:
+           - $ref: '#/components/parameters/customerbehaviormodelspecificationid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/CreateCustomerBehaviorModelSpecificationRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerBehaviorModelSpecification/{customerbehaviormodelspecificationid}/Execute':
+      put:
+        tags:
+           - CR - CustomerBehaviorModelSpecification
+        summary: ExCR Automatically download a customer behavior model
+        description: ExCR Automatically download a customer behavior model
+        operationId: CustomerBehaviorModelSpecification/Execute
+        parameters:
+           - $ref: '#/components/parameters/customerbehaviormodelspecificationid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExecuteCustomerBehaviorModelSpecificationRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerBehaviorModelSpecification/{customerbehaviormodelspecificationid}/Request':
+      put:
+        tags:
+           - CR - CustomerBehaviorModelSpecification
+        summary: RqCR Request the use of a customer behavior model
+        description: RqCR Request the use of a customer behavior model
+        operationId: CustomerBehaviorModelSpecification/Request
+        parameters:
+           - $ref: '#/components/parameters/customerbehaviormodelspecificationid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestCustomerBehaviorModelSpecificationRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerBehaviorModelSpecification/{customerbehaviormodelspecificationid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerBehaviorModelSpecification
+        summary: ReCR Retrieve details about a customer behavior model
+        description: ReCR Retrieve details about a customer behavior model
+        operationId: CustomerBehaviorModelSpecification/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customerbehaviormodelspecificationid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveCustomerBehaviorModelSpecificationResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FunctionalRequirements/{functionalrequirementsid}/Update':
+      put:
+        tags:
+           - BQ - FunctionalRequirements
+        summary: UpBQ Update the requirements or other properties of a model
+        description: UpBQ Update the requirements or other properties of a model
+        operationId: FunctionalRequirements/Update
+        parameters:
+           - $ref: '#/components/parameters/functionalrequirementsid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateFunctionalRequirementsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FunctionalRequirements/{functionalrequirementsid}/Capture':
+      put:
+        tags:
+           - BQ - FunctionalRequirements
+        summary: CaBQ Capture usage reports for a customer behavior model
+        description: CaBQ Capture usage reports for a customer behavior model
+        operationId: FunctionalRequirements/Capture
+        parameters:
+           - $ref: '#/components/parameters/functionalrequirementsid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureFunctionalRequirementsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FunctionalRequirements/{functionalrequirementsid}/Request':
+      put:
+        tags:
+           - BQ - FunctionalRequirements
+        summary: RqBQ Request changes or improvements to a model
+        description: RqBQ Request changes or improvements to a model
+        operationId: FunctionalRequirements/Request
+        parameters:
+           - $ref: '#/components/parameters/functionalrequirementsid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestFunctionalRequirementsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FunctionalRequirements/{functionalrequirementsid}/Retrieve':
+      get:
+        tags:
+           - BQ - FunctionalRequirements
+        summary: ReBQ Retrieve details about the model specification and properties
+        description: ReBQ Retrieve details about the model specification and properties
+        operationId: FunctionalRequirements/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/functionalrequirementsid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveFunctionalRequirementsResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Testing/{testingid}/Update':
+      put:
+        tags:
+           - BQ - Testing
+        summary: UpBQ Update user testing content
+        description: UpBQ Update user testing content
+        operationId: Testing/Update
+        parameters:
+           - $ref: '#/components/parameters/testingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateTestingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Testing/{testingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Testing
+        summary: ReBQ Retrieve details and testing results
+        description: ReBQ Retrieve details and testing results
+        operationId: Testing/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/testingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveTestingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Production/{productionid}/Execute':
+      put:
+        tags:
+           - BQ - Production
+        summary: ExBQ Get automated support for model deployment
+        description: ExBQ Get automated support for model deployment
+        operationId: Production/Execute
+        parameters:
+           - $ref: '#/components/parameters/productionid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteProductionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Production/{productionid}/Request':
+      put:
+        tags:
+           - BQ - Production
+        summary: RqBQ Request production support for a deployed model
+        description: RqBQ Request production support for a deployed model
+        operationId: Production/Request
+        parameters:
+           - $ref: '#/components/parameters/productionid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestProductionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Production/{productionid}/Retrieve':
+      get:
+        tags:
+           - BQ - Production
+        summary: >-
+          ReBQ Retrieve details and documentation covering model production
+          deployment
+        description: >-
+          ReBQ Retrieve details and documentation covering model production
+          deployment
+        operationId: Production/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/productionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveProductionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     CreateCustomerBehaviorModelSpecificationRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: "\r\n"
+              format: String
+     CreateCustomerBehaviorModelSpecificationResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+     CreateCustomerBehaviorModelSpecification:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. life event
+                detection)
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           CustomerBehaviorModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     ExecuteCustomerBehaviorModelSpecificationRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteCustomerBehaviorModelSpecificationResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteCustomerBehaviorModelSpecification:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. life event
+                detection)
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           CustomerBehaviorModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     RequestCustomerBehaviorModelSpecificationRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestCustomerBehaviorModelSpecificationResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestCustomerBehaviorModelSpecification:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. life event
+                detection)
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           CustomerBehaviorModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     RetrieveCustomerBehaviorModelSpecificationResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCustomerBehaviorModelSpecification:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. life event
+                detection)
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           CustomerBehaviorModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     UpdateFunctionalRequirementsRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDesignTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelDesignTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelFeedbackRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelRequirementsSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateFunctionalRequirementsResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDesignTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelDesignTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelFeedbackRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelRequirementsSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateFunctionalRequirements:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. life event
+                detection)
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           CustomerBehaviorModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     CaptureFunctionalRequirementsRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelFeedbackRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestFunctionalRequirementsRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelRequirementsSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveFunctionalRequirementsResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDesignTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelDesignTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerMarketDataServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketDataRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelFeedbackRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelRequirementsSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveFunctionalRequirements:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. life event
+                detection)
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           CustomerBehaviorModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     UpdateTestingRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelTestReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelTestType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelTestHarnessReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelTestResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelTestingTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelTestingTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateTestingResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelTestReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelTestType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelTestHarnessReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelTestResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelTestingTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelTestingTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateTesting:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. life event
+                detection)
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           CustomerBehaviorModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     RetrieveTestingResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelTestReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelTestType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelTestHarnessReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelTestResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelTestingTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelTestingTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveTesting:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. life event
+                detection)
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           CustomerBehaviorModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     ExecuteProductionRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteProductionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelOperationalRequirements:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelAllowedUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelUsageGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteProduction:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. life event
+                detection)
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           CustomerBehaviorModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     RequestProductionRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestProductionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelOperationalRequirements:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelAllowedUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelUsageGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestProduction:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. life event
+                detection)
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           CustomerBehaviorModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     RetrieveProductionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelOperationalRequirements:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelAllowedUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorModelUsageGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveProduction:
+        type: object
+        description: ''
+        properties:
+           CustomerBehaviorModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. life event
+                detection)
+              format: String
+           CustomerBehaviorModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           CustomerBehaviorModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           CustomerBehaviorModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           CustomerBehaviorModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           CustomerBehaviorModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           CustomerBehaviorModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           CustomerBehaviorModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           CustomerBehaviorModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           CustomerBehaviorModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           CustomerBehaviorModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     CreateCustomerBehaviorModelSpecificationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/CreateCustomerBehaviorModelSpecificationRequest
+        required: true
+     ExecuteCustomerBehaviorModelSpecificationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteCustomerBehaviorModelSpecificationRequest
+        required: true
+     RequestCustomerBehaviorModelSpecificationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestCustomerBehaviorModelSpecificationRequest
+        required: true
+     RetrieveCustomerBehaviorModelSpecificationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateFunctionalRequirementsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFunctionalRequirementsRequest'
+        required: true
+     CaptureFunctionalRequirementsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureFunctionalRequirementsRequest'
+        required: true
+     RequestFunctionalRequirementsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestFunctionalRequirementsRequest'
+        required: true
+     RetrieveFunctionalRequirementsRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateTestingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTestingRequest'
+        required: true
+     RetrieveTestingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     ExecuteProductionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteProductionRequest'
+        required: true
+     RequestProductionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestProductionRequest'
+        required: true
+     RetrieveProductionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     customerbehaviormodelspecificationid:
+        name: customerbehaviormodelspecificationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     functionalrequirementsid:
+        name: functionalrequirementsid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     testingid:
+        name: testingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     productionid:
+        name: productionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     CreateCustomerBehaviorModelSpecificationResponse:
+        description: CustomerBehaviorModelSpecificationCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/CreateCustomerBehaviorModelSpecificationResponse
+     ExecuteCustomerBehaviorModelSpecificationResponse:
+        description: CustomerBehaviorModelSpecificationExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteCustomerBehaviorModelSpecificationResponse
+     RequestCustomerBehaviorModelSpecificationResponse:
+        description: CustomerBehaviorModelSpecificationRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestCustomerBehaviorModelSpecificationResponse
+     RetrieveCustomerBehaviorModelSpecificationResponse:
+        description: CustomerBehaviorModelSpecificationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveCustomerBehaviorModelSpecificationResponse
+     UpdateFunctionalRequirementsResponse:
+        description: FunctionalRequirementsUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFunctionalRequirementsResponse'
+     CaptureFunctionalRequirementsResponse:
+        description: FunctionalRequirementsCapture
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RequestFunctionalRequirementsResponse:
+        description: FunctionalRequirementsRequest
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrieveFunctionalRequirementsResponse:
+        description: FunctionalRequirementsRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveFunctionalRequirementsResponse'
+     UpdateTestingResponse:
+        description: TestingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTestingResponse'
+     RetrieveTestingResponse:
+        description: TestingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveTestingResponse'
+     ExecuteProductionResponse:
+        description: ProductionExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteProductionResponse'
+     RequestProductionResponse:
+        description: ProductionRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestProductionResponse'
+     RetrieveProductionResponse:
+        description: ProductionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveProductionResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

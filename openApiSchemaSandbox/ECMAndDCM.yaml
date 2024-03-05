@@ -1,0 +1,2369 @@
+openapi: 3.0.1
+info:
+  title: ECM And DCM
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Supports the specification,
+    pricing and issuance of equity and debt (bond) primary capital market
+    products for corporate financing services
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/ECMAndDCM
+paths:
+   '/ECMAndDCMFacility/{ecmanddcmfacilityid}/Initiate':
+      post:
+        tags:
+           - CR - ECMAndDCMFacility
+        summary: InCR initiate an ECM And DCM transaction for a corporate customer
+        description: InCR initiate an ECM And DCM transaction for a corporate customer
+        operationId: ECMAndDCMFacility/Initiate
+        parameters:
+           - $ref: '#/components/parameters/ecmanddcmfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateECMAndDCMFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ECMAndDCMFacility/{ecmanddcmfacilityid}/Update':
+      put:
+        tags:
+           - CR - ECMAndDCMFacility
+        summary: UpCR Update details of an active ECM And DCM transaction
+        description: UpCR Update details of an active ECM And DCM transaction
+        operationId: ECMAndDCMFacility/Update
+        parameters:
+           - $ref: '#/components/parameters/ecmanddcmfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateECMAndDCMFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ECMAndDCMFacility/{ecmanddcmfacilityid}/Request':
+      put:
+        tags:
+           - CR - ECMAndDCMFacility
+        summary: RqCR Request manual intervention to an active ECM And DCM transaction
+        description: RqCR Request manual intervention to an active ECM And DCM transaction
+        operationId: ECMAndDCMFacility/Request
+        parameters:
+           - $ref: '#/components/parameters/ecmanddcmfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestECMAndDCMFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ECMAndDCMFacility/{ecmanddcmfacilityid}/Retrieve':
+      get:
+        tags:
+           - CR - ECMAndDCMFacility
+        summary: ReCR Retrieve details about an active ECM And DCM transaction
+        description: ReCR Retrieve details about an active ECM And DCM transaction
+        operationId: ECMAndDCMFacility/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/ecmanddcmfacilityid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveECMAndDCMFacilityResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InstrumentDefinition/{instrumentdefinitionid}/Update':
+      put:
+        tags:
+           - BQ - InstrumentDefinition
+        summary: UpBQ Update details of the ECM And DCM instrument specification
+        description: UpBQ Update details of the ECM And DCM instrument specification
+        operationId: InstrumentDefinition/Update
+        parameters:
+           - $ref: '#/components/parameters/instrumentdefinitionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateInstrumentDefinitionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InstrumentDefinition/{instrumentdefinitionid}/Request':
+      put:
+        tags:
+           - BQ - InstrumentDefinition
+        summary: RqBQ Request manual intervention to the instrument definition
+        description: RqBQ Request manual intervention to the instrument definition
+        operationId: InstrumentDefinition/Request
+        parameters:
+           - $ref: '#/components/parameters/instrumentdefinitionid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestInstrumentDefinitionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InstrumentDefinition/{instrumentdefinitionid}/Retrieve':
+      get:
+        tags:
+           - BQ - InstrumentDefinition
+        summary: ReBQ Retrieve details about the ECM And DCM instrument definition
+        description: ReBQ Retrieve details about the ECM And DCM instrument definition
+        operationId: InstrumentDefinition/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/instrumentdefinitionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveInstrumentDefinitionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Prospectus/{prospectusid}/Update':
+      put:
+        tags:
+           - BQ - Prospectus
+        summary: UpBQ Update details of the ECM And DCM prospectus
+        description: UpBQ Update details of the ECM And DCM prospectus
+        operationId: Prospectus/Update
+        parameters:
+           - $ref: '#/components/parameters/prospectusid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateProspectusRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Prospectus/{prospectusid}/Request':
+      put:
+        tags:
+           - BQ - Prospectus
+        summary: RqBQ Request manual intervention with the prospectus development
+        description: RqBQ Request manual intervention with the prospectus development
+        operationId: Prospectus/Request
+        parameters:
+           - $ref: '#/components/parameters/prospectusid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestProspectusRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Prospectus/{prospectusid}/Retrieve':
+      get:
+        tags:
+           - BQ - Prospectus
+        summary: ReBQ Retrieve details about the ECM And DCM prospectus development
+        description: ReBQ Retrieve details about the ECM And DCM prospectus development
+        operationId: Prospectus/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/prospectusid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveProspectusResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Placement/{placementid}/Update':
+      put:
+        tags:
+           - BQ - Placement
+        summary: UpBQ Update details of ECM And DCM placement activity
+        description: UpBQ Update details of ECM And DCM placement activity
+        operationId: Placement/Update
+        parameters:
+           - $ref: '#/components/parameters/placementid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePlacementRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Placement/{placementid}/Request':
+      put:
+        tags:
+           - BQ - Placement
+        summary: RqBQ Request manual intervention in the placement activity
+        description: RqBQ Request manual intervention in the placement activity
+        operationId: Placement/Request
+        parameters:
+           - $ref: '#/components/parameters/placementid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestPlacementRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Placement/{placementid}/Retrieve':
+      get:
+        tags:
+           - BQ - Placement
+        summary: ReBQ Retrieve details about the ECM And DCM placement actions
+        description: ReBQ Retrieve details about the ECM And DCM placement actions
+        operationId: Placement/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/placementid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePlacementResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateECMAndDCMFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateECMAndDCMFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateECMAndDCMFacility:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the advisory service session
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer receiving the financial advice
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: >-
+                Bank branch associated with the customer account/relationship
+                for booking purposes
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference to the source of the
+                financial advice
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for associated documents such as
+                disclosures and acceptance records
+              format: Object
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                issuance project
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. coinvestor, legal)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: >-
+                The schedule for work tasks performed and to be performed
+                through the issuing process
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the issuance process (e.g. engagement
+                date, prospectus date, offering date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: >-
+                The consolidated record of the developed investment vehicle.
+                Combines the output of the development and issuance activities,
+                participant details, investment transaction records as
+                appropriate (details not included at this time)
+              format: String
+     UpdateECMAndDCMFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateECMAndDCMFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateECMAndDCMFacility:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the advisory service session
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer receiving the financial advice
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: >-
+                Bank branch associated with the customer account/relationship
+                for booking purposes
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference to the source of the
+                financial advice
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for associated documents such as
+                disclosures and acceptance records
+              format: Object
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                issuance project
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. coinvestor, legal)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: >-
+                The schedule for work tasks performed and to be performed
+                through the issuing process
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the issuance process (e.g. engagement
+                date, prospectus date, offering date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: >-
+                The consolidated record of the developed investment vehicle.
+                Combines the output of the development and issuance activities,
+                participant details, investment transaction records as
+                appropriate (details not included at this time)
+              format: String
+     RequestECMAndDCMFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestECMAndDCMFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestECMAndDCMFacility:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the advisory service session
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer receiving the financial advice
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: >-
+                Bank branch associated with the customer account/relationship
+                for booking purposes
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference to the source of the
+                financial advice
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for associated documents such as
+                disclosures and acceptance records
+              format: Object
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                issuance project
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. coinvestor, legal)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: >-
+                The schedule for work tasks performed and to be performed
+                through the issuing process
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the issuance process (e.g. engagement
+                date, prospectus date, offering date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: >-
+                The consolidated record of the developed investment vehicle.
+                Combines the output of the development and issuance activities,
+                participant details, investment transaction records as
+                appropriate (details not included at this time)
+              format: String
+     RetrieveECMAndDCMFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveECMAndDCMFacility:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the advisory service session
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer receiving the financial advice
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: >-
+                Bank branch associated with the customer account/relationship
+                for booking purposes
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference to the source of the
+                financial advice
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for associated documents such as
+                disclosures and acceptance records
+              format: Object
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                issuance project
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. coinvestor, legal)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: >-
+                The schedule for work tasks performed and to be performed
+                through the issuing process
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the issuance process (e.g. engagement
+                date, prospectus date, offering date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: >-
+                The consolidated record of the developed investment vehicle.
+                Combines the output of the development and issuance activities,
+                participant details, investment transaction records as
+                appropriate (details not included at this time)
+              format: String
+     UpdateInstrumentDefinitionRequest:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InstrumentDefinitionWorkTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           InstrumentDefinitionWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           InstrumentDefinitionWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           InstrumentDefinitionWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InstrumentDefinitionSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateInstrumentDefinitionResponse:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InstrumentDefinitionWorkTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           InstrumentDefinitionWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           InstrumentDefinitionWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           InstrumentDefinitionWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InstrumentDefinitionSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateInstrumentDefinition:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the advisory service session
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer receiving the financial advice
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: >-
+                Bank branch associated with the customer account/relationship
+                for booking purposes
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference to the source of the
+                financial advice
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for associated documents such as
+                disclosures and acceptance records
+              format: Object
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                issuance project
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. coinvestor, legal)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: >-
+                The schedule for work tasks performed and to be performed
+                through the issuing process
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the issuance process (e.g. engagement
+                date, prospectus date, offering date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: >-
+                The consolidated record of the developed investment vehicle.
+                Combines the output of the development and issuance activities,
+                participant details, investment transaction records as
+                appropriate (details not included at this time)
+              format: String
+     RequestInstrumentDefinitionRequest:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InstrumentDefinitionWorkTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           InstrumentDefinitionWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           InstrumentDefinitionWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestInstrumentDefinitionResponse:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InstrumentDefinitionWorkTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           InstrumentDefinitionWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           InstrumentDefinitionWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           InstrumentDefinitionWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InstrumentDefinitionSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestInstrumentDefinition:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the advisory service session
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer receiving the financial advice
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: >-
+                Bank branch associated with the customer account/relationship
+                for booking purposes
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference to the source of the
+                financial advice
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for associated documents such as
+                disclosures and acceptance records
+              format: Object
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                issuance project
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. coinvestor, legal)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: >-
+                The schedule for work tasks performed and to be performed
+                through the issuing process
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the issuance process (e.g. engagement
+                date, prospectus date, offering date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: >-
+                The consolidated record of the developed investment vehicle.
+                Combines the output of the development and issuance activities,
+                participant details, investment transaction records as
+                appropriate (details not included at this time)
+              format: String
+     RetrieveInstrumentDefinitionResponse:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InstrumentDefinitionWorkTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           InstrumentDefinitionWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           InstrumentDefinitionWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           InstrumentDefinitionWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InstrumentDefinitionSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveInstrumentDefinition:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the advisory service session
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer receiving the financial advice
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: >-
+                Bank branch associated with the customer account/relationship
+                for booking purposes
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference to the source of the
+                financial advice
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for associated documents such as
+                disclosures and acceptance records
+              format: Object
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                issuance project
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. coinvestor, legal)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: >-
+                The schedule for work tasks performed and to be performed
+                through the issuing process
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the issuance process (e.g. engagement
+                date, prospectus date, offering date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: >-
+                The consolidated record of the developed investment vehicle.
+                Combines the output of the development and issuance activities,
+                participant details, investment transaction records as
+                appropriate (details not included at this time)
+              format: String
+     UpdateProspectusRequest:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProspectusWorkTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProspectusWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProspectusWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProspectusWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateProspectusResponse:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProspectusWorkTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProspectusWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProspectusWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProspectusWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateProspectus:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the advisory service session
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer receiving the financial advice
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: >-
+                Bank branch associated with the customer account/relationship
+                for booking purposes
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference to the source of the
+                financial advice
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for associated documents such as
+                disclosures and acceptance records
+              format: Object
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                issuance project
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. coinvestor, legal)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: >-
+                The schedule for work tasks performed and to be performed
+                through the issuing process
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the issuance process (e.g. engagement
+                date, prospectus date, offering date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: >-
+                The consolidated record of the developed investment vehicle.
+                Combines the output of the development and issuance activities,
+                participant details, investment transaction records as
+                appropriate (details not included at this time)
+              format: String
+     RequestProspectusRequest:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProspectusWorkTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProspectusWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProspectusWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestProspectusResponse:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProspectusWorkTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProspectusWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProspectusWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProspectusWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestProspectus:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the advisory service session
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer receiving the financial advice
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: >-
+                Bank branch associated with the customer account/relationship
+                for booking purposes
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference to the source of the
+                financial advice
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for associated documents such as
+                disclosures and acceptance records
+              format: Object
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                issuance project
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. coinvestor, legal)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: >-
+                The schedule for work tasks performed and to be performed
+                through the issuing process
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the issuance process (e.g. engagement
+                date, prospectus date, offering date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: >-
+                The consolidated record of the developed investment vehicle.
+                Combines the output of the development and issuance activities,
+                participant details, investment transaction records as
+                appropriate (details not included at this time)
+              format: String
+     RetrieveProspectusResponse:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProspectusWorkTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProspectusWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProspectusWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProspectusWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveProspectus:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the advisory service session
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer receiving the financial advice
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: >-
+                Bank branch associated with the customer account/relationship
+                for booking purposes
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference to the source of the
+                financial advice
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for associated documents such as
+                disclosures and acceptance records
+              format: Object
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                issuance project
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. coinvestor, legal)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: >-
+                The schedule for work tasks performed and to be performed
+                through the issuing process
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the issuance process (e.g. engagement
+                date, prospectus date, offering date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: >-
+                The consolidated record of the developed investment vehicle.
+                Combines the output of the development and issuance activities,
+                participant details, investment transaction records as
+                appropriate (details not included at this time)
+              format: String
+     UpdatePlacementRequest:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProspectList:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementRoadshowSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PlacementTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdatePlacementResponse:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProspectList:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementRoadshowSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PlacementTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdatePlacement:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the advisory service session
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer receiving the financial advice
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: >-
+                Bank branch associated with the customer account/relationship
+                for booking purposes
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference to the source of the
+                financial advice
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for associated documents such as
+                disclosures and acceptance records
+              format: Object
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                issuance project
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. coinvestor, legal)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: >-
+                The schedule for work tasks performed and to be performed
+                through the issuing process
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the issuance process (e.g. engagement
+                date, prospectus date, offering date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: >-
+                The consolidated record of the developed investment vehicle.
+                Combines the output of the development and issuance activities,
+                participant details, investment transaction records as
+                appropriate (details not included at this time)
+              format: String
+     RequestPlacementRequest:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProspectList:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementRoadshowSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestPlacementResponse:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProspectList:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementRoadshowSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PlacementTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestPlacement:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the advisory service session
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer receiving the financial advice
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: >-
+                Bank branch associated with the customer account/relationship
+                for booking purposes
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference to the source of the
+                financial advice
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for associated documents such as
+                disclosures and acceptance records
+              format: Object
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                issuance project
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. coinvestor, legal)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: >-
+                The schedule for work tasks performed and to be performed
+                through the issuing process
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the issuance process (e.g. engagement
+                date, prospectus date, offering date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: >-
+                The consolidated record of the developed investment vehicle.
+                Combines the output of the development and issuance activities,
+                participant details, investment transaction records as
+                appropriate (details not included at this time)
+              format: String
+     RetrievePlacementResponse:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProspectList:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementRoadshowSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           PlacementWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PlacementTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrievePlacement:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the advisory service session
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer receiving the financial advice
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: >-
+                Bank branch associated with the customer account/relationship
+                for booking purposes
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference to the source of the
+                financial advice
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for associated documents such as
+                disclosures and acceptance records
+              format: Object
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                issuance project
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. coinvestor, legal)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           ECMAndDCMFulfillmentSchedule:
+              type: string
+              description: >-
+                The schedule for work tasks performed and to be performed
+                through the issuing process
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the issuance process (e.g. engagement
+                date, prospectus date, offering date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           ECMAndDCMInstrumentRecord:
+              type: string
+              description: >-
+                The consolidated record of the developed investment vehicle.
+                Combines the output of the development and issuance activities,
+                participant details, investment transaction records as
+                appropriate (details not included at this time)
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateECMAndDCMFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateECMAndDCMFacilityRequest'
+        required: true
+     UpdateECMAndDCMFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateECMAndDCMFacilityRequest'
+        required: true
+     RequestECMAndDCMFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestECMAndDCMFacilityRequest'
+        required: true
+     RetrieveECMAndDCMFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateInstrumentDefinitionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInstrumentDefinitionRequest'
+        required: true
+     RequestInstrumentDefinitionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestInstrumentDefinitionRequest'
+        required: true
+     RetrieveInstrumentDefinitionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateProspectusRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProspectusRequest'
+        required: true
+     RequestProspectusRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestProspectusRequest'
+        required: true
+     RetrieveProspectusRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdatePlacementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePlacementRequest'
+        required: true
+     RequestPlacementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPlacementRequest'
+        required: true
+     RetrievePlacementRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     ecmanddcmfacilityid:
+        name: ecmanddcmfacilityid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     instrumentdefinitionid:
+        name: instrumentdefinitionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     prospectusid:
+        name: prospectusid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     placementid:
+        name: placementid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateECMAndDCMFacilityResponse:
+        description: ECMAndDCMFacilityInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateECMAndDCMFacilityResponse'
+     UpdateECMAndDCMFacilityResponse:
+        description: ECMAndDCMFacilityUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateECMAndDCMFacilityResponse'
+     RequestECMAndDCMFacilityResponse:
+        description: ECMAndDCMFacilityRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestECMAndDCMFacilityResponse'
+     RetrieveECMAndDCMFacilityResponse:
+        description: ECMAndDCMFacilityRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveECMAndDCMFacilityResponse'
+     UpdateInstrumentDefinitionResponse:
+        description: InstrumentDefinitionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInstrumentDefinitionResponse'
+     RequestInstrumentDefinitionResponse:
+        description: InstrumentDefinitionRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestInstrumentDefinitionResponse'
+     RetrieveInstrumentDefinitionResponse:
+        description: InstrumentDefinitionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveInstrumentDefinitionResponse'
+     UpdateProspectusResponse:
+        description: ProspectusUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProspectusResponse'
+     RequestProspectusResponse:
+        description: ProspectusRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestProspectusResponse'
+     RetrieveProspectusResponse:
+        description: ProspectusRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveProspectusResponse'
+     UpdatePlacementResponse:
+        description: PlacementUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePlacementResponse'
+     RequestPlacementResponse:
+        description: PlacementRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPlacementResponse'
+     RetrievePlacementResponse:
+        description: PlacementRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePlacementResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

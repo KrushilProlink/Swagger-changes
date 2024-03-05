@@ -1,0 +1,658 @@
+openapi: 3.0.1
+info:
+  title: Competitor Analysis
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Solicit, consolidate and
+    analyze competitor specific public domain data to develop competitor
+    insights and comparisons
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CompetitorAnalysis
+paths:
+   '/CompetitorAnalysis/{competitoranalysisid}/Evaluate':
+      post:
+        tags:
+           - CR - CompetitorAnalysis
+        summary: EvCR Initialize competitor analysis
+        description: EvCR Initialize competitor analysis
+        operationId: CompetitorAnalysis/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/competitoranalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateCompetitorAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CompetitorAnalysis/{competitoranalysisid}/Execute':
+      put:
+        tags:
+           - CR - CompetitorAnalysis
+        summary: ExCR Obtain an automated refresh of maintained competitor analysis
+        description: ExCR Obtain an automated refresh of maintained competitor analysis
+        operationId: CompetitorAnalysis/Execute
+        parameters:
+           - $ref: '#/components/parameters/competitoranalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteCompetitorAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CompetitorAnalysis/{competitoranalysisid}/Request':
+      put:
+        tags:
+           - CR - CompetitorAnalysis
+        summary: >-
+          RqCR Request a manual intervention in the development of competitor
+          analysis
+        description: >-
+          RqCR Request a manual intervention in the development of competitor
+          analysis
+        operationId: CompetitorAnalysis/Request
+        parameters:
+           - $ref: '#/components/parameters/competitoranalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestCompetitorAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CompetitorAnalysis/{competitoranalysisid}/Retrieve':
+      get:
+        tags:
+           - CR - CompetitorAnalysis
+        summary: ReCR Retrieve details about competitor analysis activity
+        description: ReCR Retrieve details about competitor analysis activity
+        operationId: CompetitorAnalysis/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/competitoranalysisid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCompetitorAnalysisResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateCompetitorAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           CompetitorAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisAlgorithmReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CompetitorAnalysisRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CompetitorAnalysisUsageRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisImpact:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateCompetitorAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CompetitorAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisGuidance:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisAlgorithmReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CompetitorAnalysisRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisRequestWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisUsageRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisImpact:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateCompetitorAnalysis:
+        type: object
+        description: ''
+        properties:
+           CompetitorAnalysisType:
+              type: string
+              description: >-
+                The type of research view provided by the research (e.g. pricing
+                comparison)
+              format: String
+           CompetitorAnalysisSpecification:
+              type: string
+              description: The definition of the specific competitor analysis
+              format: String
+           CompetitorAnalysisGuidance:
+              type: string
+              description: >-
+                Guidance on usage and interpretation of the competitor analysis
+                (e.g. qualifying the accuracy/confidence of any findings)
+              format: String
+           CompetitorAnalysisAlgorithmReference:
+              type: string
+              description: >-
+                Reference to the algorithm/approach used to generate the
+                analysis
+              format: Object
+           CompetitorAnalysisRequestRecord:
+              type: string
+              description: Request record for the competitor analysis
+              format: String
+           CompetitorAnalysisRequest:
+              type: string
+              description: The specific details of the request
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit requesting the analysis
+              format: Object
+           CompetitorAnalysisRequestWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           CompetitorAnalysisRequestResult:
+              type: string
+              description: The output from performing the analysis
+              format: String
+           CompetitorAnalysisUsageRecord:
+              type: string
+              description: >-
+                Usage record of the competitor analysis maintained/developed by
+                the function
+              format: String
+           CompetitorAnalysisUsage:
+              type: string
+              description: A record of the usage of the analysis
+              format: String
+           CompetitorAnalysisImpact:
+              type: string
+              description: A record of reported impact/accuracy of the competitor analysis
+              format: String
+     ExecuteCompetitorAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           CompetitorAnalysisRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CompetitorAnalysisUsageRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisImpact:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteCompetitorAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CompetitorAnalysisRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisRequestWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteCompetitorAnalysis:
+        type: object
+        description: ''
+        properties:
+           CompetitorAnalysisType:
+              type: string
+              description: >-
+                The type of research view provided by the research (e.g. pricing
+                comparison)
+              format: String
+           CompetitorAnalysisSpecification:
+              type: string
+              description: The definition of the specific competitor analysis
+              format: String
+           CompetitorAnalysisGuidance:
+              type: string
+              description: >-
+                Guidance on usage and interpretation of the competitor analysis
+                (e.g. qualifying the accuracy/confidence of any findings)
+              format: String
+           CompetitorAnalysisAlgorithmReference:
+              type: string
+              description: >-
+                Reference to the algorithm/approach used to generate the
+                analysis
+              format: Object
+           CompetitorAnalysisRequestRecord:
+              type: string
+              description: Request record for the competitor analysis
+              format: String
+           CompetitorAnalysisRequest:
+              type: string
+              description: The specific details of the request
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit requesting the analysis
+              format: Object
+           CompetitorAnalysisRequestWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           CompetitorAnalysisRequestResult:
+              type: string
+              description: The output from performing the analysis
+              format: String
+           CompetitorAnalysisUsageRecord:
+              type: string
+              description: >-
+                Usage record of the competitor analysis maintained/developed by
+                the function
+              format: String
+           CompetitorAnalysisUsage:
+              type: string
+              description: A record of the usage of the analysis
+              format: String
+           CompetitorAnalysisImpact:
+              type: string
+              description: A record of reported impact/accuracy of the competitor analysis
+              format: String
+     RequestCompetitorAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           CompetitorAnalysisRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CompetitorAnalysisUsageRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisImpact:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestCompetitorAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CompetitorAnalysisRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisRequestWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestCompetitorAnalysis:
+        type: object
+        description: ''
+        properties:
+           CompetitorAnalysisType:
+              type: string
+              description: >-
+                The type of research view provided by the research (e.g. pricing
+                comparison)
+              format: String
+           CompetitorAnalysisSpecification:
+              type: string
+              description: The definition of the specific competitor analysis
+              format: String
+           CompetitorAnalysisGuidance:
+              type: string
+              description: >-
+                Guidance on usage and interpretation of the competitor analysis
+                (e.g. qualifying the accuracy/confidence of any findings)
+              format: String
+           CompetitorAnalysisAlgorithmReference:
+              type: string
+              description: >-
+                Reference to the algorithm/approach used to generate the
+                analysis
+              format: Object
+           CompetitorAnalysisRequestRecord:
+              type: string
+              description: Request record for the competitor analysis
+              format: String
+           CompetitorAnalysisRequest:
+              type: string
+              description: The specific details of the request
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit requesting the analysis
+              format: Object
+           CompetitorAnalysisRequestWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           CompetitorAnalysisRequestResult:
+              type: string
+              description: The output from performing the analysis
+              format: String
+           CompetitorAnalysisUsageRecord:
+              type: string
+              description: >-
+                Usage record of the competitor analysis maintained/developed by
+                the function
+              format: String
+           CompetitorAnalysisUsage:
+              type: string
+              description: A record of the usage of the analysis
+              format: String
+           CompetitorAnalysisImpact:
+              type: string
+              description: A record of reported impact/accuracy of the competitor analysis
+              format: String
+     RetrieveCompetitorAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CompetitorAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisGuidance:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisAlgorithmReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CompetitorAnalysisRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CompetitorAnalysisRequestWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisUsageRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CompetitorAnalysisImpact:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCompetitorAnalysis:
+        type: object
+        description: ''
+        properties:
+           CompetitorAnalysisType:
+              type: string
+              description: >-
+                The type of research view provided by the research (e.g. pricing
+                comparison)
+              format: String
+           CompetitorAnalysisSpecification:
+              type: string
+              description: The definition of the specific competitor analysis
+              format: String
+           CompetitorAnalysisGuidance:
+              type: string
+              description: >-
+                Guidance on usage and interpretation of the competitor analysis
+                (e.g. qualifying the accuracy/confidence of any findings)
+              format: String
+           CompetitorAnalysisAlgorithmReference:
+              type: string
+              description: >-
+                Reference to the algorithm/approach used to generate the
+                analysis
+              format: Object
+           CompetitorAnalysisRequestRecord:
+              type: string
+              description: Request record for the competitor analysis
+              format: String
+           CompetitorAnalysisRequest:
+              type: string
+              description: The specific details of the request
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit requesting the analysis
+              format: Object
+           CompetitorAnalysisRequestWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           CompetitorAnalysisRequestResult:
+              type: string
+              description: The output from performing the analysis
+              format: String
+           CompetitorAnalysisUsageRecord:
+              type: string
+              description: >-
+                Usage record of the competitor analysis maintained/developed by
+                the function
+              format: String
+           CompetitorAnalysisUsage:
+              type: string
+              description: A record of the usage of the analysis
+              format: String
+           CompetitorAnalysisImpact:
+              type: string
+              description: A record of reported impact/accuracy of the competitor analysis
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateCompetitorAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateCompetitorAnalysisRequest'
+        required: true
+     ExecuteCompetitorAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteCompetitorAnalysisRequest'
+        required: true
+     RequestCompetitorAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCompetitorAnalysisRequest'
+        required: true
+     RetrieveCompetitorAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     competitoranalysisid:
+        name: competitoranalysisid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateCompetitorAnalysisResponse:
+        description: CompetitorAnalysisEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateCompetitorAnalysisResponse'
+     ExecuteCompetitorAnalysisResponse:
+        description: CompetitorAnalysisExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteCompetitorAnalysisResponse'
+     RequestCompetitorAnalysisResponse:
+        description: CompetitorAnalysisRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCompetitorAnalysisResponse'
+     RetrieveCompetitorAnalysisResponse:
+        description: CompetitorAnalysisRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCompetitorAnalysisResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

@@ -41,7 +41,7 @@ const plugins = {
 
 const defaults = {
   // we have the `dom_id` prop for legacy reasons
-  dom_id: "#swagger-editor", // eslint-disable-line camelcase
+dom_id: "#swagger-editor", // eslint-disable-line camelcase
   layout: "EditorLayout",
   presets: [
     SwaggerUI.presets.apis

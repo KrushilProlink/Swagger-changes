@@ -1,0 +1,985 @@
+openapi: 3.0.1
+info:
+  title: Suitability Checking
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Confirm that all involved
+    counterparties are suitable for a proposed market trade.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/SuitabilityChecking
+paths:
+   '/SuitabilityAssessment/{suitabilityassessmentid}/Evaluate':
+      post:
+        tags:
+           - CR - SuitabilityAssessment
+        summary: EvCR Evaluate the suitability of a proposed transaction
+        description: EvCR Evaluate the suitability of a proposed transaction
+        operationId: SuitabilityAssessment/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/suitabilityassessmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateSuitabilityAssessmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SuitabilityAssessment/{suitabilityassessmentid}/Update':
+      put:
+        tags:
+           - CR - SuitabilityAssessment
+        summary: UpCR Update details of a suitability evaluation
+        description: UpCR Update details of a suitability evaluation
+        operationId: SuitabilityAssessment/Update
+        parameters:
+           - $ref: '#/components/parameters/suitabilityassessmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateSuitabilityAssessmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SuitabilityAssessment/{suitabilityassessmentid}/Request':
+      put:
+        tags:
+           - CR - SuitabilityAssessment
+        summary: RqCR Request manual intervention into an active evaluation
+        description: RqCR Request manual intervention into an active evaluation
+        operationId: SuitabilityAssessment/Request
+        parameters:
+           - $ref: '#/components/parameters/suitabilityassessmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestSuitabilityAssessmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SuitabilityAssessment/{suitabilityassessmentid}/Retrieve':
+      get:
+        tags:
+           - CR - SuitabilityAssessment
+        summary: ReCR Retrieve details about a suitability evaluation
+        description: ReCR Retrieve details about a suitability evaluation
+        operationId: SuitabilityAssessment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/suitabilityassessmentid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveSuitabilityAssessmentResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateSuitabilityAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketOrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           ProposedMarketOrderTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           SuitabilityAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     EvaluateSuitabilityAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           ProposedMarketOrderTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           SuitabilityAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SuitabilityComplianceAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           SuitabilityComplianceAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateSuitabilityAssessment:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: Business unit submitting the proposed transaction for review
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer related to the proposed transaction
+              format: Object
+           MarketOrderType:
+              type: string
+              description: >-
+                The type of market order (e.g. Day Order. Order on Open/Close,
+                Fill or Kill, Limit Order)
+              format: String
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the associated investment portfolio record of all
+                holdings (referenced to check securities availability if
+                necessary)
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: Any customer specific processing preferences or requirements
+              format: String
+           ProposedMarketOrderTransaction:
+              type: string
+              description: >-
+                The details of the market order transaction that is to undergo
+                suitability checks
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying cash account supporting the
+                transaction
+              format: Object
+           SecurityType:
+              type: string
+              description: The security to be traded
+              format: String
+           Amount:
+              type: string
+              description: The volume of shares to be bought or sold
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the proposed transaction (e.g.
+                opportunity identification, proposal/pitch, suitability
+                evaluation initiated)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+           SuitabilityAssessmentType:
+              type: string
+              description: >-
+                The type and makeup of suitability compliance tests referenced
+                in the assessment
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for any documents accessed and generated
+                (e.g. disclosures)
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: >-
+                Reference to any correspondence generated by the suitability
+                check
+              format: Object
+           SuitabilityComplianceAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the assessment
+              format: String
+           SuitabilityComplianceAssessmentResult:
+              type: string
+              description: >-
+                Outcome/result of the suitability assessment, can include
+                reported details if appropriate
+              format: String
+     UpdateSuitabilityAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketOrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           ProposedMarketOrderTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           SuitabilityAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SuitabilityComplianceAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           SuitabilityComplianceAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSuitabilityAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketOrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           ProposedMarketOrderTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           SuitabilityAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SuitabilityComplianceAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           SuitabilityComplianceAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSuitabilityAssessment:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: Business unit submitting the proposed transaction for review
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer related to the proposed transaction
+              format: Object
+           MarketOrderType:
+              type: string
+              description: >-
+                The type of market order (e.g. Day Order. Order on Open/Close,
+                Fill or Kill, Limit Order)
+              format: String
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the associated investment portfolio record of all
+                holdings (referenced to check securities availability if
+                necessary)
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: Any customer specific processing preferences or requirements
+              format: String
+           ProposedMarketOrderTransaction:
+              type: string
+              description: >-
+                The details of the market order transaction that is to undergo
+                suitability checks
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying cash account supporting the
+                transaction
+              format: Object
+           SecurityType:
+              type: string
+              description: The security to be traded
+              format: String
+           Amount:
+              type: string
+              description: The volume of shares to be bought or sold
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the proposed transaction (e.g.
+                opportunity identification, proposal/pitch, suitability
+                evaluation initiated)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+           SuitabilityAssessmentType:
+              type: string
+              description: >-
+                The type and makeup of suitability compliance tests referenced
+                in the assessment
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for any documents accessed and generated
+                (e.g. disclosures)
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: >-
+                Reference to any correspondence generated by the suitability
+                check
+              format: Object
+           SuitabilityComplianceAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the assessment
+              format: String
+           SuitabilityComplianceAssessmentResult:
+              type: string
+              description: >-
+                Outcome/result of the suitability assessment, can include
+                reported details if appropriate
+              format: String
+     RequestSuitabilityAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketOrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           ProposedMarketOrderTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           SuitabilityAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SuitabilityComplianceAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           SuitabilityComplianceAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestSuitabilityAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           ProposedMarketOrderTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           SuitabilityAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SuitabilityComplianceAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           SuitabilityComplianceAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestSuitabilityAssessment:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: Business unit submitting the proposed transaction for review
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer related to the proposed transaction
+              format: Object
+           MarketOrderType:
+              type: string
+              description: >-
+                The type of market order (e.g. Day Order. Order on Open/Close,
+                Fill or Kill, Limit Order)
+              format: String
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the associated investment portfolio record of all
+                holdings (referenced to check securities availability if
+                necessary)
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: Any customer specific processing preferences or requirements
+              format: String
+           ProposedMarketOrderTransaction:
+              type: string
+              description: >-
+                The details of the market order transaction that is to undergo
+                suitability checks
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying cash account supporting the
+                transaction
+              format: Object
+           SecurityType:
+              type: string
+              description: The security to be traded
+              format: String
+           Amount:
+              type: string
+              description: The volume of shares to be bought or sold
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the proposed transaction (e.g.
+                opportunity identification, proposal/pitch, suitability
+                evaluation initiated)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+           SuitabilityAssessmentType:
+              type: string
+              description: >-
+                The type and makeup of suitability compliance tests referenced
+                in the assessment
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for any documents accessed and generated
+                (e.g. disclosures)
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: >-
+                Reference to any correspondence generated by the suitability
+                check
+              format: Object
+           SuitabilityComplianceAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the assessment
+              format: String
+           SuitabilityComplianceAssessmentResult:
+              type: string
+              description: >-
+                Outcome/result of the suitability assessment, can include
+                reported details if appropriate
+              format: String
+     RetrieveSuitabilityAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketOrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           ProposedMarketOrderTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecurityType:
+              type: string
+              description: "\r\n"
+              format: String
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           SuitabilityAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SuitabilityComplianceAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           SuitabilityComplianceAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveSuitabilityAssessment:
+        type: object
+        description: ''
+        properties:
+           EmployeeBusinessUnitReference:
+              type: string
+              description: Business unit submitting the proposed transaction for review
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer related to the proposed transaction
+              format: Object
+           MarketOrderType:
+              type: string
+              description: >-
+                The type of market order (e.g. Day Order. Order on Open/Close,
+                Fill or Kill, Limit Order)
+              format: String
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the associated investment portfolio record of all
+                holdings (referenced to check securities availability if
+                necessary)
+              format: Object
+           CustomerMarketOrderProcessingInstruction:
+              type: string
+              description: Any customer specific processing preferences or requirements
+              format: String
+           ProposedMarketOrderTransaction:
+              type: string
+              description: >-
+                The details of the market order transaction that is to undergo
+                suitability checks
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: >-
+                Reference to the underlying cash account supporting the
+                transaction
+              format: Object
+           SecurityType:
+              type: string
+              description: The security to be traded
+              format: String
+           Amount:
+              type: string
+              description: The volume of shares to be bought or sold
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the proposed transaction (e.g.
+                opportunity identification, proposal/pitch, suitability
+                evaluation initiated)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+           SuitabilityAssessmentType:
+              type: string
+              description: >-
+                The type and makeup of suitability compliance tests referenced
+                in the assessment
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                The document reference for any documents accessed and generated
+                (e.g. disclosures)
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: >-
+                Reference to any correspondence generated by the suitability
+                check
+              format: Object
+           SuitabilityComplianceAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the assessment
+              format: String
+           SuitabilityComplianceAssessmentResult:
+              type: string
+              description: >-
+                Outcome/result of the suitability assessment, can include
+                reported details if appropriate
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateSuitabilityAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateSuitabilityAssessmentRequest'
+        required: true
+     UpdateSuitabilityAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSuitabilityAssessmentRequest'
+        required: true
+     RequestSuitabilityAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestSuitabilityAssessmentRequest'
+        required: true
+     RetrieveSuitabilityAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     suitabilityassessmentid:
+        name: suitabilityassessmentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateSuitabilityAssessmentResponse:
+        description: SuitabilityAssessmentEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateSuitabilityAssessmentResponse'
+     UpdateSuitabilityAssessmentResponse:
+        description: SuitabilityAssessmentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSuitabilityAssessmentResponse'
+     RequestSuitabilityAssessmentResponse:
+        description: SuitabilityAssessmentRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestSuitabilityAssessmentResponse'
+     RetrieveSuitabilityAssessmentResponse:
+        description: SuitabilityAssessmentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveSuitabilityAssessmentResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

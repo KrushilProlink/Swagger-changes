@@ -1,0 +1,1673 @@
+openapi: 3.0.1
+info:
+  title: Fraud Model
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain handles
+    the design and maintenance of a portfolio of fraud models used across all
+    production activity to detect potential fraud on the part of customers,
+    merchants and other involved parties
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/FraudModel
+paths:
+   '/FraudModelSpecification/{fraudmodelspecificationid}/Create':
+      post:
+        tags:
+           - CR - FraudModelSpecification
+        summary: CrCR Create or register an imported fraud model
+        description: CrCR Create or register an imported fraud model
+        operationId: FraudModelSpecification/Create
+        parameters:
+           - $ref: '#/components/parameters/fraudmodelspecificationid'
+        requestBody:
+          $ref: '#/components/requestBodies/CreateFraudModelSpecificationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FraudModelSpecification/{fraudmodelspecificationid}/Retrieve':
+      get:
+        tags:
+           - CR - FraudModelSpecification
+        summary: ReCR Retrieve details about a fraud model
+        description: ReCR Retrieve details about a fraud model
+        operationId: FraudModelSpecification/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/fraudmodelspecificationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveFraudModelSpecificationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FunctionalRequirements/{functionalrequirementsid}/Update':
+      put:
+        tags:
+           - BQ - FunctionalRequirements
+        summary: UpBQ Update the requirements or other properties of a model
+        description: UpBQ Update the requirements or other properties of a model
+        operationId: FunctionalRequirements/Update
+        parameters:
+           - $ref: '#/components/parameters/functionalrequirementsid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateFunctionalRequirementsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FunctionalRequirements/{functionalrequirementsid}/Capture':
+      put:
+        tags:
+           - BQ - FunctionalRequirements
+        summary: CaBQ Capture usage reports for a fraud model
+        description: CaBQ Capture usage reports for a fraud model
+        operationId: FunctionalRequirements/Capture
+        parameters:
+           - $ref: '#/components/parameters/functionalrequirementsid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureFunctionalRequirementsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FunctionalRequirements/{functionalrequirementsid}/Request':
+      put:
+        tags:
+           - BQ - FunctionalRequirements
+        summary: RqBQ Request changes or improvements to a model
+        description: RqBQ Request changes or improvements to a model
+        operationId: FunctionalRequirements/Request
+        parameters:
+           - $ref: '#/components/parameters/functionalrequirementsid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestFunctionalRequirementsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FunctionalRequirements/{functionalrequirementsid}/Retrieve':
+      get:
+        tags:
+           - BQ - FunctionalRequirements
+        summary: ReBQ Retrieve details about the model specification and properties
+        description: ReBQ Retrieve details about the model specification and properties
+        operationId: FunctionalRequirements/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/functionalrequirementsid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveFunctionalRequirementsResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Testing/{testingid}/Update':
+      put:
+        tags:
+           - BQ - Testing
+        summary: UpBQ Update user testing content
+        description: UpBQ Update user testing content
+        operationId: Testing/Update
+        parameters:
+           - $ref: '#/components/parameters/testingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateTestingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Testing/{testingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Testing
+        summary: ReBQ Retrieve details and testing results
+        description: ReBQ Retrieve details and testing results
+        operationId: Testing/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/testingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveTestingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Production/{productionid}/Execute':
+      put:
+        tags:
+           - BQ - Production
+        summary: ExBQ Get automated support for model deployment
+        description: ExBQ Get automated support for model deployment
+        operationId: Production/Execute
+        parameters:
+           - $ref: '#/components/parameters/productionid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteProductionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Production/{productionid}/Request':
+      put:
+        tags:
+           - BQ - Production
+        summary: RqBQ Request production support for a deployed model
+        description: RqBQ Request production support for a deployed model
+        operationId: Production/Request
+        parameters:
+           - $ref: '#/components/parameters/productionid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestProductionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Production/{productionid}/Retrieve':
+      get:
+        tags:
+           - BQ - Production
+        summary: >-
+          ReBQ Retrieve details and documentation covering model production
+          deployment
+        description: >-
+          ReBQ Retrieve details and documentation covering model production
+          deployment
+        operationId: Production/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/productionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveProductionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     CreateFraudModelSpecificationRequest:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelDeploymentConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelImpact:
+              type: string
+              description: "\r\n"
+              format: String
+     CreateFraudModelSpecificationResponse:
+        type: object
+        description: ''
+        properties:
+           FraudModelPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDeploymentConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDeploymentTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelDeploymentTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelImpact:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+     CreateFraudModelSpecification:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. Decision tree,
+                Bayesian Linear Regression, Logistic Regression, Neural
+                Network))
+              format: String
+           FraudModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           FraudModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           FraudModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           FraudModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           FraudModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           FraudModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           FraudModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           FraudModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           FraudModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           FraudModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     RetrieveFraudModelSpecificationResponse:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelDeploymentConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDeploymentTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelDeploymentTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelImpact:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveFraudModelSpecification:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. Decision tree,
+                Bayesian Linear Regression, Logistic Regression, Neural
+                Network))
+              format: String
+           FraudModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           FraudModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           FraudModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           FraudModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           FraudModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           FraudModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           FraudModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           FraudModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           FraudModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           FraudModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     UpdateFunctionalRequirementsRequest:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDesignTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelDesignTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelFeedbackRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelRequirementsSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateFunctionalRequirementsResponse:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDesignTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelDesignTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelFeedbackRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelRequirementsSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateFunctionalRequirements:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. Decision tree,
+                Bayesian Linear Regression, Logistic Regression, Neural
+                Network))
+              format: String
+           FraudModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           FraudModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           FraudModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           FraudModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           FraudModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           FraudModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           FraudModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           FraudModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           FraudModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           FraudModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     CaptureFunctionalRequirementsRequest:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelFeedbackRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestFunctionalRequirementsRequest:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelImpact:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelRequirementsSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveFunctionalRequirementsResponse:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelImpact:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDesignTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelDesignTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerMarketDataServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerMarketDataRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelFeedbackRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelRequirementsSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveFunctionalRequirements:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. Decision tree,
+                Bayesian Linear Regression, Logistic Regression, Neural
+                Network))
+              format: String
+           FraudModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           FraudModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           FraudModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           FraudModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           FraudModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           FraudModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           FraudModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           FraudModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           FraudModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           FraudModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     UpdateTestingRequest:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelTestReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelTestType:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelTestHarnessReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelTestResult:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelTestingTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelTestingTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateTestingResponse:
+        type: object
+        description: ''
+        properties:
+           FraudModelTestReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelTestType:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelTestHarnessReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelTestResult:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelTestingTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelTestingTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateTesting:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. Decision tree,
+                Bayesian Linear Regression, Logistic Regression, Neural
+                Network))
+              format: String
+           FraudModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           FraudModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           FraudModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           FraudModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           FraudModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           FraudModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           FraudModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           FraudModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           FraudModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           FraudModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     RetrieveTestingResponse:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelTestReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelTestType:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelTestHarnessReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelTestResult:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelTestingTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelTestingTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveTesting:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. Decision tree,
+                Bayesian Linear Regression, Logistic Regression, Neural
+                Network))
+              format: String
+           FraudModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           FraudModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           FraudModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           FraudModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           FraudModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           FraudModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           FraudModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           FraudModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           FraudModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           FraudModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     ExecuteProductionRequest:
+        type: object
+        description: ''
+        properties:
+           FraudModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteProductionResponse:
+        type: object
+        description: ''
+        properties:
+           FraudModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDeploymentConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDeploymentTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelDeploymentTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelOperationalRequirements:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelAllowedUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelUsageGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteProduction:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. Decision tree,
+                Bayesian Linear Regression, Logistic Regression, Neural
+                Network))
+              format: String
+           FraudModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           FraudModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           FraudModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           FraudModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           FraudModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           FraudModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           FraudModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           FraudModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           FraudModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           FraudModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     RequestProductionRequest:
+        type: object
+        description: ''
+        properties:
+           FraudModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestProductionResponse:
+        type: object
+        description: ''
+        properties:
+           FraudModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDeploymentConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDeploymentTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelDeploymentTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelOperationalRequirements:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelAllowedUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelUsageGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestProduction:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. Decision tree,
+                Bayesian Linear Regression, Logistic Regression, Neural
+                Network))
+              format: String
+           FraudModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           FraudModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           FraudModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           FraudModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           FraudModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           FraudModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           FraudModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           FraudModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           FraudModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           FraudModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     RetrieveProductionResponse:
+        type: object
+        description: ''
+        properties:
+           FraudModelDeployment:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelDeploymentConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelDeploymentTaskReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudModelDeploymentTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelOperationalRequirements:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelAllowedUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudModelUsageGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveProduction:
+        type: object
+        description: ''
+        properties:
+           FraudModelType:
+              type: string
+              description: >-
+                The type or category of behavior model (e.g. Decision tree,
+                Bayesian Linear Regression, Logistic Regression, Neural
+                Network))
+              format: String
+           FraudModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           FraudModelDeployment:
+              type: string
+              description: Maintains the current deployment configuration of the model
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business units where the model is deployed and
+                in use
+              format: Object
+           FraudModelDeploymentConfiguration:
+              type: string
+              description: Details of the deployment for reference
+              format: String
+           FraudModelDeploymentTaskReference:
+              type: string
+              description: Reference to deployment task
+              format: Object
+           FraudModelDeploymentTaskRecord:
+              type: string
+              description: Recorded details of a deployment task
+              format: String
+           FraudModelStatus:
+              type: string
+              description: >-
+                The operational and development status of the model (e.g. under
+                development, available, under review)
+              format: String
+           FraudModelUsage:
+              type: string
+              description: Tracking deployment and usage frequency
+              format: String
+           FraudModelImpact:
+              type: string
+              description: Track reporting of the impact/accuracy of the model's insights
+              format: String
+           FraudModelVersion:
+              type: string
+              description: >-
+                Release version of available model plus version history as
+                appropriate
+              format: String
+           FraudModel:
+              type: string
+              description: >-
+                The deployable model in any appropriate form (including
+                historical versions as appropriate)
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     CreateFraudModelSpecificationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateFraudModelSpecificationRequest'
+        required: true
+     RetrieveFraudModelSpecificationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateFunctionalRequirementsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFunctionalRequirementsRequest'
+        required: true
+     CaptureFunctionalRequirementsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureFunctionalRequirementsRequest'
+        required: true
+     RequestFunctionalRequirementsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestFunctionalRequirementsRequest'
+        required: true
+     RetrieveFunctionalRequirementsRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateTestingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTestingRequest'
+        required: true
+     RetrieveTestingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     ExecuteProductionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteProductionRequest'
+        required: true
+     RequestProductionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestProductionRequest'
+        required: true
+     RetrieveProductionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     fraudmodelspecificationid:
+        name: fraudmodelspecificationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     functionalrequirementsid:
+        name: functionalrequirementsid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     testingid:
+        name: testingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     productionid:
+        name: productionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     CreateFraudModelSpecificationResponse:
+        description: FraudModelSpecificationCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateFraudModelSpecificationResponse'
+     RetrieveFraudModelSpecificationResponse:
+        description: FraudModelSpecificationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveFraudModelSpecificationResponse'
+     UpdateFunctionalRequirementsResponse:
+        description: FunctionalRequirementsUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFunctionalRequirementsResponse'
+     CaptureFunctionalRequirementsResponse:
+        description: FunctionalRequirementsCapture
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RequestFunctionalRequirementsResponse:
+        description: FunctionalRequirementsRequest
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrieveFunctionalRequirementsResponse:
+        description: FunctionalRequirementsRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveFunctionalRequirementsResponse'
+     UpdateTestingResponse:
+        description: TestingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTestingResponse'
+     RetrieveTestingResponse:
+        description: TestingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveTestingResponse'
+     ExecuteProductionResponse:
+        description: ProductionExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteProductionResponse'
+     RequestProductionResponse:
+        description: ProductionRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestProductionResponse'
+     RetrieveProductionResponse:
+        description: ProductionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveProductionResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

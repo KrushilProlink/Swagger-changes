@@ -1,0 +1,1099 @@
+openapi: 3.0.1
+info:
+  title: Card Terminal Administration
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain
+    administers the POS Network including the inventory, terminal
+    characteristics, deployment and status of the POS devices.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CardTerminalAdministration
+paths:
+   '/CardPOSDeviceAllocation/{cardposdeviceallocationid}/Provide':
+      post:
+        tags:
+           - CR - CardPOSDeviceAllocation
+        summary: PrCR Initial provision and registering of a point of sale (POS) device
+        description: PrCR Initial provision and registering of a point of sale (POS) device
+        operationId: CardPOSDeviceAllocation/Provide
+        parameters:
+           - $ref: '#/components/parameters/cardposdeviceallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/ProvideCardPOSDeviceAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CardPOSDeviceAllocation/{cardposdeviceallocationid}/Update':
+      put:
+        tags:
+           - CR - CardPOSDeviceAllocation
+        summary: UpCR Update details about the POS device
+        description: UpCR Update details about the POS device
+        operationId: CardPOSDeviceAllocation/Update
+        parameters:
+           - $ref: '#/components/parameters/cardposdeviceallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCardPOSDeviceAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CardPOSDeviceAllocation/{cardposdeviceallocationid}/Retrieve':
+      get:
+        tags:
+           - CR - CardPOSDeviceAllocation
+        summary: ReCR Retrieve details about the POS device
+        description: ReCR Retrieve details about the POS device
+        operationId: CardPOSDeviceAllocation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/cardposdeviceallocationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCardPOSDeviceAllocationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Allocation/{allocationid}/Provide':
+      post:
+        tags:
+           - BQ - Allocation
+        summary: PrBQ Provide/allocate the device to a merchant
+        description: PrBQ Provide/allocate the device to a merchant
+        operationId: Allocation/Provide
+        parameters:
+           - $ref: '#/components/parameters/allocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/ProvideAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Allocation/{allocationid}/Update':
+      put:
+        tags:
+           - BQ - Allocation
+        summary: UpBQ Update merchant allocation details
+        description: UpBQ Update merchant allocation details
+        operationId: Allocation/Update
+        parameters:
+           - $ref: '#/components/parameters/allocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Allocation/{allocationid}/Capture':
+      put:
+        tags:
+           - BQ - Allocation
+        summary: >-
+          CaBQ Capture details about the allocation (e.g. report out of service
+          state)
+        description: >-
+          CaBQ Capture details about the allocation (e.g. report out of service
+          state)
+        operationId: Allocation/Capture
+        parameters:
+           - $ref: '#/components/parameters/allocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Allocation/{allocationid}/Grant':
+      put:
+        tags:
+           - BQ - Allocation
+        summary: >-
+          GrBQ Obtain usage authorization grant for the device (may restrict
+          usage)
+        description: >-
+          GrBQ Obtain usage authorization grant for the device (may restrict
+          usage)
+        operationId: Allocation/Grant
+        parameters:
+           - $ref: '#/components/parameters/allocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/GrantAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Allocation/{allocationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Allocation
+        summary: ReBQ Retrieve details about the POS device allocation
+        description: ReBQ Retrieve details about the POS device allocation
+        operationId: Allocation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/allocationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAllocationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     ProvideCardPOSDeviceAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceReference:
+              type: string
+              description: Reference identification for the POS device
+              format: Object
+           CardPOSDeviceIdentifier:
+              type: string
+              description: Any unique identification properties (e.g. serial number)
+              format: String
+           CardPOSDeviceType:
+              type: string
+              description: The specific make and type of device
+              format: String
+           CardPOSDeviceSoftwareType:
+              type: string
+              description: The type of software running on the device
+              format: String
+           CardPOSDeviceSoftwareVersion:
+              type: string
+              description: The version of the software on the device
+              format: String
+           CardPOSDeviceAcquiredDate:
+              $ref: '#/components/schemas/Date'
+              description: >-
+                Date device first obtained, used for maintenance and
+                amortization
+           CardPOSRepairRecord:
+              type: string
+              description: Record of the maintenance/repair history of the device
+              format: String
+           CardPOSRepairDetails:
+              type: string
+              description: >-
+                Description of the repair or maintenance work done (includes
+                costs as appropriate)
+              format: String
+           CardPOSRepairDates:
+              $ref: '#/components/schemas/Date'
+              description: >-
+                Key dates and times relating to the repair (e.g. reported,
+                scheduled, effort, returned to service)
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+     Date:
+        type: object
+        description: >-
+          Date device first obtained, used for maintenance and amortization
+          ISODate|ISODate
+          (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022
+          BM ()
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     ProvideCardPOSDeviceAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+     ProvideCardPOSDeviceAllocation:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceReference:
+              type: string
+              description: Reference identification for the POS device
+              format: Object
+           CardPOSDeviceIdentifier:
+              type: string
+              description: Any unique identification properties (e.g. serial number)
+              format: String
+           CardPOSDeviceType:
+              type: string
+              description: The specific make and type of device
+              format: String
+           CardPOSDeviceSoftwareType:
+              type: string
+              description: The type of software running on the device
+              format: String
+           CardPOSDeviceSoftwareVersion:
+              type: string
+              description: The version of the software on the device
+              format: String
+           CardPOSDeviceAcquiredDate:
+              $ref: '#/components/schemas/Date'
+           CardPOSRepairRecord:
+              type: string
+              description: Record of the maintenance/repair history of the device
+              format: String
+           CardPOSRepairDetails:
+              type: string
+              description: >-
+                Description of the repair or maintenance work done (includes
+                costs as appropriate)
+              format: String
+           CardPOSRepairDates:
+              $ref: '#/components/schemas/Date'
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+     UpdateCardPOSDeviceAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceReference:
+              type: string
+              description: Reference identification for the POS device
+              format: Object
+           CardPOSDeviceIdentifier:
+              type: string
+              description: Any unique identification properties (e.g. serial number)
+              format: String
+           CardPOSDeviceType:
+              type: string
+              description: The specific make and type of device
+              format: String
+           CardPOSDeviceSoftwareType:
+              type: string
+              description: The type of software running on the device
+              format: String
+           CardPOSDeviceSoftwareVersion:
+              type: string
+              description: The version of the software on the device
+              format: String
+           CardPOSDeviceAcquiredDate:
+              $ref: '#/components/schemas/Date'
+              description: >-
+                Date device first obtained, used for maintenance and
+                amortization
+           CardPOSRepairRecord:
+              type: string
+              description: Record of the maintenance/repair history of the device
+              format: String
+           CardPOSRepairDetails:
+              type: string
+              description: >-
+                Description of the repair or maintenance work done (includes
+                costs as appropriate)
+              format: String
+           CardPOSRepairDates:
+              $ref: '#/components/schemas/Date'
+              description: >-
+                Key dates and times relating to the repair (e.g. reported,
+                scheduled, effort, returned to service)
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+     UpdateCardPOSDeviceAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceReference:
+              type: string
+              description: Reference identification for the POS device
+              format: Object
+           CardPOSDeviceIdentifier:
+              type: string
+              description: Any unique identification properties (e.g. serial number)
+              format: String
+           CardPOSDeviceType:
+              type: string
+              description: The specific make and type of device
+              format: String
+           CardPOSDeviceSoftwareType:
+              type: string
+              description: The type of software running on the device
+              format: String
+           CardPOSDeviceSoftwareVersion:
+              type: string
+              description: The version of the software on the device
+              format: String
+           CardPOSDeviceAcquiredDate:
+              $ref: '#/components/schemas/Date'
+           CardPOSRepairRecord:
+              type: string
+              description: Record of the maintenance/repair history of the device
+              format: String
+           CardPOSRepairDetails:
+              type: string
+              description: >-
+                Description of the repair or maintenance work done (includes
+                costs as appropriate)
+              format: String
+           CardPOSRepairDates:
+              $ref: '#/components/schemas/Date'
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+     UpdateCardPOSDeviceAllocation:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceReference:
+              type: string
+              description: Reference identification for the POS device
+              format: Object
+           CardPOSDeviceIdentifier:
+              type: string
+              description: Any unique identification properties (e.g. serial number)
+              format: String
+           CardPOSDeviceType:
+              type: string
+              description: The specific make and type of device
+              format: String
+           CardPOSDeviceSoftwareType:
+              type: string
+              description: The type of software running on the device
+              format: String
+           CardPOSDeviceSoftwareVersion:
+              type: string
+              description: The version of the software on the device
+              format: String
+           CardPOSDeviceAcquiredDate:
+              $ref: '#/components/schemas/Date'
+           CardPOSRepairRecord:
+              type: string
+              description: Record of the maintenance/repair history of the device
+              format: String
+           CardPOSRepairDetails:
+              type: string
+              description: >-
+                Description of the repair or maintenance work done (includes
+                costs as appropriate)
+              format: String
+           CardPOSRepairDates:
+              $ref: '#/components/schemas/Date'
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+     RetrieveCardPOSDeviceAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceReference:
+              type: string
+              description: Reference identification for the POS device
+              format: Object
+           CardPOSDeviceIdentifier:
+              type: string
+              description: Any unique identification properties (e.g. serial number)
+              format: String
+           CardPOSDeviceType:
+              type: string
+              description: The specific make and type of device
+              format: String
+           CardPOSDeviceSoftwareType:
+              type: string
+              description: The type of software running on the device
+              format: String
+           CardPOSDeviceSoftwareVersion:
+              type: string
+              description: The version of the software on the device
+              format: String
+           CardPOSDeviceAcquiredDate:
+              $ref: '#/components/schemas/Date'
+           CardPOSRepairRecord:
+              type: string
+              description: Record of the maintenance/repair history of the device
+              format: String
+           CardPOSRepairDetails:
+              type: string
+              description: >-
+                Description of the repair or maintenance work done (includes
+                costs as appropriate)
+              format: String
+           CardPOSRepairDates:
+              $ref: '#/components/schemas/Date'
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+     RetrieveCardPOSDeviceAllocation:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceReference:
+              type: string
+              description: Reference identification for the POS device
+              format: Object
+           CardPOSDeviceIdentifier:
+              type: string
+              description: Any unique identification properties (e.g. serial number)
+              format: String
+           CardPOSDeviceType:
+              type: string
+              description: The specific make and type of device
+              format: String
+           CardPOSDeviceSoftwareType:
+              type: string
+              description: The type of software running on the device
+              format: String
+           CardPOSDeviceSoftwareVersion:
+              type: string
+              description: The version of the software on the device
+              format: String
+           CardPOSDeviceAcquiredDate:
+              $ref: '#/components/schemas/Date'
+           CardPOSRepairRecord:
+              type: string
+              description: Record of the maintenance/repair history of the device
+              format: String
+           CardPOSRepairDetails:
+              type: string
+              description: >-
+                Description of the repair or maintenance work done (includes
+                costs as appropriate)
+              format: String
+           CardPOSRepairDates:
+              $ref: '#/components/schemas/Date'
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+     ProvideAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceReference:
+              type: string
+              description: Reference identification for the POS device
+              format: Object
+           CardPOSDeviceIdentifier:
+              type: string
+              description: Any unique identification properties (e.g. serial number)
+              format: String
+           CardPOSDeviceType:
+              type: string
+              description: The specific make and type of device
+              format: String
+           CardPOSDeviceSoftwareType:
+              type: string
+              description: The type of software running on the device
+              format: String
+           CardPOSDeviceSoftwareVersion:
+              type: string
+              description: The version of the software on the device
+              format: String
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+           MerchantReference:
+              type: string
+              description: Reference to the Card merchant registered with the device
+              format: Object
+           MerchantType:
+              type: string
+              description: The type of merchant (e.g. retailer, hotel)
+              format: String
+           MerchantLocation:
+              type: string
+              description: The physical location/address of the retailer and the device
+              format: String
+           CardPOSDeviceConfiguration:
+              type: string
+              description: >-
+                The configuration defines its operational
+                characteristics/capabilities e.g. (PIN pad, transaction capture,
+                tip handling, transaction descriptive, manual entry, security
+                keys, balancing, receipt options/text, communication options,
+                card types, currencies, etc.)
+              format: String
+     ProvideAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+     ProvideAllocation:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceReference:
+              type: string
+              description: Reference identification for the POS device
+              format: Object
+           CardPOSDeviceIdentifier:
+              type: string
+              description: Any unique identification properties (e.g. serial number)
+              format: String
+           CardPOSDeviceType:
+              type: string
+              description: The specific make and type of device
+              format: String
+           CardPOSDeviceSoftwareType:
+              type: string
+              description: The type of software running on the device
+              format: String
+           CardPOSDeviceSoftwareVersion:
+              type: string
+              description: The version of the software on the device
+              format: String
+           CardPOSDeviceAcquiredDate:
+              $ref: '#/components/schemas/Date'
+           CardPOSRepairRecord:
+              type: string
+              description: Record of the maintenance/repair history of the device
+              format: String
+           CardPOSRepairDetails:
+              type: string
+              description: >-
+                Description of the repair or maintenance work done (includes
+                costs as appropriate)
+              format: String
+           CardPOSRepairDates:
+              $ref: '#/components/schemas/Date'
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+     UpdateAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           MerchantReference:
+              type: string
+              description: Reference to the Card merchant registered with the device
+              format: Object
+           MerchantType:
+              type: string
+              description: The type of merchant (e.g. retailer, hotel)
+              format: String
+           MerchantLocation:
+              type: string
+              description: The physical location/address of the retailer and the device
+              format: String
+           CardPOSDeviceConfiguration:
+              type: string
+              description: >-
+                The configuration defines its operational
+                characteristics/capabilities e.g. (PIN pad, transaction capture,
+                tip handling, transaction descriptive, manual entry, security
+                keys, balancing, receipt options/text, communication options,
+                card types, currencies, etc.)
+              format: String
+     UpdateAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           MerchantReference:
+              type: string
+              description: Reference to the Card merchant registered with the device
+              format: Object
+           MerchantType:
+              type: string
+              description: The type of merchant (e.g. retailer, hotel)
+              format: String
+           MerchantLocation:
+              type: string
+              description: The physical location/address of the retailer and the device
+              format: String
+           CardPOSDeviceConfiguration:
+              type: string
+              description: >-
+                The configuration defines its operational
+                characteristics/capabilities e.g. (PIN pad, transaction capture,
+                tip handling, transaction descriptive, manual entry, security
+                keys, balancing, receipt options/text, communication options,
+                card types, currencies, etc.)
+              format: String
+     UpdateAllocation:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceReference:
+              type: string
+              description: Reference identification for the POS device
+              format: Object
+           CardPOSDeviceIdentifier:
+              type: string
+              description: Any unique identification properties (e.g. serial number)
+              format: String
+           CardPOSDeviceType:
+              type: string
+              description: The specific make and type of device
+              format: String
+           CardPOSDeviceSoftwareType:
+              type: string
+              description: The type of software running on the device
+              format: String
+           CardPOSDeviceSoftwareVersion:
+              type: string
+              description: The version of the software on the device
+              format: String
+           CardPOSDeviceAcquiredDate:
+              $ref: '#/components/schemas/Date'
+           CardPOSRepairRecord:
+              type: string
+              description: Record of the maintenance/repair history of the device
+              format: String
+           CardPOSRepairDetails:
+              type: string
+              description: >-
+                Description of the repair or maintenance work done (includes
+                costs as appropriate)
+              format: String
+           CardPOSRepairDates:
+              $ref: '#/components/schemas/Date'
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+     CaptureAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+     CaptureAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+     CaptureAllocation:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceReference:
+              type: string
+              description: Reference identification for the POS device
+              format: Object
+           CardPOSDeviceIdentifier:
+              type: string
+              description: Any unique identification properties (e.g. serial number)
+              format: String
+           CardPOSDeviceType:
+              type: string
+              description: The specific make and type of device
+              format: String
+           CardPOSDeviceSoftwareType:
+              type: string
+              description: The type of software running on the device
+              format: String
+           CardPOSDeviceSoftwareVersion:
+              type: string
+              description: The version of the software on the device
+              format: String
+           CardPOSDeviceAcquiredDate:
+              $ref: '#/components/schemas/Date'
+           CardPOSRepairRecord:
+              type: string
+              description: Record of the maintenance/repair history of the device
+              format: String
+           CardPOSRepairDetails:
+              type: string
+              description: >-
+                Description of the repair or maintenance work done (includes
+                costs as appropriate)
+              format: String
+           CardPOSRepairDates:
+              $ref: '#/components/schemas/Date'
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+     GrantAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceReference:
+              type: string
+              description: Reference identification for the POS device
+              format: Object
+           CardPOSDeviceIdentifier:
+              type: string
+              description: Any unique identification properties (e.g. serial number)
+              format: String
+     RetrieveAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceReference:
+              type: string
+              description: Reference identification for the POS device
+              format: Object
+           CardPOSDeviceIdentifier:
+              type: string
+              description: Any unique identification properties (e.g. serial number)
+              format: String
+           CardPOSDeviceType:
+              type: string
+              description: The specific make and type of device
+              format: String
+           CardPOSDeviceSoftwareType:
+              type: string
+              description: The type of software running on the device
+              format: String
+           CardPOSDeviceSoftwareVersion:
+              type: string
+              description: The version of the software on the device
+              format: String
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+           MerchantReference:
+              type: string
+              description: Reference to the Card merchant registered with the device
+              format: Object
+           MerchantType:
+              type: string
+              description: The type of merchant (e.g. retailer, hotel)
+              format: String
+           MerchantLocation:
+              type: string
+              description: The physical location/address of the retailer and the device
+              format: String
+           CardPOSDeviceConfiguration:
+              type: string
+              description: >-
+                The configuration defines its operational
+                characteristics/capabilities e.g. (PIN pad, transaction capture,
+                tip handling, transaction descriptive, manual entry, security
+                keys, balancing, receipt options/text, communication options,
+                card types, currencies, etc.)
+              format: String
+     RetrieveAllocation:
+        type: object
+        description: ''
+        properties:
+           CardPOSDeviceReference:
+              type: string
+              description: Reference identification for the POS device
+              format: Object
+           CardPOSDeviceIdentifier:
+              type: string
+              description: Any unique identification properties (e.g. serial number)
+              format: String
+           CardPOSDeviceType:
+              type: string
+              description: The specific make and type of device
+              format: String
+           CardPOSDeviceSoftwareType:
+              type: string
+              description: The type of software running on the device
+              format: String
+           CardPOSDeviceSoftwareVersion:
+              type: string
+              description: The version of the software on the device
+              format: String
+           CardPOSDeviceAcquiredDate:
+              $ref: '#/components/schemas/Date'
+           CardPOSRepairRecord:
+              type: string
+              description: Record of the maintenance/repair history of the device
+              format: String
+           CardPOSRepairDetails:
+              type: string
+              description: >-
+                Description of the repair or maintenance work done (includes
+                costs as appropriate)
+              format: String
+           CardPOSRepairDates:
+              $ref: '#/components/schemas/Date'
+           CardPOSDeviceStatus:
+              type: string
+              description: >-
+                The status of the POS device (e.g. testing, in production, help
+                inventory, under repair, replaced/terminated)
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     ProvideCardPOSDeviceAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ProvideCardPOSDeviceAllocationRequest'
+        required: true
+     UpdateCardPOSDeviceAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCardPOSDeviceAllocationRequest'
+        required: true
+     RetrieveCardPOSDeviceAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     ProvideAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ProvideAllocationRequest'
+        required: true
+     UpdateAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAllocationRequest'
+        required: true
+     CaptureAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureAllocationRequest'
+        required: true
+     GrantAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/GrantAllocationRequest'
+        required: true
+     RetrieveAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     cardposdeviceallocationid:
+        name: cardposdeviceallocationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     allocationid:
+        name: allocationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     ProvideCardPOSDeviceAllocationResponse:
+        description: CardPOSDeviceAllocationProvide
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ProvideCardPOSDeviceAllocationResponse'
+     UpdateCardPOSDeviceAllocationResponse:
+        description: CardPOSDeviceAllocationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCardPOSDeviceAllocationResponse'
+     RetrieveCardPOSDeviceAllocationResponse:
+        description: CardPOSDeviceAllocationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCardPOSDeviceAllocationResponse'
+     ProvideAllocationResponse:
+        description: AllocationProvide
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ProvideAllocationResponse'
+     UpdateAllocationResponse:
+        description: AllocationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAllocationResponse'
+     CaptureAllocationResponse:
+        description: AllocationCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureAllocationResponse'
+     GrantAllocationResponse:
+        description: AllocationGrant
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrieveAllocationResponse:
+        description: AllocationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAllocationResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

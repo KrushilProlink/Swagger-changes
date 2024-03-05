@@ -1,0 +1,3773 @@
+openapi: 3.0.1
+info:
+  title: Customer Relationship Management
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain develops
+    and executes a customer plan to maintain and build a customer relationship.
+    Activities include ongoing customer contact, tracking internal and external
+    events and activity of interest and relevance, product and service matching
+    and sales, processing adhoc queries, trouble shooting and issue resolution
+    including the initial phases of troubled account recovery
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CustomerRelationshipManagement
+paths:
+   '/CustomerRelationshipManagementPlan/{customerrelationshipmanagementplanid}/Create':
+      post:
+        tags:
+           - CR - CustomerRelationshipManagementPlan
+        summary: CrCR Create an initial relationship management plan
+        description: CrCR Create an initial relationship management plan
+        operationId: CustomerRelationshipManagementPlan/Create
+        parameters:
+           - $ref: '#/components/parameters/customerrelationshipmanagementplanid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/CreateCustomerRelationshipManagementPlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerRelationshipManagementPlan/{customerrelationshipmanagementplanid}/Update':
+      put:
+        tags:
+           - CR - CustomerRelationshipManagementPlan
+        summary: UpCR Update details of an active relationship plan
+        description: UpCR Update details of an active relationship plan
+        operationId: CustomerRelationshipManagementPlan/Update
+        parameters:
+           - $ref: '#/components/parameters/customerrelationshipmanagementplanid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateCustomerRelationshipManagementPlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerRelationshipManagementPlan/{customerrelationshipmanagementplanid}/Control':
+      put:
+        tags:
+           - CR - CustomerRelationshipManagementPlan
+        summary: CoCR Control the processing of a relationship plan (e.g. suspend)
+        description: CoCR Control the processing of a relationship plan (e.g. suspend)
+        operationId: CustomerRelationshipManagementPlan/Control
+        parameters:
+           - $ref: '#/components/parameters/customerrelationshipmanagementplanid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ControlCustomerRelationshipManagementPlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerRelationshipManagementPlan/{customerrelationshipmanagementplanid}/Exchange':
+      put:
+        tags:
+           - CR - CustomerRelationshipManagementPlan
+        summary: EcCR Accept, verify, reject aspects of the plan
+        description: EcCR Accept, verify, reject aspects of the plan
+        operationId: CustomerRelationshipManagementPlan/Exchange
+        parameters:
+           - $ref: '#/components/parameters/customerrelationshipmanagementplanid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExchangeCustomerRelationshipManagementPlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerRelationshipManagementPlan/{customerrelationshipmanagementplanid}/Request':
+      put:
+        tags:
+           - CR - CustomerRelationshipManagementPlan
+        summary: >-
+          RqCR Request intervention with a relationship plan (e.g. arrange a
+          customer meeting)
+        description: >-
+          RqCR Request intervention with a relationship plan (e.g. arrange a
+          customer meeting)
+        operationId: CustomerRelationshipManagementPlan/Request
+        parameters:
+           - $ref: '#/components/parameters/customerrelationshipmanagementplanid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestCustomerRelationshipManagementPlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerRelationshipManagementPlan/{customerrelationshipmanagementplanid}/Grant':
+      put:
+        tags:
+           - CR - CustomerRelationshipManagementPlan
+        summary: >-
+          GrCR Grant authorization for actions that impact the plan (e.g.
+          qualify eligibility for a campaign)
+        description: >-
+          GrCR Grant authorization for actions that impact the plan (e.g.
+          qualify eligibility for a campaign)
+        operationId: CustomerRelationshipManagementPlan/Grant
+        parameters:
+           - $ref: '#/components/parameters/customerrelationshipmanagementplanid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/GrantCustomerRelationshipManagementPlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerRelationshipManagementPlan/{customerrelationshipmanagementplanid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerRelationshipManagementPlan
+        summary: ReCR Retrieve details about a relationship plan
+        description: ReCR Retrieve details about a relationship plan
+        operationId: CustomerRelationshipManagementPlan/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customerrelationshipmanagementplanid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveCustomerRelationshipManagementPlanResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Development/{developmentid}/Create':
+      post:
+        tags:
+           - BQ - Development
+        summary: >-
+          CrBQ Create customer development capability  (initialize the
+          capability)
+        description: >-
+          CrBQ Create customer development capability  (initialize the
+          capability)
+        operationId: Development/Create
+        parameters:
+           - $ref: '#/components/parameters/developmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/CreateDevelopmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Development/{developmentid}/Update':
+      put:
+        tags:
+           - BQ - Development
+        summary: UpBQ Update details about a relationship development task
+        description: UpBQ Update details about a relationship development task
+        operationId: Development/Update
+        parameters:
+           - $ref: '#/components/parameters/developmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateDevelopmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Development/{developmentid}/Exchange':
+      put:
+        tags:
+           - BQ - Development
+        summary: EcBQ Accept, reject, verify a development activity
+        description: EcBQ Accept, reject, verify a development activity
+        operationId: Development/Exchange
+        parameters:
+           - $ref: '#/components/parameters/developmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeDevelopmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Development/{developmentid}/Request':
+      put:
+        tags:
+           - BQ - Development
+        summary: RqBQ Request a relationship development task
+        description: RqBQ Request a relationship development task
+        operationId: Development/Request
+        parameters:
+           - $ref: '#/components/parameters/developmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestDevelopmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Development/{developmentid}/Retrieve':
+      get:
+        tags:
+           - BQ - Development
+        summary: ReBQ Retrieve details about relationship development activity
+        description: ReBQ Retrieve details about relationship development activity
+        operationId: Development/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/developmentid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveDevelopmentResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Incident/{incidentid}/Create':
+      post:
+        tags:
+           - BQ - Incident
+        summary: >-
+          CrBQ Create customer incident reporting capability (initialize the
+          capability)
+        description: >-
+          CrBQ Create customer incident reporting capability (initialize the
+          capability)
+        operationId: Incident/Create
+        parameters:
+           - $ref: '#/components/parameters/incidentid'
+        requestBody:
+          $ref: '#/components/requestBodies/CreateIncidentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Incident/{incidentid}/Update':
+      put:
+        tags:
+           - BQ - Incident
+        summary: UpBQ Update details about a customer incident
+        description: UpBQ Update details about a customer incident
+        operationId: Incident/Update
+        parameters:
+           - $ref: '#/components/parameters/incidentid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateIncidentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Incident/{incidentid}/Control':
+      put:
+        tags:
+           - BQ - Incident
+        summary: >-
+          CoBQ Control the processing of a customer incident (e.g. raise
+          priority)
+        description: >-
+          CoBQ Control the processing of a customer incident (e.g. raise
+          priority)
+        operationId: Incident/Control
+        parameters:
+           - $ref: '#/components/parameters/incidentid'
+        requestBody:
+          $ref: '#/components/requestBodies/ControlIncidentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Incident/{incidentid}/Exchange':
+      put:
+        tags:
+           - BQ - Incident
+        summary: EcBQ Accept, reject, confirm details about a customer incident
+        description: EcBQ Accept, reject, confirm details about a customer incident
+        operationId: Incident/Exchange
+        parameters:
+           - $ref: '#/components/parameters/incidentid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeIncidentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Incident/{incidentid}/Capture':
+      put:
+        tags:
+           - BQ - Incident
+        summary: CaBQ Capture details of a new customer incident
+        description: CaBQ Capture details of a new customer incident
+        operationId: Incident/Capture
+        parameters:
+           - $ref: '#/components/parameters/incidentid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureIncidentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Incident/{incidentid}/Retrieve':
+      get:
+        tags:
+           - BQ - Incident
+        summary: ReBQ Retrieve details about a customer incident
+        description: ReBQ Retrieve details about a customer incident
+        operationId: Incident/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/incidentid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveIncidentResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Contact/{contactid}/Create':
+      post:
+        tags:
+           - BQ - Contact
+        summary: CrBQ Create contact handling capability (initialize and track)
+        description: CrBQ Create contact handling capability (initialize and track)
+        operationId: Contact/Create
+        parameters:
+           - $ref: '#/components/parameters/contactid'
+        requestBody:
+          $ref: '#/components/requestBodies/CreateContactRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Contact/{contactid}/Update':
+      put:
+        tags:
+           - BQ - Contact
+        summary: UpCR Update details of a customer contact
+        description: UpCR Update details of a customer contact
+        operationId: Contact/Update
+        parameters:
+           - $ref: '#/components/parameters/contactid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateContactRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Contact/{contactid}/Request':
+      put:
+        tags:
+           - BQ - Contact
+        summary: RqBQ Request a customer contact
+        description: RqBQ Request a customer contact
+        operationId: Contact/Request
+        parameters:
+           - $ref: '#/components/parameters/contactid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestContactRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Contact/{contactid}/Retrieve':
+      get:
+        tags:
+           - BQ - Contact
+        summary: ReBQ Retrieve details about customer contacts
+        description: ReBQ Retrieve details about customer contacts
+        operationId: Contact/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/contactid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveContactResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     CreateCustomerRelationshipManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+              description: "\r\n"
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+              description: "\r\n"
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+              description: "\r\n"
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+              description: "\r\n"
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+              description: "\r\n"
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+              description: "\r\n"
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+              description: "\r\n"
+     Involvedparty:
+        type: object
+        description: "\r\n - "
+        properties:
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyInvolvement:
+              $ref: '#/components/schemas/Partyrole'
+              description: ''
+     Party:
+        type: object
+        description: ' '
+        properties:
+           PartyName:
+              $ref: '#/components/schemas/Name'
+              description: >-
+                Name by which a party is known and which is usually used to
+                identify that party. (ISO20022)
+           PartyType:
+              enum:
+                   -  Person
+                   -  Organisation
+              type: string
+              description: ">-\r\n* `Person` \r\n* `Organisation` \r\n* "
+           PartyDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           PartyIdentification:
+              $ref: '#/components/schemas/Partyidentification'
+              description: ''
+           PartyLegalStructureType:
+              enum:
+                   -  Individual
+                   -  CommunityInterestCompany
+                   -  CoOperative
+                   -  Charity
+                   -  GeneralPartnership
+                   -  LimitedLiabilityPartnership
+                   -  ScottishLimitedPartnership
+                   -  LimitedPartnership
+                   -  PrivateLimitedCompany
+                   -  PublicLimitedCompany
+                   -  Sole(SoleTrader)
+              type: string
+              description: ">-\r\n* `Individual` \r\n* `CommunityInterestCompany` \r\n* `CoOperative` \r\n* `Charity` \r\n* `GeneralPartnership` \r\n* `LimitedLiabilityPartnership` \r\n* `ScottishLimitedPartnership` \r\n* `LimitedPartnership` \r\n* `PrivateLimitedCompany` \r\n* `PublicLimitedCompany` \r\n* `SoleSoleTrader` \r\n* "
+     Name:
+        type: object
+        description: >-
+          Name by which a party is known and which is usually used to identify
+          that party. (ISO20022)
+           
+        properties:
+           Name:
+              type: string
+              description: >-
+                A name is a word or phrase that constitutes the distinctive
+                designation of a person, place, thing or concept. (UN/CEFAT)
+              format: DataType
+     Datetime:
+        type: object
+        description: ' '
+        properties:
+           DateTimeContent:
+              type: string
+              description: ''
+              format: String
+           TimeZoneCode:
+              type: string
+              description: ''
+              format: String
+           DaylightSavingIndicator:
+              type: string
+              description: ''
+              format: String
+           Datetime:
+              type: string
+              description: >-
+                A date time identifies a date and time of day to various common
+                resolutions: year, month, week, day, hour, minute, second, and
+                fraction of second. (UN/CEFACT)
+
+
+                A particular point in the progression of time defined by a
+                mandatory date and a mandatory time component, expressed in
+                either UTC time format (YYYYMMDDThh:mm:ss.sssZ), local time
+                with UTC offset format (YYYYMMDDThh:mm:ss.sss/hh:mm), or
+                local time format (YYYYMMDDThh:mm:ss.sss). These
+                representations are defined in "XML Schema Part 2: Datatypes
+                Second Edition  W3C Recommendation 28 October 2004" which is
+                aligned with ISO 8601. (ISO20022)
+
+                Note on the time format:
+
+                1) beginning / end of calendar day
+
+                00:00:00  -  the beginning of a calendar day
+
+                24:00:00  -  the end of a calendar day
+
+                2) fractions of second in time format
+
+                Decimal fractions of seconds may be included. In this case, the
+                involved parties shall agree on the maximum number of digits
+                that are allowed.
+              format: DataType
+     Partyidentification:
+        type: object
+        description: ' '
+        properties:
+           PartyIdentificationType:
+              enum:
+                   -  Taxidentificationnumber
+                   -  Nationalregistrationnumber
+                   -  LEI(LegalEntityIdentifier)
+                   -  Alienregistrationnumber
+                   -  Passportnumber
+                   -  Corporateidentification
+                   -  Driverlicensenumber
+                   -  Socialsecuritynumber
+                   -  Identitycardnumber
+                   -  Concat
+              type: string
+              description: ">-\r\n* `Taxidentificationnumber` \r\n* `Nationalregistrationnumber` \r\n* `LEILegalEntityIdentifier` \r\n* `Alienregistrationnumber` \r\n* `Passportnumber` \r\n* `Corporateidentification` \r\n* `Driverlicensenumber` \r\n* `Socialsecuritynumber` \r\n* `Identitycardnumber` \r\n* `Concat` \r\n* "
+           PartyIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           Partyidentification:
+              type: string
+              description: ''
+              format: DataType
+     Identifier:
+        type: object
+        description: ' '
+        properties:
+           IdentifierValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           IdentifierIssuingAuthority:
+              $ref: '#/components/schemas/Involvedparty'
+              description: Entity that assigns and manages the identification.
+           IdentifierStartDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           IdentifierEndDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Partyrole:
+        type: object
+        description: ' '
+        properties:
+           PartyRoleType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           PartyRoleName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           PartyRoleValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           PartyInvolvementType:
+              enum:
+                   -  Agreementinvolvement
+                   -  Partyinvolvement
+                   -  Arrangementinvolvement
+                   -  Relationshipinvolvement
+                   -  Locationinvolvement
+                   -  Bankguaranteeinvolvement
+              type: string
+              description: ">-\r\n* `Agreementinvolvement` \r\n* `Partyinvolvement` \r\n* `Arrangementinvolvement` \r\n* `Relationshipinvolvement` \r\n* `Locationinvolvement` \r\n* `Bankguaranteeinvolvement` \r\n* "
+     Text:
+        type: object
+        description: ' '
+        properties:
+           Text:
+              type: string
+              description: >-
+                Text is a character string such as a finite set of characters
+                generally in the form of words of a language. (UN/CEFACT)
+              format: DataType
+     Datetimeperiod:
+        type: object
+        description: ' '
+        properties:
+           FromDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range starts. (ISO20022)
+           ToDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range ends. (ISO20022)
+           Datetimeperiod:
+              type: string
+              description: >-
+                Time span defined by a start date and time, and an end date and
+                time. (ISO20022)
+              format: DataType
+     CustomerRating:
+        type: object
+        description: "\r\n - "
+        properties:
+           CustomerRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRatingValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           CustomerRatingDescription:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           CustomerRatingValueDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           CustomerRatingValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+     CustomerRelationshipBudget:
+        type: object
+        description: "\r\n - "
+        properties:
+           CustomerRelationshipBudget:
+              type: string
+              description: >-
+                The budget which is planned to spend for a specific customer
+                relationship. 
+              format: Class
+     CustomerProductCoverage:
+        type: object
+        description: "\r\n - "
+        properties:
+           CustomerProductCoverage:
+              type: string
+              description: ''
+              format: Class
+     ProductUsage:
+        type: object
+        description: "\r\n - "
+        properties:
+           ProductUsageDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           ProductUsageVolume:
+              $ref: '#/components/schemas/Text'
+              description: Usage volume/frequency for inforce product.
+           ProductUsageIndicator:
+              $ref: '#/components/schemas/Yesnoindicator'
+              description: >-
+                An indicator specifying if the whether the customer has bought 
+                the banking product or not. 
+     Yesnoindicator:
+        type: object
+        description: >-
+          An indicator specifying if the whether the customer has bought  the
+          banking product or not.  
+        properties:
+           Yesnoindicator:
+              type: string
+              description: >-
+                Indicates a "Yes" or "No" type of answer for an element.
+                (ISO20022)
+
+                true: Yes
+
+                false: No
+              format: DataType
+     CustomerProductEligibilityProfileClass:
+        type: object
+        description: "\r\n - "
+        properties:
+           CustomerProductEligibilityProfileClass:
+              type: string
+              description: >-
+                A value of Customer Product Profile Type whereby customer
+                product eligibility will be defined.
+              format: Class
+     Plan:
+        type: object
+        description: "\r\n - "
+        properties:
+           PlanGoal:
+              $ref: '#/components/schemas/Goal'
+              description: ''
+           PlanBudget:
+              $ref: '#/components/schemas/Budgetarrangement'
+              description: >-
+                An arrangement which is specifying an estimate of costs,
+                revenues, and resources over a specified period, reflecting a
+                reading of future financial conditions and goals. (adapted from
+                Business Dictionary)
+           PlannedAction:
+              $ref: '#/components/schemas/Plannedaction'
+              description: >-
+                An action that is arranged in a plan for doing or achieving
+                something 
+           PlanType:
+              $ref: '#/components/schemas/Plantype'
+              description: A Classification value that specifies the type of Plan
+           PlanOrganisation:
+              type: string
+              description: ''
+              format: String
+           PlanValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           PlanDescription:
+              $ref: '#/components/schemas/Text'
+              description: ''
+     Goal:
+        type: object
+        description: ' '
+        properties:
+           GoalType:
+              type: string
+              description: The type of goal
+              format: String
+           GoalDefinition:
+              type: string
+              description: >-
+                A definition of the goal, including the intended actions
+                required to achieve the goal
+              format: String
+           GoalOrganisation:
+              type: string
+              description: >-
+                Identifies the interested parties and their roles and
+                responsibilities for the specific actions supporting the
+                achievement of the goal
+              format: ''
+           GoalResult:
+              type: string
+              description: >-
+                Assessment of how the work is progressing towards achieving the
+                goal, including projections of likely outcomes
+              format: String
+           Goal:
+              type: string
+              description: >-
+                A goal represents a highlevel statement of intent, direction,
+                or desired end state for an organization and its stakeholders.
+                (ArchiMate 3.1)
+
+
+                An observable and measurable end result having one or more
+                objectives to be achieved within a more or less fixed timeframe.
+
+
+                Read more:
+                http://www.businessdictionary.com/definition/goal.html
+              format: Class
+     Budgetarrangement:
+        type: object
+        description: >-
+          An arrangement which is specifying an estimate of costs, revenues, and
+          resources over a specified period, reflecting a reading of future
+          financial conditions and goals. (adapted from Business Dictionary) 
+        properties:
+           BudgetType:
+              $ref: '#/components/schemas/Budgettype'
+              description: A Classification value that specifies the type of Budget
+           BudgetAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           BudgetArrangement:
+              type: string
+              description: >-
+                An arrangement which is specifying an estimate of costs,
+                revenues, and resources over a specified period, reflecting a
+                reading of future financial conditions and goals. (adapted from
+                Business Dictionary)
+
+
+                Read more:
+                http://www.businessdictionary.com/definition/budget.html
+
+
+
+                A budget is an estimation of revenue and expenses over a
+                specified future period of time and is utilized by governments,
+                businesses, and individuals.
+
+                A budget is basically a financial plan for a defined period,
+                normally a year that is known to greatly enhance the success of
+                any financial undertaking. (Investopedia)
+
+
+                https://www.investopedia.com/terms/b/budget.asp
+              format: Class
+     Budgettype:
+        type: object
+        description: 'A Classification value that specifies the type of Budget '
+        properties:
+           BudgetTypeName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           BudgetType:
+              enum:
+                   -  OperatingBudget
+                   -  FinancialBudget
+                   -  ResourceBudget
+              type: string
+              description: ">-\r\n* `OperatingBudget` \r\n* `FinancialBudget` \r\n* `ResourceBudget` \r\n* "
+     Amount:
+        type: object
+        description: ' '
+        properties:
+           AmountValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           AmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           DecimalPointPosition:
+              type: string
+              description: |
+                Decimal point position starts calulating from the right
+              format: String
+           AmountType:
+              enum:
+                   -  Principal
+                   -  Actual
+                   -  Estimated
+                   -  Maximum
+                   -  Default
+                   -  Replacement
+                   -  Incremental
+                   -  Decremental
+                   -  Reserved
+                   -  Available
+                   -  Used
+              type: string
+              description: ">-\r\n* `Principal` \r\n* `Actual` \r\n* `Estimated` \r\n* `Maximum` \r\n* `Default` \r\n* `Replacement` \r\n* `Incremental` \r\n* `Decremental` \r\n* `Reserved` \r\n* `Available` \r\n* `Used` \r\n* "
+     Currencycode:
+        type: object
+        description: ' '
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     Plannedaction:
+        type: object
+        description: >-
+          An action that is arranged in a plan for doing or achieving
+          something  
+        properties:
+           PlannedAction:
+              type: string
+              description: >-
+                An action that is arranged in a plan for doing or achieving
+                something 
+              format: Class
+     Plantype:
+        type: object
+        description: 'A Classification value that specifies the type of Plan '
+        properties:
+           PlanTypeName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           PlanType:
+              enum:
+                   -  AdministrativePlan
+                   -  ManagementPlan
+                   -  StratgyPlan
+                   -  FinancialPlan
+              type: string
+              description: ">-\r\n* `AdministrativePlan` \r\n* `ManagementPlan` \r\n* `StratgyPlan` \r\n* `FinancialPlan` \r\n* "
+           Plantype:
+              type: string
+              description: 'Data type specifies the classification of a Plan '
+              format: DataType
+     CustomerProfitability:
+        type: object
+        description: "\r\n - "
+        properties:
+           CustomerProfitability:
+              type: string
+              description: >-
+                The profitability for a specific customer relationship. 
+
+
+                Profitability: The state or condition of yielding a financial
+                profit or gain. (Business Dictionary)
+              format: Class
+     CreateCustomerRelationshipManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     CreateCustomerRelationshipManagementPlan:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     UpdateCustomerRelationshipManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+              description: "\r\n"
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+              description: "\r\n"
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+              description: "\r\n"
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+              description: "\r\n"
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+              description: "\r\n"
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+              description: "\r\n"
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+              description: "\r\n"
+     UpdateCustomerRelationshipManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     UpdateCustomerRelationshipManagementPlan:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     ControlCustomerRelationshipManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+              description: "\r\n"
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+              description: "\r\n"
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+              description: "\r\n"
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+              description: "\r\n"
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+              description: "\r\n"
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+              description: "\r\n"
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+              description: "\r\n"
+     ControlCustomerRelationshipManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     ControlCustomerRelationshipManagementPlan:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     ExchangeCustomerRelationshipManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+              description: "\r\n"
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+              description: "\r\n"
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+              description: "\r\n"
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+              description: "\r\n"
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+              description: "\r\n"
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+              description: "\r\n"
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+              description: "\r\n"
+     ExchangeCustomerRelationshipManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     ExchangeCustomerRelationshipManagementPlan:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     RequestCustomerRelationshipManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+              description: "\r\n"
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+              description: "\r\n"
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+              description: "\r\n"
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+              description: "\r\n"
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+              description: "\r\n"
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+              description: "\r\n"
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+              description: "\r\n"
+     RequestCustomerRelationshipManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     RequestCustomerRelationshipManagementPlan:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     GrantCustomerRelationshipManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+              description: "\r\n"
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+              description: "\r\n"
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+              description: "\r\n"
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+              description: "\r\n"
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+              description: "\r\n"
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+              description: "\r\n"
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+              description: "\r\n"
+     GrantCustomerRelationshipManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     GrantCustomerRelationshipManagementPlan:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     RetrieveCustomerRelationshipManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+              description: "\r\n"
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+              description: "\r\n"
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+              description: "\r\n"
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+              description: "\r\n"
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+              description: "\r\n"
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+              description: "\r\n"
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+              description: "\r\n"
+     RetrieveCustomerRelationshipManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     RetrieveCustomerRelationshipManagementPlan:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     CreateDevelopmentRequest:
+        type: object
+        description: ''
+        properties:
+           RelationshipDevelopmentTask:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+              description: "\r\n"
+           CustomerDevelopmentTaskType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerDevelopmentTaskDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerRelationshipDevelopmentPlan:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerDevelopmentWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           CustomerDevelopmentTaskResult:
+              $ref: '#/components/schemas/Task'
+              description: "\r\n"
+     CustomerRelationshipDevelopment:
+        type: object
+        description: "\r\n - "
+        properties:
+           CustomerRelationshipDevelopmentTaskType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           CustomerRelationshipDevelopmentTaskDescription:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           CustomerRelationshipDevelopmentTaskResult:
+              $ref: '#/components/schemas/Text'
+              description: ''
+     Workproduct:
+        type: object
+        description: "\r\n - "
+        properties:
+           WorkProductType:
+              enum:
+                   -  Document
+                   -  WorkingPaper
+                   -  ActivityLog
+                   -  Form
+                   -  File
+                   -  MeetingSchedule
+                   -  MeetingMinute
+              type: string
+              description: ">-\r\n* `Document` \r\n* `WorkingPaper` \r\n* `ActivityLog` \r\n* `Form` \r\n* `File` \r\n* `MeetingSchedule` \r\n* `MeetingMinute` \r\n* "
+           WorkProductIdentifoication:
+              type: string
+              description: ''
+              format: String
+     Task:
+        type: object
+        description: "\r\n - "
+        properties:
+           Task:
+              type: string
+              description: ''
+              format: DataType
+     CreateDevelopmentResponse:
+        type: object
+        description: ''
+        properties:
+           RelationshipDevelopmentTask:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+           CustomerDevelopmentTaskType:
+              $ref: '#/components/schemas/Text'
+           CustomerDevelopmentTaskDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerRelationshipDevelopmentPlan:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerDevelopmentWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+           CustomerDevelopmentTaskResult:
+              $ref: '#/components/schemas/Task'
+     CreateDevelopment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     UpdateDevelopmentRequest:
+        type: object
+        description: ''
+        properties:
+           RelationshipDevelopmentTask:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+              description: "\r\n"
+           CustomerDevelopmentTaskType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerDevelopmentTaskDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerRelationshipDevelopmentPlan:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerDevelopmentWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           CustomerDevelopmentTaskResult:
+              $ref: '#/components/schemas/Task'
+              description: "\r\n"
+     UpdateDevelopmentResponse:
+        type: object
+        description: ''
+        properties:
+           RelationshipDevelopmentTask:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+           CustomerDevelopmentTaskType:
+              $ref: '#/components/schemas/Text'
+           CustomerDevelopmentTaskDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerRelationshipDevelopmentPlan:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerDevelopmentWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+           CustomerDevelopmentTaskResult:
+              $ref: '#/components/schemas/Task'
+     UpdateDevelopment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     ExchangeDevelopmentRequest:
+        type: object
+        description: ''
+        properties:
+           RelationshipDevelopmentTask:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+              description: "\r\n"
+           CustomerDevelopmentTaskType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerDevelopmentTaskDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerRelationshipDevelopmentPlan:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerDevelopmentWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           CustomerDevelopmentTaskResult:
+              $ref: '#/components/schemas/Task'
+              description: "\r\n"
+     ExchangeDevelopmentResponse:
+        type: object
+        description: ''
+        properties:
+           RelationshipDevelopmentTask:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+           CustomerDevelopmentTaskType:
+              $ref: '#/components/schemas/Text'
+           CustomerDevelopmentTaskDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerRelationshipDevelopmentPlan:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerDevelopmentWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+           CustomerDevelopmentTaskResult:
+              $ref: '#/components/schemas/Task'
+     ExchangeDevelopment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     RequestDevelopmentRequest:
+        type: object
+        description: ''
+        properties:
+           RelationshipDevelopmentTask:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+              description: "\r\n"
+           CustomerDevelopmentTaskType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerDevelopmentTaskDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerRelationshipDevelopmentPlan:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerDevelopmentWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           CustomerDevelopmentTaskResult:
+              $ref: '#/components/schemas/Task'
+              description: "\r\n"
+     RequestDevelopmentResponse:
+        type: object
+        description: ''
+        properties:
+           RelationshipDevelopmentTask:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+           CustomerDevelopmentTaskType:
+              $ref: '#/components/schemas/Text'
+           CustomerDevelopmentTaskDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerRelationshipDevelopmentPlan:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerDevelopmentWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+           CustomerDevelopmentTaskResult:
+              $ref: '#/components/schemas/Task'
+     RequestDevelopment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     RetrieveDevelopmentRequest:
+        type: object
+        description: ''
+        properties:
+           RelationshipDevelopmentTask:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+              description: "\r\n"
+           CustomerDevelopmentTaskType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerDevelopmentTaskDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerRelationshipDevelopmentPlan:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerDevelopmentWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           CustomerDevelopmentTaskResult:
+              $ref: '#/components/schemas/Task'
+              description: "\r\n"
+     RetrieveDevelopmentResponse:
+        type: object
+        description: ''
+        properties:
+           RelationshipDevelopmentTask:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+           CustomerDevelopmentTaskType:
+              $ref: '#/components/schemas/Text'
+           CustomerDevelopmentTaskDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerRelationshipDevelopmentPlan:
+              $ref: '#/components/schemas/CustomerRelationshipDevelopment'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerDevelopmentWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+           CustomerDevelopmentTaskResult:
+              $ref: '#/components/schemas/Task'
+     RetrieveDevelopment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     CreateIncidentRequest:
+        type: object
+        description: ''
+        properties:
+           RelationshipIncidentRecord:
+              $ref: '#/components/schemas/CustomerIncident'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           ProductandServiceActivityReference:
+              $ref: '#/components/schemas/Transaction'
+              description: "\r\n"
+           CustomerIncidentType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerIncidentDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerIncidentResolution:
+              $ref: '#/components/schemas/CustomerCaseResolution'
+              description: "\r\n"
+     CustomerIncident:
+        type: object
+        description: "\r\n - "
+        properties:
+           CustomerIncidentType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           CustomerIncidentSource:
+              type: string
+              description: ''
+              format: String
+           CustomerIncidentDescription:
+              type: string
+              description: ''
+              format: String
+           CustomerIncidentResolution:
+              type: string
+              description: ''
+              format: String
+     Transaction:
+        type: object
+        description: "\r\n - "
+        properties:
+           TransactionIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: >-
+                An identifier that allows to uniquely refer to an instance of a
+                transaction.
+           TransactionDate:
+              $ref: '#/components/schemas/Transactiondate'
+              description: >-
+                The Date that the transaction has occurred or is planned to
+                occur.
+
+                A characteristic of transaction which refers to the
+                LifecycleDate of transaction (e.g., initiated date, executed
+                date, fulfillment date). 
+           TransactionType:
+              enum:
+                   -  FinancialTransaction
+                   -  BusinessTransaction
+                   -  BankingTransaction
+                   -  AccountingTransaction
+                   -  BookingTransaction
+                   -  AllocationTransaction
+                   -  DeliveryTransaction
+                   -  ProductionTransaction
+              type: string
+              description: ">-\r\n* `FinancialTransaction` \r\n* `BusinessTransaction` \r\n* `BankingTransaction` \r\n* `AccountingTransaction` \r\n* `BookingTransaction` \r\n* `AllocationTransaction` \r\n* `DeliveryTransaction` \r\n* `ProductionTransaction` \r\n* "
+           TransactionDescription:
+              $ref: '#/components/schemas/Text'
+              description: A detailed explanation or commentary of transaction.
+           TransactionStatus:
+              $ref: '#/components/schemas/Transactionlifecyclestatus'
+              description: >-
+                A characteristic of transaction which refers to the
+                LifecycleStatus of transaction (e.g., initiated, executed,
+                confirmed, cancelled, etc.) 
+           TransactionName:
+              $ref: '#/components/schemas/Name'
+              description: The name of transaction.
+     Transactiondate:
+        type: object
+        description: >-
+          The Date that the transaction has occurred or is planned to occur.
+
+          A characteristic of transaction which refers to the LifecycleDate of
+          transaction (e.g., initiated date, executed date, fulfillment date).  
+        properties:
+           TransactionDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           TransactionDateType:
+              enum:
+                   -  TransactionExecutedDate
+                   -  TransactionFulfillmentDate
+                   -  TransactionInitiatedDate
+                   -  TransactionCancelledDate
+                   -  TransactionApprovedDate
+              type: string
+              description: ">-\r\n* `TransactionExecutedDate` \r\n* `TransactionFulfillmentDate` \r\n* `TransactionInitiatedDate` \r\n* `TransactionCancelledDate` \r\n* `TransactionApprovedDate` \r\n* "
+     Transactionlifecyclestatus:
+        type: object
+        description: >-
+          A characteristic of transaction which refers to the LifecycleStatus of
+          transaction (e.g., initiated, executed, confirmed, cancelled, etc.)  
+        properties:
+           TransactionLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           TransactionLifecycleStatusType:
+              enum:
+                   -  Initiated
+                   -  Executed
+                   -  Cancelled
+                   -  Confirmed
+                   -  Suspended
+                   -  Pending
+                   -  Completed
+                   -  Notified
+                   -  Booked
+                   -  Rejected
+              type: string
+              description: ">-\r\n* `Initiated` \r\n* `Executed` \r\n* `Cancelled` \r\n* `Confirmed` \r\n* `Suspended` \r\n* `Pending` \r\n* `Completed` \r\n* `Notified` \r\n* `Booked` \r\n* `Rejected` \r\n* "
+     Status:
+        type: object
+        description: ' '
+        properties:
+           StatusReason:
+              $ref: '#/components/schemas/Text'
+              description: Specifies the reasons for the status.
+           StatusDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the status was assigned.
+           StatusValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: Period of time during which the status is valid.
+           StatusInvolvedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: >-
+                Party who plays a  specific role in the context of assigning a
+                status.
+     CustomerCaseResolution:
+        type: object
+        description: "\r\n - "
+        properties:
+           CustomerCaseResolution:
+              type: string
+              description: ''
+              format: Class
+     CreateIncidentResponse:
+        type: object
+        description: ''
+        properties:
+           RelationshipIncidentRecord:
+              $ref: '#/components/schemas/CustomerIncident'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductandServiceActivityReference:
+              $ref: '#/components/schemas/Transaction'
+           CustomerIncidentType:
+              $ref: '#/components/schemas/Text'
+           CustomerIncidentDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerIncidentResolution:
+              $ref: '#/components/schemas/CustomerCaseResolution'
+     CreateIncident:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     UpdateIncidentRequest:
+        type: object
+        description: ''
+        properties:
+           RelationshipIncidentRecord:
+              $ref: '#/components/schemas/CustomerIncident'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           ProductandServiceActivityReference:
+              $ref: '#/components/schemas/Transaction'
+              description: "\r\n"
+           CustomerIncidentType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerIncidentDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerIncidentResolution:
+              $ref: '#/components/schemas/CustomerCaseResolution'
+              description: "\r\n"
+     UpdateIncidentResponse:
+        type: object
+        description: ''
+        properties:
+           RelationshipIncidentRecord:
+              $ref: '#/components/schemas/CustomerIncident'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductandServiceActivityReference:
+              $ref: '#/components/schemas/Transaction'
+           CustomerIncidentType:
+              $ref: '#/components/schemas/Text'
+           CustomerIncidentDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerIncidentResolution:
+              $ref: '#/components/schemas/CustomerCaseResolution'
+     UpdateIncident:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     ControlIncidentRequest:
+        type: object
+        description: ''
+        properties:
+           RelationshipIncidentRecord:
+              $ref: '#/components/schemas/CustomerIncident'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           ProductandServiceActivityReference:
+              $ref: '#/components/schemas/Transaction'
+              description: "\r\n"
+           CustomerIncidentType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerIncidentDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerIncidentResolution:
+              $ref: '#/components/schemas/CustomerCaseResolution'
+              description: "\r\n"
+     ControlIncidentResponse:
+        type: object
+        description: ''
+        properties:
+           RelationshipIncidentRecord:
+              $ref: '#/components/schemas/CustomerIncident'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductandServiceActivityReference:
+              $ref: '#/components/schemas/Transaction'
+           CustomerIncidentType:
+              $ref: '#/components/schemas/Text'
+           CustomerIncidentDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerIncidentResolution:
+              $ref: '#/components/schemas/CustomerCaseResolution'
+     ControlIncident:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     ExchangeIncidentRequest:
+        type: object
+        description: ''
+        properties:
+           RelationshipIncidentRecord:
+              $ref: '#/components/schemas/CustomerIncident'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           ProductandServiceActivityReference:
+              $ref: '#/components/schemas/Transaction'
+              description: "\r\n"
+           CustomerIncidentType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerIncidentDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerIncidentResolution:
+              $ref: '#/components/schemas/CustomerCaseResolution'
+              description: "\r\n"
+     ExchangeIncidentResponse:
+        type: object
+        description: ''
+        properties:
+           RelationshipIncidentRecord:
+              $ref: '#/components/schemas/CustomerIncident'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductandServiceActivityReference:
+              $ref: '#/components/schemas/Transaction'
+           CustomerIncidentType:
+              $ref: '#/components/schemas/Text'
+           CustomerIncidentDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerIncidentResolution:
+              $ref: '#/components/schemas/CustomerCaseResolution'
+     ExchangeIncident:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     CaptureIncidentRequest:
+        type: object
+        description: ''
+        properties:
+           RelationshipIncidentRecord:
+              $ref: '#/components/schemas/CustomerIncident'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           ProductandServiceActivityReference:
+              $ref: '#/components/schemas/Transaction'
+              description: "\r\n"
+           CustomerIncidentType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerIncidentDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerIncidentResolution:
+              $ref: '#/components/schemas/CustomerCaseResolution'
+              description: "\r\n"
+     CaptureIncidentResponse:
+        type: object
+        description: ''
+        properties:
+           RelationshipIncidentRecord:
+              $ref: '#/components/schemas/CustomerIncident'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductandServiceActivityReference:
+              $ref: '#/components/schemas/Transaction'
+           CustomerIncidentType:
+              $ref: '#/components/schemas/Text'
+           CustomerIncidentDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerIncidentResolution:
+              $ref: '#/components/schemas/CustomerCaseResolution'
+     CaptureIncident:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     RetrieveIncidentRequest:
+        type: object
+        description: ''
+        properties:
+           RelationshipIncidentRecord:
+              $ref: '#/components/schemas/CustomerIncident'
+              description: "\r\n"
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           ProductandServiceActivityReference:
+              $ref: '#/components/schemas/Transaction'
+              description: "\r\n"
+           CustomerIncidentType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerIncidentDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerIncidentResolution:
+              $ref: '#/components/schemas/CustomerCaseResolution'
+              description: "\r\n"
+     RetrieveIncidentResponse:
+        type: object
+        description: ''
+        properties:
+           RelationshipIncidentRecord:
+              $ref: '#/components/schemas/CustomerIncident'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductandServiceActivityReference:
+              $ref: '#/components/schemas/Transaction'
+           CustomerIncidentType:
+              $ref: '#/components/schemas/Text'
+           CustomerIncidentDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerIncidentResolution:
+              $ref: '#/components/schemas/CustomerCaseResolution'
+     RetrieveIncident:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     CreateContactRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipContactHistory:
+              $ref: '#/components/schemas/CustomerContact'
+              description: "\r\n"
+           CustomerRelationshipContactSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           CustomerRelationshipContactRecord:
+              $ref: '#/components/schemas/CustomerContact'
+              description: "\r\n"
+           CustomerRelationshipContactDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           EmployeeReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerRelationshipContactType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerRelationshipContactResult:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     CustomerContact:
+        type: object
+        description: "\r\n - "
+        properties:
+           ContactType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           ContactDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: The start and end date times for the contact
+           ContactLocation:
+              $ref: '#/components/schemas/Location'
+              description: ''
+           ContactSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: The schedule of past and planned customer contacts
+           ContactResult:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                The interpreted result of the contact (e.g. completed, customer
+                terminated, timedout)
+           ContactPurpose:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                The reason and or purpose for the contact (e.g. review, issue,
+                product sales, advice, customer enquiry)
+           ContactDevice:
+              $ref: '#/components/schemas/Device'
+              description: ''
+           ContactIndicator:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                Indicates whether this is an inbound or outbound contact
+                (inbound is customer initiated, outbound is servicing resource
+                initiated).
+           ContactContent:
+              $ref: '#/components/schemas/Text'
+              description: ''
+     Location:
+        type: object
+        description: ' '
+        properties:
+           LocationDescription:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                A description of the property, particularly if it has landmark
+                characteristics.
+           LocationDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: >-
+                Key dates associated with the directory entry (e.g. open date,
+                refresh date).
+           LocationStatus:
+              $ref: '#/components/schemas/Status'
+              description: >-
+                The tracked status (e.g. under construction or repair,
+                inhabited, vacant).
+           LocationType:
+              enum:
+                   -  Continent
+                   -  Country
+                   -  State
+                   -  District
+                   -  Province
+                   -  Town
+                   -  City
+                   -  Region
+              type: string
+              description: ">-\r\n* `Continent` \r\n* `Country` \r\n* `State` \r\n* `District` \r\n* `Province` \r\n* `Town` \r\n* `City` \r\n* `Region` \r\n* "
+           LocationZoningType:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                The planning or zoning status (e.g. residential, commercial,
+                industrial).
+           LocationNeighborhoodType:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                The general purpose and neighborhood of the property  (e.g.
+                residential, industrial, commercial).
+           LocationConstructionType:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                The construction approach for a property at the location (e.g.
+                era and architecture as might be used in valuation).
+           LocationOccupancyType:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                The type of occupancy (e.g. residency, business, retail,
+                entertainment).
+           LocationValue:
+              $ref: '#/components/schemas/Value'
+              description: >-
+                The estimated (book) value of the property at the location 
+                rental and purchase as appropriate.
+           LocationCapacity:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                An indication of the size or scale of the property where
+                appropriate (e.g. 4 bedroom, 600 seat auditorium, 40 cover
+                restaurant).
+           LocationIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           LocationAddress:
+              $ref: '#/components/schemas/Address'
+              description: ''
+           Location:
+              type: string
+              description: >-
+                The definition of an addressable space/position both in real and
+                virtual environments with associated uses and entitlements
+              format: Class
+           LocationName:
+              $ref: '#/components/schemas/Name'
+              description: Name (label) of the location. (ISO20022)
+           LocationTimeZone:
+              $ref: '#/components/schemas/Text'
+              description: Local time zone.
+     Address:
+        type: object
+        description: ' '
+        properties:
+           AddressType:
+              enum:
+                   -  PostalAddress
+                   -  GeolocationAddress
+                   -  LatitudeAddress
+                   -  LongitudeAddress
+                   -  ElectronicAddress
+              type: string
+              description: ">-\r\n* `PostalAddress` \r\n* `GeolocationAddress` \r\n* `LatitudeAddress` \r\n* `LongitudeAddress` \r\n* `ElectronicAddress` \r\n* "
+           LocationReference:
+              $ref: '#/components/schemas/Location'
+              description: ''
+           Address:
+              type: string
+              description: >-
+                A specific designation or description of a location, typically
+                used for specifying the location or destination of something or
+                someone
+              format: Class
+     Schedule:
+        type: object
+        description: 'The schedule of past and planned customer contacts '
+        properties:
+           ScheduleType:
+              type: string
+              description: ''
+              format: String
+     Device:
+        type: object
+        description: ' '
+        properties:
+           DeviceIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           DeviceType:
+              enum:
+                   -  Securecardreader
+                   -  Nonsecurecardreader
+                   -  Mobile
+                   -  Tablet
+                   -  Personalcomputer
+                   -  Othernational
+                   -  Otherprivate
+                   -  Wearable
+                   -  Vehicle
+                   -  Embedded
+                   -  Keyfob
+                   -  Jewellery
+                   -  Sticker
+                   -  Gamingdevice
+                   -  Watch
+                   -  Unknown
+                   -  BiometricDevice
+              type: string
+              description: ">-\r\n* `Securecardreader` \r\n* `Nonsecurecardreader` \r\n* `Mobile` \r\n* `Tablet` \r\n* `Personalcomputer` \r\n* `Othernational` \r\n* `Otherprivate` \r\n* `Wearable` \r\n* `Vehicle` \r\n* `Embedded` \r\n* `Keyfob` \r\n* `Jewellery` \r\n* `Sticker` \r\n* `Gamingdevice` \r\n* `Watch` \r\n* `Unknown` \r\n* `BiometricDevice` \r\n* "
+           DeviceProperty:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                Property of a device relevant for its use.
+
+
+                A device has the characteristics of the device type it belongs
+                to,possibly specified
+
+                e.g. . a device of the type "cheque book" will have cheques. The
+                device specifies how many and what the number range is.
+
+                e.g. an electronic banking app consists of software modules, the
+                device specifies what version 
+           DeviceElement:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                An element of the device that can be used independently and is
+                individually identified
+
+
+                e.g. a cheque in a chequebook
+           DeviceStatus:
+              $ref: '#/components/schemas/Status'
+              description: |
+                The life cycle stage of a device
+
+                e.g. active, defect
+           DeviceVersion:
+              type: string
+              description: ''
+              format: Number
+           DeviceDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           DeviceDescription:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           DeviceName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           DeviceLanguage:
+              $ref: '#/components/schemas/Text'
+              description: Preferred language set on the device
+           DevicePhoneNumber:
+              $ref: '#/components/schemas/Text'
+              description: Phone number associated with the device.
+           DeviceLocation:
+              $ref: '#/components/schemas/Location'
+              description: Geographical location of the device.
+           DeviceManufacturer:
+              $ref: '#/components/schemas/Text'
+              description: Manufacturer of the device.
+           DeviceCountry:
+              $ref: '#/components/schemas/Country'
+              description: Country of the location.
+           DeviceAddress:
+              $ref: '#/components/schemas/Address'
+              description: >-
+                The address associated with the device like Internet Protocol
+                address, email Address
+           DeviceAddressType:
+              enum:
+                   -  PostalAddress
+                   -  GeolocationAddress
+                   -  LatitudeAddress
+                   -  LongitudeAddress
+                   -  ElectronicAddress
+              type: string
+              description: ">-\r\n* `PostalAddress` \r\n* `GeolocationAddress` \r\n* `LatitudeAddress` \r\n* `LongitudeAddress` \r\n* `ElectronicAddress` \r\n* "
+           DeviceOperatingSystem:
+              enum:
+                   -  Android
+                   -  Ios
+                   -  Windows
+                   -  Blackberry
+                   -  Tizen
+                   -  Othernational
+                   -  Otherprivate
+              type: string
+              description: ">-\r\n* `Android` \r\n* `Ios` \r\n* `Windows` \r\n* `Blackberry` \r\n* `Tizen` \r\n* `Othernational` \r\n* `Otherprivate` \r\n* "
+           DeviceIdentificationType:
+              enum:
+                   -  IMEI
+                   -  Serialnumber
+                   -  Secureelementidentification
+                   -  Othernational
+                   -  Otherprivate
+              type: string
+              description: ">-\r\n* `IMEI` \r\n* `Serialnumber` \r\n* `Secureelementidentification` \r\n* `Othernational` \r\n* `Otherprivate` \r\n* "
+     Country:
+        type: object
+        description: 'Country of the location. '
+        properties:
+           NationalRegulatoryAuthority:
+              $ref: '#/components/schemas/Involvedparty'
+              description: Regulatory authority of the country. (ISO20022)
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     CreateContactResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipContactHistory:
+              $ref: '#/components/schemas/CustomerContact'
+           CustomerRelationshipContactSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CustomerRelationshipContactRecord:
+              $ref: '#/components/schemas/CustomerContact'
+           CustomerRelationshipContactDate:
+              $ref: '#/components/schemas/Date'
+           EmployeeReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipContactType:
+              $ref: '#/components/schemas/Text'
+           CustomerRelationshipContactResult:
+              $ref: '#/components/schemas/Text'
+     CreateContact:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     UpdateContactRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipContactHistory:
+              $ref: '#/components/schemas/CustomerContact'
+              description: "\r\n"
+           CustomerRelationshipContactSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           CustomerRelationshipContactRecord:
+              $ref: '#/components/schemas/CustomerContact'
+              description: "\r\n"
+           CustomerRelationshipContactDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           EmployeeReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerRelationshipContactType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerRelationshipContactResult:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     UpdateContactResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipContactHistory:
+              $ref: '#/components/schemas/CustomerContact'
+           CustomerRelationshipContactSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CustomerRelationshipContactRecord:
+              $ref: '#/components/schemas/CustomerContact'
+           CustomerRelationshipContactDate:
+              $ref: '#/components/schemas/Date'
+           EmployeeReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipContactType:
+              $ref: '#/components/schemas/Text'
+           CustomerRelationshipContactResult:
+              $ref: '#/components/schemas/Text'
+     UpdateContact:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     RequestContactRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipContactHistory:
+              $ref: '#/components/schemas/CustomerContact'
+              description: "\r\n"
+           CustomerRelationshipContactSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           CustomerRelationshipContactRecord:
+              $ref: '#/components/schemas/CustomerContact'
+              description: "\r\n"
+           CustomerRelationshipContactDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           EmployeeReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerRelationshipContactType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerRelationshipContactResult:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     RequestContactResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipContactHistory:
+              $ref: '#/components/schemas/CustomerContact'
+           CustomerRelationshipContactSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CustomerRelationshipContactRecord:
+              $ref: '#/components/schemas/CustomerContact'
+           CustomerRelationshipContactDate:
+              $ref: '#/components/schemas/Date'
+           EmployeeReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipContactType:
+              $ref: '#/components/schemas/Text'
+           CustomerRelationshipContactResult:
+              $ref: '#/components/schemas/Text'
+     RequestContact:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     RetrieveContactRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipContactHistory:
+              $ref: '#/components/schemas/CustomerContact'
+              description: "\r\n"
+           CustomerRelationshipContactSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           CustomerRelationshipContactRecord:
+              $ref: '#/components/schemas/CustomerContact'
+              description: "\r\n"
+           CustomerRelationshipContactDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           EmployeeReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerRelationshipContactType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerRelationshipContactResult:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     RetrieveContactResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipContactHistory:
+              $ref: '#/components/schemas/CustomerContact'
+           CustomerRelationshipContactSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CustomerRelationshipContactRecord:
+              $ref: '#/components/schemas/CustomerContact'
+           CustomerRelationshipContactDate:
+              $ref: '#/components/schemas/Date'
+           EmployeeReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipContactType:
+              $ref: '#/components/schemas/Text'
+           CustomerRelationshipContactResult:
+              $ref: '#/components/schemas/Text'
+     RetrieveContact:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           EmployeeBusinessUnitReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerRelationshipRatingType:
+              enum:
+                   -  Customerprofitability
+                   -  Customercreditrating
+              type: string
+              description: ">-\r\n* `Customerprofitability` \r\n* `Customercreditrating` \r\n* "
+           CustomerRelationshipRating:
+              $ref: '#/components/schemas/CustomerRating'
+           CustomerInsightType:
+              $ref: '#/components/schemas/Text'
+           CustomerInsightDescription:
+              $ref: '#/components/schemas/Text'
+           CustomerBudget:
+              $ref: '#/components/schemas/CustomerRelationshipBudget'
+           CustomerProductCoverage:
+              $ref: '#/components/schemas/CustomerProductCoverage'
+           CustomerProductUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           CustomerProductEligibilityProfile:
+              $ref: '#/components/schemas/CustomerProductEligibilityProfileClass'
+           CustomerSalesPlan:
+              $ref: '#/components/schemas/Plan'
+           CustomerProfitability:
+              $ref: '#/components/schemas/CustomerProfitability'
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     CreateCustomerRelationshipManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/CreateCustomerRelationshipManagementPlanRequest
+        required: true
+     UpdateCustomerRelationshipManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCustomerRelationshipManagementPlanRequest
+        required: true
+     ControlCustomerRelationshipManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ControlCustomerRelationshipManagementPlanRequest
+        required: true
+     ExchangeCustomerRelationshipManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExchangeCustomerRelationshipManagementPlanRequest
+        required: true
+     RequestCustomerRelationshipManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestCustomerRelationshipManagementPlanRequest
+        required: true
+     GrantCustomerRelationshipManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/GrantCustomerRelationshipManagementPlanRequest
+        required: true
+     RetrieveCustomerRelationshipManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveCustomerRelationshipManagementPlanRequest
+        required: true
+     CreateDevelopmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateDevelopmentRequest'
+        required: true
+     UpdateDevelopmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateDevelopmentRequest'
+        required: true
+     ExchangeDevelopmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeDevelopmentRequest'
+        required: true
+     RequestDevelopmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestDevelopmentRequest'
+        required: true
+     RetrieveDevelopmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveDevelopmentRequest'
+        required: true
+     CreateIncidentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateIncidentRequest'
+        required: true
+     UpdateIncidentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateIncidentRequest'
+        required: true
+     ControlIncidentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlIncidentRequest'
+        required: true
+     ExchangeIncidentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeIncidentRequest'
+        required: true
+     CaptureIncidentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureIncidentRequest'
+        required: true
+     RetrieveIncidentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveIncidentRequest'
+        required: true
+     CreateContactRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateContactRequest'
+        required: true
+     UpdateContactRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateContactRequest'
+        required: true
+     RequestContactRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestContactRequest'
+        required: true
+     RetrieveContactRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveContactRequest'
+        required: true
+  parameters:
+     customerrelationshipmanagementplanid:
+        name: customerrelationshipmanagementplanid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     developmentid:
+        name: developmentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     incidentid:
+        name: incidentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     contactid:
+        name: contactid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     CreateCustomerRelationshipManagementPlanResponse:
+        description: CustomerRelationshipManagementPlanCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/CreateCustomerRelationshipManagementPlanResponse
+     UpdateCustomerRelationshipManagementPlanResponse:
+        description: CustomerRelationshipManagementPlanUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCustomerRelationshipManagementPlanResponse
+     ControlCustomerRelationshipManagementPlanResponse:
+        description: CustomerRelationshipManagementPlanControl
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ControlCustomerRelationshipManagementPlanResponse
+     ExchangeCustomerRelationshipManagementPlanResponse:
+        description: CustomerRelationshipManagementPlanExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExchangeCustomerRelationshipManagementPlanResponse
+     RequestCustomerRelationshipManagementPlanResponse:
+        description: CustomerRelationshipManagementPlanRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestCustomerRelationshipManagementPlanResponse
+     GrantCustomerRelationshipManagementPlanResponse:
+        description: CustomerRelationshipManagementPlanGrant
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/GrantCustomerRelationshipManagementPlanResponse
+     RetrieveCustomerRelationshipManagementPlanResponse:
+        description: CustomerRelationshipManagementPlanRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveCustomerRelationshipManagementPlanResponse
+     CreateDevelopmentResponse:
+        description: DevelopmentCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateDevelopmentResponse'
+     UpdateDevelopmentResponse:
+        description: DevelopmentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateDevelopmentResponse'
+     ExchangeDevelopmentResponse:
+        description: DevelopmentExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeDevelopmentResponse'
+     RequestDevelopmentResponse:
+        description: DevelopmentRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestDevelopmentResponse'
+     RetrieveDevelopmentResponse:
+        description: DevelopmentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveDevelopmentResponse'
+     CreateIncidentResponse:
+        description: IncidentCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateIncidentResponse'
+     UpdateIncidentResponse:
+        description: IncidentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateIncidentResponse'
+     ControlIncidentResponse:
+        description: IncidentControl
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlIncidentResponse'
+     ExchangeIncidentResponse:
+        description: IncidentExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeIncidentResponse'
+     CaptureIncidentResponse:
+        description: IncidentCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureIncidentResponse'
+     RetrieveIncidentResponse:
+        description: IncidentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveIncidentResponse'
+     CreateContactResponse:
+        description: ContactCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateContactResponse'
+     UpdateContactResponse:
+        description: ContactUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateContactResponse'
+     RequestContactResponse:
+        description: ContactRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestContactResponse'
+     RetrieveContactResponse:
+        description: ContactRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveContactResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

@@ -1,0 +1,739 @@
+openapi: 3.0.1
+info:
+  title: Financial Accounting
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | The Financial Accounting
+    Service Domain takes in financial facts and based on these, creates
+    accounting instructions that will update the general ledger and sub ledger
+    accounts
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/FinancialAccounting
+paths:
+   '/FinancialBookingLog/{financialbookinglogid}/Initiate':
+      post:
+        tags:
+           - CR - FinancialBookingLog
+        summary: InCR Initiate a financial accounting log (account)
+        description: InCR Initiate a financial accounting log (account)
+        operationId: FinancialBookingLog/Initiate
+        parameters:
+           - $ref: '#/components/parameters/financialbookinglogid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateFinancialBookingLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FinancialBookingLog/{financialbookinglogid}/Update':
+      put:
+        tags:
+           - CR - FinancialBookingLog
+        summary: UpCR Update details for an active financial account
+        description: UpCR Update details for an active financial account
+        operationId: FinancialBookingLog/Update
+        parameters:
+           - $ref: '#/components/parameters/financialbookinglogid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateFinancialBookingLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FinancialBookingLog/{financialbookinglogid}/Retrieve':
+      get:
+        tags:
+           - CR - FinancialBookingLog
+        summary: ReCR Retrieve information about the log
+        description: ReCR Retrieve information about the log
+        operationId: FinancialBookingLog/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/financialbookinglogid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveFinancialBookingLogResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/LedgerPosting/{ledgerpostingid}/Update':
+      put:
+        tags:
+           - BQ - LedgerPosting
+        summary: UpBQ Update details of a posting (repair)
+        description: UpBQ Update details of a posting (repair)
+        operationId: LedgerPosting/Update
+        parameters:
+           - $ref: '#/components/parameters/ledgerpostingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateLedgerPostingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/LedgerPosting/{ledgerpostingid}/Capture':
+      put:
+        tags:
+           - BQ - LedgerPosting
+        summary: CaBQ Post to the financial account
+        description: CaBQ Post to the financial account
+        operationId: LedgerPosting/Capture
+        parameters:
+           - $ref: '#/components/parameters/ledgerpostingid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureLedgerPostingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/LedgerPosting/{ledgerpostingid}/Retrieve':
+      get:
+        tags:
+           - BQ - LedgerPosting
+        summary: ReBQ Retrieve details of postings from the account
+        description: ReBQ Retrieve details of postings from the account
+        operationId: LedgerPosting/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/ledgerpostingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveLedgerPostingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateFinancialBookingLogRequest:
+        type: object
+        description: ''
+        properties:
+           FinancialAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChartofAccountBookingRules:
+              type: string
+              description: "\r\n"
+              format: String
+           BaseCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+     Currencycode:
+        type: object
+        description: ' CurrencyCode|CurrencyCode (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022 BM ()'
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     InitiateFinancialBookingLogResponse:
+        type: object
+        description: ''
+        properties:
+           Status:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateFinancialBookingLog:
+        type: object
+        description: ''
+        properties:
+           FinancialAccountType:
+              type: string
+              description: The type of accounting facility (e.g. journal, subledger)
+              format: String
+           ProductandServiceReference:
+              type: string
+              description: >-
+                Reference to the associated product or service for which this is
+                the underlying accounting
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the owning business unit and associated business
+                activity
+              format: Object
+           ChartofAccountBookingRules:
+              type: string
+              description: Reference to applicable account booking rules
+              format: String
+           BaseCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           Status:
+              type: string
+              description: Status of the financial log (e.g. active, insuspense)
+              format: String
+     UpdateFinancialBookingLogRequest:
+        type: object
+        description: ''
+        properties:
+           FinancialAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChartofAccountBookingRules:
+              type: string
+              description: "\r\n"
+              format: String
+           BaseCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           Status:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateFinancialBookingLogResponse:
+        type: object
+        description: ''
+        properties:
+           FinancialAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChartofAccountBookingRules:
+              type: string
+              description: "\r\n"
+              format: String
+           BaseCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           Status:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateFinancialBookingLog:
+        type: object
+        description: ''
+        properties:
+           FinancialAccountType:
+              type: string
+              description: The type of accounting facility (e.g. journal, subledger)
+              format: String
+           ProductandServiceReference:
+              type: string
+              description: >-
+                Reference to the associated product or service for which this is
+                the underlying accounting
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the owning business unit and associated business
+                activity
+              format: Object
+           ChartofAccountBookingRules:
+              type: string
+              description: Reference to applicable account booking rules
+              format: String
+           BaseCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           Status:
+              type: string
+              description: Status of the financial log (e.g. active, insuspense)
+              format: String
+     RetrieveFinancialBookingLogResponse:
+        type: object
+        description: ''
+        properties:
+           FinancialAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChartofAccountBookingRules:
+              type: string
+              description: "\r\n"
+              format: String
+           BaseCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           Status:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveFinancialBookingLog:
+        type: object
+        description: ''
+        properties:
+           FinancialAccountType:
+              type: string
+              description: The type of accounting facility (e.g. journal, subledger)
+              format: String
+           ProductandServiceReference:
+              type: string
+              description: >-
+                Reference to the associated product or service for which this is
+                the underlying accounting
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the owning business unit and associated business
+                activity
+              format: Object
+           ChartofAccountBookingRules:
+              type: string
+              description: Reference to applicable account booking rules
+              format: String
+           BaseCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           Status:
+              type: string
+              description: Status of the financial log (e.g. active, insuspense)
+              format: String
+     UpdateLedgerPostingRequest:
+        type: object
+        description: ''
+        properties:
+           PostingDirection:
+              type: string
+              description: "\r\n"
+              format: String
+           PostingAmount(creditdebitpair):
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           PostingValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           PostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+     Amount:
+        type: object
+        description: ' CurrencyAndAmount|CurrencyAndAmount (https://www.iso20022.org/standardsrepository/type/CurrencyAndAmount)|Standard|ISO20022  ()'
+        properties:
+           AmountValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           AmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           DecimalPointPosition:
+              type: string
+              description: |
+                Decimal point position starts calulating from the right
+              format: String
+           AmountType:
+              enum:
+                   -  Principal
+                   -  Actual
+                   -  Estimated
+                   -  Maximum
+                   -  Default
+                   -  Replacement
+                   -  Incremental
+                   -  Decremental
+                   -  Reserved
+                   -  Available
+                   -  Used
+              type: string
+              description: ">-\r\n* `Principal` \r\n* `Actual` \r\n* `Estimated` \r\n* `Maximum` \r\n* `Default` \r\n* `Replacement` \r\n* `Incremental` \r\n* `Decremental` \r\n* `Reserved` \r\n* `Available` \r\n* `Used` \r\n* "
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     UpdateLedgerPostingResponse:
+        type: object
+        description: ''
+        properties:
+           PostingDirection:
+              type: string
+              description: "\r\n"
+              format: String
+           PostingAmount(creditdebitpair):
+              $ref: '#/components/schemas/Amount'
+           PostingValueDate:
+              $ref: '#/components/schemas/Date'
+           PostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateLedgerPosting:
+        type: object
+        description: ''
+        properties:
+           FinancialAccountType:
+              type: string
+              description: The type of accounting facility (e.g. journal, subledger)
+              format: String
+           ProductandServiceReference:
+              type: string
+              description: >-
+                Reference to the associated product or service for which this is
+                the underlying accounting
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the owning business unit and associated business
+                activity
+              format: Object
+           ChartofAccountBookingRules:
+              type: string
+              description: Reference to applicable account booking rules
+              format: String
+           BaseCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           Status:
+              type: string
+              description: Status of the financial log (e.g. active, insuspense)
+              format: String
+     CaptureLedgerPostingRequest:
+        type: object
+        description: ''
+        properties:
+           PostingDirection:
+              type: string
+              description: "\r\n"
+              format: String
+           PostingAmount(creditdebitpair):
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           PostingValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     CaptureLedgerPostingResponse:
+        type: object
+        description: ''
+        properties:
+           PostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureLedgerPosting:
+        type: object
+        description: ''
+        properties:
+           FinancialAccountType:
+              type: string
+              description: The type of accounting facility (e.g. journal, subledger)
+              format: String
+           ProductandServiceReference:
+              type: string
+              description: >-
+                Reference to the associated product or service for which this is
+                the underlying accounting
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the owning business unit and associated business
+                activity
+              format: Object
+           ChartofAccountBookingRules:
+              type: string
+              description: Reference to applicable account booking rules
+              format: String
+           BaseCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           Status:
+              type: string
+              description: Status of the financial log (e.g. active, insuspense)
+              format: String
+     RetrieveLedgerPostingResponse:
+        type: object
+        description: ''
+        properties:
+           PostingDirection:
+              type: string
+              description: "\r\n"
+              format: String
+           PostingAmount(creditdebitpair):
+              $ref: '#/components/schemas/Amount'
+           PostingValueDate:
+              $ref: '#/components/schemas/Date'
+           PostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveLedgerPosting:
+        type: object
+        description: ''
+        properties:
+           FinancialAccountType:
+              type: string
+              description: The type of accounting facility (e.g. journal, subledger)
+              format: String
+           ProductandServiceReference:
+              type: string
+              description: >-
+                Reference to the associated product or service for which this is
+                the underlying accounting
+              format: Object
+           BusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the owning business unit and associated business
+                activity
+              format: Object
+           ChartofAccountBookingRules:
+              type: string
+              description: Reference to applicable account booking rules
+              format: String
+           BaseCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           Status:
+              type: string
+              description: Status of the financial log (e.g. active, insuspense)
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateFinancialBookingLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateFinancialBookingLogRequest'
+        required: true
+     UpdateFinancialBookingLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFinancialBookingLogRequest'
+        required: true
+     RetrieveFinancialBookingLogRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateLedgerPostingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateLedgerPostingRequest'
+        required: true
+     CaptureLedgerPostingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureLedgerPostingRequest'
+        required: true
+     RetrieveLedgerPostingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     financialbookinglogid:
+        name: financialbookinglogid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     ledgerpostingid:
+        name: ledgerpostingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateFinancialBookingLogResponse:
+        description: FinancialBookingLogInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateFinancialBookingLogResponse'
+     UpdateFinancialBookingLogResponse:
+        description: FinancialBookingLogUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFinancialBookingLogResponse'
+     RetrieveFinancialBookingLogResponse:
+        description: FinancialBookingLogRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveFinancialBookingLogResponse'
+     UpdateLedgerPostingResponse:
+        description: LedgerPostingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateLedgerPostingResponse'
+     CaptureLedgerPostingResponse:
+        description: LedgerPostingCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureLedgerPostingResponse'
+     RetrieveLedgerPostingResponse:
+        description: LedgerPostingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveLedgerPostingResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

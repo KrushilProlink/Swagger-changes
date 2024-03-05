@@ -1,0 +1,1409 @@
+openapi: 3.0.1
+info:
+  title: Advanced Voice Services Operations
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain operates
+    the telephone channel infrastructure, including the IVR and any other
+    automated devices as appropriate. This includes handling default routing
+    rules and intraday/session adjustments to deal with peak load or other
+    operational variations
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/AdvancedVoiceServicesOperations
+paths:
+   '/VoiceChannelOperatingSession/{voicechanneloperatingsessionid}/Initiate':
+      post:
+        tags:
+           - CR - VoiceChannelOperatingSession
+        summary: InCR Initiate the voice channel service
+        description: InCR Initiate the voice channel service
+        operationId: VoiceChannelOperatingSession/Initiate
+        parameters:
+           - $ref: '#/components/parameters/voicechanneloperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/InitiateVoiceChannelOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/VoiceChannelOperatingSession/{voicechanneloperatingsessionid}/Update':
+      put:
+        tags:
+           - CR - VoiceChannelOperatingSession
+        summary: UpCR Update the voice access service menu during the session
+        description: UpCR Update the voice access service menu during the session
+        operationId: VoiceChannelOperatingSession/Update
+        parameters:
+           - $ref: '#/components/parameters/voicechanneloperatingsessionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateVoiceChannelOperatingSessionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/VoiceChannelOperatingSession/{voicechanneloperatingsessionid}/Request':
+      put:
+        tags:
+           - CR - VoiceChannelOperatingSession
+        summary: RqCR Report an issue with the production service
+        description: RqCR Report an issue with the production service
+        operationId: VoiceChannelOperatingSession/Request
+        parameters:
+           - $ref: '#/components/parameters/voicechanneloperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestVoiceChannelOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/VoiceChannelOperatingSession/{voicechanneloperatingsessionid}/Retrieve':
+      get:
+        tags:
+           - CR - VoiceChannelOperatingSession
+        summary: ReCR Retrieve details and statistics relating to a session
+        description: ReCR Retrieve details and statistics relating to a session
+        operationId: VoiceChannelOperatingSession/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/voicechanneloperatingsessionid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveVoiceChannelOperatingSessionResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Inbound/{inboundid}/Initiate':
+      post:
+        tags:
+           - BQ - Inbound
+        summary: InBQ Execute an inbound voice connection
+        description: InBQ Execute an inbound voice connection
+        operationId: Inbound/Initiate
+        parameters:
+           - $ref: '#/components/parameters/inboundid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateInboundRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Inbound/{inboundid}/Retrieve':
+      get:
+        tags:
+           - BQ - Inbound
+        summary: ReBQ Retrieve details about an inbound voice connection
+        description: ReBQ Retrieve details about an inbound voice connection
+        operationId: Inbound/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/inboundid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveInboundResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Outbound/{outboundid}/Initiate':
+      post:
+        tags:
+           - BQ - Outbound
+        summary: InBQ Execute an outbound voice connection
+        description: InBQ Execute an outbound voice connection
+        operationId: Outbound/Initiate
+        parameters:
+           - $ref: '#/components/parameters/outboundid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateOutboundRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Outbound/{outboundid}/Retrieve':
+      get:
+        tags:
+           - BQ - Outbound
+        summary: ReBQ Retrieve details about an outbound voice connection
+        description: ReBQ Retrieve details about an outbound voice connection
+        operationId: Outbound/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/outboundid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveOutboundResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateVoiceChannelOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           AdvancedVoiceServicesOperationsServiceMenu:
+              type: string
+              description: >-
+                Service Domain attribute referenced during the session covering
+                the menu options
+              format: String
+           VChannelServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           VChannelProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+     InitiateVoiceChannelOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           AdvancedVoiceServicesOperationsServiceMenu:
+              type: string
+              description: >-
+                Service Domain attribute referenced during the session covering
+                the menu options
+              format: String
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           VChannelServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           VChannelProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     InitiateVoiceChannelOperatingSession:
+        type: object
+        description: ''
+        properties:
+           AdvancedVoiceServicesOperationsServiceMenu:
+              type: string
+              description: >-
+                Service Domain attribute referenced during the session covering
+                the menu options
+              format: String
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           VChannelServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           VChannelServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           VChannelProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     UpdateVoiceChannelOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           AdvancedVoiceServicesOperationsServiceMenu:
+              type: string
+              description: >-
+                Service Domain attribute referenced during the session covering
+                the menu options
+              format: String
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           VChannelServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           VChannelProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     UpdateVoiceChannelOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           AdvancedVoiceServicesOperationsServiceMenu:
+              type: string
+              description: >-
+                Service Domain attribute referenced during the session covering
+                the menu options
+              format: String
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           VChannelServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           VChannelProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     UpdateVoiceChannelOperatingSession:
+        type: object
+        description: ''
+        properties:
+           AdvancedVoiceServicesOperationsServiceMenu:
+              type: string
+              description: >-
+                Service Domain attribute referenced during the session covering
+                the menu options
+              format: String
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           VChannelServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           VChannelServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           VChannelProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     RequestVoiceChannelOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           VChannelProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+     RequestVoiceChannelOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     RequestVoiceChannelOperatingSession:
+        type: object
+        description: ''
+        properties:
+           AdvancedVoiceServicesOperationsServiceMenu:
+              type: string
+              description: >-
+                Service Domain attribute referenced during the session covering
+                the menu options
+              format: String
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           VChannelServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           VChannelServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           VChannelProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     RetrieveVoiceChannelOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           AdvancedVoiceServicesOperationsServiceMenu:
+              type: string
+              description: >-
+                Service Domain attribute referenced during the session covering
+                the menu options
+              format: String
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           VChannelServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           VChannelProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     RetrieveVoiceChannelOperatingSession:
+        type: object
+        description: ''
+        properties:
+           AdvancedVoiceServicesOperationsServiceMenu:
+              type: string
+              description: >-
+                Service Domain attribute referenced during the session covering
+                the menu options
+              format: String
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           VChannelServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           VChannelServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           VChannelProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     InitiateInboundRequest:
+        type: object
+        description: ''
+        properties:
+           AdvancedVoiceServicesOperationsServiceMenu:
+              type: string
+              description: >-
+                Service Domain attribute referenced during the session covering
+                the menu options
+              format: String
+           VChannelDeviceReference:
+              type: string
+              description: Details of the device being used for access
+              format: Object
+           VChannelDevicePropertyValue:
+              type: string
+              description: >-
+                Property of the device that can be used in identification ( e.g.
+                ANI phone number)
+              format: String
+           VChannelInboundConnectionContactReference:
+              type: string
+              description: >-
+                Internal reference retuned by Service DomainContact Handler for
+                routing
+              format: Object
+     InitiateInboundResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           VChannelInboundConnectionStartTime:
+              type: string
+              description: Detail used for statistics
+              format: String
+           VChannelInboundConnectionDuration:
+              type: string
+              description: Detain used for statistics
+              format: String
+     InitiateInbound:
+        type: object
+        description: ''
+        properties:
+           AdvancedVoiceServicesOperationsServiceMenu:
+              type: string
+              description: >-
+                Service Domain attribute referenced during the session covering
+                the menu options
+              format: String
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           VChannelServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           VChannelServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           VChannelProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     RetrieveInboundResponse:
+        type: object
+        description: ''
+        properties:
+           AdvancedVoiceServicesOperationsServiceMenu:
+              type: string
+              description: >-
+                Service Domain attribute referenced during the session covering
+                the menu options
+              format: String
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           VChannelDeviceReference:
+              type: string
+              description: Details of the device being used for access
+              format: Object
+           VChannelDevicePropertyValue:
+              type: string
+              description: >-
+                Property of the device that can be used in identification ( e.g.
+                ANI phone number)
+              format: String
+           VChannelInboundConnectionStartTime:
+              type: string
+              description: Detail used for statistics
+              format: String
+           VChannelInboundConnectionDuration:
+              type: string
+              description: Detain used for statistics
+              format: String
+           VChannelInboundConnectionContactReference:
+              type: string
+              description: >-
+                Internal reference retuned by Service DomainContact Handler for
+                routing
+              format: Object
+     RetrieveInbound:
+        type: object
+        description: ''
+        properties:
+           AdvancedVoiceServicesOperationsServiceMenu:
+              type: string
+              description: >-
+                Service Domain attribute referenced during the session covering
+                the menu options
+              format: String
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           VChannelServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           VChannelServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           VChannelProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     InitiateOutboundRequest:
+        type: object
+        description: ''
+        properties:
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the outbound connection request
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the customer contact record used accessing outbound
+                channel
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: >-
+                The record used to handle the contact (see Service
+                DomainContact Handler for complete definition)
+              format: String
+           VChannelCustomerDeviceReference:
+              type: string
+              description: The target device being accessed
+              format: Object
+     InitiateOutboundResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CustomerSessionDialogueRecord:
+              type: string
+              description: >-
+                The record used to handle the contact (see Service
+                DomainContact Handler for complete definition)
+              format: String
+           VChannelOutboundConnectionStartTime:
+              type: string
+              description: Detail used for statistics
+              format: String
+           VChannelOutboundConnectionDuration:
+              type: string
+              description: Detail used for statistics
+              format: String
+     InitiateOutbound:
+        type: object
+        description: ''
+        properties:
+           AdvancedVoiceServicesOperationsServiceMenu:
+              type: string
+              description: >-
+                Service Domain attribute referenced during the session covering
+                the menu options
+              format: String
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           VChannelServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           VChannelServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           VChannelProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     RetrieveOutboundResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the outbound connection request
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the customer contact record used accessing outbound
+                channel
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: >-
+                The record used to handle the contact (see Service
+                DomainContact Handler for complete definition)
+              format: String
+           VChannelCustomerDeviceReference:
+              type: string
+              description: The target device being accessed
+              format: Object
+           VChannelOutboundConnectionStartTime:
+              type: string
+              description: Detail used for statistics
+              format: String
+           VChannelOutboundConnectionDuration:
+              type: string
+              description: Detail used for statistics
+              format: String
+     RetrieveOutbound:
+        type: object
+        description: ''
+        properties:
+           AdvancedVoiceServicesOperationsServiceMenu:
+              type: string
+              description: >-
+                Service Domain attribute referenced during the session covering
+                the menu options
+              format: String
+           VChannelServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           VChannelServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           VChannelServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           VChannelProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateVoiceChannelOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateVoiceChannelOperatingSessionRequest'
+        required: true
+     UpdateVoiceChannelOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateVoiceChannelOperatingSessionRequest'
+        required: true
+     RequestVoiceChannelOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestVoiceChannelOperatingSessionRequest'
+        required: true
+     RetrieveVoiceChannelOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateInboundRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateInboundRequest'
+        required: true
+     RetrieveInboundRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateOutboundRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOutboundRequest'
+        required: true
+     RetrieveOutboundRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     voicechanneloperatingsessionid:
+        name: voicechanneloperatingsessionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     inboundid:
+        name: inboundid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     outboundid:
+        name: outboundid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateVoiceChannelOperatingSessionResponse:
+        description: VoiceChannelOperatingSessionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateVoiceChannelOperatingSessionResponse
+     UpdateVoiceChannelOperatingSessionResponse:
+        description: VoiceChannelOperatingSessionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateVoiceChannelOperatingSessionResponse'
+     RequestVoiceChannelOperatingSessionResponse:
+        description: VoiceChannelOperatingSessionRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestVoiceChannelOperatingSessionResponse'
+     RetrieveVoiceChannelOperatingSessionResponse:
+        description: VoiceChannelOperatingSessionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveVoiceChannelOperatingSessionResponse
+     InitiateInboundResponse:
+        description: InboundInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateInboundResponse'
+     RetrieveInboundResponse:
+        description: InboundRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveInboundResponse'
+     InitiateOutboundResponse:
+        description: OutboundInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOutboundResponse'
+     RetrieveOutboundResponse:
+        description: OutboundRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveOutboundResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

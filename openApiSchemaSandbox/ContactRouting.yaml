@@ -1,0 +1,1081 @@
+openapi: 3.0.1
+info:
+  title: Contact Routing
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | The Contact Routing service
+    domain tracks servicing resource availability and uses any known details
+    about the customer contact (e.g. identity, indicated purpose of call, status
+    of the relationship) to make an optimal routing decision. The routing
+    selection may include matching the required product knowledge/skills to the
+    available servicing resources.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/ContactRouting
+paths:
+   '/CustomerServicingResourceAllocation/{customerservicingresourceallocationid}/Provide':
+      post:
+        tags:
+           - CR - CustomerServicingResourceAllocation
+        summary: PrCR Enable the service resource pool allocation
+        description: PrCR Enable the service resource pool allocation
+        operationId: CustomerServicingResourceAllocation/Provide
+        parameters:
+           - $ref: '#/components/parameters/customerservicingresourceallocationid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ProvideCustomerServicingResourceAllocationRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerServicingResourceAllocation/{customerservicingresourceallocationid}/Update':
+      put:
+        tags:
+           - CR - CustomerServicingResourceAllocation
+        summary: UpCR Update details about the servicing resource pool
+        description: UpCR Update details about the servicing resource pool
+        operationId: CustomerServicingResourceAllocation/Update
+        parameters:
+           - $ref: '#/components/parameters/customerservicingresourceallocationid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateCustomerServicingResourceAllocationRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerServicingResourceAllocation/{customerservicingresourceallocationid}/Capture':
+      put:
+        tags:
+           - CR - CustomerServicingResourceAllocation
+        summary: >-
+          CaCR Capture servicing resource pool data (e.g. resource
+          status/availability)
+        description: >-
+          CaCR Capture servicing resource pool data (e.g. resource
+          status/availability)
+        operationId: CustomerServicingResourceAllocation/Capture
+        parameters:
+           - $ref: '#/components/parameters/customerservicingresourceallocationid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/CaptureCustomerServicingResourceAllocationRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerServicingResourceAllocation/{customerservicingresourceallocationid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerServicingResourceAllocation
+        summary: ReCR Retrieve details about the servicing resource assignments
+        description: ReCR Retrieve details about the servicing resource assignments
+        operationId: CustomerServicingResourceAllocation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customerservicingresourceallocationid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveCustomerServicingResourceAllocationResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Allocation/{allocationid}/Request':
+      put:
+        tags:
+           - BQ - Allocation
+        summary: >-
+          PrBQ Request a servicing resource (can be qualification and future
+          booking)
+        description: >-
+          PrBQ Request a servicing resource (can be qualification and future
+          booking)
+        operationId: Allocation/Request
+        parameters:
+           - $ref: '#/components/parameters/allocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Allocation/{allocationid}/Update':
+      put:
+        tags:
+           - BQ - Allocation
+        summary: UpBQ Update details of a servicing resource allocation
+        description: UpBQ Update details of a servicing resource allocation
+        operationId: Allocation/Update
+        parameters:
+           - $ref: '#/components/parameters/allocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Allocation/{allocationid}/Capture':
+      put:
+        tags:
+           - BQ - Allocation
+        summary: CaBQ Capture data for an active allocation (e.g. availability)
+        description: CaBQ Capture data for an active allocation (e.g. availability)
+        operationId: Allocation/Capture
+        parameters:
+           - $ref: '#/components/parameters/allocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Allocation/{allocationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Allocation
+        summary: ReBQ Retrieve details about a servicing resource allocation
+        description: ReBQ Retrieve details about a servicing resource allocation
+        operationId: Allocation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/allocationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAllocationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     ProvideCustomerServicingResourceAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingResourceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceQualificationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     ProvideCustomerServicingResourceAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceAllocationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingResourceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceQualificationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     ProvideCustomerServicingResourceAllocation:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceAllocationServiceSchedule:
+              type: string
+              description: >-
+                Maintains the allocation status of available service resources.
+                Can include future booking commitments
+              format: String
+           ServicingResourceReference:
+              type: string
+              description: Reference to a servicing resource
+              format: Object
+           ServicingResourceRecord:
+              type: string
+              description: Details about a registered servicing resource/specialist
+              format: String
+           ServicingResourceQualificationProfile:
+              type: string
+              description: >-
+                Details the qualification, expertise and level of experience of
+                a servicing specialist
+              format: String
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the assigned servicing position for the resource
+                for the current session
+              format: Object
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: >-
+                Details the time the resource plans to be and is actually
+                available for allocations
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: Tracks the current status indicating availability for assignment
+              format: String
+           ServicingSessionReference:
+              type: string
+              description: Reference to a servicing session assignments made
+              format: Object
+     UpdateCustomerServicingResourceAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceAllocationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingResourceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceQualificationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateCustomerServicingResourceAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceAllocationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingResourceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceQualificationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateCustomerServicingResourceAllocation:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceAllocationServiceSchedule:
+              type: string
+              description: >-
+                Maintains the allocation status of available service resources.
+                Can include future booking commitments
+              format: String
+           ServicingResourceReference:
+              type: string
+              description: Reference to a servicing resource
+              format: Object
+           ServicingResourceRecord:
+              type: string
+              description: Details about a registered servicing resource/specialist
+              format: String
+           ServicingResourceQualificationProfile:
+              type: string
+              description: >-
+                Details the qualification, expertise and level of experience of
+                a servicing specialist
+              format: String
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the assigned servicing position for the resource
+                for the current session
+              format: Object
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: >-
+                Details the time the resource plans to be and is actually
+                available for allocations
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: Tracks the current status indicating availability for assignment
+              format: String
+           ServicingSessionReference:
+              type: string
+              description: Reference to a servicing session assignments made
+              format: Object
+     CaptureCustomerServicingResourceAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureCustomerServicingResourceAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureCustomerServicingResourceAllocation:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceAllocationServiceSchedule:
+              type: string
+              description: >-
+                Maintains the allocation status of available service resources.
+                Can include future booking commitments
+              format: String
+           ServicingResourceReference:
+              type: string
+              description: Reference to a servicing resource
+              format: Object
+           ServicingResourceRecord:
+              type: string
+              description: Details about a registered servicing resource/specialist
+              format: String
+           ServicingResourceQualificationProfile:
+              type: string
+              description: >-
+                Details the qualification, expertise and level of experience of
+                a servicing specialist
+              format: String
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the assigned servicing position for the resource
+                for the current session
+              format: Object
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: >-
+                Details the time the resource plans to be and is actually
+                available for allocations
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: Tracks the current status indicating availability for assignment
+              format: String
+           ServicingSessionReference:
+              type: string
+              description: Reference to a servicing session assignments made
+              format: Object
+     RetrieveCustomerServicingResourceAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceAllocationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingResourceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceQualificationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveCustomerServicingResourceAllocation:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceAllocationServiceSchedule:
+              type: string
+              description: >-
+                Maintains the allocation status of available service resources.
+                Can include future booking commitments
+              format: String
+           ServicingResourceReference:
+              type: string
+              description: Reference to a servicing resource
+              format: Object
+           ServicingResourceRecord:
+              type: string
+              description: Details about a registered servicing resource/specialist
+              format: String
+           ServicingResourceQualificationProfile:
+              type: string
+              description: >-
+                Details the qualification, expertise and level of experience of
+                a servicing specialist
+              format: String
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the assigned servicing position for the resource
+                for the current session
+              format: Object
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: >-
+                Details the time the resource plans to be and is actually
+                available for allocations
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: Tracks the current status indicating availability for assignment
+              format: String
+           ServicingSessionReference:
+              type: string
+              description: Reference to a servicing session assignments made
+              format: Object
+     RequestAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceAllocationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingResourceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceQualificationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           ServicingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestAllocation:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceAllocationServiceSchedule:
+              type: string
+              description: >-
+                Maintains the allocation status of available service resources.
+                Can include future booking commitments
+              format: String
+           ServicingResourceReference:
+              type: string
+              description: Reference to a servicing resource
+              format: Object
+           ServicingResourceRecord:
+              type: string
+              description: Details about a registered servicing resource/specialist
+              format: String
+           ServicingResourceQualificationProfile:
+              type: string
+              description: >-
+                Details the qualification, expertise and level of experience of
+                a servicing specialist
+              format: String
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the assigned servicing position for the resource
+                for the current session
+              format: Object
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: >-
+                Details the time the resource plans to be and is actually
+                available for allocations
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: Tracks the current status indicating availability for assignment
+              format: String
+           ServicingSessionReference:
+              type: string
+              description: Reference to a servicing session assignments made
+              format: Object
+     UpdateAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           AllocationRequestType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerServicingRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           AllocationTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           AllocationRequestType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerServicingRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           AllocationTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateAllocation:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceAllocationServiceSchedule:
+              type: string
+              description: >-
+                Maintains the allocation status of available service resources.
+                Can include future booking commitments
+              format: String
+           ServicingResourceReference:
+              type: string
+              description: Reference to a servicing resource
+              format: Object
+           ServicingResourceRecord:
+              type: string
+              description: Details about a registered servicing resource/specialist
+              format: String
+           ServicingResourceQualificationProfile:
+              type: string
+              description: >-
+                Details the qualification, expertise and level of experience of
+                a servicing specialist
+              format: String
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the assigned servicing position for the resource
+                for the current session
+              format: Object
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: >-
+                Details the time the resource plans to be and is actually
+                available for allocations
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: Tracks the current status indicating availability for assignment
+              format: String
+           ServicingSessionReference:
+              type: string
+              description: Reference to a servicing session assignments made
+              format: Object
+     CaptureAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           AllocationRequestType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerServicingRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           AllocationTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureAllocation:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceAllocationServiceSchedule:
+              type: string
+              description: >-
+                Maintains the allocation status of available service resources.
+                Can include future booking commitments
+              format: String
+           ServicingResourceReference:
+              type: string
+              description: Reference to a servicing resource
+              format: Object
+           ServicingResourceRecord:
+              type: string
+              description: Details about a registered servicing resource/specialist
+              format: String
+           ServicingResourceQualificationProfile:
+              type: string
+              description: >-
+                Details the qualification, expertise and level of experience of
+                a servicing specialist
+              format: String
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the assigned servicing position for the resource
+                for the current session
+              format: Object
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: >-
+                Details the time the resource plans to be and is actually
+                available for allocations
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: Tracks the current status indicating availability for assignment
+              format: String
+           ServicingSessionReference:
+              type: string
+              description: Reference to a servicing session assignments made
+              format: Object
+     RetrieveAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           AllocationRequestType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerServicingRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           AllocationTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveAllocation:
+        type: object
+        description: ''
+        properties:
+           ServicingResourceAllocationServiceSchedule:
+              type: string
+              description: >-
+                Maintains the allocation status of available service resources.
+                Can include future booking commitments
+              format: String
+           ServicingResourceReference:
+              type: string
+              description: Reference to a servicing resource
+              format: Object
+           ServicingResourceRecord:
+              type: string
+              description: Details about a registered servicing resource/specialist
+              format: String
+           ServicingResourceQualificationProfile:
+              type: string
+              description: >-
+                Details the qualification, expertise and level of experience of
+                a servicing specialist
+              format: String
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the assigned servicing position for the resource
+                for the current session
+              format: Object
+           ServicingResourceAvailabilitySchedule:
+              type: string
+              description: >-
+                Details the time the resource plans to be and is actually
+                available for allocations
+              format: String
+           ServicingResourceStatus:
+              type: string
+              description: Tracks the current status indicating availability for assignment
+              format: String
+           ServicingSessionReference:
+              type: string
+              description: Reference to a servicing session assignments made
+              format: Object
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     ProvideCustomerServicingResourceAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ProvideCustomerServicingResourceAllocationRequest
+        required: true
+     UpdateCustomerServicingResourceAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCustomerServicingResourceAllocationRequest
+        required: true
+     CaptureCustomerServicingResourceAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/CaptureCustomerServicingResourceAllocationRequest
+        required: true
+     RetrieveCustomerServicingResourceAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RequestAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestAllocationRequest'
+        required: true
+     UpdateAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAllocationRequest'
+        required: true
+     CaptureAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureAllocationRequest'
+        required: true
+     RetrieveAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     customerservicingresourceallocationid:
+        name: customerservicingresourceallocationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     allocationid:
+        name: allocationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     ProvideCustomerServicingResourceAllocationResponse:
+        description: CustomerServicingResourceAllocationProvide
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ProvideCustomerServicingResourceAllocationResponse
+     UpdateCustomerServicingResourceAllocationResponse:
+        description: CustomerServicingResourceAllocationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCustomerServicingResourceAllocationResponse
+     CaptureCustomerServicingResourceAllocationResponse:
+        description: CustomerServicingResourceAllocationCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/CaptureCustomerServicingResourceAllocationResponse
+     RetrieveCustomerServicingResourceAllocationResponse:
+        description: CustomerServicingResourceAllocationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveCustomerServicingResourceAllocationResponse
+     RequestAllocationResponse:
+        description: AllocationRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestAllocationResponse'
+     UpdateAllocationResponse:
+        description: AllocationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAllocationResponse'
+     CaptureAllocationResponse:
+        description: AllocationCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureAllocationResponse'
+     RetrieveAllocationResponse:
+        description: AllocationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAllocationResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

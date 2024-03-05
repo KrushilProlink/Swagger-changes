@@ -1,0 +1,3180 @@
+openapi: 3.0.1
+info:
+  title: Contact Handler
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain handles a
+    customer's interactive contact with the bank. This will typically involve
+    launching of one or more channel/device specific dialogue sessions as
+    necessary within the customer contact
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/ContactHandler
+paths:
+   '/CustomerContactOperatingSession/{customercontactoperatingsessionid}/Initiate':
+      post:
+        tags:
+           - CR - CustomerContactOperatingSession
+        summary: InCR Initiate a contact
+        description: InCR Initiate a contact
+        operationId: CustomerContactOperatingSession/Initiate
+        parameters:
+           - $ref: '#/components/parameters/customercontactoperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/InitiateCustomerContactOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerContactOperatingSession/{customercontactoperatingsessionid}/Update':
+      put:
+        tags:
+           - CR - CustomerContactOperatingSession
+        summary: UpCR Update details for a customer contact
+        description: UpCR Update details for a customer contact
+        operationId: CustomerContactOperatingSession/Update
+        parameters:
+           - $ref: '#/components/parameters/customercontactoperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateCustomerContactOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerContactOperatingSession/{customercontactoperatingsessionid}/Execute':
+      put:
+        tags:
+           - CR - CustomerContactOperatingSession
+        summary: >-
+          ExCR Execute an automated task for a contact (e.g. route to
+          specialist)
+        description: >-
+          ExCR Execute an automated task for a contact (e.g. route to
+          specialist)
+        operationId: CustomerContactOperatingSession/Execute
+        parameters:
+           - $ref: '#/components/parameters/customercontactoperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExecuteCustomerContactOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerContactOperatingSession/{customercontactoperatingsessionid}/Request':
+      put:
+        tags:
+           - CR - CustomerContactOperatingSession
+        summary: >-
+          RqCR Request manual intervention in a contact (e.g. override routing
+          decision)
+        description: >-
+          RqCR Request manual intervention in a contact (e.g. override routing
+          decision)
+        operationId: CustomerContactOperatingSession/Request
+        parameters:
+           - $ref: '#/components/parameters/customercontactoperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestCustomerContactOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerContactOperatingSession/{customercontactoperatingsessionid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerContactOperatingSession
+        summary: ReCR Retrieve details about a customer contact
+        description: ReCR Retrieve details about a customer contact
+        operationId: CustomerContactOperatingSession/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customercontactoperatingsessionid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveCustomerContactOperatingSessionResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Authentication/{authenticationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Authentication
+        summary: ReBQ Retrieve details about an authentication task
+        description: ReBQ Retrieve details about an authentication task
+        operationId: Authentication/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/authenticationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAuthenticationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Routing/{routingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Routing
+        summary: ReBQ Retrieve details about a routing task
+        description: ReBQ Retrieve details about a routing task
+        operationId: Routing/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/routingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveRoutingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Session/{sessionid}/Initiate':
+      post:
+        tags:
+           - BQ - Session
+        summary: InBQ Initiate a servicing session
+        description: InBQ Initiate a servicing session
+        operationId: Session/Initiate
+        parameters:
+           - $ref: '#/components/parameters/sessionid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateSessionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Session/{sessionid}/Update':
+      put:
+        tags:
+           - BQ - Session
+        summary: UpBQ Update details about a servicing session
+        description: UpBQ Update details about a servicing session
+        operationId: Session/Update
+        parameters:
+           - $ref: '#/components/parameters/sessionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateSessionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Session/{sessionid}/Execute':
+      put:
+        tags:
+           - BQ - Session
+        summary: ExBQ Execute an automated task in a session (e.g. reauthenticate)
+        description: ExBQ Execute an automated task in a session (e.g. reauthenticate)
+        operationId: Session/Execute
+        parameters:
+           - $ref: '#/components/parameters/sessionid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteSessionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Session/{sessionid}/Retrieve':
+      get:
+        tags:
+           - BQ - Session
+        summary: ReBQ Retrieve details about a customer servicing session
+        description: ReBQ Retrieve details about a customer servicing session
+        operationId: Session/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/sessionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveSessionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/History/{historyid}/Update':
+      put:
+        tags:
+           - BQ - History
+        summary: UpBQ Update a contact history record content
+        description: UpBQ Update a contact history record content
+        operationId: History/Update
+        parameters:
+           - $ref: '#/components/parameters/historyid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateHistoryRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/History/{historyid}/Retrieve':
+      get:
+        tags:
+           - BQ - History
+        summary: ReBQ Retrieve historical details about a contact event
+        description: ReBQ Retrieve historical details about a contact event
+        operationId: History/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/historyid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveHistoryResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateCustomerContactOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: "\r\n"
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCustomerContactOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCustomerContactOperatingSession:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: >-
+                Indicates whether this is an inbound or outbound contact
+                (inbound is customer initiated, outbound is servicing resource
+                initiated)
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: >-
+                Reference to the active network operating session used to access
+                customer
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: Reference to the active voice network used to access customer
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record assembled during the customer
+                contact
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: The customer session dialogue details and log
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: >-
+                Describes the interpreted result of the contact (e.g. completed,
+                customer terminated, timedout)
+              format: String
+     UpdateCustomerContactOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: "\r\n"
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCustomerContactOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: "\r\n"
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCustomerContactOperatingSession:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: >-
+                Indicates whether this is an inbound or outbound contact
+                (inbound is customer initiated, outbound is servicing resource
+                initiated)
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: >-
+                Reference to the active network operating session used to access
+                customer
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: Reference to the active voice network used to access customer
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record assembled during the customer
+                contact
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: The customer session dialogue details and log
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: >-
+                Describes the interpreted result of the contact (e.g. completed,
+                customer terminated, timedout)
+              format: String
+     ExecuteCustomerContactOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: "\r\n"
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     ExecuteCustomerContactOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: "\r\n"
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     ExecuteCustomerContactOperatingSession:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: >-
+                Indicates whether this is an inbound or outbound contact
+                (inbound is customer initiated, outbound is servicing resource
+                initiated)
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: >-
+                Reference to the active network operating session used to access
+                customer
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: Reference to the active voice network used to access customer
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record assembled during the customer
+                contact
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: The customer session dialogue details and log
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: >-
+                Describes the interpreted result of the contact (e.g. completed,
+                customer terminated, timedout)
+              format: String
+     RequestCustomerContactOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: "\r\n"
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestCustomerContactOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: "\r\n"
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestCustomerContactOperatingSession:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: >-
+                Indicates whether this is an inbound or outbound contact
+                (inbound is customer initiated, outbound is servicing resource
+                initiated)
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: >-
+                Reference to the active network operating session used to access
+                customer
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: Reference to the active voice network used to access customer
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record assembled during the customer
+                contact
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: The customer session dialogue details and log
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: >-
+                Describes the interpreted result of the contact (e.g. completed,
+                customer terminated, timedout)
+              format: String
+     RetrieveCustomerContactOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: "\r\n"
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCustomerContactOperatingSession:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: >-
+                Indicates whether this is an inbound or outbound contact
+                (inbound is customer initiated, outbound is servicing resource
+                initiated)
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: >-
+                Reference to the active network operating session used to access
+                customer
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: Reference to the active voice network used to access customer
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record assembled during the customer
+                contact
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: The customer session dialogue details and log
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: >-
+                Describes the interpreted result of the contact (e.g. completed,
+                customer terminated, timedout)
+              format: String
+     RetrieveAuthenticationResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: "\r\n"
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           AuthenticationTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveAuthentication:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: >-
+                Indicates whether this is an inbound or outbound contact
+                (inbound is customer initiated, outbound is servicing resource
+                initiated)
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: >-
+                Reference to the active network operating session used to access
+                customer
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: Reference to the active voice network used to access customer
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record assembled during the customer
+                contact
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: The customer session dialogue details and log
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: >-
+                Describes the interpreted result of the contact (e.g. completed,
+                customer terminated, timedout)
+              format: String
+     RetrieveRoutingResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: "\r\n"
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           RoutingTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveRouting:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: >-
+                Indicates whether this is an inbound or outbound contact
+                (inbound is customer initiated, outbound is servicing resource
+                initiated)
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: >-
+                Reference to the active network operating session used to access
+                customer
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: Reference to the active voice network used to access customer
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record assembled during the customer
+                contact
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: The customer session dialogue details and log
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: >-
+                Describes the interpreted result of the contact (e.g. completed,
+                customer terminated, timedout)
+              format: String
+     InitiateSessionRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: "\r\n"
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionResult:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateSession:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: >-
+                Indicates whether this is an inbound or outbound contact
+                (inbound is customer initiated, outbound is servicing resource
+                initiated)
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: >-
+                Reference to the active network operating session used to access
+                customer
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: Reference to the active voice network used to access customer
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record assembled during the customer
+                contact
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: The customer session dialogue details and log
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: >-
+                Describes the interpreted result of the contact (e.g. completed,
+                customer terminated, timedout)
+              format: String
+     UpdateSessionRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerContactRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerContactRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSession:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: >-
+                Indicates whether this is an inbound or outbound contact
+                (inbound is customer initiated, outbound is servicing resource
+                initiated)
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: >-
+                Reference to the active network operating session used to access
+                customer
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: Reference to the active voice network used to access customer
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record assembled during the customer
+                contact
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: The customer session dialogue details and log
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: >-
+                Describes the interpreted result of the contact (e.g. completed,
+                customer terminated, timedout)
+              format: String
+     ExecuteSessionRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerContactRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerContactRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteSession:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: >-
+                Indicates whether this is an inbound or outbound contact
+                (inbound is customer initiated, outbound is servicing resource
+                initiated)
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: >-
+                Reference to the active network operating session used to access
+                customer
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: Reference to the active voice network used to access customer
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record assembled during the customer
+                contact
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: The customer session dialogue details and log
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: >-
+                Describes the interpreted result of the contact (e.g. completed,
+                customer terminated, timedout)
+              format: String
+     RetrieveSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerContactRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveSession:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: >-
+                Indicates whether this is an inbound or outbound contact
+                (inbound is customer initiated, outbound is servicing resource
+                initiated)
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: >-
+                Reference to the active network operating session used to access
+                customer
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: Reference to the active voice network used to access customer
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record assembled during the customer
+                contact
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: The customer session dialogue details and log
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: >-
+                Describes the interpreted result of the contact (e.g. completed,
+                customer terminated, timedout)
+              format: String
+     UpdateHistoryRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: "\r\n"
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: "\r\n"
+              format: String
+           HistoryTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateHistoryResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: "\r\n"
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: "\r\n"
+              format: String
+           HistoryTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateHistory:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: >-
+                Indicates whether this is an inbound or outbound contact
+                (inbound is customer initiated, outbound is servicing resource
+                initiated)
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: >-
+                Reference to the active network operating session used to access
+                customer
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: Reference to the active voice network used to access customer
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record assembled during the customer
+                contact
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: The customer session dialogue details and log
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: >-
+                Describes the interpreted result of the contact (e.g. completed,
+                customer terminated, timedout)
+              format: String
+     RetrieveHistoryResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: "\r\n"
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: "\r\n"
+              format: String
+           HistoryTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveHistory:
+        type: object
+        description: ''
+        properties:
+           CustomerContactInboundorOutboundIndicator:
+              type: string
+              description: >-
+                Indicates whether this is an inbound or outbound contact
+                (inbound is customer initiated, outbound is servicing resource
+                initiated)
+              format: Boolean
+           eBranchOperatingSessionReference:
+              type: string
+              description: >-
+                Reference to the active network operating session used to access
+                customer
+              format: Object
+           AdvancedVoiceServiceOperatingSessionReference:
+              type: string
+              description: Reference to the active voice network used to access customer
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record assembled during the customer
+                contact
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus:
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: The customer session dialogue details and log
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactRecordResult:
+              type: string
+              description: >-
+                Describes the interpreted result of the contact (e.g. completed,
+                customer terminated, timedout)
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateCustomerContactOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateCustomerContactOperatingSessionRequest
+        required: true
+     UpdateCustomerContactOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCustomerContactOperatingSessionRequest
+        required: true
+     ExecuteCustomerContactOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteCustomerContactOperatingSessionRequest
+        required: true
+     RequestCustomerContactOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestCustomerContactOperatingSessionRequest
+        required: true
+     RetrieveCustomerContactOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveAuthenticationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveRoutingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateSessionRequest'
+        required: true
+     UpdateSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSessionRequest'
+        required: true
+     ExecuteSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteSessionRequest'
+        required: true
+     RetrieveSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateHistoryRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateHistoryRequest'
+        required: true
+     RetrieveHistoryRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     customercontactoperatingsessionid:
+        name: customercontactoperatingsessionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     authenticationid:
+        name: authenticationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     routingid:
+        name: routingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     sessionid:
+        name: sessionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     historyid:
+        name: historyid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateCustomerContactOperatingSessionResponse:
+        description: CustomerContactOperatingSessionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateCustomerContactOperatingSessionResponse
+     UpdateCustomerContactOperatingSessionResponse:
+        description: CustomerContactOperatingSessionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCustomerContactOperatingSessionResponse
+     ExecuteCustomerContactOperatingSessionResponse:
+        description: CustomerContactOperatingSessionExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteCustomerContactOperatingSessionResponse
+     RequestCustomerContactOperatingSessionResponse:
+        description: CustomerContactOperatingSessionRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestCustomerContactOperatingSessionResponse
+     RetrieveCustomerContactOperatingSessionResponse:
+        description: CustomerContactOperatingSessionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveCustomerContactOperatingSessionResponse
+     RetrieveAuthenticationResponse:
+        description: AuthenticationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAuthenticationResponse'
+     RetrieveRoutingResponse:
+        description: RoutingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveRoutingResponse'
+     InitiateSessionResponse:
+        description: SessionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateSessionResponse'
+     UpdateSessionResponse:
+        description: SessionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSessionResponse'
+     ExecuteSessionResponse:
+        description: SessionExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteSessionResponse'
+     RetrieveSessionResponse:
+        description: SessionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveSessionResponse'
+     UpdateHistoryResponse:
+        description: HistoryUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateHistoryResponse'
+     RetrieveHistoryResponse:
+        description: HistoryRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveHistoryResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

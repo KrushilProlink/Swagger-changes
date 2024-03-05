@@ -1,0 +1,4668 @@
+openapi: 3.0.1
+info:
+  title: Custody Administration
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | A service to provide safe
+    custody services for marketable securities for bank customers
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CustodyAdministration
+paths:
+   '/CustodyFacility/{custodyfacilityid}/Control':
+      put:
+        tags:
+           - CR - CustodyFacility
+        summary: CoCR Control the processing of Custody Facility
+        description: CoCR Control the processing of Custody Facility
+        operationId: CustodyFacility/Control
+        parameters:
+           - $ref: '#/components/parameters/custodyfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/ControlCustodyFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustodyFacility/{custodyfacilityid}/Exchange':
+      put:
+        tags:
+           - CR - CustodyFacility
+        summary: EcCR Accept, verify, etc. aspects of Custody Facility processing
+        description: EcCR Accept, verify, etc. aspects of Custody Facility processing
+        operationId: CustodyFacility/Exchange
+        parameters:
+           - $ref: '#/components/parameters/custodyfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeCustodyFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustodyFacility/{custodyfacilityid}/Execute':
+      put:
+        tags:
+           - CR - CustodyFacility
+        summary: ExCR Execute an available automated action for Custody Facility
+        description: ExCR Execute an available automated action for Custody Facility
+        operationId: CustodyFacility/Execute
+        parameters:
+           - $ref: '#/components/parameters/custodyfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteCustodyFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustodyFacility/{custodyfacilityid}/Initiate':
+      post:
+        tags:
+           - CR - CustodyFacility
+        summary: InCR Instantiate a new Custody Facility
+        description: InCR Instantiate a new Custody Facility
+        operationId: CustodyFacility/Initiate
+        parameters:
+           - $ref: '#/components/parameters/custodyfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateCustodyFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustodyFacility/{custodyfacilityid}/Retrieve':
+      get:
+        tags:
+           - CR - CustodyFacility
+        summary: ReCR Retrieve details about any aspect of Custody Facility
+        description: ReCR Retrieve details about any aspect of Custody Facility
+        operationId: CustodyFacility/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/custodyfacilityid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCustodyFacilityResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustodyFacility/{custodyfacilityid}/Request':
+      put:
+        tags:
+           - CR - CustodyFacility
+        summary: >-
+          RqCR Request manual intervention or a decision with respect to Custody
+          Facility
+        description: >-
+          RqCR Request manual intervention or a decision with respect to Custody
+          Facility
+        operationId: CustodyFacility/Request
+        parameters:
+           - $ref: '#/components/parameters/custodyfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestCustodyFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustodyFacility/{custodyfacilityid}/Update':
+      put:
+        tags:
+           - CR - CustodyFacility
+        summary: UpCR Update details relating to Custody Facility
+        description: UpCR Update details relating to Custody Facility
+        operationId: CustodyFacility/Update
+        parameters:
+           - $ref: '#/components/parameters/custodyfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCustodyFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SafeKeeping/{safekeepingid}/Control':
+      put:
+        tags:
+           - BQ - SafeKeeping
+        summary: CoBQ Control the processing of Safe Keeping
+        description: CoBQ Control the processing of Safe Keeping
+        operationId: SafeKeeping/Control
+        parameters:
+           - $ref: '#/components/parameters/safekeepingid'
+        requestBody:
+          $ref: '#/components/requestBodies/ControlSafeKeepingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Fees/{feesid}/Exchange':
+      put:
+        tags:
+           - BQ - Fees
+        summary: EcBQ Accept, verify, etc. aspects of Fees processing
+        description: EcBQ Accept, verify, etc. aspects of Fees processing
+        operationId: Fees/Exchange
+        parameters:
+           - $ref: '#/components/parameters/feesid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeFeesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SecuritiesReporting/{securitiesreportingid}/Execute':
+      put:
+        tags:
+           - BQ - SecuritiesReporting
+        summary: ExBQ Execute an available automated action for Securities Reporting
+        description: ExBQ Execute an available automated action for Securities Reporting
+        operationId: SecuritiesReporting/Execute
+        parameters:
+           - $ref: '#/components/parameters/securitiesreportingid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteSecuritiesReportingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Settlement/{settlementid}/Execute':
+      put:
+        tags:
+           - BQ - Settlement
+        summary: ExBQ Execute an available automated action for Settlement
+        description: ExBQ Execute an available automated action for Settlement
+        operationId: Settlement/Execute
+        parameters:
+           - $ref: '#/components/parameters/settlementid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteSettlementRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/DividendsandInterest/{dividendsandinterestid}/Initiate':
+      post:
+        tags:
+           - BQ - DividendsandInterest
+        summary: InBQ Instantiate a new Dividends and Interest
+        description: InBQ Instantiate a new Dividends and Interest
+        operationId: DividendsandInterest/Initiate
+        parameters:
+           - $ref: '#/components/parameters/dividendsandinterestid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateDividendsandInterestRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Fees/{feesid}/Initiate':
+      post:
+        tags:
+           - BQ - Fees
+        summary: InBQ Instantiate a new Fees
+        description: InBQ Instantiate a new Fees
+        operationId: Fees/Initiate
+        parameters:
+           - $ref: '#/components/parameters/feesid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateFeesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SecuritiesReporting/{securitiesreportingid}/Initiate':
+      post:
+        tags:
+           - BQ - SecuritiesReporting
+        summary: InBQ Instantiate a new Securities Reporting
+        description: InBQ Instantiate a new Securities Reporting
+        operationId: SecuritiesReporting/Initiate
+        parameters:
+           - $ref: '#/components/parameters/securitiesreportingid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateSecuritiesReportingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Settlement/{settlementid}/Initiate':
+      post:
+        tags:
+           - BQ - Settlement
+        summary: InBQ Instantiate a new Settlement
+        description: InBQ Instantiate a new Settlement
+        operationId: Settlement/Initiate
+        parameters:
+           - $ref: '#/components/parameters/settlementid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateSettlementRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/DividendsandInterest/{dividendsandinterestid}/Retrieve':
+      get:
+        tags:
+           - BQ - DividendsandInterest
+        summary: ReBQ Retrieve details about any aspect of Dividends and Interest
+        description: ReBQ Retrieve details about any aspect of Dividends and Interest
+        operationId: DividendsandInterest/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/dividendsandinterestid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveDividendsandInterestResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Fees/{feesid}/Retrieve':
+      get:
+        tags:
+           - BQ - Fees
+        summary: ReBQ Retrieve details about any aspect of Fees
+        description: ReBQ Retrieve details about any aspect of Fees
+        operationId: Fees/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/feesid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveFeesResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SafeKeeping/{safekeepingid}/Retrieve':
+      get:
+        tags:
+           - BQ - SafeKeeping
+        summary: ReBQ Retrieve details about any aspect of Safe Keeping
+        description: ReBQ Retrieve details about any aspect of Safe Keeping
+        operationId: SafeKeeping/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/safekeepingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveSafeKeepingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SecuritiesReporting/{securitiesreportingid}/Retrieve':
+      get:
+        tags:
+           - BQ - SecuritiesReporting
+        summary: ReBQ Retrieve details about any aspect of Securities Reporting
+        description: ReBQ Retrieve details about any aspect of Securities Reporting
+        operationId: SecuritiesReporting/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/securitiesreportingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveSecuritiesReportingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Settlement/{settlementid}/Retrieve':
+      get:
+        tags:
+           - BQ - Settlement
+        summary: ReBQ Retrieve details about any aspect of Settlement
+        description: ReBQ Retrieve details about any aspect of Settlement
+        operationId: Settlement/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/settlementid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveSettlementResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SafeKeeping/{safekeepingid}/Request':
+      put:
+        tags:
+           - BQ - SafeKeeping
+        summary: >-
+          RqBQ Request manual intervention or a decision with respect to Safe
+          Keeping
+        description: >-
+          RqBQ Request manual intervention or a decision with respect to Safe
+          Keeping
+        operationId: SafeKeeping/Request
+        parameters:
+           - $ref: '#/components/parameters/safekeepingid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestSafeKeepingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SecuritiesReporting/{securitiesreportingid}/Request':
+      put:
+        tags:
+           - BQ - SecuritiesReporting
+        summary: >-
+          RqBQ Request manual intervention or a decision with respect to
+          Securities Reporting
+        description: >-
+          RqBQ Request manual intervention or a decision with respect to
+          Securities Reporting
+        operationId: SecuritiesReporting/Request
+        parameters:
+           - $ref: '#/components/parameters/securitiesreportingid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestSecuritiesReportingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Settlement/{settlementid}/Request':
+      put:
+        tags:
+           - BQ - Settlement
+        summary: >-
+          RqBQ Request manual intervention or a decision with respect to
+          Settlement
+        description: >-
+          RqBQ Request manual intervention or a decision with respect to
+          Settlement
+        operationId: Settlement/Request
+        parameters:
+           - $ref: '#/components/parameters/settlementid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestSettlementRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Fees/{feesid}/Update':
+      put:
+        tags:
+           - BQ - Fees
+        summary: UpBQ Update details relating to Fees
+        description: UpBQ Update details relating to Fees
+        operationId: Fees/Update
+        parameters:
+           - $ref: '#/components/parameters/feesid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateFeesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SafeKeeping/{safekeepingid}/Update':
+      put:
+        tags:
+           - BQ - SafeKeeping
+        summary: UpBQ Update details relating to Safe Keeping
+        description: UpBQ Update details relating to Safe Keeping
+        operationId: SafeKeeping/Update
+        parameters:
+           - $ref: '#/components/parameters/safekeepingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateSafeKeepingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Settlement/{settlementid}/Update':
+      put:
+        tags:
+           - BQ - Settlement
+        summary: UpBQ Update details relating to Settlement
+        description: UpBQ Update details relating to Settlement
+        operationId: Settlement/Update
+        parameters:
+           - $ref: '#/components/parameters/settlementid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateSettlementRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     ControlCustodyFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           CustodyFacilityRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     Currencycode:
+        type: object
+        description: ' CurrencyCode|CurrencyCode (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022 BM ()'
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     ControlCustodyFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     ControlCustodyFacility:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     ExchangeCustodyFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           CustodyFacilityRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     ExchangeCustodyFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     ExchangeCustodyFacility:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     ExecuteCustodyFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           CustodyFacilityRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     ExecuteCustodyFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteCustodyFacility:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     InitiateCustodyFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           CustodyFacilityRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     InitiateCustodyFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCustodyFacility:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     RetrieveCustodyFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveCustodyFacility:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     RequestCustodyFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           CustodyFacilityRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestCustodyFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestCustodyFacility:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     UpdateCustodyFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           CustodyFacilityRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateCustodyFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCustodyFacility:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     ControlSafeKeepingRequest:
+        type: object
+        description: ''
+        properties:
+           SafeKeepingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesSafeKeeping:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           SafeKeepingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     BusinessService:
+        type: object
+        description: "\r\n - "
+        properties:
+           BusinessServiceType:
+              enum:
+                   -  Businessservicetypevalues
+              type: string
+              description: ">-\r\n* `Businessservicetypevalues` \r\n* "
+     ControlSafeKeepingResponse:
+        type: object
+        description: ''
+        properties:
+           SafeKeepingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesSafeKeeping:
+              $ref: '#/components/schemas/BusinessService'
+           SafeKeepingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ControlSafeKeeping:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     ExchangeFeesRequest:
+        type: object
+        description: ''
+        properties:
+           FeesPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           FeesPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExchangeFeesResponse:
+        type: object
+        description: ''
+        properties:
+           FeesPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           FeesPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExchangeFees:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     ExecuteSecuritiesReportingRequest:
+        type: object
+        description: ''
+        properties:
+           SecuritiesReportingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodySecuritiesReporting:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           SecuritiesReportingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteSecuritiesReportingResponse:
+        type: object
+        description: ''
+        properties:
+           SecuritiesReportingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodySecuritiesReporting:
+              $ref: '#/components/schemas/BusinessService'
+           SecuritiesReportingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteSecuritiesReporting:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     ExecuteSettlementRequest:
+        type: object
+        description: ''
+        properties:
+           SettlementPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           SettlementPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteSettlementResponse:
+        type: object
+        description: ''
+        properties:
+           SettlementPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           SettlementPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteSettlement:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     InitiateDividendsandInterestRequest:
+        type: object
+        description: ''
+        properties:
+           DividendsandInterestPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyDividendsandInterest:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           DividendsandInterestPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestCustodyDividendsandInterestServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestCustodyDividendsandInterestServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestCustodyDividendsandInterestServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestCustodyDividendsandInterestServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestCustodyDividendsandInterestServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateDividendsandInterestResponse:
+        type: object
+        description: ''
+        properties:
+           DividendsandInterestPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyDividendsandInterest:
+              $ref: '#/components/schemas/BusinessService'
+           DividendsandInterestPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestCustodyDividendsandInterestServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestCustodyDividendsandInterestServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestCustodyDividendsandInterestServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestCustodyDividendsandInterestServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestCustodyDividendsandInterestServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateDividendsandInterest:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     InitiateFeesRequest:
+        type: object
+        description: ''
+        properties:
+           FeesPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           FeesPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateFeesResponse:
+        type: object
+        description: ''
+        properties:
+           FeesPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           FeesPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateFees:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     InitiateSecuritiesReportingRequest:
+        type: object
+        description: ''
+        properties:
+           SecuritiesReportingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodySecuritiesReporting:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           SecuritiesReportingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateSecuritiesReportingResponse:
+        type: object
+        description: ''
+        properties:
+           SecuritiesReportingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodySecuritiesReporting:
+              $ref: '#/components/schemas/BusinessService'
+           SecuritiesReportingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateSecuritiesReporting:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     InitiateSettlementRequest:
+        type: object
+        description: ''
+        properties:
+           SettlementPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           SettlementPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateSettlementResponse:
+        type: object
+        description: ''
+        properties:
+           SettlementPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           SettlementPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateSettlement:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     RetrieveDividendsandInterestResponse:
+        type: object
+        description: ''
+        properties:
+           DividendsandInterestPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodyDividendsandInterest:
+              $ref: '#/components/schemas/BusinessService'
+           DividendsandInterestPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestCustodyDividendsandInterestServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestCustodyDividendsandInterestServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestCustodyDividendsandInterestServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestCustodyDividendsandInterestServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           DividendsandInterestCustodyDividendsandInterestServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveDividendsandInterest:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     RetrieveFeesResponse:
+        type: object
+        description: ''
+        properties:
+           FeesPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           FeesPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveFees:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     RetrieveSafeKeepingResponse:
+        type: object
+        description: ''
+        properties:
+           SafeKeepingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesSafeKeeping:
+              $ref: '#/components/schemas/BusinessService'
+           SafeKeepingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveSafeKeeping:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     RetrieveSecuritiesReportingResponse:
+        type: object
+        description: ''
+        properties:
+           SecuritiesReportingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodySecuritiesReporting:
+              $ref: '#/components/schemas/BusinessService'
+           SecuritiesReportingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveSecuritiesReporting:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     RetrieveSettlementResponse:
+        type: object
+        description: ''
+        properties:
+           SettlementPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           SettlementPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveSettlement:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     RequestSafeKeepingRequest:
+        type: object
+        description: ''
+        properties:
+           SafeKeepingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesSafeKeeping:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           SafeKeepingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestSafeKeepingResponse:
+        type: object
+        description: ''
+        properties:
+           SafeKeepingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesSafeKeeping:
+              $ref: '#/components/schemas/BusinessService'
+           SafeKeepingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestSafeKeeping:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     RequestSecuritiesReportingRequest:
+        type: object
+        description: ''
+        properties:
+           SecuritiesReportingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodySecuritiesReporting:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           SecuritiesReportingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestSecuritiesReportingResponse:
+        type: object
+        description: ''
+        properties:
+           SecuritiesReportingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustodySecuritiesReporting:
+              $ref: '#/components/schemas/BusinessService'
+           SecuritiesReportingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesReportingCustodySecuritiesReportingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestSecuritiesReporting:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     RequestSettlementRequest:
+        type: object
+        description: ''
+        properties:
+           SettlementPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           SettlementPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestSettlementResponse:
+        type: object
+        description: ''
+        properties:
+           SettlementPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           SettlementPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestSettlement:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     UpdateFeesRequest:
+        type: object
+        description: ''
+        properties:
+           FeesPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           FeesPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateFeesResponse:
+        type: object
+        description: ''
+        properties:
+           FeesPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           FeesPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           FeesServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateFees:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     UpdateSafeKeepingRequest:
+        type: object
+        description: ''
+        properties:
+           SafeKeepingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesSafeKeeping:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           SafeKeepingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSafeKeepingResponse:
+        type: object
+        description: ''
+        properties:
+           SafeKeepingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesSafeKeeping:
+              $ref: '#/components/schemas/BusinessService'
+           SafeKeepingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SafeKeepingSecuritiesSafeKeepingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSafeKeeping:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     UpdateSettlementRequest:
+        type: object
+        description: ''
+        properties:
+           SettlementPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           SettlementPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSettlementResponse:
+        type: object
+        description: ''
+        properties:
+           SettlementPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           SettlementPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           SettlementServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSettlement:
+        type: object
+        description: ''
+        properties:
+           CustodyFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Custody
+                Arrangement
+              format: String
+           CustodyFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                Custody Arrangement
+              format: String
+           CustodyFacilityType:
+              type: string
+              description: The type of Custody Arrangement
+              format: String
+           CustodyFacilityReference:
+              type: string
+              description: Reference to Custody Arrangement
+              format: Object
+           CustodyFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Custody Arrangement
+              format: String
+           CustodyFacilityStatus:
+              type: string
+              description: The status of Custody Arrangement
+              format: String
+           CustodyFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CustodyFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Custody
+                Arrangement
+              format: Object
+           CustodyFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Custody Arrangement
+              format: String
+           CustodyFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Custody
+                Arrangement in case of legal dispute.
+              format: String
+           CustodyFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Custody Arrangement, are entered.
+              format: String
+           CustodyFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Custody Arrangement
+              format: String
+           CustodyFacilityAccountReference:
+              type: string
+              description: Reference to the account which is linked to Custody Arrangement
+              format: Object
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     ControlCustodyFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlCustodyFacilityRequest'
+        required: true
+     ExchangeCustodyFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeCustodyFacilityRequest'
+        required: true
+     ExecuteCustodyFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteCustodyFacilityRequest'
+        required: true
+     InitiateCustodyFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCustodyFacilityRequest'
+        required: true
+     RetrieveCustodyFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RequestCustodyFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCustodyFacilityRequest'
+        required: true
+     UpdateCustodyFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCustodyFacilityRequest'
+        required: true
+     ControlSafeKeepingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlSafeKeepingRequest'
+        required: true
+     ExchangeFeesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeFeesRequest'
+        required: true
+     ExecuteSecuritiesReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteSecuritiesReportingRequest'
+        required: true
+     ExecuteSettlementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteSettlementRequest'
+        required: true
+     InitiateDividendsandInterestRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateDividendsandInterestRequest'
+        required: true
+     InitiateFeesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateFeesRequest'
+        required: true
+     InitiateSecuritiesReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateSecuritiesReportingRequest'
+        required: true
+     InitiateSettlementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateSettlementRequest'
+        required: true
+     RetrieveDividendsandInterestRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveFeesRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveSafeKeepingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveSecuritiesReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveSettlementRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RequestSafeKeepingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestSafeKeepingRequest'
+        required: true
+     RequestSecuritiesReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestSecuritiesReportingRequest'
+        required: true
+     RequestSettlementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestSettlementRequest'
+        required: true
+     UpdateFeesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFeesRequest'
+        required: true
+     UpdateSafeKeepingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSafeKeepingRequest'
+        required: true
+     UpdateSettlementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSettlementRequest'
+        required: true
+  parameters:
+     custodyfacilityid:
+        name: custodyfacilityid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     safekeepingid:
+        name: safekeepingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     feesid:
+        name: feesid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     securitiesreportingid:
+        name: securitiesreportingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     settlementid:
+        name: settlementid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     dividendsandinterestid:
+        name: dividendsandinterestid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     ControlCustodyFacilityResponse:
+        description: CustodyFacilityControl
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlCustodyFacilityResponse'
+     ExchangeCustodyFacilityResponse:
+        description: CustodyFacilityExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeCustodyFacilityResponse'
+     ExecuteCustodyFacilityResponse:
+        description: CustodyFacilityExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteCustodyFacilityResponse'
+     InitiateCustodyFacilityResponse:
+        description: CustodyFacilityInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCustodyFacilityResponse'
+     RetrieveCustodyFacilityResponse:
+        description: CustodyFacilityRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCustodyFacilityResponse'
+     RequestCustodyFacilityResponse:
+        description: CustodyFacilityRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCustodyFacilityResponse'
+     UpdateCustodyFacilityResponse:
+        description: CustodyFacilityUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCustodyFacilityResponse'
+     ControlSafeKeepingResponse:
+        description: SafeKeepingControl
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlSafeKeepingResponse'
+     ExchangeFeesResponse:
+        description: FeesExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeFeesResponse'
+     ExecuteSecuritiesReportingResponse:
+        description: SecuritiesReportingExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteSecuritiesReportingResponse'
+     ExecuteSettlementResponse:
+        description: SettlementExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteSettlementResponse'
+     InitiateDividendsandInterestResponse:
+        description: DividendsandInterestInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateDividendsandInterestResponse'
+     InitiateFeesResponse:
+        description: FeesInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateFeesResponse'
+     InitiateSecuritiesReportingResponse:
+        description: SecuritiesReportingInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateSecuritiesReportingResponse'
+     InitiateSettlementResponse:
+        description: SettlementInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateSettlementResponse'
+     RetrieveDividendsandInterestResponse:
+        description: DividendsandInterestRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveDividendsandInterestResponse'
+     RetrieveFeesResponse:
+        description: FeesRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveFeesResponse'
+     RetrieveSafeKeepingResponse:
+        description: SafeKeepingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveSafeKeepingResponse'
+     RetrieveSecuritiesReportingResponse:
+        description: SecuritiesReportingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveSecuritiesReportingResponse'
+     RetrieveSettlementResponse:
+        description: SettlementRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveSettlementResponse'
+     RequestSafeKeepingResponse:
+        description: SafeKeepingRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestSafeKeepingResponse'
+     RequestSecuritiesReportingResponse:
+        description: SecuritiesReportingRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestSecuritiesReportingResponse'
+     RequestSettlementResponse:
+        description: SettlementRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestSettlementResponse'
+     UpdateFeesResponse:
+        description: FeesUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFeesResponse'
+     UpdateSafeKeepingResponse:
+        description: SafeKeepingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSafeKeepingResponse'
+     UpdateSettlementResponse:
+        description: SettlementUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSettlementResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

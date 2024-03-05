@@ -1,0 +1,1312 @@
+openapi: 3.0.1
+info:
+  title: Product Broker Agreement
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain maintains
+    product broker contractual and service level agreements and tracks and
+    confirms compliance and service related activity/volume goals when necessary
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/ProductBrokerAgreement
+paths:
+   '/BrokerAgreement/{brokeragreementid}/Evaluate':
+      post:
+        tags:
+           - CR - BrokerAgreement
+        summary: EvCR Establish a product broker agreement (evaluate applicable rules)
+        description: EvCR Establish a product broker agreement (evaluate applicable rules)
+        operationId: BrokerAgreement/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/brokeragreementid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateBrokerAgreementRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BrokerAgreement/{brokeragreementid}/Update':
+      put:
+        tags:
+           - CR - BrokerAgreement
+        summary: UpCR Update details of an active product broker agreement
+        description: UpCR Update details of an active product broker agreement
+        operationId: BrokerAgreement/Update
+        parameters:
+           - $ref: '#/components/parameters/brokeragreementid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateBrokerAgreementRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BrokerAgreement/{brokeragreementid}/Retrieve':
+      get:
+        tags:
+           - CR - BrokerAgreement
+        summary: ReCR Retrieve details about a broker agreement
+        description: ReCR Retrieve details about a broker agreement
+        operationId: BrokerAgreement/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/brokeragreementid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveBrokerAgreementResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/LegalTerms/{legaltermsid}/Evaluate':
+      post:
+        tags:
+           - BQ - LegalTerms
+        summary: EvBQ Establish the legal terms for a broker agreement
+        description: EvBQ Establish the legal terms for a broker agreement
+        operationId: LegalTerms/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/legaltermsid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateLegalTermsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/LegalTerms/{legaltermsid}/Update':
+      put:
+        tags:
+           - BQ - LegalTerms
+        summary: UpBQ Update the legal terms for a broker agreement
+        description: UpBQ Update the legal terms for a broker agreement
+        operationId: LegalTerms/Update
+        parameters:
+           - $ref: '#/components/parameters/legaltermsid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateLegalTermsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/LegalTerms/{legaltermsid}/Retrieve':
+      get:
+        tags:
+           - BQ - LegalTerms
+        summary: ReBQ Retrieve details about the legal terms of an agreement
+        description: ReBQ Retrieve details about the legal terms of an agreement
+        operationId: LegalTerms/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/legaltermsid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveLegalTermsResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RegulatoryTerms/{regulatorytermsid}/Evaluate':
+      post:
+        tags:
+           - BQ - RegulatoryTerms
+        summary: EvBQ Establish the regulatory terms for a broker agreement
+        description: EvBQ Establish the regulatory terms for a broker agreement
+        operationId: RegulatoryTerms/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/regulatorytermsid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateRegulatoryTermsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RegulatoryTerms/{regulatorytermsid}/Update':
+      put:
+        tags:
+           - BQ - RegulatoryTerms
+        summary: UpBQ Update the regulatory terms for a broker agreement
+        description: UpBQ Update the regulatory terms for a broker agreement
+        operationId: RegulatoryTerms/Update
+        parameters:
+           - $ref: '#/components/parameters/regulatorytermsid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateRegulatoryTermsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RegulatoryTerms/{regulatorytermsid}/Retrieve':
+      get:
+        tags:
+           - BQ - RegulatoryTerms
+        summary: ReBQ Retrieve details about the regulatory terms of an agreement
+        description: ReBQ Retrieve details about the regulatory terms of an agreement
+        operationId: RegulatoryTerms/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/regulatorytermsid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveRegulatoryTermsResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PolicyTerms/{policytermsid}/Evaluate':
+      post:
+        tags:
+           - BQ - PolicyTerms
+        summary: EvBQ Establish the corporate policy terms for a broker agreement
+        description: EvBQ Establish the corporate policy terms for a broker agreement
+        operationId: PolicyTerms/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/policytermsid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluatePolicyTermsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PolicyTerms/{policytermsid}/Update':
+      put:
+        tags:
+           - BQ - PolicyTerms
+        summary: UpBQ Update the corporate policy terms for a broker agreement
+        description: UpBQ Update the corporate policy terms for a broker agreement
+        operationId: PolicyTerms/Update
+        parameters:
+           - $ref: '#/components/parameters/policytermsid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePolicyTermsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PolicyTerms/{policytermsid}/Retrieve':
+      get:
+        tags:
+           - BQ - PolicyTerms
+        summary: ReBQ Retrieve details about the corporate policy terms of an agreement
+        description: ReBQ Retrieve details about the corporate policy terms of an agreement
+        operationId: PolicyTerms/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/policytermsid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePolicyTermsResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateBrokerAgreementRequest:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     EvaluateBrokerAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     EvaluateBrokerAgreement:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: Reference to the broker organization
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of agreement (e.g. service provider, product alliance)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+     UpdateBrokerAgreementRequest:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateBrokerAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateBrokerAgreement:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: Reference to the broker organization
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of agreement (e.g. service provider, product alliance)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+     RetrieveBrokerAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveBrokerAgreement:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: Reference to the broker organization
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of agreement (e.g. service provider, product alliance)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+     EvaluateLegalTermsRequest:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableLawReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     EvaluateLegalTermsResponse:
+        type: object
+        description: ''
+        properties:
+           ApplicableLawInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateLegalTerms:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: Reference to the broker organization
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of agreement (e.g. service provider, product alliance)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+     UpdateLegalTermsRequest:
+        type: object
+        description: ''
+        properties:
+           Jurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableLawReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateLegalTermsResponse:
+        type: object
+        description: ''
+        properties:
+           Jurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableLawReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateLegalTerms:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: Reference to the broker organization
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of agreement (e.g. service provider, product alliance)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+     RetrieveLegalTermsResponse:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableLawReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableLawInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveLegalTerms:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: Reference to the broker organization
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of agreement (e.g. service provider, product alliance)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+     EvaluateRegulatoryTermsRequest:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAuthority:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     EvaluateRegulatoryTermsResponse:
+        type: object
+        description: ''
+        properties:
+           ApplicableRegulationInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateRegulatoryTerms:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: Reference to the broker organization
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of agreement (e.g. service provider, product alliance)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+     UpdateRegulatoryTermsRequest:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthority:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateRegulatoryTermsResponse:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthority:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateRegulatoryTerms:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: Reference to the broker organization
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of agreement (e.g. service provider, product alliance)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+     RetrieveRegulatoryTermsResponse:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAuthority:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableRegulationInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveRegulatoryTerms:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: Reference to the broker organization
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of agreement (e.g. service provider, product alliance)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+     EvaluatePolicyTermsRequest:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankPolicyRuleType:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableBankPolicyRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     EvaluatePolicyTermsResponse:
+        type: object
+        description: ''
+        properties:
+           ApplicableBankPolicyRuleInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluatePolicyTerms:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: Reference to the broker organization
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of agreement (e.g. service provider, product alliance)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+     UpdatePolicyTermsRequest:
+        type: object
+        description: ''
+        properties:
+           BankPolicyRuleType:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableBankPolicyRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdatePolicyTermsResponse:
+        type: object
+        description: ''
+        properties:
+           BankPolicyRuleType:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableBankPolicyRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdatePolicyTerms:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: Reference to the broker organization
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of agreement (e.g. service provider, product alliance)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+     RetrievePolicyTermsResponse:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankPolicyRuleType:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableBankPolicyRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableBankPolicyRuleInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrievePolicyTerms:
+        type: object
+        description: ''
+        properties:
+           PartyReference:
+              type: string
+              description: Reference to the broker organization
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of agreement (e.g. service provider, product alliance)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignaturesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateBrokerAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateBrokerAgreementRequest'
+        required: true
+     UpdateBrokerAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateBrokerAgreementRequest'
+        required: true
+     RetrieveBrokerAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     EvaluateLegalTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateLegalTermsRequest'
+        required: true
+     UpdateLegalTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateLegalTermsRequest'
+        required: true
+     RetrieveLegalTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     EvaluateRegulatoryTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateRegulatoryTermsRequest'
+        required: true
+     UpdateRegulatoryTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRegulatoryTermsRequest'
+        required: true
+     RetrieveRegulatoryTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     EvaluatePolicyTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluatePolicyTermsRequest'
+        required: true
+     UpdatePolicyTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePolicyTermsRequest'
+        required: true
+     RetrievePolicyTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     brokeragreementid:
+        name: brokeragreementid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     legaltermsid:
+        name: legaltermsid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     regulatorytermsid:
+        name: regulatorytermsid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     policytermsid:
+        name: policytermsid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateBrokerAgreementResponse:
+        description: BrokerAgreementEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateBrokerAgreementResponse'
+     UpdateBrokerAgreementResponse:
+        description: BrokerAgreementUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateBrokerAgreementResponse'
+     RetrieveBrokerAgreementResponse:
+        description: BrokerAgreementRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveBrokerAgreementResponse'
+     EvaluateLegalTermsResponse:
+        description: LegalTermsEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateLegalTermsResponse'
+     UpdateLegalTermsResponse:
+        description: LegalTermsUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateLegalTermsResponse'
+     RetrieveLegalTermsResponse:
+        description: LegalTermsRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveLegalTermsResponse'
+     EvaluateRegulatoryTermsResponse:
+        description: RegulatoryTermsEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateRegulatoryTermsResponse'
+     UpdateRegulatoryTermsResponse:
+        description: RegulatoryTermsUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRegulatoryTermsResponse'
+     RetrieveRegulatoryTermsResponse:
+        description: RegulatoryTermsRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveRegulatoryTermsResponse'
+     EvaluatePolicyTermsResponse:
+        description: PolicyTermsEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluatePolicyTermsResponse'
+     UpdatePolicyTermsResponse:
+        description: PolicyTermsUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePolicyTermsResponse'
+     RetrievePolicyTermsResponse:
+        description: PolicyTermsRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePolicyTermsResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

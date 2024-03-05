@@ -1,0 +1,1502 @@
+openapi: 3.0.1
+info:
+  title: Advanced Voice Services Management
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Oversee the configuration and
+    operation of the voice channel facilities
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/AdvancedVoiceServicesManagement
+paths:
+   '/VoiceChannelManagementPlan/{voicechannelmanagementplanid}/Create':
+      post:
+        tags:
+           - CR - VoiceChannelManagementPlan
+        summary: CrCR Create the management plan for the voice channel
+        description: CrCR Create the management plan for the voice channel
+        operationId: VoiceChannelManagementPlan/Create
+        parameters:
+           - $ref: '#/components/parameters/voicechannelmanagementplanid'
+        requestBody:
+          $ref: '#/components/requestBodies/CreateVoiceChannelManagementPlanRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/VoiceChannelManagementPlan/{voicechannelmanagementplanid}/Retrieve':
+      get:
+        tags:
+           - CR - VoiceChannelManagementPlan
+        summary: ReCR Retrieve details about the voice channel management plan
+        description: ReCR Retrieve details about the voice channel management plan
+        operationId: VoiceChannelManagementPlan/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/voicechannelmanagementplanid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveVoiceChannelManagementPlanResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CapacityPlanning/{capacityplanningid}/Update':
+      put:
+        tags:
+           - BQ - CapacityPlanning
+        summary: UpBQ Update details of the capacity management plan for the channel
+        description: UpBQ Update details of the capacity management plan for the channel
+        operationId: CapacityPlanning/Update
+        parameters:
+           - $ref: '#/components/parameters/capacityplanningid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCapacityPlanningRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CapacityPlanning/{capacityplanningid}/Request':
+      put:
+        tags:
+           - BQ - CapacityPlanning
+        summary: >-
+          RqBQ Request manual intervention in the capacity plan (e.g. revise
+          projections)
+        description: >-
+          RqBQ Request manual intervention in the capacity plan (e.g. revise
+          projections)
+        operationId: CapacityPlanning/Request
+        parameters:
+           - $ref: '#/components/parameters/capacityplanningid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestCapacityPlanningRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CapacityPlanning/{capacityplanningid}/Retrieve':
+      get:
+        tags:
+           - BQ - CapacityPlanning
+        summary: ReBQ Retrieve details about the channel capacity plan
+        description: ReBQ Retrieve details about the channel capacity plan
+        operationId: CapacityPlanning/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/capacityplanningid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCapacityPlanningResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/MaintenanceAndUpgrades/{maintenanceandupgradesid}/Create':
+      post:
+        tags:
+           - BQ - MaintenanceAndUpgrades
+        summary: CrBQ Create a maintenance or upgrade task plan item for the channel
+        description: CrBQ Create a maintenance or upgrade task plan item for the channel
+        operationId: MaintenanceAndUpgrades/Create
+        parameters:
+           - $ref: '#/components/parameters/maintenanceandupgradesid'
+        requestBody:
+          $ref: '#/components/requestBodies/CreateMaintenanceAndUpgradesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/MaintenanceAndUpgrades/{maintenanceandupgradesid}/Update':
+      put:
+        tags:
+           - BQ - MaintenanceAndUpgrades
+        summary: UpBQ Update details of a maintenance or upgrade management plan item
+        description: UpBQ Update details of a maintenance or upgrade management plan item
+        operationId: MaintenanceAndUpgrades/Update
+        parameters:
+           - $ref: '#/components/parameters/maintenanceandupgradesid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateMaintenanceAndUpgradesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/MaintenanceAndUpgrades/{maintenanceandupgradesid}/Request':
+      put:
+        tags:
+           - BQ - MaintenanceAndUpgrades
+        summary: RqBQ Request manual intervention to a maintenance or upgrade action
+        description: RqBQ Request manual intervention to a maintenance or upgrade action
+        operationId: MaintenanceAndUpgrades/Request
+        parameters:
+           - $ref: '#/components/parameters/maintenanceandupgradesid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestMaintenanceAndUpgradesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/MaintenanceAndUpgrades/{maintenanceandupgradesid}/Retrieve':
+      get:
+        tags:
+           - BQ - MaintenanceAndUpgrades
+        summary: ReBQ Retrieve details about a maintenance or upgrade management plan
+        description: ReBQ Retrieve details about a maintenance or upgrade management plan
+        operationId: MaintenanceAndUpgrades/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/maintenanceandupgradesid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveMaintenanceAndUpgradesResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Troubleshooting/{troubleshootingid}/Update':
+      put:
+        tags:
+           - BQ - Troubleshooting
+        summary: >-
+          UpBQ Update details of a production issue, root cause or remedial
+          action recommendation
+        description: >-
+          UpBQ Update details of a production issue, root cause or remedial
+          action recommendation
+        operationId: Troubleshooting/Update
+        parameters:
+           - $ref: '#/components/parameters/troubleshootingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateTroubleshootingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Troubleshooting/{troubleshootingid}/Request':
+      put:
+        tags:
+           - BQ - Troubleshooting
+        summary: RqBQ Request manual intervention in troubleshooting tasks
+        description: RqBQ Request manual intervention in troubleshooting tasks
+        operationId: Troubleshooting/Request
+        parameters:
+           - $ref: '#/components/parameters/troubleshootingid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestTroubleshootingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Troubleshooting/{troubleshootingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Troubleshooting
+        summary: >-
+          ReBQ Retrieve details about troubleshooting tasks, root cause and
+          proposed remedial actions
+        description: >-
+          ReBQ Retrieve details about troubleshooting tasks, root cause and
+          proposed remedial actions
+        operationId: Troubleshooting/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/troubleshootingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveTroubleshootingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     CreateVoiceChannelManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     CreateVoiceChannelManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     CreateVoiceChannelManagementPlan:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     RetrieveVoiceChannelManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     RetrieveVoiceChannelManagementPlan:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     UpdateCapacityPlanningRequest:
+        type: object
+        description: ''
+        properties:
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+           VChannelPlatformUtilization:
+              type: string
+              description: Record of the channel resource utilization and loading
+              format: String
+           VChannelLoadingProjections:
+              type: string
+              description: >-
+                Estimated projected resource utilization and loading based on
+                historical patterns and anticipated activity  used to identify
+                the need for capacity upgrades
+              format: String
+     UpdateCapacityPlanningResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+           VChannelPlatformUtilization:
+              type: string
+              description: Record of the channel resource utilization and loading
+              format: String
+           VChannelLoadingProjections:
+              type: string
+              description: >-
+                Estimated projected resource utilization and loading based on
+                historical patterns and anticipated activity  used to identify
+                the need for capacity upgrades
+              format: String
+     UpdateCapacityPlanning:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     RequestCapacityPlanningRequest:
+        type: object
+        description: ''
+        properties:
+           VChannelPlatformUtilization:
+              type: string
+              description: Record of the channel resource utilization and loading
+              format: String
+           VChannelLoadingProjections:
+              type: string
+              description: >-
+                Estimated projected resource utilization and loading based on
+                historical patterns and anticipated activity  used to identify
+                the need for capacity upgrades
+              format: String
+     RequestCapacityPlanningResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelPlatformUtilization:
+              type: string
+              description: Record of the channel resource utilization and loading
+              format: String
+           VChannelLoadingProjections:
+              type: string
+              description: >-
+                Estimated projected resource utilization and loading based on
+                historical patterns and anticipated activity  used to identify
+                the need for capacity upgrades
+              format: String
+     RequestCapacityPlanning:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     RetrieveCapacityPlanningResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+           VChannelPlatformUtilization:
+              type: string
+              description: Record of the channel resource utilization and loading
+              format: String
+           VChannelLoadingProjections:
+              type: string
+              description: >-
+                Estimated projected resource utilization and loading based on
+                historical patterns and anticipated activity  used to identify
+                the need for capacity upgrades
+              format: String
+     RetrieveCapacityPlanning:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     CreateMaintenanceAndUpgradesRequest:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+           VChannelMaintenanceandUpgradeSchedule:
+              type: string
+              description: >-
+                Planned platform maintenance and upgrade tasks (includes release
+                and capacity upgrades)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskType:
+              type: string
+              description: >-
+                The type of work task (e.g. scheduled maintenance, version
+                release, platform upgrade)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskWorkProducts:
+              type: string
+              description: >-
+                File of consolidated work notes, testing results, agreements
+                etc. for the work task
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: >-
+                The key datetimes associated with the work task (e.g. cutover
+                date)
+     Date:
+        type: object
+        description: >-
+          The key datetimes associated with the work task (e.g. cutover date)
+          ISODate|ISODate
+          (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022
+          BM ()
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     CreateMaintenanceAndUpgradesResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+           VChannelMaintenanceandUpgradeSchedule:
+              type: string
+              description: >-
+                Planned platform maintenance and upgrade tasks (includes release
+                and capacity upgrades)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskType:
+              type: string
+              description: >-
+                The type of work task (e.g. scheduled maintenance, version
+                release, platform upgrade)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskWorkProducts:
+              type: string
+              description: >-
+                File of consolidated work notes, testing results, agreements
+                etc. for the work task
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskResult:
+              type: string
+              description: >-
+                Details of the outcome or result of the work task (e.g. new
+                version number installed, capacity upgrade in production)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     CreateMaintenanceAndUpgrades:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     UpdateMaintenanceAndUpgradesRequest:
+        type: object
+        description: ''
+        properties:
+           VChannelMaintenanceandUpgradeSchedule:
+              type: string
+              description: >-
+                Planned platform maintenance and upgrade tasks (includes release
+                and capacity upgrades)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskType:
+              type: string
+              description: >-
+                The type of work task (e.g. scheduled maintenance, version
+                release, platform upgrade)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskWorkProducts:
+              type: string
+              description: >-
+                File of consolidated work notes, testing results, agreements
+                etc. for the work task
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskResult:
+              type: string
+              description: >-
+                Details of the outcome or result of the work task (e.g. new
+                version number installed, capacity upgrade in production)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: >-
+                The key datetimes associated with the work task (e.g. cutover
+                date)
+     UpdateMaintenanceAndUpgradesResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelMaintenanceandUpgradeSchedule:
+              type: string
+              description: >-
+                Planned platform maintenance and upgrade tasks (includes release
+                and capacity upgrades)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskType:
+              type: string
+              description: >-
+                The type of work task (e.g. scheduled maintenance, version
+                release, platform upgrade)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskWorkProducts:
+              type: string
+              description: >-
+                File of consolidated work notes, testing results, agreements
+                etc. for the work task
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskResult:
+              type: string
+              description: >-
+                Details of the outcome or result of the work task (e.g. new
+                version number installed, capacity upgrade in production)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     UpdateMaintenanceAndUpgrades:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     RequestMaintenanceAndUpgradesRequest:
+        type: object
+        description: ''
+        properties:
+           VChannelMaintenanceandUpgradeSchedule:
+              type: string
+              description: >-
+                Planned platform maintenance and upgrade tasks (includes release
+                and capacity upgrades)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskType:
+              type: string
+              description: >-
+                The type of work task (e.g. scheduled maintenance, version
+                release, platform upgrade)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskWorkProducts:
+              type: string
+              description: >-
+                File of consolidated work notes, testing results, agreements
+                etc. for the work task
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: >-
+                The key datetimes associated with the work task (e.g. cutover
+                date)
+     RequestMaintenanceAndUpgradesResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelMaintenanceandUpgradeSchedule:
+              type: string
+              description: >-
+                Planned platform maintenance and upgrade tasks (includes release
+                and capacity upgrades)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskType:
+              type: string
+              description: >-
+                The type of work task (e.g. scheduled maintenance, version
+                release, platform upgrade)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskWorkProducts:
+              type: string
+              description: >-
+                File of consolidated work notes, testing results, agreements
+                etc. for the work task
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskResult:
+              type: string
+              description: >-
+                Details of the outcome or result of the work task (e.g. new
+                version number installed, capacity upgrade in production)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     RequestMaintenanceAndUpgrades:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     RetrieveMaintenanceAndUpgradesResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelMaintenanceandUpgradeSchedule:
+              type: string
+              description: >-
+                Planned platform maintenance and upgrade tasks (includes release
+                and capacity upgrades)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskType:
+              type: string
+              description: >-
+                The type of work task (e.g. scheduled maintenance, version
+                release, platform upgrade)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskWorkProducts:
+              type: string
+              description: >-
+                File of consolidated work notes, testing results, agreements
+                etc. for the work task
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskResult:
+              type: string
+              description: >-
+                Details of the outcome or result of the work task (e.g. new
+                version number installed, capacity upgrade in production)
+              format: String
+           VChannelMaintenanceandUpgradeWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     RetrieveMaintenanceAndUpgrades:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     UpdateTroubleshootingRequest:
+        type: object
+        description: ''
+        properties:
+           VChannelProductionIssueRecord:
+              type: string
+              description: >-
+                A record of any production issues arising during the session
+                (see Advanced Voice Channel Operations for detailed content)
+              format: String
+           VChannelIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: >-
+                A record of the root cause analysis for recurring issues and
+                suggested remedial action
+              format: String
+     UpdateTroubleshootingResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelProductionIssueRecord:
+              type: string
+              description: >-
+                A record of any production issues arising during the session
+                (see Advanced Voice Channel Operations for detailed content)
+              format: String
+           VChannelIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: >-
+                A record of the root cause analysis for recurring issues and
+                suggested remedial action
+              format: String
+     UpdateTroubleshooting:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     RequestTroubleshootingRequest:
+        type: object
+        description: ''
+        properties:
+           VChannelProductionIssueRecord:
+              type: string
+              description: >-
+                A record of any production issues arising during the session
+                (see Advanced Voice Channel Operations for detailed content)
+              format: String
+           VChannelIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: >-
+                A record of the root cause analysis for recurring issues and
+                suggested remedial action
+              format: String
+     RequestTroubleshootingResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelProductionIssueRecord:
+              type: string
+              description: >-
+                A record of any production issues arising during the session
+                (see Advanced Voice Channel Operations for detailed content)
+              format: String
+           VChannelIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: >-
+                A record of the root cause analysis for recurring issues and
+                suggested remedial action
+              format: String
+     RequestTroubleshooting:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     RetrieveTroubleshootingResponse:
+        type: object
+        description: ''
+        properties:
+           VChannelProductionIssueRecord:
+              type: string
+              description: >-
+                A record of any production issues arising during the session
+                (see Advanced Voice Channel Operations for detailed content)
+              format: String
+           VChannelIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: >-
+                A record of the root cause analysis for recurring issues and
+                suggested remedial action
+              format: String
+     RetrieveTroubleshooting:
+        type: object
+        description: ''
+        properties:
+           VChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           VChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           VChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           VChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The Target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           VChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     CreateVoiceChannelManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateVoiceChannelManagementPlanRequest'
+        required: true
+     RetrieveVoiceChannelManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateCapacityPlanningRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCapacityPlanningRequest'
+        required: true
+     RequestCapacityPlanningRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCapacityPlanningRequest'
+        required: true
+     RetrieveCapacityPlanningRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     CreateMaintenanceAndUpgradesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateMaintenanceAndUpgradesRequest'
+        required: true
+     UpdateMaintenanceAndUpgradesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateMaintenanceAndUpgradesRequest'
+        required: true
+     RequestMaintenanceAndUpgradesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestMaintenanceAndUpgradesRequest'
+        required: true
+     RetrieveMaintenanceAndUpgradesRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateTroubleshootingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTroubleshootingRequest'
+        required: true
+     RequestTroubleshootingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestTroubleshootingRequest'
+        required: true
+     RetrieveTroubleshootingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     voicechannelmanagementplanid:
+        name: voicechannelmanagementplanid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     capacityplanningid:
+        name: capacityplanningid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     maintenanceandupgradesid:
+        name: maintenanceandupgradesid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     troubleshootingid:
+        name: troubleshootingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     CreateVoiceChannelManagementPlanResponse:
+        description: VoiceChannelManagementPlanCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateVoiceChannelManagementPlanResponse'
+     RetrieveVoiceChannelManagementPlanResponse:
+        description: VoiceChannelManagementPlanRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveVoiceChannelManagementPlanResponse'
+     UpdateCapacityPlanningResponse:
+        description: CapacityPlanningUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCapacityPlanningResponse'
+     RequestCapacityPlanningResponse:
+        description: CapacityPlanningRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCapacityPlanningResponse'
+     RetrieveCapacityPlanningResponse:
+        description: CapacityPlanningRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCapacityPlanningResponse'
+     CreateMaintenanceAndUpgradesResponse:
+        description: MaintenanceAndUpgradesCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateMaintenanceAndUpgradesResponse'
+     UpdateMaintenanceAndUpgradesResponse:
+        description: MaintenanceAndUpgradesUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateMaintenanceAndUpgradesResponse'
+     RequestMaintenanceAndUpgradesResponse:
+        description: MaintenanceAndUpgradesRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestMaintenanceAndUpgradesResponse'
+     RetrieveMaintenanceAndUpgradesResponse:
+        description: MaintenanceAndUpgradesRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveMaintenanceAndUpgradesResponse'
+     UpdateTroubleshootingResponse:
+        description: TroubleshootingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTroubleshootingResponse'
+     RequestTroubleshootingResponse:
+        description: TroubleshootingRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestTroubleshootingResponse'
+     RetrieveTroubleshootingResponse:
+        description: TroubleshootingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveTroubleshootingResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

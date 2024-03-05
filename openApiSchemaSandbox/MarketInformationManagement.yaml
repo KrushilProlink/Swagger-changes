@@ -1,0 +1,1560 @@
+openapi: 3.0.1
+info:
+  title: Market Information Management
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Market information management
+    consolidates and improves market information from multiple sources in order
+    to build up a bank knowledge base in targeted areas
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/MarketInformationManagement
+paths:
+   '/FinancialMarketInformationAdministrativePlan/{financialmarketinformationadministrativeplanid}/Create':
+      post:
+        tags:
+           - CR - FinancialMarketInformationAdministrativePlan
+        summary: CrCR Create an administrative plan for market information management
+        description: CrCR Create an administrative plan for market information management
+        operationId: FinancialMarketInformationAdministrativePlan/Create
+        parameters:
+           - $ref: >-
+              #/components/parameters/financialmarketinformationadministrativeplanid
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/CreateFinancialMarketInformationAdministrativePlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FinancialMarketInformationAdministrativePlan/{financialmarketinformationadministrativeplanid}/Retrieve':
+      get:
+        tags:
+           - CR - FinancialMarketInformationAdministrativePlan
+        summary: >-
+          ReCR Retrieve details about the financial market information
+          management activity
+        description: >-
+          ReCR Retrieve details about the financial market information
+          management activity
+        operationId: FinancialMarketInformationAdministrativePlan/Retrieve
+        parameters:
+           - $ref: >-
+              #/components/parameters/financialmarketinformationadministrativeplanid
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveFinancialMarketInformationAdministrativePlanResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Consolidation/{consolidationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Consolidation
+        summary: ReBQ Retrieve details about the consolidation of source data
+        description: ReBQ Retrieve details about the consolidation of source data
+        operationId: Consolidation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/consolidationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveConsolidationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Improvement/{improvementid}/Retrieve':
+      get:
+        tags:
+           - BQ - Improvement
+        summary: ReBQ Retrieve details about the data improvement activities
+        description: ReBQ Retrieve details about the data improvement activities
+        operationId: Improvement/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/improvementid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveImprovementResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Reporting/{reportingid}/Create':
+      post:
+        tags:
+           - BQ - Reporting
+        summary: CrBQ Create a specific report view of the financial market information
+        description: CrBQ Create a specific report view of the financial market information
+        operationId: Reporting/Create
+        parameters:
+           - $ref: '#/components/parameters/reportingid'
+        requestBody:
+          $ref: '#/components/requestBodies/CreateReportingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Reporting/{reportingid}/Update':
+      put:
+        tags:
+           - BQ - Reporting
+        summary: UpBQ Update properties of a structured view/report
+        description: UpBQ Update properties of a structured view/report
+        operationId: Reporting/Update
+        parameters:
+           - $ref: '#/components/parameters/reportingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateReportingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Reporting/{reportingid}/Capture':
+      put:
+        tags:
+           - BQ - Reporting
+        summary: >-
+          CaBQ Capture usage details for the managed financial
+          information/reports
+        description: >-
+          CaBQ Capture usage details for the managed financial
+          information/reports
+        operationId: Reporting/Capture
+        parameters:
+           - $ref: '#/components/parameters/reportingid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureReportingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Reporting/{reportingid}/Execute':
+      put:
+        tags:
+           - BQ - Reporting
+        summary: ExBQ Execute an automated action for a report
+        description: ExBQ Execute an automated action for a report
+        operationId: Reporting/Execute
+        parameters:
+           - $ref: '#/components/parameters/reportingid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteReportingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Reporting/{reportingid}/Request':
+      put:
+        tags:
+           - BQ - Reporting
+        summary: RqBQ Request manual intervention
+        description: RqBQ Request manual intervention
+        operationId: Reporting/Request
+        parameters:
+           - $ref: '#/components/parameters/reportingid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestReportingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Reporting/{reportingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Reporting
+        summary: >-
+          ReBQ Retrieve details about managed financial market reporting
+          activity
+        description: >-
+          ReBQ Retrieve details about managed financial market reporting
+          activity
+        operationId: Reporting/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/reportingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveReportingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     CreateFinancialMarketInformationAdministrativePlanRequest:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationService:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationProvider:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketinformationDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceAgreement:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationDatabase:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectArea:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectAreaUpdateHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     CreateFinancialMarketInformationAdministrativePlanResponse:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationService:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationProvider:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketinformationDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceAgreement:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationDatabase:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectArea:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectAreaDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectAreaUpdateHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectAreaRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     CreateFinancialMarketInformationAdministrativePlan:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationService:
+              type: string
+              description: >-
+                Reference to the external sources of financial market
+                information. Can be an ongoing service or some form of report
+              format: String
+           FinancialMarketInformationProvider:
+              type: string
+              description: The external agency/source of financial market information
+              format: String
+           FinancialMarketinformationDescription:
+              type: string
+              description: Defines the scope/content of the financial market information
+              format: String
+           FinancialMarketInformationServiceType:
+              type: string
+              description: >-
+                Defines the type of information service (e.g. a regular feed,
+                periodic report)
+              format: String
+           FinancialMarketInformationServiceSchedule:
+              type: string
+              description: Sets out the delivery schedule for content
+              format: String
+           FinancialMarketInformationServiceAgreement:
+              type: string
+              description: >-
+                Reference to any agreement covering access to the external
+                service
+              format: String
+           FinancialMarketInformationDatabase:
+              type: string
+              description: >-
+                Refers to the consolidated financial market information that is
+                enhanced/improved by the bank for internal reference. This is a
+                collection of different subject areas for which a bank
+                perspective is maintained
+              format: String
+           FinancialMarketInformationSubjectArea:
+              type: string
+              description: Refers to a maintained subject area
+              format: String
+           FinancialMarketInformationSubjectAreaDescription:
+              type: string
+              description: A description of the information content of the subject area
+              format: String
+           FinancialMarketInformationSubjectAreaUpdateHistory:
+              type: string
+              description: A record of the update history of the content
+              format: String
+           FinancialMarketInformationSubjectAreaRecord:
+              type: string
+              description: >-
+                The consolidated improved information, includes current and past
+                historical records as necessary
+              format: String
+     RetrieveFinancialMarketInformationAdministrativePlanResponse:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationService:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationProvider:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketinformationDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceAgreement:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationDatabase:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectArea:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectAreaDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectAreaUpdateHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectAreaRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveFinancialMarketInformationAdministrativePlan:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationService:
+              type: string
+              description: >-
+                Reference to the external sources of financial market
+                information. Can be an ongoing service or some form of report
+              format: String
+           FinancialMarketInformationProvider:
+              type: string
+              description: The external agency/source of financial market information
+              format: String
+           FinancialMarketinformationDescription:
+              type: string
+              description: Defines the scope/content of the financial market information
+              format: String
+           FinancialMarketInformationServiceType:
+              type: string
+              description: >-
+                Defines the type of information service (e.g. a regular feed,
+                periodic report)
+              format: String
+           FinancialMarketInformationServiceSchedule:
+              type: string
+              description: Sets out the delivery schedule for content
+              format: String
+           FinancialMarketInformationServiceAgreement:
+              type: string
+              description: >-
+                Reference to any agreement covering access to the external
+                service
+              format: String
+           FinancialMarketInformationDatabase:
+              type: string
+              description: >-
+                Refers to the consolidated financial market information that is
+                enhanced/improved by the bank for internal reference. This is a
+                collection of different subject areas for which a bank
+                perspective is maintained
+              format: String
+           FinancialMarketInformationSubjectArea:
+              type: string
+              description: Refers to a maintained subject area
+              format: String
+           FinancialMarketInformationSubjectAreaDescription:
+              type: string
+              description: A description of the information content of the subject area
+              format: String
+           FinancialMarketInformationSubjectAreaUpdateHistory:
+              type: string
+              description: A record of the update history of the content
+              format: String
+           FinancialMarketInformationSubjectAreaRecord:
+              type: string
+              description: >-
+                The consolidated improved information, includes current and past
+                historical records as necessary
+              format: String
+     RetrieveConsolidationResponse:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationServiceReport:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceReportProperties:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveConsolidation:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationService:
+              type: string
+              description: >-
+                Reference to the external sources of financial market
+                information. Can be an ongoing service or some form of report
+              format: String
+           FinancialMarketInformationProvider:
+              type: string
+              description: The external agency/source of financial market information
+              format: String
+           FinancialMarketinformationDescription:
+              type: string
+              description: Defines the scope/content of the financial market information
+              format: String
+           FinancialMarketInformationServiceType:
+              type: string
+              description: >-
+                Defines the type of information service (e.g. a regular feed,
+                periodic report)
+              format: String
+           FinancialMarketInformationServiceSchedule:
+              type: string
+              description: Sets out the delivery schedule for content
+              format: String
+           FinancialMarketInformationServiceAgreement:
+              type: string
+              description: >-
+                Reference to any agreement covering access to the external
+                service
+              format: String
+           FinancialMarketInformationDatabase:
+              type: string
+              description: >-
+                Refers to the consolidated financial market information that is
+                enhanced/improved by the bank for internal reference. This is a
+                collection of different subject areas for which a bank
+                perspective is maintained
+              format: String
+           FinancialMarketInformationSubjectArea:
+              type: string
+              description: Refers to a maintained subject area
+              format: String
+           FinancialMarketInformationSubjectAreaDescription:
+              type: string
+              description: A description of the information content of the subject area
+              format: String
+           FinancialMarketInformationSubjectAreaUpdateHistory:
+              type: string
+              description: A record of the update history of the content
+              format: String
+           FinancialMarketInformationSubjectAreaRecord:
+              type: string
+              description: >-
+                The consolidated improved information, includes current and past
+                historical records as necessary
+              format: String
+     RetrieveImprovementResponse:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationImprovementTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationImprovementTaskSources:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationImprovementTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationImprovementTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveImprovement:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationService:
+              type: string
+              description: >-
+                Reference to the external sources of financial market
+                information. Can be an ongoing service or some form of report
+              format: String
+           FinancialMarketInformationProvider:
+              type: string
+              description: The external agency/source of financial market information
+              format: String
+           FinancialMarketinformationDescription:
+              type: string
+              description: Defines the scope/content of the financial market information
+              format: String
+           FinancialMarketInformationServiceType:
+              type: string
+              description: >-
+                Defines the type of information service (e.g. a regular feed,
+                periodic report)
+              format: String
+           FinancialMarketInformationServiceSchedule:
+              type: string
+              description: Sets out the delivery schedule for content
+              format: String
+           FinancialMarketInformationServiceAgreement:
+              type: string
+              description: >-
+                Reference to any agreement covering access to the external
+                service
+              format: String
+           FinancialMarketInformationDatabase:
+              type: string
+              description: >-
+                Refers to the consolidated financial market information that is
+                enhanced/improved by the bank for internal reference. This is a
+                collection of different subject areas for which a bank
+                perspective is maintained
+              format: String
+           FinancialMarketInformationSubjectArea:
+              type: string
+              description: Refers to a maintained subject area
+              format: String
+           FinancialMarketInformationSubjectAreaDescription:
+              type: string
+              description: A description of the information content of the subject area
+              format: String
+           FinancialMarketInformationSubjectAreaUpdateHistory:
+              type: string
+              description: A record of the update history of the content
+              format: String
+           FinancialMarketInformationSubjectAreaRecord:
+              type: string
+              description: >-
+                The consolidated improved information, includes current and past
+                historical records as necessary
+              format: String
+     CreateReportingRequest:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationService:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationProvider:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketinformationDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceAgreement:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationDatabase:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectArea:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectAreaDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectAreaUpdateHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectAreaRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReport:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportAccessHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     CreateReportingResponse:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationService:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationProvider:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketinformationDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationServiceAgreement:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationDatabase:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectArea:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectAreaDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectAreaUpdateHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationSubjectAreaRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReport:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportAccessHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     CreateReporting:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationService:
+              type: string
+              description: >-
+                Reference to the external sources of financial market
+                information. Can be an ongoing service or some form of report
+              format: String
+           FinancialMarketInformationProvider:
+              type: string
+              description: The external agency/source of financial market information
+              format: String
+           FinancialMarketinformationDescription:
+              type: string
+              description: Defines the scope/content of the financial market information
+              format: String
+           FinancialMarketInformationServiceType:
+              type: string
+              description: >-
+                Defines the type of information service (e.g. a regular feed,
+                periodic report)
+              format: String
+           FinancialMarketInformationServiceSchedule:
+              type: string
+              description: Sets out the delivery schedule for content
+              format: String
+           FinancialMarketInformationServiceAgreement:
+              type: string
+              description: >-
+                Reference to any agreement covering access to the external
+                service
+              format: String
+           FinancialMarketInformationDatabase:
+              type: string
+              description: >-
+                Refers to the consolidated financial market information that is
+                enhanced/improved by the bank for internal reference. This is a
+                collection of different subject areas for which a bank
+                perspective is maintained
+              format: String
+           FinancialMarketInformationSubjectArea:
+              type: string
+              description: Refers to a maintained subject area
+              format: String
+           FinancialMarketInformationSubjectAreaDescription:
+              type: string
+              description: A description of the information content of the subject area
+              format: String
+           FinancialMarketInformationSubjectAreaUpdateHistory:
+              type: string
+              description: A record of the update history of the content
+              format: String
+           FinancialMarketInformationSubjectAreaRecord:
+              type: string
+              description: >-
+                The consolidated improved information, includes current and past
+                historical records as necessary
+              format: String
+     UpdateReportingRequest:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationReport:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportAccessHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateReportingResponse:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationReport:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportAccessHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateReporting:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationService:
+              type: string
+              description: >-
+                Reference to the external sources of financial market
+                information. Can be an ongoing service or some form of report
+              format: String
+           FinancialMarketInformationProvider:
+              type: string
+              description: The external agency/source of financial market information
+              format: String
+           FinancialMarketinformationDescription:
+              type: string
+              description: Defines the scope/content of the financial market information
+              format: String
+           FinancialMarketInformationServiceType:
+              type: string
+              description: >-
+                Defines the type of information service (e.g. a regular feed,
+                periodic report)
+              format: String
+           FinancialMarketInformationServiceSchedule:
+              type: string
+              description: Sets out the delivery schedule for content
+              format: String
+           FinancialMarketInformationServiceAgreement:
+              type: string
+              description: >-
+                Reference to any agreement covering access to the external
+                service
+              format: String
+           FinancialMarketInformationDatabase:
+              type: string
+              description: >-
+                Refers to the consolidated financial market information that is
+                enhanced/improved by the bank for internal reference. This is a
+                collection of different subject areas for which a bank
+                perspective is maintained
+              format: String
+           FinancialMarketInformationSubjectArea:
+              type: string
+              description: Refers to a maintained subject area
+              format: String
+           FinancialMarketInformationSubjectAreaDescription:
+              type: string
+              description: A description of the information content of the subject area
+              format: String
+           FinancialMarketInformationSubjectAreaUpdateHistory:
+              type: string
+              description: A record of the update history of the content
+              format: String
+           FinancialMarketInformationSubjectAreaRecord:
+              type: string
+              description: >-
+                The consolidated improved information, includes current and past
+                historical records as necessary
+              format: String
+     CaptureReportingRequest:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationReportAccessHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureReportingResponse:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationReportAccessHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureReporting:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationService:
+              type: string
+              description: >-
+                Reference to the external sources of financial market
+                information. Can be an ongoing service or some form of report
+              format: String
+           FinancialMarketInformationProvider:
+              type: string
+              description: The external agency/source of financial market information
+              format: String
+           FinancialMarketinformationDescription:
+              type: string
+              description: Defines the scope/content of the financial market information
+              format: String
+           FinancialMarketInformationServiceType:
+              type: string
+              description: >-
+                Defines the type of information service (e.g. a regular feed,
+                periodic report)
+              format: String
+           FinancialMarketInformationServiceSchedule:
+              type: string
+              description: Sets out the delivery schedule for content
+              format: String
+           FinancialMarketInformationServiceAgreement:
+              type: string
+              description: >-
+                Reference to any agreement covering access to the external
+                service
+              format: String
+           FinancialMarketInformationDatabase:
+              type: string
+              description: >-
+                Refers to the consolidated financial market information that is
+                enhanced/improved by the bank for internal reference. This is a
+                collection of different subject areas for which a bank
+                perspective is maintained
+              format: String
+           FinancialMarketInformationSubjectArea:
+              type: string
+              description: Refers to a maintained subject area
+              format: String
+           FinancialMarketInformationSubjectAreaDescription:
+              type: string
+              description: A description of the information content of the subject area
+              format: String
+           FinancialMarketInformationSubjectAreaUpdateHistory:
+              type: string
+              description: A record of the update history of the content
+              format: String
+           FinancialMarketInformationSubjectAreaRecord:
+              type: string
+              description: >-
+                The consolidated improved information, includes current and past
+                historical records as necessary
+              format: String
+     ExecuteReportingRequest:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationReport:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportAccessHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteReportingResponse:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationReport:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportAccessHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteReporting:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationService:
+              type: string
+              description: >-
+                Reference to the external sources of financial market
+                information. Can be an ongoing service or some form of report
+              format: String
+           FinancialMarketInformationProvider:
+              type: string
+              description: The external agency/source of financial market information
+              format: String
+           FinancialMarketinformationDescription:
+              type: string
+              description: Defines the scope/content of the financial market information
+              format: String
+           FinancialMarketInformationServiceType:
+              type: string
+              description: >-
+                Defines the type of information service (e.g. a regular feed,
+                periodic report)
+              format: String
+           FinancialMarketInformationServiceSchedule:
+              type: string
+              description: Sets out the delivery schedule for content
+              format: String
+           FinancialMarketInformationServiceAgreement:
+              type: string
+              description: >-
+                Reference to any agreement covering access to the external
+                service
+              format: String
+           FinancialMarketInformationDatabase:
+              type: string
+              description: >-
+                Refers to the consolidated financial market information that is
+                enhanced/improved by the bank for internal reference. This is a
+                collection of different subject areas for which a bank
+                perspective is maintained
+              format: String
+           FinancialMarketInformationSubjectArea:
+              type: string
+              description: Refers to a maintained subject area
+              format: String
+           FinancialMarketInformationSubjectAreaDescription:
+              type: string
+              description: A description of the information content of the subject area
+              format: String
+           FinancialMarketInformationSubjectAreaUpdateHistory:
+              type: string
+              description: A record of the update history of the content
+              format: String
+           FinancialMarketInformationSubjectAreaRecord:
+              type: string
+              description: >-
+                The consolidated improved information, includes current and past
+                historical records as necessary
+              format: String
+     RequestReportingRequest:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationReport:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportAccessHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestReportingResponse:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationReport:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportAccessHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestReporting:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationService:
+              type: string
+              description: >-
+                Reference to the external sources of financial market
+                information. Can be an ongoing service or some form of report
+              format: String
+           FinancialMarketInformationProvider:
+              type: string
+              description: The external agency/source of financial market information
+              format: String
+           FinancialMarketinformationDescription:
+              type: string
+              description: Defines the scope/content of the financial market information
+              format: String
+           FinancialMarketInformationServiceType:
+              type: string
+              description: >-
+                Defines the type of information service (e.g. a regular feed,
+                periodic report)
+              format: String
+           FinancialMarketInformationServiceSchedule:
+              type: string
+              description: Sets out the delivery schedule for content
+              format: String
+           FinancialMarketInformationServiceAgreement:
+              type: string
+              description: >-
+                Reference to any agreement covering access to the external
+                service
+              format: String
+           FinancialMarketInformationDatabase:
+              type: string
+              description: >-
+                Refers to the consolidated financial market information that is
+                enhanced/improved by the bank for internal reference. This is a
+                collection of different subject areas for which a bank
+                perspective is maintained
+              format: String
+           FinancialMarketInformationSubjectArea:
+              type: string
+              description: Refers to a maintained subject area
+              format: String
+           FinancialMarketInformationSubjectAreaDescription:
+              type: string
+              description: A description of the information content of the subject area
+              format: String
+           FinancialMarketInformationSubjectAreaUpdateHistory:
+              type: string
+              description: A record of the update history of the content
+              format: String
+           FinancialMarketInformationSubjectAreaRecord:
+              type: string
+              description: >-
+                The consolidated improved information, includes current and past
+                historical records as necessary
+              format: String
+     RetrieveReportingResponse:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationReport:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FinancialMarketInformationReportAccessHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveReporting:
+        type: object
+        description: ''
+        properties:
+           FinancialMarketInformationService:
+              type: string
+              description: >-
+                Reference to the external sources of financial market
+                information. Can be an ongoing service or some form of report
+              format: String
+           FinancialMarketInformationProvider:
+              type: string
+              description: The external agency/source of financial market information
+              format: String
+           FinancialMarketinformationDescription:
+              type: string
+              description: Defines the scope/content of the financial market information
+              format: String
+           FinancialMarketInformationServiceType:
+              type: string
+              description: >-
+                Defines the type of information service (e.g. a regular feed,
+                periodic report)
+              format: String
+           FinancialMarketInformationServiceSchedule:
+              type: string
+              description: Sets out the delivery schedule for content
+              format: String
+           FinancialMarketInformationServiceAgreement:
+              type: string
+              description: >-
+                Reference to any agreement covering access to the external
+                service
+              format: String
+           FinancialMarketInformationDatabase:
+              type: string
+              description: >-
+                Refers to the consolidated financial market information that is
+                enhanced/improved by the bank for internal reference. This is a
+                collection of different subject areas for which a bank
+                perspective is maintained
+              format: String
+           FinancialMarketInformationSubjectArea:
+              type: string
+              description: Refers to a maintained subject area
+              format: String
+           FinancialMarketInformationSubjectAreaDescription:
+              type: string
+              description: A description of the information content of the subject area
+              format: String
+           FinancialMarketInformationSubjectAreaUpdateHistory:
+              type: string
+              description: A record of the update history of the content
+              format: String
+           FinancialMarketInformationSubjectAreaRecord:
+              type: string
+              description: >-
+                The consolidated improved information, includes current and past
+                historical records as necessary
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     CreateFinancialMarketInformationAdministrativePlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/CreateFinancialMarketInformationAdministrativePlanRequest
+        required: true
+     RetrieveFinancialMarketInformationAdministrativePlanRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveConsolidationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveImprovementRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     CreateReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateReportingRequest'
+        required: true
+     UpdateReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateReportingRequest'
+        required: true
+     CaptureReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureReportingRequest'
+        required: true
+     ExecuteReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteReportingRequest'
+        required: true
+     RequestReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestReportingRequest'
+        required: true
+     RetrieveReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     financialmarketinformationadministrativeplanid:
+        name: financialmarketinformationadministrativeplanid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     consolidationid:
+        name: consolidationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     improvementid:
+        name: improvementid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     reportingid:
+        name: reportingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     CreateFinancialMarketInformationAdministrativePlanResponse:
+        description: FinancialMarketInformationAdministrativePlanCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/CreateFinancialMarketInformationAdministrativePlanResponse
+     RetrieveFinancialMarketInformationAdministrativePlanResponse:
+        description: FinancialMarketInformationAdministrativePlanRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveFinancialMarketInformationAdministrativePlanResponse
+     RetrieveConsolidationResponse:
+        description: ConsolidationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveConsolidationResponse'
+     RetrieveImprovementResponse:
+        description: ImprovementRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveImprovementResponse'
+     CreateReportingResponse:
+        description: ReportingCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateReportingResponse'
+     UpdateReportingResponse:
+        description: ReportingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateReportingResponse'
+     CaptureReportingResponse:
+        description: ReportingCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureReportingResponse'
+     ExecuteReportingResponse:
+        description: ReportingExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteReportingResponse'
+     RequestReportingResponse:
+        description: ReportingRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestReportingResponse'
+     RetrieveReportingResponse:
+        description: ReportingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveReportingResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

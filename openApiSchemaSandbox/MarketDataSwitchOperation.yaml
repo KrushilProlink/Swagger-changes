@@ -1,0 +1,1025 @@
+openapi: 3.0.1
+info:
+  title: Market Data Switch Operation
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain operates
+    the internal information distribution facility/switch in compliance with
+    administered external subscription information feed service access rights.
+    Note the content is retrieved by the Market Feed Operation service domain
+    from the various external feed services. Internal information can also be
+    published over the switch from various bank sources (such as bank rates
+    provided by treasury).
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/MarketDataSwitchOperation
+paths:
+   '/InformationFeedSwitchOperatingSession/{informationfeedswitchoperatingsessionid}/Initiate':
+      post:
+        tags:
+           - CR - InformationFeedSwitchOperatingSession
+        summary: InCR Initiate a market data switch operating session
+        description: InCR Initiate a market data switch operating session
+        operationId: InformationFeedSwitchOperatingSession/Initiate
+        parameters:
+           - $ref: '#/components/parameters/informationfeedswitchoperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/InitiateInformationFeedSwitchOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InformationFeedSwitchOperatingSession/{informationfeedswitchoperatingsessionid}/Update':
+      put:
+        tags:
+           - CR - InformationFeedSwitchOperatingSession
+        summary: UpCR Update details for the market data switch operating session
+        description: UpCR Update details for the market data switch operating session
+        operationId: InformationFeedSwitchOperatingSession/Update
+        parameters:
+           - $ref: '#/components/parameters/informationfeedswitchoperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateInformationFeedSwitchOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InformationFeedSwitchOperatingSession/{informationfeedswitchoperatingsessionid}/Retrieve':
+      get:
+        tags:
+           - CR - InformationFeedSwitchOperatingSession
+        summary: ReCR Retrieve details about the market data switch operating session
+        description: ReCR Retrieve details about the market data switch operating session
+        operationId: InformationFeedSwitchOperatingSession/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/informationfeedswitchoperatingsessionid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveInformationFeedSwitchOperatingSessionResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FeedUpload/{feeduploadid}/Update':
+      put:
+        tags:
+           - BQ - FeedUpload
+        summary: UpBQ Update details for the feed upload
+        description: UpBQ Update details for the feed upload
+        operationId: FeedUpload/Update
+        parameters:
+           - $ref: '#/components/parameters/feeduploadid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateFeedUploadRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FeedUpload/{feeduploadid}/Retrieve':
+      get:
+        tags:
+           - BQ - FeedUpload
+        summary: ReBQ Retrieve details about the feed upload activity
+        description: ReBQ Retrieve details about the feed upload activity
+        operationId: FeedUpload/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/feeduploadid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveFeedUploadResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InternalPublication/{internalpublicationid}/Initiate':
+      post:
+        tags:
+           - BQ - InternalPublication
+        summary: InBQ Initiate internal publication of information
+        description: InBQ Initiate internal publication of information
+        operationId: InternalPublication/Initiate
+        parameters:
+           - $ref: '#/components/parameters/internalpublicationid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateInternalPublicationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InternalPublication/{internalpublicationid}/Update':
+      put:
+        tags:
+           - BQ - InternalPublication
+        summary: UpBQ Update details of internal publication
+        description: UpBQ Update details of internal publication
+        operationId: InternalPublication/Update
+        parameters:
+           - $ref: '#/components/parameters/internalpublicationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateInternalPublicationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InternalPublication/{internalpublicationid}/Retrieve':
+      get:
+        tags:
+           - BQ - InternalPublication
+        summary: ReBQ Retrieve details about the internal publication task
+        description: ReBQ Retrieve details about the internal publication task
+        operationId: InternalPublication/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/internalpublicationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveInternalPublicationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Distribution/{distributionid}/Initiate':
+      post:
+        tags:
+           - BQ - Distribution
+        summary: InBQ User subscription to the switch
+        description: InBQ User subscription to the switch
+        operationId: Distribution/Initiate
+        parameters:
+           - $ref: '#/components/parameters/distributionid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateDistributionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Distribution/{distributionid}/Update':
+      put:
+        tags:
+           - BQ - Distribution
+        summary: UpBQ User subscription details
+        description: UpBQ User subscription details
+        operationId: Distribution/Update
+        parameters:
+           - $ref: '#/components/parameters/distributionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateDistributionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Distribution/{distributionid}/Execute':
+      put:
+        tags:
+           - BQ - Distribution
+        summary: ExBQ Execute an automated action to the service (e.g. select content)
+        description: ExBQ Execute an automated action to the service (e.g. select content)
+        operationId: Distribution/Execute
+        parameters:
+           - $ref: '#/components/parameters/distributionid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteDistributionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Distribution/{distributionid}/Request':
+      put:
+        tags:
+           - BQ - Distribution
+        summary: >-
+          RqBQ Request manual intervention for  the service (e.g. request a
+          usage profile change)
+        description: >-
+          RqBQ Request manual intervention for  the service (e.g. request a
+          usage profile change)
+        operationId: Distribution/Request
+        parameters:
+           - $ref: '#/components/parameters/distributionid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestDistributionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Distribution/{distributionid}/Retrieve':
+      get:
+        tags:
+           - BQ - Distribution
+        summary: ReBQ Retrieve details about the user switch session
+        description: ReBQ Retrieve details about the user switch session
+        operationId: Distribution/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/distributionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveDistributionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateInformationFeedSwitchOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketInformationFeedServiceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateInformationFeedSwitchOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketInformationFeedServiceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateInformationFeedSwitchOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketInformationFeedServiceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateInformationFeedSwitchOperatingSession:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceReference:
+              type: string
+              description: >-
+                Refers to the market feed service  Note: the service operated
+                by SD Information Provider Operation actually extracts the feed
+                content
+              format: Object
+           MarketInformationFeedServiceProfile:
+              type: string
+              description: >-
+                Sets out the range of information services/pages available 
+                possibly with some form of selection menu
+              format: String
+     RetrieveInformationFeedSwitchOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketInformationFeedServiceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveInformationFeedSwitchOperatingSession:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceReference:
+              type: string
+              description: >-
+                Refers to the market feed service  Note: the service operated
+                by SD Information Provider Operation actually extracts the feed
+                content
+              format: Object
+           MarketInformationFeedServiceProfile:
+              type: string
+              description: >-
+                Sets out the range of information services/pages available 
+                possibly with some form of selection menu
+              format: String
+     UpdateFeedUploadRequest:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateFeedUploadResponse:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateFeedUpload:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceReference:
+              type: string
+              description: >-
+                Refers to the market feed service  Note: the service operated
+                by SD Information Provider Operation actually extracts the feed
+                content
+              format: Object
+           MarketInformationFeedServiceProfile:
+              type: string
+              description: >-
+                Sets out the range of information services/pages available 
+                possibly with some form of selection menu
+              format: String
+     RetrieveFeedUploadResponse:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveFeedUpload:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceReference:
+              type: string
+              description: >-
+                Refers to the market feed service  Note: the service operated
+                by SD Information Provider Operation actually extracts the feed
+                content
+              format: Object
+           MarketInformationFeedServiceProfile:
+              type: string
+              description: >-
+                Sets out the range of information services/pages available 
+                possibly with some form of selection menu
+              format: String
+     InitiateInternalPublicationRequest:
+        type: object
+        description: ''
+        properties:
+           InternalInformationFeedServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InternalInformationFeedServiceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           InternalInformationFeedServiceRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateInternalPublicationRequest:
+        type: object
+        description: ''
+        properties:
+           InternalInformationFeedServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InternalInformationFeedServiceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           InternalInformationFeedServiceRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateInternalPublicationResponse:
+        type: object
+        description: ''
+        properties:
+           InternalInformationFeedServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InternalInformationFeedServiceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           InternalInformationFeedServiceRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateInternalPublication:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceReference:
+              type: string
+              description: >-
+                Refers to the market feed service  Note: the service operated
+                by SD Information Provider Operation actually extracts the feed
+                content
+              format: Object
+           MarketInformationFeedServiceProfile:
+              type: string
+              description: >-
+                Sets out the range of information services/pages available 
+                possibly with some form of selection menu
+              format: String
+     RetrieveInternalPublicationResponse:
+        type: object
+        description: ''
+        properties:
+           InternalInformationFeedServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InternalInformationFeedServiceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           InternalInformationFeedServiceRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveInternalPublication:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceReference:
+              type: string
+              description: >-
+                Refers to the market feed service  Note: the service operated
+                by SD Information Provider Operation actually extracts the feed
+                content
+              format: Object
+           MarketInformationFeedServiceProfile:
+              type: string
+              description: >-
+                Sets out the range of information services/pages available 
+                possibly with some form of selection menu
+              format: String
+     InitiateDistributionRequest:
+        type: object
+        description: ''
+        properties:
+           MarketDataSwitchUserAccessRightsRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketDataSwitchServiceUserSessionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateDistributionResponse:
+        type: object
+        description: ''
+        properties:
+           MarketDataSwitchUserAccessRightsRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketDataSwitchServiceUserSessionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateDistribution:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceReference:
+              type: string
+              description: >-
+                Refers to the market feed service  Note: the service operated
+                by SD Information Provider Operation actually extracts the feed
+                content
+              format: Object
+           MarketInformationFeedServiceProfile:
+              type: string
+              description: >-
+                Sets out the range of information services/pages available 
+                possibly with some form of selection menu
+              format: String
+     UpdateDistributionRequest:
+        type: object
+        description: ''
+        properties:
+           MarketDataSwitchUserAccessRightsRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketDataSwitchServiceUserSessionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateDistributionResponse:
+        type: object
+        description: ''
+        properties:
+           MarketDataSwitchUserAccessRightsRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketDataSwitchServiceUserSessionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateDistribution:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceReference:
+              type: string
+              description: >-
+                Refers to the market feed service  Note: the service operated
+                by SD Information Provider Operation actually extracts the feed
+                content
+              format: Object
+           MarketInformationFeedServiceProfile:
+              type: string
+              description: >-
+                Sets out the range of information services/pages available 
+                possibly with some form of selection menu
+              format: String
+     ExecuteDistributionRequest:
+        type: object
+        description: ''
+        properties:
+           MarketDataSwitchUserAccessRightsRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketDataSwitchServiceUserSessionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteDistributionResponse:
+        type: object
+        description: ''
+        properties:
+           MarketDataSwitchUserAccessRightsRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketDataSwitchServiceUserSessionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteDistribution:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceReference:
+              type: string
+              description: >-
+                Refers to the market feed service  Note: the service operated
+                by SD Information Provider Operation actually extracts the feed
+                content
+              format: Object
+           MarketInformationFeedServiceProfile:
+              type: string
+              description: >-
+                Sets out the range of information services/pages available 
+                possibly with some form of selection menu
+              format: String
+     RequestDistributionRequest:
+        type: object
+        description: ''
+        properties:
+           MarketDataSwitchUserAccessRightsRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketDataSwitchServiceUserSessionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestDistributionResponse:
+        type: object
+        description: ''
+        properties:
+           MarketDataSwitchUserAccessRightsRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketDataSwitchServiceUserSessionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestDistribution:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceReference:
+              type: string
+              description: >-
+                Refers to the market feed service  Note: the service operated
+                by SD Information Provider Operation actually extracts the feed
+                content
+              format: Object
+           MarketInformationFeedServiceProfile:
+              type: string
+              description: >-
+                Sets out the range of information services/pages available 
+                possibly with some form of selection menu
+              format: String
+     RetrieveDistributionResponse:
+        type: object
+        description: ''
+        properties:
+           MarketDataSwitchUserAccessRightsRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketDataSwitchServiceUserSessionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveDistribution:
+        type: object
+        description: ''
+        properties:
+           MarketInformationFeedServiceReference:
+              type: string
+              description: >-
+                Refers to the market feed service  Note: the service operated
+                by SD Information Provider Operation actually extracts the feed
+                content
+              format: Object
+           MarketInformationFeedServiceProfile:
+              type: string
+              description: >-
+                Sets out the range of information services/pages available 
+                possibly with some form of selection menu
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateInformationFeedSwitchOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateInformationFeedSwitchOperatingSessionRequest
+        required: true
+     UpdateInformationFeedSwitchOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateInformationFeedSwitchOperatingSessionRequest
+        required: true
+     RetrieveInformationFeedSwitchOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateFeedUploadRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFeedUploadRequest'
+        required: true
+     RetrieveFeedUploadRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateInternalPublicationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateInternalPublicationRequest'
+        required: true
+     UpdateInternalPublicationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInternalPublicationRequest'
+        required: true
+     RetrieveInternalPublicationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateDistributionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateDistributionRequest'
+        required: true
+     UpdateDistributionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateDistributionRequest'
+        required: true
+     ExecuteDistributionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteDistributionRequest'
+        required: true
+     RequestDistributionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestDistributionRequest'
+        required: true
+     RetrieveDistributionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     informationfeedswitchoperatingsessionid:
+        name: informationfeedswitchoperatingsessionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     feeduploadid:
+        name: feeduploadid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     internalpublicationid:
+        name: internalpublicationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     distributionid:
+        name: distributionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateInformationFeedSwitchOperatingSessionResponse:
+        description: InformationFeedSwitchOperatingSessionInitiate
+        content:
+          'application/json:':
+            schema:
+              type: string
+     UpdateInformationFeedSwitchOperatingSessionResponse:
+        description: InformationFeedSwitchOperatingSessionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateInformationFeedSwitchOperatingSessionResponse
+     RetrieveInformationFeedSwitchOperatingSessionResponse:
+        description: InformationFeedSwitchOperatingSessionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveInformationFeedSwitchOperatingSessionResponse
+     UpdateFeedUploadResponse:
+        description: FeedUploadUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFeedUploadResponse'
+     RetrieveFeedUploadResponse:
+        description: FeedUploadRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveFeedUploadResponse'
+     InitiateInternalPublicationResponse:
+        description: InternalPublicationInitiate
+        content:
+          'application/json:':
+            schema:
+              type: string
+     UpdateInternalPublicationResponse:
+        description: InternalPublicationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInternalPublicationResponse'
+     RetrieveInternalPublicationResponse:
+        description: InternalPublicationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveInternalPublicationResponse'
+     InitiateDistributionResponse:
+        description: DistributionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateDistributionResponse'
+     UpdateDistributionResponse:
+        description: DistributionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateDistributionResponse'
+     ExecuteDistributionResponse:
+        description: DistributionExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteDistributionResponse'
+     RequestDistributionResponse:
+        description: DistributionRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestDistributionResponse'
+     RetrieveDistributionResponse:
+        description: DistributionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveDistributionResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

@@ -1,0 +1,1540 @@
+openapi: 3.0.1
+info:
+  title: Customer Credit Rating
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain maintains
+    and administers the bank's credit assessment for customers based on
+    consolidated internal data and optionally by referencing external credit
+    agency reports
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CustomerCreditRating
+paths:
+   '/CustomerCreditRatingState/{customercreditratingstateid}/Initiate':
+      post:
+        tags:
+           - CR - CustomerCreditRatingState
+        summary: InCR Initiate credit state monitoring for a customer
+        description: InCR Initiate credit state monitoring for a customer
+        operationId: CustomerCreditRatingState/Initiate
+        parameters:
+           - $ref: '#/components/parameters/customercreditratingstateid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateCustomerCreditRatingStateRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerCreditRatingState/{customercreditratingstateid}/Execute':
+      put:
+        tags:
+           - CR - CustomerCreditRatingState
+        summary: ExCR Execute an automated task for credit state (e.g. auto refresh)
+        description: ExCR Execute an automated task for credit state (e.g. auto refresh)
+        operationId: CustomerCreditRatingState/Execute
+        parameters:
+           - $ref: '#/components/parameters/customercreditratingstateid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteCustomerCreditRatingStateRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerCreditRatingState/{customercreditratingstateid}/Request':
+      put:
+        tags:
+           - CR - CustomerCreditRatingState
+        summary: >-
+          RqCR Request manual intervention for credit state (e.g. revise
+          underlying assessment)
+        description: >-
+          RqCR Request manual intervention for credit state (e.g. revise
+          underlying assessment)
+        operationId: CustomerCreditRatingState/Request
+        parameters:
+           - $ref: '#/components/parameters/customercreditratingstateid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestCustomerCreditRatingStateRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerCreditRatingState/{customercreditratingstateid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerCreditRatingState
+        summary: ReCR Retrieve details about credit state monitoring for a customer
+        description: ReCR Retrieve details about credit state monitoring for a customer
+        operationId: CustomerCreditRatingState/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customercreditratingstateid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCustomerCreditRatingStateResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Alerts/{alertsid}/Capture':
+      put:
+        tags:
+           - BQ - Alerts
+        summary: CaBQ Capture notification of a credit alert
+        description: CaBQ Capture notification of a credit alert
+        operationId: Alerts/Capture
+        parameters:
+           - $ref: '#/components/parameters/alertsid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureAlertsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Alerts/{alertsid}/Retrieve':
+      get:
+        tags:
+           - BQ - Alerts
+        summary: ReBQ Retrieve details about a credit alert
+        description: ReBQ Retrieve details about a credit alert
+        operationId: Alerts/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/alertsid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAlertsResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InternalReporting/{internalreportingid}/Capture':
+      put:
+        tags:
+           - BQ - InternalReporting
+        summary: CaBQ Capture internal product reports to support credit analysis
+        description: CaBQ Capture internal product reports to support credit analysis
+        operationId: InternalReporting/Capture
+        parameters:
+           - $ref: '#/components/parameters/internalreportingid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureInternalReportingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InternalReporting/{internalreportingid}/Retrieve':
+      get:
+        tags:
+           - BQ - InternalReporting
+        summary: >-
+          ReBQ Retrieve details about internal reporting to the credit
+          monitoring activity
+        description: >-
+          ReBQ Retrieve details about internal reporting to the credit
+          monitoring activity
+        operationId: InternalReporting/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/internalreportingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveInternalReportingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ExternalReporting/{externalreportingid}/Capture':
+      put:
+        tags:
+           - BQ - ExternalReporting
+        summary: >-
+          CaBQ Capture external credit reports to support credit analysis and
+          state
+        description: >-
+          CaBQ Capture external credit reports to support credit analysis and
+          state
+        operationId: ExternalReporting/Capture
+        parameters:
+           - $ref: '#/components/parameters/externalreportingid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureExternalReportingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ExternalReporting/{externalreportingid}/Retrieve':
+      get:
+        tags:
+           - BQ - ExternalReporting
+        summary: >-
+          ReBQ Retrieve details about external reporting to the credit
+          monitoring activity
+        description: >-
+          ReBQ Retrieve details about external reporting to the credit
+          monitoring activity
+        operationId: ExternalReporting/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/externalreportingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveExternalReportingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateCustomerCreditRatingStateRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCreditRatingStatusType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCreditRatingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCreditRatingRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCreditRatingDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     InitiateCustomerCreditRatingStateResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCreditRatingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCreditRatingRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCreditRatingNarrative:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCreditRatingDate:
+              $ref: '#/components/schemas/Date'
+     InitiateCustomerCreditRatingState:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           CustomerCreditRatingStatusType:
+              type: string
+              description: >-
+                The type of credit status being monitored (e.g. consumer, small
+                business, corporate)
+              format: String
+           CustomerCreditRatingSchedule:
+              type: string
+              description: >-
+                The schedule for refreshing the credit state and supporting
+                analysis, and update history as appropriate
+              format: String
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: >-
+                The record of the underlying credit assessment performed to
+                support the credit rating state
+              format: String
+           AssessmentCustomerBehaviorModelReference:
+              type: string
+              description: >-
+                Reference to the customer behavior model(s) used to develop any
+                underlying analysis for determining the credit state
+              format: Object
+           CreditRatingAssessmentType:
+              type: string
+              description: The type of analysis performed to support the credit state
+              format: String
+           CreditRatingAssessmentDate:
+              $ref: '#/components/schemas/Date'
+           CreditRatingAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           CreditRatingAssessmentResult:
+              type: string
+              description: The resulting report from the credit rating assessment
+              format: String
+           CustomerCreditRatingRecord:
+              type: string
+              description: A record of the customers credit state
+              format: String
+           CustomerCreditRatingState:
+              type: string
+              description: >-
+                Is the current credit rating or score (typically a ranking value
+                e.g. 110)
+              format: String
+           CustomerCreditRatingAssessment:
+              type: string
+              description: >-
+                Any underlying analysis records and results that support the
+                credit rating
+              format: String
+           CustomerCreditRatingNarrative:
+              type: string
+              description: A structured report outlining basis for the credit rating
+              format: String
+           CustomerCreditRatingDate:
+              $ref: '#/components/schemas/Date'
+     ExecuteCustomerCreditRatingStateRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           AssessmentCustomerBehaviorModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditRatingAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditRatingAssessmentDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     ExecuteCustomerCreditRatingStateResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditRatingAssessmentDate:
+              $ref: '#/components/schemas/Date'
+           CreditRatingAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditRatingAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteCustomerCreditRatingState:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           CustomerCreditRatingStatusType:
+              type: string
+              description: >-
+                The type of credit status being monitored (e.g. consumer, small
+                business, corporate)
+              format: String
+           CustomerCreditRatingSchedule:
+              type: string
+              description: >-
+                The schedule for refreshing the credit state and supporting
+                analysis, and update history as appropriate
+              format: String
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: >-
+                The record of the underlying credit assessment performed to
+                support the credit rating state
+              format: String
+           AssessmentCustomerBehaviorModelReference:
+              type: string
+              description: >-
+                Reference to the customer behavior model(s) used to develop any
+                underlying analysis for determining the credit state
+              format: Object
+           CreditRatingAssessmentType:
+              type: string
+              description: The type of analysis performed to support the credit state
+              format: String
+           CreditRatingAssessmentDate:
+              $ref: '#/components/schemas/Date'
+           CreditRatingAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           CreditRatingAssessmentResult:
+              type: string
+              description: The resulting report from the credit rating assessment
+              format: String
+           CustomerCreditRatingRecord:
+              type: string
+              description: A record of the customers credit state
+              format: String
+           CustomerCreditRatingState:
+              type: string
+              description: >-
+                Is the current credit rating or score (typically a ranking value
+                e.g. 110)
+              format: String
+           CustomerCreditRatingAssessment:
+              type: string
+              description: >-
+                Any underlying analysis records and results that support the
+                credit rating
+              format: String
+           CustomerCreditRatingNarrative:
+              type: string
+              description: A structured report outlining basis for the credit rating
+              format: String
+           CustomerCreditRatingDate:
+              $ref: '#/components/schemas/Date'
+     RequestCustomerCreditRatingStateRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           AssessmentCustomerBehaviorModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditRatingAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditRatingAssessmentDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     RequestCustomerCreditRatingStateResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditRatingAssessmentDate:
+              $ref: '#/components/schemas/Date'
+           CreditRatingAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditRatingAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestCustomerCreditRatingState:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           CustomerCreditRatingStatusType:
+              type: string
+              description: >-
+                The type of credit status being monitored (e.g. consumer, small
+                business, corporate)
+              format: String
+           CustomerCreditRatingSchedule:
+              type: string
+              description: >-
+                The schedule for refreshing the credit state and supporting
+                analysis, and update history as appropriate
+              format: String
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: >-
+                The record of the underlying credit assessment performed to
+                support the credit rating state
+              format: String
+           AssessmentCustomerBehaviorModelReference:
+              type: string
+              description: >-
+                Reference to the customer behavior model(s) used to develop any
+                underlying analysis for determining the credit state
+              format: Object
+           CreditRatingAssessmentType:
+              type: string
+              description: The type of analysis performed to support the credit state
+              format: String
+           CreditRatingAssessmentDate:
+              $ref: '#/components/schemas/Date'
+           CreditRatingAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           CreditRatingAssessmentResult:
+              type: string
+              description: The resulting report from the credit rating assessment
+              format: String
+           CustomerCreditRatingRecord:
+              type: string
+              description: A record of the customers credit state
+              format: String
+           CustomerCreditRatingState:
+              type: string
+              description: >-
+                Is the current credit rating or score (typically a ranking value
+                e.g. 110)
+              format: String
+           CustomerCreditRatingAssessment:
+              type: string
+              description: >-
+                Any underlying analysis records and results that support the
+                credit rating
+              format: String
+           CustomerCreditRatingNarrative:
+              type: string
+              description: A structured report outlining basis for the credit rating
+              format: String
+           CustomerCreditRatingDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveCustomerCreditRatingStateResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCreditRatingStatusType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCreditRatingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           AssessmentCustomerBehaviorModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditRatingAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditRatingAssessmentDate:
+              $ref: '#/components/schemas/Date'
+           CreditRatingAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditRatingAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCreditRatingRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCreditRatingNarrative:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCreditRatingDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveCustomerCreditRatingState:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           CustomerCreditRatingStatusType:
+              type: string
+              description: >-
+                The type of credit status being monitored (e.g. consumer, small
+                business, corporate)
+              format: String
+           CustomerCreditRatingSchedule:
+              type: string
+              description: >-
+                The schedule for refreshing the credit state and supporting
+                analysis, and update history as appropriate
+              format: String
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: >-
+                The record of the underlying credit assessment performed to
+                support the credit rating state
+              format: String
+           AssessmentCustomerBehaviorModelReference:
+              type: string
+              description: >-
+                Reference to the customer behavior model(s) used to develop any
+                underlying analysis for determining the credit state
+              format: Object
+           CreditRatingAssessmentType:
+              type: string
+              description: The type of analysis performed to support the credit state
+              format: String
+           CreditRatingAssessmentDate:
+              $ref: '#/components/schemas/Date'
+           CreditRatingAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           CreditRatingAssessmentResult:
+              type: string
+              description: The resulting report from the credit rating assessment
+              format: String
+           CustomerCreditRatingRecord:
+              type: string
+              description: A record of the customers credit state
+              format: String
+           CustomerCreditRatingState:
+              type: string
+              description: >-
+                Is the current credit rating or score (typically a ranking value
+                e.g. 110)
+              format: String
+           CustomerCreditRatingAssessment:
+              type: string
+              description: >-
+                Any underlying analysis records and results that support the
+                credit rating
+              format: String
+           CustomerCreditRatingNarrative:
+              type: string
+              description: A structured report outlining basis for the credit rating
+              format: String
+           CustomerCreditRatingDate:
+              $ref: '#/components/schemas/Date'
+     CaptureAlertsRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCreditAlertType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCreditAlertDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureAlertsResponse:
+        type: object
+        description: ''
+        properties:
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureAlerts:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           CustomerCreditRatingStatusType:
+              type: string
+              description: >-
+                The type of credit status being monitored (e.g. consumer, small
+                business, corporate)
+              format: String
+           CustomerCreditRatingSchedule:
+              type: string
+              description: >-
+                The schedule for refreshing the credit state and supporting
+                analysis, and update history as appropriate
+              format: String
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: >-
+                The record of the underlying credit assessment performed to
+                support the credit rating state
+              format: String
+           AssessmentCustomerBehaviorModelReference:
+              type: string
+              description: >-
+                Reference to the customer behavior model(s) used to develop any
+                underlying analysis for determining the credit state
+              format: Object
+           CreditRatingAssessmentType:
+              type: string
+              description: The type of analysis performed to support the credit state
+              format: String
+           CreditRatingAssessmentDate:
+              $ref: '#/components/schemas/Date'
+           CreditRatingAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           CreditRatingAssessmentResult:
+              type: string
+              description: The resulting report from the credit rating assessment
+              format: String
+           CustomerCreditRatingRecord:
+              type: string
+              description: A record of the customers credit state
+              format: String
+           CustomerCreditRatingState:
+              type: string
+              description: >-
+                Is the current credit rating or score (typically a ranking value
+                e.g. 110)
+              format: String
+           CustomerCreditRatingAssessment:
+              type: string
+              description: >-
+                Any underlying analysis records and results that support the
+                credit rating
+              format: String
+           CustomerCreditRatingNarrative:
+              type: string
+              description: A structured report outlining basis for the credit rating
+              format: String
+           CustomerCreditRatingDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveAlertsResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCreditAlertType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCreditAlertDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveAlerts:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           CustomerCreditRatingStatusType:
+              type: string
+              description: >-
+                The type of credit status being monitored (e.g. consumer, small
+                business, corporate)
+              format: String
+           CustomerCreditRatingSchedule:
+              type: string
+              description: >-
+                The schedule for refreshing the credit state and supporting
+                analysis, and update history as appropriate
+              format: String
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: >-
+                The record of the underlying credit assessment performed to
+                support the credit rating state
+              format: String
+           AssessmentCustomerBehaviorModelReference:
+              type: string
+              description: >-
+                Reference to the customer behavior model(s) used to develop any
+                underlying analysis for determining the credit state
+              format: Object
+           CreditRatingAssessmentType:
+              type: string
+              description: The type of analysis performed to support the credit state
+              format: String
+           CreditRatingAssessmentDate:
+              $ref: '#/components/schemas/Date'
+           CreditRatingAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           CreditRatingAssessmentResult:
+              type: string
+              description: The resulting report from the credit rating assessment
+              format: String
+           CustomerCreditRatingRecord:
+              type: string
+              description: A record of the customers credit state
+              format: String
+           CustomerCreditRatingState:
+              type: string
+              description: >-
+                Is the current credit rating or score (typically a ranking value
+                e.g. 110)
+              format: String
+           CustomerCreditRatingAssessment:
+              type: string
+              description: >-
+                Any underlying analysis records and results that support the
+                credit rating
+              format: String
+           CustomerCreditRatingNarrative:
+              type: string
+              description: A structured report outlining basis for the credit rating
+              format: String
+           CustomerCreditRatingDate:
+              $ref: '#/components/schemas/Date'
+     CaptureInternalReportingRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceActivityReportReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceActivityReportSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureInternalReportingResponse:
+        type: object
+        description: ''
+        properties:
+           ProductandServiceActivityReportSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureInternalReporting:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           CustomerCreditRatingStatusType:
+              type: string
+              description: >-
+                The type of credit status being monitored (e.g. consumer, small
+                business, corporate)
+              format: String
+           CustomerCreditRatingSchedule:
+              type: string
+              description: >-
+                The schedule for refreshing the credit state and supporting
+                analysis, and update history as appropriate
+              format: String
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: >-
+                The record of the underlying credit assessment performed to
+                support the credit rating state
+              format: String
+           AssessmentCustomerBehaviorModelReference:
+              type: string
+              description: >-
+                Reference to the customer behavior model(s) used to develop any
+                underlying analysis for determining the credit state
+              format: Object
+           CreditRatingAssessmentType:
+              type: string
+              description: The type of analysis performed to support the credit state
+              format: String
+           CreditRatingAssessmentDate:
+              $ref: '#/components/schemas/Date'
+           CreditRatingAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           CreditRatingAssessmentResult:
+              type: string
+              description: The resulting report from the credit rating assessment
+              format: String
+           CustomerCreditRatingRecord:
+              type: string
+              description: A record of the customers credit state
+              format: String
+           CustomerCreditRatingState:
+              type: string
+              description: >-
+                Is the current credit rating or score (typically a ranking value
+                e.g. 110)
+              format: String
+           CustomerCreditRatingAssessment:
+              type: string
+              description: >-
+                Any underlying analysis records and results that support the
+                credit rating
+              format: String
+           CustomerCreditRatingNarrative:
+              type: string
+              description: A structured report outlining basis for the credit rating
+              format: String
+           CustomerCreditRatingDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveInternalReportingResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceActivityReportReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceActivityReportSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveInternalReporting:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           CustomerCreditRatingStatusType:
+              type: string
+              description: >-
+                The type of credit status being monitored (e.g. consumer, small
+                business, corporate)
+              format: String
+           CustomerCreditRatingSchedule:
+              type: string
+              description: >-
+                The schedule for refreshing the credit state and supporting
+                analysis, and update history as appropriate
+              format: String
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: >-
+                The record of the underlying credit assessment performed to
+                support the credit rating state
+              format: String
+           AssessmentCustomerBehaviorModelReference:
+              type: string
+              description: >-
+                Reference to the customer behavior model(s) used to develop any
+                underlying analysis for determining the credit state
+              format: Object
+           CreditRatingAssessmentType:
+              type: string
+              description: The type of analysis performed to support the credit state
+              format: String
+           CreditRatingAssessmentDate:
+              $ref: '#/components/schemas/Date'
+           CreditRatingAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           CreditRatingAssessmentResult:
+              type: string
+              description: The resulting report from the credit rating assessment
+              format: String
+           CustomerCreditRatingRecord:
+              type: string
+              description: A record of the customers credit state
+              format: String
+           CustomerCreditRatingState:
+              type: string
+              description: >-
+                Is the current credit rating or score (typically a ranking value
+                e.g. 110)
+              format: String
+           CustomerCreditRatingAssessment:
+              type: string
+              description: >-
+                Any underlying analysis records and results that support the
+                credit rating
+              format: String
+           CustomerCreditRatingNarrative:
+              type: string
+              description: A structured report outlining basis for the credit rating
+              format: String
+           CustomerCreditRatingDate:
+              $ref: '#/components/schemas/Date'
+     CaptureExternalReportingRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RatingAgencyReportSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RatingAgencyCreditReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           RatingAgencyCreditReportDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     CaptureExternalReportingResponse:
+        type: object
+        description: ''
+        properties:
+           RatingAgencyReportSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           Referencetotheratingagencycreditreport:
+              type: string
+              description: "\r\n"
+              format: String
+           RatingAgencyCreditReportDate:
+              $ref: '#/components/schemas/Date'
+     CaptureExternalReporting:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           CustomerCreditRatingStatusType:
+              type: string
+              description: >-
+                The type of credit status being monitored (e.g. consumer, small
+                business, corporate)
+              format: String
+           CustomerCreditRatingSchedule:
+              type: string
+              description: >-
+                The schedule for refreshing the credit state and supporting
+                analysis, and update history as appropriate
+              format: String
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: >-
+                The record of the underlying credit assessment performed to
+                support the credit rating state
+              format: String
+           AssessmentCustomerBehaviorModelReference:
+              type: string
+              description: >-
+                Reference to the customer behavior model(s) used to develop any
+                underlying analysis for determining the credit state
+              format: Object
+           CreditRatingAssessmentType:
+              type: string
+              description: The type of analysis performed to support the credit state
+              format: String
+           CreditRatingAssessmentDate:
+              $ref: '#/components/schemas/Date'
+           CreditRatingAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           CreditRatingAssessmentResult:
+              type: string
+              description: The resulting report from the credit rating assessment
+              format: String
+           CustomerCreditRatingRecord:
+              type: string
+              description: A record of the customers credit state
+              format: String
+           CustomerCreditRatingState:
+              type: string
+              description: >-
+                Is the current credit rating or score (typically a ranking value
+                e.g. 110)
+              format: String
+           CustomerCreditRatingAssessment:
+              type: string
+              description: >-
+                Any underlying analysis records and results that support the
+                credit rating
+              format: String
+           CustomerCreditRatingNarrative:
+              type: string
+              description: A structured report outlining basis for the credit rating
+              format: String
+           CustomerCreditRatingDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveExternalReportingResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RatingAgencyReportSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RatingAgencyCreditReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           Referencetotheratingagencycreditreport:
+              type: string
+              description: "\r\n"
+              format: String
+           RatingAgencyCreditReportDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveExternalReporting:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           CustomerCreditRatingStatusType:
+              type: string
+              description: >-
+                The type of credit status being monitored (e.g. consumer, small
+                business, corporate)
+              format: String
+           CustomerCreditRatingSchedule:
+              type: string
+              description: >-
+                The schedule for refreshing the credit state and supporting
+                analysis, and update history as appropriate
+              format: String
+           CustomerCreditRatingAssessmentRecord:
+              type: string
+              description: >-
+                The record of the underlying credit assessment performed to
+                support the credit rating state
+              format: String
+           AssessmentCustomerBehaviorModelReference:
+              type: string
+              description: >-
+                Reference to the customer behavior model(s) used to develop any
+                underlying analysis for determining the credit state
+              format: Object
+           CreditRatingAssessmentType:
+              type: string
+              description: The type of analysis performed to support the credit state
+              format: String
+           CreditRatingAssessmentDate:
+              $ref: '#/components/schemas/Date'
+           CreditRatingAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           CreditRatingAssessmentResult:
+              type: string
+              description: The resulting report from the credit rating assessment
+              format: String
+           CustomerCreditRatingRecord:
+              type: string
+              description: A record of the customers credit state
+              format: String
+           CustomerCreditRatingState:
+              type: string
+              description: >-
+                Is the current credit rating or score (typically a ranking value
+                e.g. 110)
+              format: String
+           CustomerCreditRatingAssessment:
+              type: string
+              description: >-
+                Any underlying analysis records and results that support the
+                credit rating
+              format: String
+           CustomerCreditRatingNarrative:
+              type: string
+              description: A structured report outlining basis for the credit rating
+              format: String
+           CustomerCreditRatingDate:
+              $ref: '#/components/schemas/Date'
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateCustomerCreditRatingStateRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCustomerCreditRatingStateRequest'
+        required: true
+     ExecuteCustomerCreditRatingStateRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteCustomerCreditRatingStateRequest'
+        required: true
+     RequestCustomerCreditRatingStateRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCustomerCreditRatingStateRequest'
+        required: true
+     RetrieveCustomerCreditRatingStateRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     CaptureAlertsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureAlertsRequest'
+        required: true
+     RetrieveAlertsRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     CaptureInternalReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureInternalReportingRequest'
+        required: true
+     RetrieveInternalReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     CaptureExternalReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureExternalReportingRequest'
+        required: true
+     RetrieveExternalReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     customercreditratingstateid:
+        name: customercreditratingstateid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     alertsid:
+        name: alertsid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     internalreportingid:
+        name: internalreportingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     externalreportingid:
+        name: externalreportingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateCustomerCreditRatingStateResponse:
+        description: CustomerCreditRatingStateInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCustomerCreditRatingStateResponse'
+     ExecuteCustomerCreditRatingStateResponse:
+        description: CustomerCreditRatingStateExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteCustomerCreditRatingStateResponse'
+     RequestCustomerCreditRatingStateResponse:
+        description: CustomerCreditRatingStateRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCustomerCreditRatingStateResponse'
+     RetrieveCustomerCreditRatingStateResponse:
+        description: CustomerCreditRatingStateRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCustomerCreditRatingStateResponse'
+     CaptureAlertsResponse:
+        description: AlertsCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureAlertsResponse'
+     RetrieveAlertsResponse:
+        description: AlertsRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAlertsResponse'
+     CaptureInternalReportingResponse:
+        description: InternalReportingCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureInternalReportingResponse'
+     RetrieveInternalReportingResponse:
+        description: InternalReportingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveInternalReportingResponse'
+     CaptureExternalReportingResponse:
+        description: ExternalReportingCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureExternalReportingResponse'
+     RetrieveExternalReportingResponse:
+        description: ExternalReportingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveExternalReportingResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

@@ -1,0 +1,1412 @@
+openapi: 3.0.1
+info:
+  title: Securities Position Keeping
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain maintains
+    a securities transaction log to support securities investment activity
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/SecuritiesPositionKeeping
+paths:
+   '/SecuritiesPositionLog/{securitiespositionlogid}/Initiate':
+      post:
+        tags:
+           - CR - SecuritiesPositionLog
+        summary: InCR Initiate a position keeping transaction log
+        description: InCR Initiate a position keeping transaction log
+        operationId: SecuritiesPositionLog/Initiate
+        parameters:
+           - $ref: '#/components/parameters/securitiespositionlogid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateSecuritiesPositionLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SecuritiesPositionLog/{securitiespositionlogid}/Update':
+      put:
+        tags:
+           - CR - SecuritiesPositionLog
+        summary: >-
+          UpCR Update details for an active securities transaction log,
+          including reflecting an account block
+        description: >-
+          UpCR Update details for an active securities transaction log,
+          including reflecting an account block
+        operationId: SecuritiesPositionLog/Update
+        parameters:
+           - $ref: '#/components/parameters/securitiespositionlogid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateSecuritiesPositionLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SecuritiesPositionLog/{securitiespositionlogid}/Retrieve':
+      get:
+        tags:
+           - CR - SecuritiesPositionLog
+        summary: ReCR Retrieve information about the log
+        description: ReCR Retrieve information about the log
+        operationId: SecuritiesPositionLog/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/securitiespositionlogid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveSecuritiesPositionLogResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SecuritiesTransactionCapture/{securitiestransactioncaptureid}/Update':
+      put:
+        tags:
+           - BQ - SecuritiesTransactionCapture
+        summary: UpBQ Update details of a captured securities transaction
+        description: UpBQ Update details of a captured securities transaction
+        operationId: SecuritiesTransactionCapture/Update
+        parameters:
+           - $ref: '#/components/parameters/securitiestransactioncaptureid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateSecuritiesTransactionCaptureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SecuritiesTransactionCapture/{securitiestransactioncaptureid}/Capture':
+      put:
+        tags:
+           - BQ - SecuritiesTransactionCapture
+        summary: CaBQ Capture details of a securities transaction in the log
+        description: CaBQ Capture details of a securities transaction in the log
+        operationId: SecuritiesTransactionCapture/Capture
+        parameters:
+           - $ref: '#/components/parameters/securitiestransactioncaptureid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/CaptureSecuritiesTransactionCaptureRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SecuritiesTransactionCapture/{securitiestransactioncaptureid}/Retrieve':
+      get:
+        tags:
+           - BQ - SecuritiesTransactionCapture
+        summary: ReBQ Retrieve details of securities transactions captured in the log
+        description: ReBQ Retrieve details of securities transactions captured in the log
+        operationId: SecuritiesTransactionCapture/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/securitiestransactioncaptureid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveSecuritiesTransactionCaptureResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateSecuritiesPositionLogRequest:
+        type: object
+        description: ''
+        properties:
+           SecuritiesTransactionLogType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CounterpartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecuritiesPositionLogInstrumentProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLogInstrumentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesInstrumentType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesInstrumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecuritiesPositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesAmountBlock:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           SecuritiesAmountBlockType:
+              type: string
+              description: "\r\n"
+              format: String
+           Priority:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           InitiationDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           Status:
+              type: string
+              description: "\r\n"
+              format: String
+     Amount:
+        type: object
+        description: ' CurrencyAndAmount|CurrencyAndAmount (https://www.iso20022.org/standardsrepository/type/CurrencyAndAmount)|Standard|ISO20022  ()'
+        properties:
+           AmountValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           AmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           DecimalPointPosition:
+              type: string
+              description: |
+                Decimal point position starts calulating from the right
+              format: String
+           AmountType:
+              enum:
+                   -  Principal
+                   -  Actual
+                   -  Estimated
+                   -  Maximum
+                   -  Default
+                   -  Replacement
+                   -  Incremental
+                   -  Decremental
+                   -  Reserved
+                   -  Available
+                   -  Used
+              type: string
+              description: ">-\r\n* `Principal` \r\n* `Actual` \r\n* `Estimated` \r\n* `Maximum` \r\n* `Default` \r\n* `Replacement` \r\n* `Incremental` \r\n* `Decremental` \r\n* `Reserved` \r\n* `Available` \r\n* `Used` \r\n* "
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Currencycode:
+        type: object
+        description: ' '
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     InitiateSecuritiesPositionLogResponse:
+        type: object
+        description: ''
+        properties:
+           SecuritiesTransactionLogType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLogInstrumentProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLogInstrumentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesInstrumentType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesInstrumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecuritiesPositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesAmountBlock:
+              $ref: '#/components/schemas/Amount'
+           SecuritiesAmountBlockType:
+              type: string
+              description: "\r\n"
+              format: String
+           Priority:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           InitiationDate:
+              $ref: '#/components/schemas/Date'
+           Status:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateSecuritiesPositionLog:
+        type: object
+        description: ''
+        properties:
+           SecuritiesTransactionLogType:
+              type: string
+              description: >-
+                The type of securities transaction log (e.g. equities,
+                derivatives, all)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                The product/service investment account for which this is the
+                securities transaction log
+              format: Object
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the product or service account holder/customer for
+                the log if appropriate
+              format: Object
+           CounterpartyReference:
+              type: string
+              description: >-
+                Reference to a counterparty for the log if appropriate (e.g.
+                merchant reference, corporate reference)
+              format: Object
+           SecuritiesPositionLogInstrumentProfile:
+              type: string
+              description: >-
+                Details the range of instruments that are tracked by the log
+                (each instrument has its own transaction record/holding position
+              format: String
+           SecuritiesPositionLogInstrumentRecord:
+              type: string
+              description: >-
+                Details for an individual tracked instrument type  (the log
+                track transactions for multiple securities/instruments)
+              format: String
+           SecuritiesInstrumentType:
+              type: string
+              description: >-
+                Reference to the type of investment instrument being tracked
+                (e.g. equity, commodity, FX/MM, derivative)
+              format: String
+           SecuritiesInstrumentReference:
+              type: string
+              description: The specific instrument trading identifier (e.g. NASDAQ Id)
+              format: Object
+           SecuritiesPositionLimits:
+              type: string
+              description: >-
+                Basic position limits that are maintained as an aspect of the
+                log (these can include securities holdings and related
+                instrument properties such as associated dividends entitlements)
+              format: String
+           SecuritiesPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the log (e.g. cumulative
+                balance)
+              format: String
+           SecuritiesPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           SecuritiesPositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           SecuritiesAmountBlock:
+              $ref: '#/components/schemas/Amount'
+           SecuritiesAmountBlockType:
+              type: string
+              description: >-
+                The type of block applied to the tracked securities position
+                (e.g. pending, final)
+              format: String
+           Priority:
+              type: string
+              description: Priority classification for the block
+              format: String
+           Amount:
+              type: string
+              description: The amount of the block
+              format: String
+           DateType:
+              type: string
+              description: >-
+                The type of key dates associated with the block  (e.g. start,
+                expiry)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+           InitiationDate:
+              $ref: '#/components/schemas/Date'
+           Status:
+              type: string
+              description: The status of the log entry (e.g. active, insuspense etc.)
+              format: String
+     UpdateSecuritiesPositionLogRequest:
+        type: object
+        description: ''
+        properties:
+           SecuritiesTransactionLogType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CounterpartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecuritiesPositionLogInstrumentProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLogInstrumentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesInstrumentType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesInstrumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecuritiesPositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesAmountBlock:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           SecuritiesAmountBlockType:
+              type: string
+              description: "\r\n"
+              format: String
+           Priority:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           InitiationDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           Status:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSecuritiesPositionLogResponse:
+        type: object
+        description: ''
+        properties:
+           SecuritiesTransactionLogType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CounterpartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecuritiesPositionLogInstrumentProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLogInstrumentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesInstrumentType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesInstrumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecuritiesPositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesAmountBlock:
+              $ref: '#/components/schemas/Amount'
+           SecuritiesAmountBlockType:
+              type: string
+              description: "\r\n"
+              format: String
+           Priority:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           InitiationDate:
+              $ref: '#/components/schemas/Date'
+           Status:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSecuritiesPositionLog:
+        type: object
+        description: ''
+        properties:
+           SecuritiesTransactionLogType:
+              type: string
+              description: >-
+                The type of securities transaction log (e.g. equities,
+                derivatives, all)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                The product/service investment account for which this is the
+                securities transaction log
+              format: Object
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the product or service account holder/customer for
+                the log if appropriate
+              format: Object
+           CounterpartyReference:
+              type: string
+              description: >-
+                Reference to a counterparty for the log if appropriate (e.g.
+                merchant reference, corporate reference)
+              format: Object
+           SecuritiesPositionLogInstrumentProfile:
+              type: string
+              description: >-
+                Details the range of instruments that are tracked by the log
+                (each instrument has its own transaction record/holding position
+              format: String
+           SecuritiesPositionLogInstrumentRecord:
+              type: string
+              description: >-
+                Details for an individual tracked instrument type  (the log
+                track transactions for multiple securities/instruments)
+              format: String
+           SecuritiesInstrumentType:
+              type: string
+              description: >-
+                Reference to the type of investment instrument being tracked
+                (e.g. equity, commodity, FX/MM, derivative)
+              format: String
+           SecuritiesInstrumentReference:
+              type: string
+              description: The specific instrument trading identifier (e.g. NASDAQ Id)
+              format: Object
+           SecuritiesPositionLimits:
+              type: string
+              description: >-
+                Basic position limits that are maintained as an aspect of the
+                log (these can include securities holdings and related
+                instrument properties such as associated dividends entitlements)
+              format: String
+           SecuritiesPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the log (e.g. cumulative
+                balance)
+              format: String
+           SecuritiesPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           SecuritiesPositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           SecuritiesAmountBlock:
+              $ref: '#/components/schemas/Amount'
+           SecuritiesAmountBlockType:
+              type: string
+              description: >-
+                The type of block applied to the tracked securities position
+                (e.g. pending, final)
+              format: String
+           Priority:
+              type: string
+              description: Priority classification for the block
+              format: String
+           Amount:
+              type: string
+              description: The amount of the block
+              format: String
+           DateType:
+              type: string
+              description: >-
+                The type of key dates associated with the block  (e.g. start,
+                expiry)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+           InitiationDate:
+              $ref: '#/components/schemas/Date'
+           Status:
+              type: string
+              description: The status of the log entry (e.g. active, insuspense etc.)
+              format: String
+     RetrieveSecuritiesPositionLogResponse:
+        type: object
+        description: ''
+        properties:
+           SecuritiesTransactionLogType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CounterpartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecuritiesPositionLogInstrumentProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLogInstrumentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesInstrumentType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesInstrumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecuritiesPositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesAmountBlock:
+              $ref: '#/components/schemas/Amount'
+           SecuritiesAmountBlockType:
+              type: string
+              description: "\r\n"
+              format: String
+           Priority:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           InitiationDate:
+              $ref: '#/components/schemas/Date'
+           Status:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveSecuritiesPositionLog:
+        type: object
+        description: ''
+        properties:
+           SecuritiesTransactionLogType:
+              type: string
+              description: >-
+                The type of securities transaction log (e.g. equities,
+                derivatives, all)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                The product/service investment account for which this is the
+                securities transaction log
+              format: Object
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the product or service account holder/customer for
+                the log if appropriate
+              format: Object
+           CounterpartyReference:
+              type: string
+              description: >-
+                Reference to a counterparty for the log if appropriate (e.g.
+                merchant reference, corporate reference)
+              format: Object
+           SecuritiesPositionLogInstrumentProfile:
+              type: string
+              description: >-
+                Details the range of instruments that are tracked by the log
+                (each instrument has its own transaction record/holding position
+              format: String
+           SecuritiesPositionLogInstrumentRecord:
+              type: string
+              description: >-
+                Details for an individual tracked instrument type  (the log
+                track transactions for multiple securities/instruments)
+              format: String
+           SecuritiesInstrumentType:
+              type: string
+              description: >-
+                Reference to the type of investment instrument being tracked
+                (e.g. equity, commodity, FX/MM, derivative)
+              format: String
+           SecuritiesInstrumentReference:
+              type: string
+              description: The specific instrument trading identifier (e.g. NASDAQ Id)
+              format: Object
+           SecuritiesPositionLimits:
+              type: string
+              description: >-
+                Basic position limits that are maintained as an aspect of the
+                log (these can include securities holdings and related
+                instrument properties such as associated dividends entitlements)
+              format: String
+           SecuritiesPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the log (e.g. cumulative
+                balance)
+              format: String
+           SecuritiesPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           SecuritiesPositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           SecuritiesAmountBlock:
+              $ref: '#/components/schemas/Amount'
+           SecuritiesAmountBlockType:
+              type: string
+              description: >-
+                The type of block applied to the tracked securities position
+                (e.g. pending, final)
+              format: String
+           Priority:
+              type: string
+              description: Priority classification for the block
+              format: String
+           Amount:
+              type: string
+              description: The amount of the block
+              format: String
+           DateType:
+              type: string
+              description: >-
+                The type of key dates associated with the block  (e.g. start,
+                expiry)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+           InitiationDate:
+              $ref: '#/components/schemas/Date'
+           Status:
+              type: string
+              description: The status of the log entry (e.g. active, insuspense etc.)
+              format: String
+     UpdateSecuritiesTransactionCaptureRequest:
+        type: object
+        description: ''
+        properties:
+           SecuritiesPostingType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPostingValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     UpdateSecuritiesTransactionCaptureResponse:
+        type: object
+        description: ''
+        properties:
+           SecuritiesPostingType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPostingValueDate:
+              $ref: '#/components/schemas/Date'
+     UpdateSecuritiesTransactionCapture:
+        type: object
+        description: ''
+        properties:
+           SecuritiesTransactionLogType:
+              type: string
+              description: >-
+                The type of securities transaction log (e.g. equities,
+                derivatives, all)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                The product/service investment account for which this is the
+                securities transaction log
+              format: Object
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the product or service account holder/customer for
+                the log if appropriate
+              format: Object
+           CounterpartyReference:
+              type: string
+              description: >-
+                Reference to a counterparty for the log if appropriate (e.g.
+                merchant reference, corporate reference)
+              format: Object
+           SecuritiesPositionLogInstrumentProfile:
+              type: string
+              description: >-
+                Details the range of instruments that are tracked by the log
+                (each instrument has its own transaction record/holding position
+              format: String
+           SecuritiesPositionLogInstrumentRecord:
+              type: string
+              description: >-
+                Details for an individual tracked instrument type  (the log
+                track transactions for multiple securities/instruments)
+              format: String
+           SecuritiesInstrumentType:
+              type: string
+              description: >-
+                Reference to the type of investment instrument being tracked
+                (e.g. equity, commodity, FX/MM, derivative)
+              format: String
+           SecuritiesInstrumentReference:
+              type: string
+              description: The specific instrument trading identifier (e.g. NASDAQ Id)
+              format: Object
+           SecuritiesPositionLimits:
+              type: string
+              description: >-
+                Basic position limits that are maintained as an aspect of the
+                log (these can include securities holdings and related
+                instrument properties such as associated dividends entitlements)
+              format: String
+           SecuritiesPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the log (e.g. cumulative
+                balance)
+              format: String
+           SecuritiesPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           SecuritiesPositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           SecuritiesAmountBlock:
+              $ref: '#/components/schemas/Amount'
+           SecuritiesAmountBlockType:
+              type: string
+              description: >-
+                The type of block applied to the tracked securities position
+                (e.g. pending, final)
+              format: String
+           Priority:
+              type: string
+              description: Priority classification for the block
+              format: String
+           Amount:
+              type: string
+              description: The amount of the block
+              format: String
+           DateType:
+              type: string
+              description: >-
+                The type of key dates associated with the block  (e.g. start,
+                expiry)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+           InitiationDate:
+              $ref: '#/components/schemas/Date'
+           Status:
+              type: string
+              description: The status of the log entry (e.g. active, insuspense etc.)
+              format: String
+     CaptureSecuritiesTransactionCaptureRequest:
+        type: object
+        description: ''
+        properties:
+           SecuritiesPostingType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPostingValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     CaptureSecuritiesTransactionCaptureResponse:
+        type: object
+        description: ''
+        properties:
+           SecuritiesPostingValueDate:
+              $ref: '#/components/schemas/Date'
+     CaptureSecuritiesTransactionCapture:
+        type: object
+        description: ''
+        properties:
+           SecuritiesTransactionLogType:
+              type: string
+              description: >-
+                The type of securities transaction log (e.g. equities,
+                derivatives, all)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                The product/service investment account for which this is the
+                securities transaction log
+              format: Object
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the product or service account holder/customer for
+                the log if appropriate
+              format: Object
+           CounterpartyReference:
+              type: string
+              description: >-
+                Reference to a counterparty for the log if appropriate (e.g.
+                merchant reference, corporate reference)
+              format: Object
+           SecuritiesPositionLogInstrumentProfile:
+              type: string
+              description: >-
+                Details the range of instruments that are tracked by the log
+                (each instrument has its own transaction record/holding position
+              format: String
+           SecuritiesPositionLogInstrumentRecord:
+              type: string
+              description: >-
+                Details for an individual tracked instrument type  (the log
+                track transactions for multiple securities/instruments)
+              format: String
+           SecuritiesInstrumentType:
+              type: string
+              description: >-
+                Reference to the type of investment instrument being tracked
+                (e.g. equity, commodity, FX/MM, derivative)
+              format: String
+           SecuritiesInstrumentReference:
+              type: string
+              description: The specific instrument trading identifier (e.g. NASDAQ Id)
+              format: Object
+           SecuritiesPositionLimits:
+              type: string
+              description: >-
+                Basic position limits that are maintained as an aspect of the
+                log (these can include securities holdings and related
+                instrument properties such as associated dividends entitlements)
+              format: String
+           SecuritiesPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the log (e.g. cumulative
+                balance)
+              format: String
+           SecuritiesPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           SecuritiesPositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           SecuritiesAmountBlock:
+              $ref: '#/components/schemas/Amount'
+           SecuritiesAmountBlockType:
+              type: string
+              description: >-
+                The type of block applied to the tracked securities position
+                (e.g. pending, final)
+              format: String
+           Priority:
+              type: string
+              description: Priority classification for the block
+              format: String
+           Amount:
+              type: string
+              description: The amount of the block
+              format: String
+           DateType:
+              type: string
+              description: >-
+                The type of key dates associated with the block  (e.g. start,
+                expiry)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+           InitiationDate:
+              $ref: '#/components/schemas/Date'
+           Status:
+              type: string
+              description: The status of the log entry (e.g. active, insuspense etc.)
+              format: String
+     RetrieveSecuritiesTransactionCaptureResponse:
+        type: object
+        description: ''
+        properties:
+           SecuritiesPostingType:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritiesPostingValueDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveSecuritiesTransactionCapture:
+        type: object
+        description: ''
+        properties:
+           SecuritiesTransactionLogType:
+              type: string
+              description: >-
+                The type of securities transaction log (e.g. equities,
+                derivatives, all)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                The product/service investment account for which this is the
+                securities transaction log
+              format: Object
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the product or service account holder/customer for
+                the log if appropriate
+              format: Object
+           CounterpartyReference:
+              type: string
+              description: >-
+                Reference to a counterparty for the log if appropriate (e.g.
+                merchant reference, corporate reference)
+              format: Object
+           SecuritiesPositionLogInstrumentProfile:
+              type: string
+              description: >-
+                Details the range of instruments that are tracked by the log
+                (each instrument has its own transaction record/holding position
+              format: String
+           SecuritiesPositionLogInstrumentRecord:
+              type: string
+              description: >-
+                Details for an individual tracked instrument type  (the log
+                track transactions for multiple securities/instruments)
+              format: String
+           SecuritiesInstrumentType:
+              type: string
+              description: >-
+                Reference to the type of investment instrument being tracked
+                (e.g. equity, commodity, FX/MM, derivative)
+              format: String
+           SecuritiesInstrumentReference:
+              type: string
+              description: The specific instrument trading identifier (e.g. NASDAQ Id)
+              format: Object
+           SecuritiesPositionLimits:
+              type: string
+              description: >-
+                Basic position limits that are maintained as an aspect of the
+                log (these can include securities holdings and related
+                instrument properties such as associated dividends entitlements)
+              format: String
+           SecuritiesPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the log (e.g. cumulative
+                balance)
+              format: String
+           SecuritiesPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           SecuritiesPositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           SecuritiesAmountBlock:
+              $ref: '#/components/schemas/Amount'
+           SecuritiesAmountBlockType:
+              type: string
+              description: >-
+                The type of block applied to the tracked securities position
+                (e.g. pending, final)
+              format: String
+           Priority:
+              type: string
+              description: Priority classification for the block
+              format: String
+           Amount:
+              type: string
+              description: The amount of the block
+              format: String
+           DateType:
+              type: string
+              description: >-
+                The type of key dates associated with the block  (e.g. start,
+                expiry)
+              format: String
+           Date:
+              type: string
+              description: Value of the specific date type
+              format: String
+           InitiationDate:
+              $ref: '#/components/schemas/Date'
+           Status:
+              type: string
+              description: The status of the log entry (e.g. active, insuspense etc.)
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateSecuritiesPositionLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateSecuritiesPositionLogRequest'
+        required: true
+     UpdateSecuritiesPositionLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSecuritiesPositionLogRequest'
+        required: true
+     RetrieveSecuritiesPositionLogRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateSecuritiesTransactionCaptureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSecuritiesTransactionCaptureRequest'
+        required: true
+     CaptureSecuritiesTransactionCaptureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureSecuritiesTransactionCaptureRequest'
+        required: true
+     RetrieveSecuritiesTransactionCaptureRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     securitiespositionlogid:
+        name: securitiespositionlogid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     securitiestransactioncaptureid:
+        name: securitiestransactioncaptureid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateSecuritiesPositionLogResponse:
+        description: SecuritiesPositionLogInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateSecuritiesPositionLogResponse'
+     UpdateSecuritiesPositionLogResponse:
+        description: SecuritiesPositionLogUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSecuritiesPositionLogResponse'
+     RetrieveSecuritiesPositionLogResponse:
+        description: SecuritiesPositionLogRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveSecuritiesPositionLogResponse'
+     UpdateSecuritiesTransactionCaptureResponse:
+        description: SecuritiesTransactionCaptureUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSecuritiesTransactionCaptureResponse'
+     CaptureSecuritiesTransactionCaptureResponse:
+        description: SecuritiesTransactionCaptureCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureSecuritiesTransactionCaptureResponse'
+     RetrieveSecuritiesTransactionCaptureResponse:
+        description: SecuritiesTransactionCaptureRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveSecuritiesTransactionCaptureResponse
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

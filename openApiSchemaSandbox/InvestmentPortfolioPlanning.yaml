@@ -1,0 +1,1295 @@
+openapi: 3.0.1
+info:
+  title: Investment Portfolio Planning
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Agree the policies and
+    required makeup of an investment portfolio and ensure all required bank and
+    regulatory terms and conditions are addressed
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/InvestmentPortfolioPlanning
+paths:
+   '/ManagedInvestmentPortfolioAgreement/{managedinvestmentportfolioagreementid}/Evaluate':
+      post:
+        tags:
+           - CR - ManagedInvestmentPortfolioAgreement
+        summary: EvCR Establish a managed investment portfolio agreement
+        description: EvCR Establish a managed investment portfolio agreement
+        operationId: ManagedInvestmentPortfolioAgreement/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/managedinvestmentportfolioagreementid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/EvaluateManagedInvestmentPortfolioAgreementRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ManagedInvestmentPortfolioAgreement/{managedinvestmentportfolioagreementid}/Update':
+      put:
+        tags:
+           - CR - ManagedInvestmentPortfolioAgreement
+        summary: >-
+          UpCR Update details of an active managed investment portfolio
+          agreement
+        description: >-
+          UpCR Update details of an active managed investment portfolio
+          agreement
+        operationId: ManagedInvestmentPortfolioAgreement/Update
+        parameters:
+           - $ref: '#/components/parameters/managedinvestmentportfolioagreementid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateManagedInvestmentPortfolioAgreementRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ManagedInvestmentPortfolioAgreement/{managedinvestmentportfolioagreementid}/Request':
+      put:
+        tags:
+           - CR - ManagedInvestmentPortfolioAgreement
+        summary: >-
+          RqCR Request review that proposed activity is compatible with the
+          agreement
+        description: >-
+          RqCR Request review that proposed activity is compatible with the
+          agreement
+        operationId: ManagedInvestmentPortfolioAgreement/Request
+        parameters:
+           - $ref: '#/components/parameters/managedinvestmentportfolioagreementid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestManagedInvestmentPortfolioAgreementRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ManagedInvestmentPortfolioAgreement/{managedinvestmentportfolioagreementid}/Retrieve':
+      get:
+        tags:
+           - CR - ManagedInvestmentPortfolioAgreement
+        summary: ReCR Retrieve details about a managed investment portfolio agreement
+        description: ReCR Retrieve details about a managed investment portfolio agreement
+        operationId: ManagedInvestmentPortfolioAgreement/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/managedinvestmentportfolioagreementid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveManagedInvestmentPortfolioAgreementResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InvestmentTerms/{investmenttermsid}/Evaluate':
+      post:
+        tags:
+           - BQ - InvestmentTerms
+        summary: >-
+          EvBQ Establish the specific terms/conditions making up the investment
+          agreement
+        description: >-
+          EvBQ Establish the specific terms/conditions making up the investment
+          agreement
+        operationId: InvestmentTerms/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/investmenttermsid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateInvestmentTermsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InvestmentTerms/{investmenttermsid}/Update':
+      put:
+        tags:
+           - BQ - InvestmentTerms
+        summary: UpBQ Update the terms/conditions for an investment agreement
+        description: UpBQ Update the terms/conditions for an investment agreement
+        operationId: InvestmentTerms/Update
+        parameters:
+           - $ref: '#/components/parameters/investmenttermsid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateInvestmentTermsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InvestmentTerms/{investmenttermsid}/Request':
+      put:
+        tags:
+           - BQ - InvestmentTerms
+        summary: >-
+          RqBQ Request check of a proposed activity is compatible with a
+          specific term of the agreement
+        description: >-
+          RqBQ Request check of a proposed activity is compatible with a
+          specific term of the agreement
+        operationId: InvestmentTerms/Request
+        parameters:
+           - $ref: '#/components/parameters/investmenttermsid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestInvestmentTermsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InvestmentTerms/{investmenttermsid}/Retrieve':
+      get:
+        tags:
+           - BQ - InvestmentTerms
+        summary: ReBQ Retrieve details about the specific terms of an agreement
+        description: ReBQ Retrieve details about the specific terms of an agreement
+        operationId: InvestmentTerms/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/investmenttermsid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveInvestmentTermsResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateManagedInvestmentPortfolioAgreementRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           InvestmentPortfolioAgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerAgreementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyRelationshipProcedureInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     EvaluateManagedInvestmentPortfolioAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioAgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           InvestmentPortfolioAgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     EvaluateManagedInvestmentPortfolioAgreement:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer for the investment
+                portfolio
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the investment portfolio record of all holdings
+                governed by this agreement
+              format: Object
+           InvestmentPortfolioAgreementType:
+              type: string
+              description: >-
+                The type of investment portfolio agreement (e.g. discretionary,
+                trust )
+              format: String
+           InvestmentPortfolioAgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the investment
+                portfolio agreement (e.g. "governed by State")
+              format: String
+           InvestmentPortfolioAgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           InvestmentPortfolioAgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                Reference to any associated documents, (e.g. signed agreement
+                document, disclosures)
+              format: Object
+           CustomerAgreementInstanceReference:
+              type: string
+              description: >-
+                Reference to the customer master agreement that governs the
+                product agreement
+              format: Object
+           PartyRelationshipProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained by the Party
+                LifeCycle Management Service Domain
+              format: Object
+           ManagedInvestmentPortfolioAgreement:
+              type: string
+              description: >-
+                The consolidated view of all of the constituent investment
+                policy terms and conditions in any suitable format
+              format: String
+     UpdateManagedInvestmentPortfolioAgreementRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           InvestmentPortfolioAgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerAgreementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyRelationshipProcedureInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateManagedInvestmentPortfolioAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           InvestmentPortfolioAgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerAgreementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyRelationshipProcedureInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateManagedInvestmentPortfolioAgreement:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer for the investment
+                portfolio
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the investment portfolio record of all holdings
+                governed by this agreement
+              format: Object
+           InvestmentPortfolioAgreementType:
+              type: string
+              description: >-
+                The type of investment portfolio agreement (e.g. discretionary,
+                trust )
+              format: String
+           InvestmentPortfolioAgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the investment
+                portfolio agreement (e.g. "governed by State")
+              format: String
+           InvestmentPortfolioAgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           InvestmentPortfolioAgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                Reference to any associated documents, (e.g. signed agreement
+                document, disclosures)
+              format: Object
+           CustomerAgreementInstanceReference:
+              type: string
+              description: >-
+                Reference to the customer master agreement that governs the
+                product agreement
+              format: Object
+           PartyRelationshipProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained by the Party
+                LifeCycle Management Service Domain
+              format: Object
+           ManagedInvestmentPortfolioAgreement:
+              type: string
+              description: >-
+                The consolidated view of all of the constituent investment
+                policy terms and conditions in any suitable format
+              format: String
+     RequestManagedInvestmentPortfolioAgreementRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           InvestmentPortfolioAgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerAgreementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyRelationshipProcedureInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestManagedInvestmentPortfolioAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioAgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           InvestmentPortfolioAgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestManagedInvestmentPortfolioAgreement:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer for the investment
+                portfolio
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the investment portfolio record of all holdings
+                governed by this agreement
+              format: Object
+           InvestmentPortfolioAgreementType:
+              type: string
+              description: >-
+                The type of investment portfolio agreement (e.g. discretionary,
+                trust )
+              format: String
+           InvestmentPortfolioAgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the investment
+                portfolio agreement (e.g. "governed by State")
+              format: String
+           InvestmentPortfolioAgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           InvestmentPortfolioAgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                Reference to any associated documents, (e.g. signed agreement
+                document, disclosures)
+              format: Object
+           CustomerAgreementInstanceReference:
+              type: string
+              description: >-
+                Reference to the customer master agreement that governs the
+                product agreement
+              format: Object
+           PartyRelationshipProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained by the Party
+                LifeCycle Management Service Domain
+              format: Object
+           ManagedInvestmentPortfolioAgreement:
+              type: string
+              description: >-
+                The consolidated view of all of the constituent investment
+                policy terms and conditions in any suitable format
+              format: String
+     RetrieveManagedInvestmentPortfolioAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           InvestmentPortfolioAgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerAgreementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyRelationshipProcedureInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveManagedInvestmentPortfolioAgreement:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer for the investment
+                portfolio
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the investment portfolio record of all holdings
+                governed by this agreement
+              format: Object
+           InvestmentPortfolioAgreementType:
+              type: string
+              description: >-
+                The type of investment portfolio agreement (e.g. discretionary,
+                trust )
+              format: String
+           InvestmentPortfolioAgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the investment
+                portfolio agreement (e.g. "governed by State")
+              format: String
+           InvestmentPortfolioAgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           InvestmentPortfolioAgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                Reference to any associated documents, (e.g. signed agreement
+                document, disclosures)
+              format: Object
+           CustomerAgreementInstanceReference:
+              type: string
+              description: >-
+                Reference to the customer master agreement that governs the
+                product agreement
+              format: Object
+           PartyRelationshipProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained by the Party
+                LifeCycle Management Service Domain
+              format: Object
+           ManagedInvestmentPortfolioAgreement:
+              type: string
+              description: >-
+                The consolidated view of all of the constituent investment
+                policy terms and conditions in any suitable format
+              format: String
+     EvaluateInvestmentTermsRequest:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioAgreementTermType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementTermDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementTermConstraints:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateInvestmentTermsResponse:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioAgreementTermType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementTermDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementTermConstraints:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateInvestmentTerms:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer for the investment
+                portfolio
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the investment portfolio record of all holdings
+                governed by this agreement
+              format: Object
+           InvestmentPortfolioAgreementType:
+              type: string
+              description: >-
+                The type of investment portfolio agreement (e.g. discretionary,
+                trust )
+              format: String
+           InvestmentPortfolioAgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the investment
+                portfolio agreement (e.g. "governed by State")
+              format: String
+           InvestmentPortfolioAgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           InvestmentPortfolioAgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                Reference to any associated documents, (e.g. signed agreement
+                document, disclosures)
+              format: Object
+           CustomerAgreementInstanceReference:
+              type: string
+              description: >-
+                Reference to the customer master agreement that governs the
+                product agreement
+              format: Object
+           PartyRelationshipProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained by the Party
+                LifeCycle Management Service Domain
+              format: Object
+           ManagedInvestmentPortfolioAgreement:
+              type: string
+              description: >-
+                The consolidated view of all of the constituent investment
+                policy terms and conditions in any suitable format
+              format: String
+     UpdateInvestmentTermsRequest:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioAgreementTermType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementTermDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementTermConstraints:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateInvestmentTermsResponse:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioAgreementTermType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementTermDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementTermConstraints:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateInvestmentTerms:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer for the investment
+                portfolio
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the investment portfolio record of all holdings
+                governed by this agreement
+              format: Object
+           InvestmentPortfolioAgreementType:
+              type: string
+              description: >-
+                The type of investment portfolio agreement (e.g. discretionary,
+                trust )
+              format: String
+           InvestmentPortfolioAgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the investment
+                portfolio agreement (e.g. "governed by State")
+              format: String
+           InvestmentPortfolioAgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           InvestmentPortfolioAgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                Reference to any associated documents, (e.g. signed agreement
+                document, disclosures)
+              format: Object
+           CustomerAgreementInstanceReference:
+              type: string
+              description: >-
+                Reference to the customer master agreement that governs the
+                product agreement
+              format: Object
+           PartyRelationshipProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained by the Party
+                LifeCycle Management Service Domain
+              format: Object
+           ManagedInvestmentPortfolioAgreement:
+              type: string
+              description: >-
+                The consolidated view of all of the constituent investment
+                policy terms and conditions in any suitable format
+              format: String
+     RequestInvestmentTermsRequest:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioAgreementTermType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementTermDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementTermConstraints:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestInvestmentTermsResponse:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioAgreementTermType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementTermDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementTermConstraints:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestInvestmentTerms:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer for the investment
+                portfolio
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the investment portfolio record of all holdings
+                governed by this agreement
+              format: Object
+           InvestmentPortfolioAgreementType:
+              type: string
+              description: >-
+                The type of investment portfolio agreement (e.g. discretionary,
+                trust )
+              format: String
+           InvestmentPortfolioAgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the investment
+                portfolio agreement (e.g. "governed by State")
+              format: String
+           InvestmentPortfolioAgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           InvestmentPortfolioAgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                Reference to any associated documents, (e.g. signed agreement
+                document, disclosures)
+              format: Object
+           CustomerAgreementInstanceReference:
+              type: string
+              description: >-
+                Reference to the customer master agreement that governs the
+                product agreement
+              format: Object
+           PartyRelationshipProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained by the Party
+                LifeCycle Management Service Domain
+              format: Object
+           ManagedInvestmentPortfolioAgreement:
+              type: string
+              description: >-
+                The consolidated view of all of the constituent investment
+                policy terms and conditions in any suitable format
+              format: String
+     RetrieveInvestmentTermsResponse:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioAgreementTermType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementTermDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAgreementTermConstraints:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveInvestmentTerms:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer for the investment
+                portfolio
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: >-
+                Reference to the investment portfolio record of all holdings
+                governed by this agreement
+              format: Object
+           InvestmentPortfolioAgreementType:
+              type: string
+              description: >-
+                The type of investment portfolio agreement (e.g. discretionary,
+                trust )
+              format: String
+           InvestmentPortfolioAgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the investment
+                portfolio agreement (e.g. "governed by State")
+              format: String
+           InvestmentPortfolioAgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           InvestmentPortfolioAgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: >-
+                Reference to any associated documents, (e.g. signed agreement
+                document, disclosures)
+              format: Object
+           CustomerAgreementInstanceReference:
+              type: string
+              description: >-
+                Reference to the customer master agreement that governs the
+                product agreement
+              format: Object
+           PartyRelationshipProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained by the Party
+                LifeCycle Management Service Domain
+              format: Object
+           ManagedInvestmentPortfolioAgreement:
+              type: string
+              description: >-
+                The consolidated view of all of the constituent investment
+                policy terms and conditions in any suitable format
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateManagedInvestmentPortfolioAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateManagedInvestmentPortfolioAgreementRequest
+        required: true
+     UpdateManagedInvestmentPortfolioAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateManagedInvestmentPortfolioAgreementRequest
+        required: true
+     RequestManagedInvestmentPortfolioAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestManagedInvestmentPortfolioAgreementRequest
+        required: true
+     RetrieveManagedInvestmentPortfolioAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     EvaluateInvestmentTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateInvestmentTermsRequest'
+        required: true
+     UpdateInvestmentTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInvestmentTermsRequest'
+        required: true
+     RequestInvestmentTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestInvestmentTermsRequest'
+        required: true
+     RetrieveInvestmentTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     managedinvestmentportfolioagreementid:
+        name: managedinvestmentportfolioagreementid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     investmenttermsid:
+        name: investmenttermsid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateManagedInvestmentPortfolioAgreementResponse:
+        description: ManagedInvestmentPortfolioAgreementEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateManagedInvestmentPortfolioAgreementResponse
+     UpdateManagedInvestmentPortfolioAgreementResponse:
+        description: ManagedInvestmentPortfolioAgreementUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateManagedInvestmentPortfolioAgreementResponse
+     RequestManagedInvestmentPortfolioAgreementResponse:
+        description: ManagedInvestmentPortfolioAgreementRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestManagedInvestmentPortfolioAgreementResponse
+     RetrieveManagedInvestmentPortfolioAgreementResponse:
+        description: ManagedInvestmentPortfolioAgreementRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveManagedInvestmentPortfolioAgreementResponse
+     EvaluateInvestmentTermsResponse:
+        description: InvestmentTermsEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateInvestmentTermsResponse'
+     UpdateInvestmentTermsResponse:
+        description: InvestmentTermsUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInvestmentTermsResponse'
+     RequestInvestmentTermsResponse:
+        description: InvestmentTermsRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestInvestmentTermsResponse'
+     RetrieveInvestmentTermsResponse:
+        description: InvestmentTermsRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveInvestmentTermsResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

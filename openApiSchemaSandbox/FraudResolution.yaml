@@ -1,0 +1,1311 @@
+openapi: 3.0.1
+info:
+  title: Fraud Resolution
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain sets up
+    and processes a fraud case resulting from fraud behavior that has been
+    detected during production processing
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/FraudResolution
+paths:
+   '/FraudResolutionProcedure/{fraudresolutionprocedureid}/Initiate':
+      post:
+        tags:
+           - CR - FraudResolutionProcedure
+        summary: InCR Initiate a fraud case
+        description: InCR Initiate a fraud case
+        operationId: FraudResolutionProcedure/Initiate
+        parameters:
+           - $ref: '#/components/parameters/fraudresolutionprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateFraudResolutionProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FraudResolutionProcedure/{fraudresolutionprocedureid}/Update':
+      put:
+        tags:
+           - CR - FraudResolutionProcedure
+        summary: UpCR Update details of an active fraud case
+        description: UpCR Update details of an active fraud case
+        operationId: FraudResolutionProcedure/Update
+        parameters:
+           - $ref: '#/components/parameters/fraudresolutionprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateFraudResolutionProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FraudResolutionProcedure/{fraudresolutionprocedureid}/Retrieve':
+      get:
+        tags:
+           - CR - FraudResolutionProcedure
+        summary: ReCR Retrieve information about an active fraud case
+        description: ReCR Retrieve information about an active fraud case
+        operationId: FraudResolutionProcedure/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/fraudresolutionprocedureid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveFraudResolutionProcedureResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CaseAnalysis/{caseanalysisid}/Retrieve':
+      get:
+        tags:
+           - BQ - CaseAnalysis
+        summary: ReCR Retrieve information about an active fraud case analysis
+        description: ReCR Retrieve information about an active fraud case analysis
+        operationId: CaseAnalysis/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/caseanalysisid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCaseAnalysisResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CaseDetermination/{casedeterminationid}/Retrieve':
+      get:
+        tags:
+           - BQ - CaseDetermination
+        summary: ReCR Retrieve information about an active fraud case determination
+        description: ReCR Retrieve information about an active fraud case determination
+        operationId: CaseDetermination/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/casedeterminationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCaseDeterminationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CaseResolution/{caseresolutionid}/Request':
+      put:
+        tags:
+           - BQ - CaseResolution
+        summary: RqBQ Request reworking of resolution to a case
+        description: RqBQ Request reworking of resolution to a case
+        operationId: CaseResolution/Request
+        parameters:
+           - $ref: '#/components/parameters/caseresolutionid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestCaseResolutionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CaseResolution/{caseresolutionid}/Retrieve':
+      get:
+        tags:
+           - BQ - CaseResolution
+        summary: ReCR Retrieve information about an active fraud case resolution
+        description: ReCR Retrieve information about an active fraud case resolution
+        operationId: CaseResolution/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/caseresolutionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCaseResolutionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateFraudResolutionProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           FraudCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MerchantReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterstedPartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ContactReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudCaseWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateFraudResolutionProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           FraudCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateFraudResolutionProcedure:
+        type: object
+        description: ''
+        properties:
+           FraudCaseType:
+              type: string
+              description: >-
+                Type of case (e.g.  disputed charge, merchant fraud, stolen/fake
+                device)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: Reference to the product/service associated with case
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer associated with case if applicable
+              format: Object
+           MerchantReference:
+              type: string
+              description: Reference to the merchant associated with case if applicable
+              format: Object
+           InterstedPartyReference:
+              type: string
+              description: >-
+                Reference to any other interested parties (such as
+                intermediaries)
+              format: Object
+           ContactReference:
+              type: string
+              description: >-
+                Customer contact reference if the case was raised during a
+                customer contact
+              format: Object
+           TransactionReference:
+              type: string
+              description: >-
+                Reference to one or more product transactions associated with
+                the case
+              format: Object
+           TransactionRecord:
+              type: string
+              description: Record contains all details of the transaction (not itemized)
+              format: String
+           CaseLocation:
+              type: string
+              description: >-
+                Record of a physical address or electronic venue the fraud was
+                detected
+              format: String
+           Date:
+              type: string
+              description: Specific dates and ties of significance to the case
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference where the case was
+                raised
+              format: Object
+           FraudCaseWorkProducts:
+              type: string
+              description: File of consolidated notes, forms and documents for the case
+              format: String
+           FraudCaseResolutionSchedule:
+              type: string
+              description: Target and actual dates for case processing/resolution
+              format: String
+           FraudCaseStatus:
+              type: string
+              description: The processing status for the case
+              format: String
+     UpdateFraudResolutionProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           FraudCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MerchantReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterstedPartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ContactReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudCaseWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateFraudResolutionProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           FraudCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MerchantReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterstedPartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ContactReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudCaseWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateFraudResolutionProcedure:
+        type: object
+        description: ''
+        properties:
+           FraudCaseType:
+              type: string
+              description: >-
+                Type of case (e.g.  disputed charge, merchant fraud, stolen/fake
+                device)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: Reference to the product/service associated with case
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer associated with case if applicable
+              format: Object
+           MerchantReference:
+              type: string
+              description: Reference to the merchant associated with case if applicable
+              format: Object
+           InterstedPartyReference:
+              type: string
+              description: >-
+                Reference to any other interested parties (such as
+                intermediaries)
+              format: Object
+           ContactReference:
+              type: string
+              description: >-
+                Customer contact reference if the case was raised during a
+                customer contact
+              format: Object
+           TransactionReference:
+              type: string
+              description: >-
+                Reference to one or more product transactions associated with
+                the case
+              format: Object
+           TransactionRecord:
+              type: string
+              description: Record contains all details of the transaction (not itemized)
+              format: String
+           CaseLocation:
+              type: string
+              description: >-
+                Record of a physical address or electronic venue the fraud was
+                detected
+              format: String
+           Date:
+              type: string
+              description: Specific dates and ties of significance to the case
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference where the case was
+                raised
+              format: Object
+           FraudCaseWorkProducts:
+              type: string
+              description: File of consolidated notes, forms and documents for the case
+              format: String
+           FraudCaseResolutionSchedule:
+              type: string
+              description: Target and actual dates for case processing/resolution
+              format: String
+           FraudCaseStatus:
+              type: string
+              description: The processing status for the case
+              format: String
+     RetrieveFraudResolutionProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           FraudCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MerchantReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterstedPartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ContactReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudCaseWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveFraudResolutionProcedure:
+        type: object
+        description: ''
+        properties:
+           FraudCaseType:
+              type: string
+              description: >-
+                Type of case (e.g.  disputed charge, merchant fraud, stolen/fake
+                device)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: Reference to the product/service associated with case
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer associated with case if applicable
+              format: Object
+           MerchantReference:
+              type: string
+              description: Reference to the merchant associated with case if applicable
+              format: Object
+           InterstedPartyReference:
+              type: string
+              description: >-
+                Reference to any other interested parties (such as
+                intermediaries)
+              format: Object
+           ContactReference:
+              type: string
+              description: >-
+                Customer contact reference if the case was raised during a
+                customer contact
+              format: Object
+           TransactionReference:
+              type: string
+              description: >-
+                Reference to one or more product transactions associated with
+                the case
+              format: Object
+           TransactionRecord:
+              type: string
+              description: Record contains all details of the transaction (not itemized)
+              format: String
+           CaseLocation:
+              type: string
+              description: >-
+                Record of a physical address or electronic venue the fraud was
+                detected
+              format: String
+           Date:
+              type: string
+              description: Specific dates and ties of significance to the case
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference where the case was
+                raised
+              format: Object
+           FraudCaseWorkProducts:
+              type: string
+              description: File of consolidated notes, forms and documents for the case
+              format: String
+           FraudCaseResolutionSchedule:
+              type: string
+              description: Target and actual dates for case processing/resolution
+              format: String
+           FraudCaseStatus:
+              type: string
+              description: The processing status for the case
+              format: String
+     RetrieveCaseAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           FraudCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MerchantReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterstedPartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ContactReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudCaseWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseRootCause:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCaseAnalysis:
+        type: object
+        description: ''
+        properties:
+           FraudCaseType:
+              type: string
+              description: >-
+                Type of case (e.g.  disputed charge, merchant fraud, stolen/fake
+                device)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: Reference to the product/service associated with case
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer associated with case if applicable
+              format: Object
+           MerchantReference:
+              type: string
+              description: Reference to the merchant associated with case if applicable
+              format: Object
+           InterstedPartyReference:
+              type: string
+              description: >-
+                Reference to any other interested parties (such as
+                intermediaries)
+              format: Object
+           ContactReference:
+              type: string
+              description: >-
+                Customer contact reference if the case was raised during a
+                customer contact
+              format: Object
+           TransactionReference:
+              type: string
+              description: >-
+                Reference to one or more product transactions associated with
+                the case
+              format: Object
+           TransactionRecord:
+              type: string
+              description: Record contains all details of the transaction (not itemized)
+              format: String
+           CaseLocation:
+              type: string
+              description: >-
+                Record of a physical address or electronic venue the fraud was
+                detected
+              format: String
+           Date:
+              type: string
+              description: Specific dates and ties of significance to the case
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference where the case was
+                raised
+              format: Object
+           FraudCaseWorkProducts:
+              type: string
+              description: File of consolidated notes, forms and documents for the case
+              format: String
+           FraudCaseResolutionSchedule:
+              type: string
+              description: Target and actual dates for case processing/resolution
+              format: String
+           FraudCaseStatus:
+              type: string
+              description: The processing status for the case
+              format: String
+     RetrieveCaseDeterminationResponse:
+        type: object
+        description: ''
+        properties:
+           FraudCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MerchantReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterstedPartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ContactReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudCaseWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseRootCause:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MerchantAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterestedPartyAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudCaseDeterminationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCaseDetermination:
+        type: object
+        description: ''
+        properties:
+           FraudCaseType:
+              type: string
+              description: >-
+                Type of case (e.g.  disputed charge, merchant fraud, stolen/fake
+                device)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: Reference to the product/service associated with case
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer associated with case if applicable
+              format: Object
+           MerchantReference:
+              type: string
+              description: Reference to the merchant associated with case if applicable
+              format: Object
+           InterstedPartyReference:
+              type: string
+              description: >-
+                Reference to any other interested parties (such as
+                intermediaries)
+              format: Object
+           ContactReference:
+              type: string
+              description: >-
+                Customer contact reference if the case was raised during a
+                customer contact
+              format: Object
+           TransactionReference:
+              type: string
+              description: >-
+                Reference to one or more product transactions associated with
+                the case
+              format: Object
+           TransactionRecord:
+              type: string
+              description: Record contains all details of the transaction (not itemized)
+              format: String
+           CaseLocation:
+              type: string
+              description: >-
+                Record of a physical address or electronic venue the fraud was
+                detected
+              format: String
+           Date:
+              type: string
+              description: Specific dates and ties of significance to the case
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference where the case was
+                raised
+              format: Object
+           FraudCaseWorkProducts:
+              type: string
+              description: File of consolidated notes, forms and documents for the case
+              format: String
+           FraudCaseResolutionSchedule:
+              type: string
+              description: Target and actual dates for case processing/resolution
+              format: String
+           FraudCaseStatus:
+              type: string
+              description: The processing status for the case
+              format: String
+     RequestCaseResolutionRequest:
+        type: object
+        description: ''
+        properties:
+           FraudCaseResolutionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdjustmentChargebackReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ConsortiaReportingInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PaymentOrderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveCaseResolutionResponse:
+        type: object
+        description: ''
+        properties:
+           FraudCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MerchantReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterstedPartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ContactReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudCaseWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseRootCause:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseDeterminationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudCaseResolutionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AdjustmentChargebackReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ConsortiaReportingInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PaymentOrderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveCaseResolution:
+        type: object
+        description: ''
+        properties:
+           FraudCaseType:
+              type: string
+              description: >-
+                Type of case (e.g.  disputed charge, merchant fraud, stolen/fake
+                device)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: Reference to the product/service associated with case
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer associated with case if applicable
+              format: Object
+           MerchantReference:
+              type: string
+              description: Reference to the merchant associated with case if applicable
+              format: Object
+           InterstedPartyReference:
+              type: string
+              description: >-
+                Reference to any other interested parties (such as
+                intermediaries)
+              format: Object
+           ContactReference:
+              type: string
+              description: >-
+                Customer contact reference if the case was raised during a
+                customer contact
+              format: Object
+           TransactionReference:
+              type: string
+              description: >-
+                Reference to one or more product transactions associated with
+                the case
+              format: Object
+           TransactionRecord:
+              type: string
+              description: Record contains all details of the transaction (not itemized)
+              format: String
+           CaseLocation:
+              type: string
+              description: >-
+                Record of a physical address or electronic venue the fraud was
+                detected
+              format: String
+           Date:
+              type: string
+              description: Specific dates and ties of significance to the case
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Business unit and or employee reference where the case was
+                raised
+              format: Object
+           FraudCaseWorkProducts:
+              type: string
+              description: File of consolidated notes, forms and documents for the case
+              format: String
+           FraudCaseResolutionSchedule:
+              type: string
+              description: Target and actual dates for case processing/resolution
+              format: String
+           FraudCaseStatus:
+              type: string
+              description: The processing status for the case
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateFraudResolutionProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateFraudResolutionProcedureRequest'
+        required: true
+     UpdateFraudResolutionProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFraudResolutionProcedureRequest'
+        required: true
+     RetrieveFraudResolutionProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveCaseAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveCaseDeterminationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RequestCaseResolutionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCaseResolutionRequest'
+        required: true
+     RetrieveCaseResolutionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     fraudresolutionprocedureid:
+        name: fraudresolutionprocedureid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     caseanalysisid:
+        name: caseanalysisid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     casedeterminationid:
+        name: casedeterminationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     caseresolutionid:
+        name: caseresolutionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateFraudResolutionProcedureResponse:
+        description: FraudResolutionProcedureInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateFraudResolutionProcedureResponse'
+     UpdateFraudResolutionProcedureResponse:
+        description: FraudResolutionProcedureUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFraudResolutionProcedureResponse'
+     RetrieveFraudResolutionProcedureResponse:
+        description: FraudResolutionProcedureRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveFraudResolutionProcedureResponse'
+     RetrieveCaseAnalysisResponse:
+        description: CaseAnalysisRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCaseAnalysisResponse'
+     RetrieveCaseDeterminationResponse:
+        description: CaseDeterminationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCaseDeterminationResponse'
+     RequestCaseResolutionResponse:
+        description: CaseResolutionRequest
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrieveCaseResolutionResponse:
+        description: CaseResolutionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCaseResolutionResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

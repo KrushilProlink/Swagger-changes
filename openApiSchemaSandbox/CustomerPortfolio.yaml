@@ -1,0 +1,1518 @@
+openapi: 3.0.1
+info:
+  title: Customer Portfolio
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Maintain a portfolio of
+    analytical views of the customer base to support customer segment
+    profitability and performance analysis
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CustomerPortfolio
+paths:
+   '/CustomerSegmentAnalysis/{customersegmentanalysisid}/Evaluate':
+      post:
+        tags:
+           - CR - CustomerSegmentAnalysis
+        summary: EvCR Evaluate customer segment performance
+        description: EvCR Evaluate customer segment performance
+        operationId: CustomerSegmentAnalysis/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/customersegmentanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateCustomerSegmentAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerSegmentAnalysis/{customersegmentanalysisid}/Update':
+      put:
+        tags:
+           - CR - CustomerSegmentAnalysis
+        summary: UpCR Update settings or content for customer segment analysis activity
+        description: UpCR Update settings or content for customer segment analysis activity
+        operationId: CustomerSegmentAnalysis/Update
+        parameters:
+           - $ref: '#/components/parameters/customersegmentanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCustomerSegmentAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerSegmentAnalysis/{customersegmentanalysisid}/Request':
+      put:
+        tags:
+           - CR - CustomerSegmentAnalysis
+        summary: >-
+          RqCR Request manual intervention in the customer segment analysis
+          activity
+        description: >-
+          RqCR Request manual intervention in the customer segment analysis
+          activity
+        operationId: CustomerSegmentAnalysis/Request
+        parameters:
+           - $ref: '#/components/parameters/customersegmentanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestCustomerSegmentAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerSegmentAnalysis/{customersegmentanalysisid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerSegmentAnalysis
+        summary: ReCR Retrieve details about customer segment analysis activity
+        description: ReCR Retrieve details about customer segment analysis activity
+        operationId: CustomerSegmentAnalysis/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customersegmentanalysisid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCustomerSegmentAnalysisResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PerformanceAnalysis/{performanceanalysisid}/Evaluate':
+      post:
+        tags:
+           - BQ - PerformanceAnalysis
+        summary: >-
+          EvBQ Evaluate customer segment performance using a specific type of
+          analysis
+        description: >-
+          EvBQ Evaluate customer segment performance using a specific type of
+          analysis
+        operationId: PerformanceAnalysis/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/performanceanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluatePerformanceAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PerformanceAnalysis/{performanceanalysisid}/Update':
+      put:
+        tags:
+           - BQ - PerformanceAnalysis
+        summary: >-
+          UpBQ Update details of a specific customer segment performance
+          analysis
+        description: >-
+          UpBQ Update details of a specific customer segment performance
+          analysis
+        operationId: PerformanceAnalysis/Update
+        parameters:
+           - $ref: '#/components/parameters/performanceanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePerformanceAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PerformanceAnalysis/{performanceanalysisid}/Execute':
+      put:
+        tags:
+           - BQ - PerformanceAnalysis
+        summary: ExBQ Execute an automated action against ongoing analysis
+        description: ExBQ Execute an automated action against ongoing analysis
+        operationId: PerformanceAnalysis/Execute
+        parameters:
+           - $ref: '#/components/parameters/performanceanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecutePerformanceAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PerformanceAnalysis/{performanceanalysisid}/Request':
+      put:
+        tags:
+           - BQ - PerformanceAnalysis
+        summary: RqBQ Request manual intervention to ongoing analysis
+        description: RqBQ Request manual intervention to ongoing analysis
+        operationId: PerformanceAnalysis/Request
+        parameters:
+           - $ref: '#/components/parameters/performanceanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestPerformanceAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PerformanceAnalysis/{performanceanalysisid}/Retrieve':
+      get:
+        tags:
+           - BQ - PerformanceAnalysis
+        summary: >-
+          ReBQ Retrieve details about a specific customer segment performance
+          analysis
+        description: >-
+          ReBQ Retrieve details about a specific customer segment performance
+          analysis
+        operationId: PerformanceAnalysis/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/performanceanalysisid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePerformanceAnalysisResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateCustomerSegmentAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     EvaluateCustomerSegmentAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     EvaluateCustomerSegmentAnalysis:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: The descriptive name of the bank defined customer segment
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: >-
+                Detailed properties and characteristics that define the customer
+                segment
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for defined customer
+                segments as defined by senior management functions
+                (target/anticipated and actual as assessed).
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing customer segment analysis for the
+                enterprise or division
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the Customer Segment
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. scheduled
+                review, specialized analysis, sensitivity assessment/projection)
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     UpdateCustomerSegmentAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateCustomerSegmentAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateCustomerSegmentAnalysis:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: The descriptive name of the bank defined customer segment
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: >-
+                Detailed properties and characteristics that define the customer
+                segment
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for defined customer
+                segments as defined by senior management functions
+                (target/anticipated and actual as assessed).
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing customer segment analysis for the
+                enterprise or division
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the Customer Segment
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. scheduled
+                review, specialized analysis, sensitivity assessment/projection)
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     RequestCustomerSegmentAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     RequestCustomerSegmentAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestCustomerSegmentAnalysis:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: The descriptive name of the bank defined customer segment
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: >-
+                Detailed properties and characteristics that define the customer
+                segment
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for defined customer
+                segments as defined by senior management functions
+                (target/anticipated and actual as assessed).
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing customer segment analysis for the
+                enterprise or division
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the Customer Segment
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. scheduled
+                review, specialized analysis, sensitivity assessment/projection)
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     RetrieveCustomerSegmentAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveCustomerSegmentAnalysis:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: The descriptive name of the bank defined customer segment
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: >-
+                Detailed properties and characteristics that define the customer
+                segment
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for defined customer
+                segments as defined by senior management functions
+                (target/anticipated and actual as assessed).
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing customer segment analysis for the
+                enterprise or division
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the Customer Segment
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. scheduled
+                review, specialized analysis, sensitivity assessment/projection)
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     EvaluatePerformanceAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSegmentPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSegmentPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluatePerformanceAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSegmentPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSegmentPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluatePerformanceAnalysis:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: The descriptive name of the bank defined customer segment
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: >-
+                Detailed properties and characteristics that define the customer
+                segment
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for defined customer
+                segments as defined by senior management functions
+                (target/anticipated and actual as assessed).
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing customer segment analysis for the
+                enterprise or division
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the Customer Segment
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. scheduled
+                review, specialized analysis, sensitivity assessment/projection)
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     UpdatePerformanceAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSegmentPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdatePerformanceAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSegmentPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdatePerformanceAnalysis:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: The descriptive name of the bank defined customer segment
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: >-
+                Detailed properties and characteristics that define the customer
+                segment
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for defined customer
+                segments as defined by senior management functions
+                (target/anticipated and actual as assessed).
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing customer segment analysis for the
+                enterprise or division
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the Customer Segment
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. scheduled
+                review, specialized analysis, sensitivity assessment/projection)
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     ExecutePerformanceAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSegmentPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecutePerformanceAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSegmentPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecutePerformanceAnalysis:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: The descriptive name of the bank defined customer segment
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: >-
+                Detailed properties and characteristics that define the customer
+                segment
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for defined customer
+                segments as defined by senior management functions
+                (target/anticipated and actual as assessed).
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing customer segment analysis for the
+                enterprise or division
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the Customer Segment
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. scheduled
+                review, specialized analysis, sensitivity assessment/projection)
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     RequestPerformanceAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSegmentPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestPerformanceAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSegmentPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestPerformanceAnalysis:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: The descriptive name of the bank defined customer segment
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: >-
+                Detailed properties and characteristics that define the customer
+                segment
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for defined customer
+                segments as defined by senior management functions
+                (target/anticipated and actual as assessed).
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing customer segment analysis for the
+                enterprise or division
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the Customer Segment
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. scheduled
+                review, specialized analysis, sensitivity assessment/projection)
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     RetrievePerformanceAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSegmentPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSegmentPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrievePerformanceAnalysis:
+        type: object
+        description: ''
+        properties:
+           CustomerSegmentType:
+              type: string
+              description: The descriptive name of the bank defined customer segment
+              format: String
+           CustomerSegmentTypeDefinition:
+              type: string
+              description: >-
+                Detailed properties and characteristics that define the customer
+                segment
+              format: String
+           CustomerSegmentPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for defined customer
+                segments as defined by senior management functions
+                (target/anticipated and actual as assessed).
+              format: String
+           CustomerSegmentAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing customer segment analysis for the
+                enterprise or division
+              format: String
+           CustomerSegmentAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the Customer Segment
+              format: String
+           CustomerSegmentAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. scheduled
+                review, specialized analysis, sensitivity assessment/projection)
+              format: String
+           CustomerSegmentAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           CustomerSegmentAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateCustomerSegmentAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateCustomerSegmentAnalysisRequest'
+        required: true
+     UpdateCustomerSegmentAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerSegmentAnalysisRequest'
+        required: true
+     RequestCustomerSegmentAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCustomerSegmentAnalysisRequest'
+        required: true
+     RetrieveCustomerSegmentAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     EvaluatePerformanceAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluatePerformanceAnalysisRequest'
+        required: true
+     UpdatePerformanceAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePerformanceAnalysisRequest'
+        required: true
+     ExecutePerformanceAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePerformanceAnalysisRequest'
+        required: true
+     RequestPerformanceAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPerformanceAnalysisRequest'
+        required: true
+     RetrievePerformanceAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     customersegmentanalysisid:
+        name: customersegmentanalysisid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     performanceanalysisid:
+        name: performanceanalysisid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateCustomerSegmentAnalysisResponse:
+        description: CustomerSegmentAnalysisEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateCustomerSegmentAnalysisResponse'
+     UpdateCustomerSegmentAnalysisResponse:
+        description: CustomerSegmentAnalysisUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerSegmentAnalysisResponse'
+     RequestCustomerSegmentAnalysisResponse:
+        description: CustomerSegmentAnalysisRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCustomerSegmentAnalysisResponse'
+     RetrieveCustomerSegmentAnalysisResponse:
+        description: CustomerSegmentAnalysisRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCustomerSegmentAnalysisResponse'
+     EvaluatePerformanceAnalysisResponse:
+        description: PerformanceAnalysisEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluatePerformanceAnalysisResponse'
+     UpdatePerformanceAnalysisResponse:
+        description: PerformanceAnalysisUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePerformanceAnalysisResponse'
+     ExecutePerformanceAnalysisResponse:
+        description: PerformanceAnalysisExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePerformanceAnalysisResponse'
+     RequestPerformanceAnalysisResponse:
+        description: PerformanceAnalysisRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPerformanceAnalysisResponse'
+     RetrievePerformanceAnalysisResponse:
+        description: PerformanceAnalysisRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePerformanceAnalysisResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

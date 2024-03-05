@@ -1,0 +1,4088 @@
+openapi: 3.0.1
+info:
+  title: Standing Order
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Customers can issue standing
+    orders to the bank. In most cases this is for the execution of a periodical
+    payment, but there are other standing instructions like, sweeping balances
+    at end of month, topping off excess funds for a current account, etc. 
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/StandingOrder
+paths:
+   '/StandingOrderFacility/{standingorderfacilityid}/Control':
+      put:
+        tags:
+           - CR - StandingOrderFacility
+        summary: CoCR Control the processing of Standing Order Facility
+        description: CoCR Control the processing of Standing Order Facility
+        operationId: StandingOrderFacility/Control
+        parameters:
+           - $ref: '#/components/parameters/standingorderfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/ControlStandingOrderFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/StandingOrderFacility/{standingorderfacilityid}/Exchange':
+      put:
+        tags:
+           - CR - StandingOrderFacility
+        summary: >-
+          EcCR Accept, verify, etc. aspects of Standing Order Facility
+          processing
+        description: >-
+          EcCR Accept, verify, etc. aspects of Standing Order Facility
+          processing
+        operationId: StandingOrderFacility/Exchange
+        parameters:
+           - $ref: '#/components/parameters/standingorderfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeStandingOrderFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/StandingOrderFacility/{standingorderfacilityid}/Execute':
+      put:
+        tags:
+           - CR - StandingOrderFacility
+        summary: ExCR Execute an available automated action for Standing Order Facility
+        description: ExCR Execute an available automated action for Standing Order Facility
+        operationId: StandingOrderFacility/Execute
+        parameters:
+           - $ref: '#/components/parameters/standingorderfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteStandingOrderFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/StandingOrderFacility/{standingorderfacilityid}/Initiate':
+      post:
+        tags:
+           - CR - StandingOrderFacility
+        summary: InCR Instantiate a new Standing Order Facility
+        description: InCR Instantiate a new Standing Order Facility
+        operationId: StandingOrderFacility/Initiate
+        parameters:
+           - $ref: '#/components/parameters/standingorderfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateStandingOrderFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/StandingOrderFacility/{standingorderfacilityid}/Retrieve':
+      get:
+        tags:
+           - CR - StandingOrderFacility
+        summary: ReCR Retrieve details about any aspect of Standing Order Facility
+        description: ReCR Retrieve details about any aspect of Standing Order Facility
+        operationId: StandingOrderFacility/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/standingorderfacilityid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveStandingOrderFacilityResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/StandingOrderFacility/{standingorderfacilityid}/Request':
+      put:
+        tags:
+           - CR - StandingOrderFacility
+        summary: >-
+          RqCR Request manual intervention or a decision with respect to
+          Standing Order Facility
+        description: >-
+          RqCR Request manual intervention or a decision with respect to
+          Standing Order Facility
+        operationId: StandingOrderFacility/Request
+        parameters:
+           - $ref: '#/components/parameters/standingorderfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestStandingOrderFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/StandingOrderFacility/{standingorderfacilityid}/Update':
+      put:
+        tags:
+           - CR - StandingOrderFacility
+        summary: UpCR Update details relating to Standing Order Facility
+        description: UpCR Update details relating to Standing Order Facility
+        operationId: StandingOrderFacility/Update
+        parameters:
+           - $ref: '#/components/parameters/standingorderfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateStandingOrderFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/StandingOrderPayment/{standingorderpaymentid}/Exchange':
+      put:
+        tags:
+           - BQ - StandingOrderPayment
+        summary: EcBQ Accept, verify, etc. aspects of Standing Order Payment processing
+        description: EcBQ Accept, verify, etc. aspects of Standing Order Payment processing
+        operationId: StandingOrderPayment/Exchange
+        parameters:
+           - $ref: '#/components/parameters/standingorderpaymentid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeStandingOrderPaymentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/StandingOrderPayment/{standingorderpaymentid}/Initiate':
+      post:
+        tags:
+           - BQ - StandingOrderPayment
+        summary: InBQ Instantiate a new Standing Order Payment
+        description: InBQ Instantiate a new Standing Order Payment
+        operationId: StandingOrderPayment/Initiate
+        parameters:
+           - $ref: '#/components/parameters/standingorderpaymentid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateStandingOrderPaymentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/StandingOrderPayment/{standingorderpaymentid}/Retrieve':
+      get:
+        tags:
+           - BQ - StandingOrderPayment
+        summary: ReBQ Retrieve details about any aspect of Standing Order Payment
+        description: ReBQ Retrieve details about any aspect of Standing Order Payment
+        operationId: StandingOrderPayment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/standingorderpaymentid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveStandingOrderPaymentResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/StandingOrderPayment/{standingorderpaymentid}/Update':
+      put:
+        tags:
+           - BQ - StandingOrderPayment
+        summary: UpBQ Update details relating to Standing Order Payment
+        description: UpBQ Update details relating to Standing Order Payment
+        operationId: StandingOrderPayment/Update
+        parameters:
+           - $ref: '#/components/parameters/standingorderpaymentid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateStandingOrderPaymentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     ControlStandingOrderFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+              description: ''
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+              description: ''
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+              description: "\r\n"
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+              description: ''
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+              description: ''
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: ''
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+              description: ''
+     RuleSet:
+        type: object
+        description: ' GovernanceRules|GovernanceRules (https://www.iso20022.org/standardsrepository/type/GovernanceRules)|Standard|ISO20022 BM ()'
+        properties:
+           RuleSetDefinition:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           RuleSetInterpretation:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           RuleSetType:
+              $ref: '#/components/schemas/Rulesettype'
+              description: ''
+           RuleSetName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           RuleSetIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           RuleSetLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+     Text:
+        type: object
+        description: ' '
+        properties:
+           Text:
+              type: string
+              description: >-
+                Text is a character string such as a finite set of characters
+                generally in the form of words of a language. (UN/CEFACT)
+              format: DataType
+     Rulesettype:
+        type: object
+        description: ' '
+        properties:
+           RuleSetTypeName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           RuleSetType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+     Name:
+        type: object
+        description: ' '
+        properties:
+           Name:
+              type: string
+              description: >-
+                A name is a word or phrase that constitutes the distinctive
+                designation of a person, place, thing or concept. (UN/CEFAT)
+              format: DataType
+     Identifier:
+        type: object
+        description: ' '
+        properties:
+           IdentifierValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           IdentifierIssuingAuthority:
+              $ref: '#/components/schemas/Involvedparty'
+              description: Entity that assigns and manages the identification.
+           Identifier:
+              type: string
+              description: >-
+                An identifier is a character string used to uniquely identify
+                one instance of an object within an identification scheme that
+                is managed by an agency. (UN/CEFAT)
+              format: DataType
+           IdentifierStartDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           IdentifierEndDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Involvedparty:
+        type: object
+        description: 'Entity that assigns and manages the identification. '
+        properties:
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyInvolvement:
+              $ref: '#/components/schemas/Partyrole'
+              description: ''
+     Party:
+        type: object
+        description: ' '
+        properties:
+           PartyName:
+              $ref: '#/components/schemas/Name'
+              description: >-
+                Name by which a party is known and which is usually used to
+                identify that party. (ISO20022)
+           PartyType:
+              enum:
+                   -  Person
+                   -  Organisation
+              type: string
+              description: ">-\r\n* `Person` \r\n* `Organisation` \r\n* "
+           PartyDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           PartyIdentification:
+              $ref: '#/components/schemas/Partyidentification'
+              description: ''
+           PartyLegalStructureType:
+              enum:
+                   -  Individual
+                   -  CommunityInterestCompany
+                   -  CoOperative
+                   -  Charity
+                   -  GeneralPartnership
+                   -  LimitedLiabilityPartnership
+                   -  ScottishLimitedPartnership
+                   -  LimitedPartnership
+                   -  PrivateLimitedCompany
+                   -  PublicLimitedCompany
+                   -  Sole(SoleTrader)
+              type: string
+              description: ">-\r\n* `Individual` \r\n* `CommunityInterestCompany` \r\n* `CoOperative` \r\n* `Charity` \r\n* `GeneralPartnership` \r\n* `LimitedLiabilityPartnership` \r\n* `ScottishLimitedPartnership` \r\n* `LimitedPartnership` \r\n* `PrivateLimitedCompany` \r\n* `PublicLimitedCompany` \r\n* `SoleSoleTrader` \r\n* "
+     Datetime:
+        type: object
+        description: ' '
+        properties:
+           DateTimeContent:
+              type: string
+              description: ''
+              format: String
+           TimeZoneCode:
+              type: string
+              description: ''
+              format: String
+           DaylightSavingIndicator:
+              type: string
+              description: ''
+              format: String
+           Datetime:
+              type: string
+              description: >-
+                A date time identifies a date and time of day to various common
+                resolutions: year, month, week, day, hour, minute, second, and
+                fraction of second. (UN/CEFACT)
+
+
+                A particular point in the progression of time defined by a
+                mandatory date and a mandatory time component, expressed in
+                either UTC time format (YYYYMMDDThh:mm:ss.sssZ), local time
+                with UTC offset format (YYYYMMDDThh:mm:ss.sss/hh:mm), or
+                local time format (YYYYMMDDThh:mm:ss.sss). These
+                representations are defined in "XML Schema Part 2: Datatypes
+                Second Edition  W3C Recommendation 28 October 2004" which is
+                aligned with ISO 8601. (ISO20022)
+
+                Note on the time format:
+
+                1) beginning / end of calendar day
+
+                00:00:00  -  the beginning of a calendar day
+
+                24:00:00  -  the end of a calendar day
+
+                2) fractions of second in time format
+
+                Decimal fractions of seconds may be included. In this case, the
+                involved parties shall agree on the maximum number of digits
+                that are allowed.
+              format: DataType
+     Partyidentification:
+        type: object
+        description: ' '
+        properties:
+           PartyIdentificationType:
+              enum:
+                   -  Taxidentificationnumber
+                   -  Nationalregistrationnumber
+                   -  LEI(LegalEntityIdentifier)
+                   -  Alienregistrationnumber
+                   -  Passportnumber
+                   -  Corporateidentification
+                   -  Driverlicensenumber
+                   -  Socialsecuritynumber
+                   -  Identitycardnumber
+                   -  Concat
+              type: string
+              description: ">-\r\n* `Taxidentificationnumber` \r\n* `Nationalregistrationnumber` \r\n* `LEILegalEntityIdentifier` \r\n* `Alienregistrationnumber` \r\n* `Passportnumber` \r\n* `Corporateidentification` \r\n* `Driverlicensenumber` \r\n* `Socialsecuritynumber` \r\n* `Identitycardnumber` \r\n* `Concat` \r\n* "
+           PartyIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           Partyidentification:
+              type: string
+              description: ''
+              format: DataType
+     Partyrole:
+        type: object
+        description: ' '
+        properties:
+           PartyRoleType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           PartyRoleName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           PartyRoleValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           PartyInvolvementType:
+              enum:
+                   -  Agreementinvolvement
+                   -  Partyinvolvement
+                   -  Arrangementinvolvement
+                   -  Relationshipinvolvement
+                   -  Locationinvolvement
+                   -  Bankguaranteeinvolvement
+              type: string
+              description: ">-\r\n* `Agreementinvolvement` \r\n* `Partyinvolvement` \r\n* `Arrangementinvolvement` \r\n* `Relationshipinvolvement` \r\n* `Locationinvolvement` \r\n* `Bankguaranteeinvolvement` \r\n* "
+     Datetimeperiod:
+        type: object
+        description: ' '
+        properties:
+           FromDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range starts. (ISO20022)
+           ToDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range ends. (ISO20022)
+           Datetimeperiod:
+              type: string
+              description: >-
+                Time span defined by a start date and time, and an end date and
+                time. (ISO20022)
+              format: DataType
+     Status:
+        type: object
+        description: ' '
+        properties:
+           StatusReason:
+              $ref: '#/components/schemas/Text'
+              description: Specifies the reasons for the status.
+           StatusDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the status was assigned.
+           StatusValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: Period of time during which the status is valid.
+           StatusInvolvedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: >-
+                Party who plays a  specific role in the context of assigning a
+                status.
+           Status:
+              type: string
+              description: >-
+                A characteristic that describe the object by referring to a
+                state transition in its lifecycle.
+              format: DataType
+     Jurisdiction:
+        type: object
+        description: ' Jurisdiction|Jurisdiction (https://www.iso20022.org/standardsrepository/type/Jurisdiction)|Standard|ISO20022 BM ()'
+        properties:
+           Jurisdiction:
+              type: string
+              description: Jurisdiction that will be assigned in case of legal dispute.
+              format: Class
+     ProductAgreement:
+        type: object
+        description: "\r\n - "
+        properties:
+           Type:
+              enum:
+                   -  CurrentAccountAgreement
+                   -  SavingsAccountAgreement
+                   -  BrokeredProductAgreement
+                   -  ConsumerLoanAgreement
+                   -  MortgageLoanAgreement
+                   -  DirectDebitServiceAgreement
+              type: string
+              description: ">-\r\n* `CurrentAccountAgreement` \r\n* `SavingsAccountAgreement` \r\n* `BrokeredProductAgreement` \r\n* `ConsumerLoanAgreement` \r\n* `MortgageLoanAgreement` \r\n* `DirectDebitServiceAgreement` \r\n* "
+           ProductReference:
+              $ref: '#/components/schemas/Bankingproduct'
+              description: ''
+           AgreementReference:
+              $ref: '#/components/schemas/Agreement'
+              description: ''
+     Bankingproduct:
+        type: object
+        description: ' '
+        properties:
+           ProductIdentification:
+              $ref: '#/components/schemas/Productidentification'
+              description: The identifier of product e.g. ISIN Code.
+           ProductType:
+              enum:
+                   -  LoanProduct
+                   -  CurrentAccountProduct
+                   -  SavingAccountProduct
+                   -  BrokeredProduct
+                   -  TermDepositProduct
+              type: string
+              description: ">-\r\n* `LoanProduct` \r\n* `CurrentAccountProduct` \r\n* `SavingAccountProduct` \r\n* `BrokeredProduct` \r\n* `TermDepositProduct` \r\n* "
+           ProductLifecycleStatus:
+              $ref: '#/components/schemas/Productlifecyclestatus'
+              description: >-
+                Refers to the lifecycle of a product (e.g., initiated,
+                announced, active, obsolete, withdrawn).
+           ProductPriority:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           ProductDescription:
+              $ref: '#/components/schemas/Text'
+              description: A detailed explanation or commentary of product.
+           ProductVersion:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           ProductName:
+              $ref: '#/components/schemas/Name'
+              description: >-
+                The name of Product. 
+
+
+                Open Banking: 
+
+                The name of the product used for marketing purposes from a
+                customer perspective. I.e. what the customer would recognise.
+     Productidentification:
+        type: object
+        description: 'The identifier of product e.g. ISIN Code. '
+        properties:
+           ProductIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           ProductIdentificationType:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     Productlifecyclestatus:
+        type: object
+        description: >-
+          Refers to the lifecycle of a product (e.g., initiated, announced,
+          active, obsolete, withdrawn). 
+        properties:
+           ProductLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           ProductLifecycleStatusType:
+              enum:
+                   -  Initiated
+                   -  Announced
+                   -  Sold
+                   -  Obsolete
+                   -  Active
+              type: string
+              description: ">-\r\n* `Initiated` \r\n* `Announced` \r\n* `Sold` \r\n* `Obsolete` \r\n* `Active` \r\n* "
+     Agreement:
+        type: object
+        description: ' '
+        properties:
+           AgreementSignedDate:
+              $ref: '#/components/schemas/Date'
+              description: >-
+                Date on which the agreement was signed by all parties.
+                (ISO20022)
+           AgreementType:
+              enum:
+                   -  CustomerAgreement
+                   -  SupplierAgreement
+                   -  BrokerAgreement
+                   -  SalesAgreement
+                   -  PurchaseAgreement
+                   -  MaintenanceAgreement
+                   -  ProductAgreement
+                   -  ProductSalesAgreement
+                   -  ResourceAgreement
+              type: string
+              description: ">-\r\n* `CustomerAgreement` \r\n* `SupplierAgreement` \r\n* `BrokerAgreement` \r\n* `SalesAgreement` \r\n* `PurchaseAgreement` \r\n* `MaintenanceAgreement` \r\n* `ProductAgreement` \r\n* `ProductSalesAgreement` \r\n* `ResourceAgreement` \r\n* "
+           AgreementValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: |
+                Period during which the agreement is valid
+           AgreementVersion:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           AgreementStatus:
+              $ref: '#/components/schemas/Agreementlifecyclestatus'
+              description: >-
+                A characteristic of agreement which refers to the
+                LifecycleStatus of agreement (e.g., potential, offered,
+                confirmed, completed, signed, terminated).
+           AgreementSubjectMatter:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           AgreementIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: >-
+                The identifier of agreement like Agreement Number, Contract
+                Number, Contract Registration Number, etc. 
+           AgreementDate:
+              $ref: '#/components/schemas/Datetime'
+              description: >-
+                A characteristic of agreement which refers to 1) LifecycleDate
+                of agreement (e.g., SignedDate, TerminatedDate, FulfilledDate)
+                OR 2) ArrangedDate of agreement (e.g., StartingDate, EndingDate,
+                ValidityPeriod, EffectiveDate).
+           AgreementDescription:
+              $ref: '#/components/schemas/Text'
+              description: ''
+     Date:
+        type: object
+        description: 'Date on which the agreement was signed by all parties. (ISO20022) '
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     Agreementlifecyclestatus:
+        type: object
+        description: >-
+          A characteristic of agreement which refers to the LifecycleStatus of
+          agreement (e.g., potential, offered, confirmed, completed, signed,
+          terminated). 
+        properties:
+           AgreementLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           AgreementLifecycleStatusType:
+              enum:
+                   -  Offered
+                   -  Confirmed
+                   -  Completed
+                   -  Signed
+                   -  Terminated
+                   -  Rejected
+              type: string
+              description: ">-\r\n* `Offered` \r\n* `Confirmed` \r\n* `Completed` \r\n* `Signed` \r\n* `Terminated` \r\n* `Rejected` \r\n* "
+     Account:
+        type: object
+        description: ' Account|Account  (https://www.iso20022.org/standardsrepository/type/Account)|Standard|ISO20022 BM ()'
+        properties:
+           AccountStatus:
+              $ref: '#/components/schemas/Accountstatus'
+              description: >-
+                A characteristic of account which refers to the LifecycleStatus
+                of account like opened, closed, blocked, etc.
+
+
+                Specifies the current state of an account. (ISO20022)
+           AccountIdentification:
+              $ref: '#/components/schemas/Accountidentification'
+              description: The identifier of account like Account Number.
+           AccountDate:
+              $ref: '#/components/schemas/Accountdate'
+              description: >-
+                A characteristic of account which refers to LifecycleDate of
+                account (e.g., ClosingDate, OpeningDate, LiveDate, etc.) 
+           AccountType:
+              $ref: '#/components/schemas/Accounttype'
+              description: >-
+                Specifies the category of account like payment account, loan
+                account, cash account, securities account, etc. 
+           AccountPurpose:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           AccountBalance:
+              $ref: '#/components/schemas/Accountbalance'
+              description: >-
+                The state of the obligations managed on the account, the result
+                of all entries on the account.
+
+
+                Numerical representation of the net increases and decreases in
+                an account at a specific point in time. (ISO20022)
+
+
+                Banking: Amount available in an account for withdrawal or use.
+
+                Read more:
+                http://www.businessdictionary.com/definition/balance.html
+
+
+                Bookkeeping: Difference between the debit and credit sides of an
+                account.
+
+                Read more:
+                http://www.businessdictionary.com/definition/balance.html
+           AccountCurrency:
+              $ref: '#/components/schemas/Accountcurrency'
+              description: ''
+           AccountDescription:
+              $ref: '#/components/schemas/Text'
+              description: |
+                A detailed explanation or commentary of account. 
+           AccountName:
+              $ref: '#/components/schemas/Name'
+              description: >-
+                The name of account
+
+
+                The account name is the name or names of the account owner(s)
+                represented at an account level, as displayed by the ASPSP's
+                online channels. Note, the account name is not the product name
+                or the nickname of the account. (Open Banking)
+     Accountstatus:
+        type: object
+        description: >-
+          A characteristic of account which refers to the LifecycleStatus of
+          account like opened, closed, blocked, etc.
+
+
+          Specifies the current state of an account. (ISO20022) 
+        properties:
+           AccountStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           AccountStatusType:
+              enum:
+                   -  Enabled
+                   -  Disabled
+                   -  Deleted
+                   -  Proforma
+                   -  Pending
+              type: string
+              description: ">-\r\n* `Enabled` \r\n* `Disabled` \r\n* `Deleted` \r\n* `Proforma` \r\n* `Pending` \r\n* "
+           Accountstatus:
+              type: string
+              description: Specifies the current state of an account. (ISO20022)
+              format: DataType
+     Accountidentification:
+        type: object
+        description: 'The identifier of account like Account Number. '
+        properties:
+           AccountIdentificationType:
+              enum:
+                   -  BBAN
+                   -  IBAN
+                   -  UPIC
+                   -  AccountNumber
+                   -  PAN
+                   -  Paym
+                   -  Wallet
+              type: string
+              description: ">-\r\n* `BBAN` \r\n* `IBAN` \r\n* `UPIC` \r\n* `AccountNumber` \r\n* `PAN` \r\n* `Paym` \r\n* `Wallet` \r\n* "
+           AccountIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           Accountidentification:
+              type: string
+              description: ''
+              format: DataType
+     Accountdate:
+        type: object
+        description: >-
+          A characteristic of account which refers to LifecycleDate of account
+          (e.g., ClosingDate, OpeningDate, LiveDate, etc.)  
+        properties:
+           AccountDateType:
+              enum:
+                   -  OpeningDate
+                   -  ClosingDate
+                   -  BlockingDate
+                   -  MaturityDate
+                   -  LiveDate
+              type: string
+              description: ">-\r\n* `OpeningDate` \r\n* `ClosingDate` \r\n* `BlockingDate` \r\n* `MaturityDate` \r\n* `LiveDate` \r\n* "
+           AccountDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           Accountdate:
+              type: string
+              description: ''
+              format: DataType
+     Accounttype:
+        type: object
+        description: >-
+          Specifies the category of account like payment account, loan account,
+          cash account, securities account, etc.  
+        properties:
+           AccountType:
+              enum:
+                   -  DebitAccount
+                   -  CreditAccount
+                   -  VostroAcount
+                   -  NostroAccount
+                   -  PaymentAccount
+                   -  SettlementAccount
+                   -  SavingAccount
+                   -  CurrentAccount
+                   -  CashAccount
+                   -  LoanAccount
+              type: string
+              description: ">-\r\n* `DebitAccount` \r\n* `CreditAccount` \r\n* `VostroAcount` \r\n* `NostroAccount` \r\n* `PaymentAccount` \r\n* `SettlementAccount` \r\n* `SavingAccount` \r\n* `CurrentAccount` \r\n* `CashAccount` \r\n* `LoanAccount` \r\n* "
+           AccountTypeName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           Accounttype:
+              type: string
+              description: 'A classification of accounts based on their purpose '
+              format: DataType
+     Accountbalance:
+        type: object
+        description: >-
+          The state of the obligations managed on the account, the result of all
+          entries on the account.
+
+
+          Numerical representation of the net increases and decreases in an
+          account at a specific point in time. (ISO20022)
+
+
+          Banking: Amount available in an account for withdrawal or use.
+
+          Read more: http://www.businessdictionary.com/definition/balance.html
+
+
+          Bookkeeping: Difference between the debit and credit sides of an
+          account.
+
+          Read more: http://www.businessdictionary.com/definition/balance.html 
+        properties:
+           BalanceAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           BalanceType:
+              enum:
+                   -  Openingbalance
+                   -  Closingbalance
+                   -  Currentbalance
+                   -  Availablebalance
+                   -  Ledgerbalance
+                   -  Reservebalance
+                   -  Freebalance
+                   -  Principalbalance
+              type: string
+              description: ">-\r\n* `Openingbalance` \r\n* `Closingbalance` \r\n* `Currentbalance` \r\n* `Availablebalance` \r\n* `Ledgerbalance` \r\n* `Reservebalance` \r\n* `Freebalance` \r\n* `Principalbalance` \r\n* "
+           BalanceDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           BalanceIndicator:
+              enum:
+                   -  Debit
+                   -  Credit
+              type: string
+              description: ">-\r\n* `Debit` \r\n* `Credit` \r\n* "
+           Accountbalance:
+              type: string
+              description: >-
+                Numerical representation of the net increases and decreases in
+                an account at a specific point in time. (ISO20022)
+
+                https://www.iso20022.org/standardsrepository/type/Balance
+              format: DataType
+     Amount:
+        type: object
+        description: ' '
+        properties:
+           AmountValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           AmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           DecimalPointPosition:
+              type: string
+              description: |
+                Decimal point position starts calulating from the right
+              format: String
+           AmountType:
+              enum:
+                   -  Principal
+                   -  Actual
+                   -  Estimated
+                   -  Maximum
+                   -  Default
+                   -  Replacement
+                   -  Incremental
+                   -  Decremental
+                   -  Reserved
+                   -  Available
+                   -  Used
+              type: string
+              description: ">-\r\n* `Principal` \r\n* `Actual` \r\n* `Estimated` \r\n* `Maximum` \r\n* `Default` \r\n* `Replacement` \r\n* `Incremental` \r\n* `Decremental` \r\n* `Reserved` \r\n* `Available` \r\n* `Used` \r\n* "
+           Amount:
+              type: string
+              description: >-
+                Number of monetary units specified in a currency, where the unit
+                of currency is explicit and compliant with ISO 4217. (UN/CEFACT)
+
+
+                The decimal seperator is a dot.
+
+
+
+                Number of monetary units specified in a currency, where the unit
+                of currency is explicit and compliant with ISO 4217. The decimal
+                separator is a dot. (ISO20022)
+
+                Note: A zero amount is considered a positive amount.
+
+                 total number of digits: 18
+
+                 number of digits in fractional part: 5
+
+                 minInclusive: 0
+              format: DataType
+     Currencycode:
+        type: object
+        description: ' '
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     Accountcurrency:
+        type: object
+        description: ' '
+        properties:
+           AccountCurrencyType:
+              enum:
+                   -  BaseCurrency
+                   -  ReportingCurrency
+                   -  SecondaryCurrency
+                   -  TransferCurrency
+              type: string
+              description: ">-\r\n* `BaseCurrency` \r\n* `ReportingCurrency` \r\n* `SecondaryCurrency` \r\n* `TransferCurrency` \r\n* "
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           Accountcurrency:
+              type: string
+              description: ''
+              format: DataType
+     PaymentArrangement:
+        type: object
+        description: ' PaymentTerms|PaymentTerms (https://www.iso20022.org/standardsrepository/type/PaymentTerms)|Standard|ISO20022 BM ()'
+        properties:
+           ServiceType:
+              enum:
+                   -  CreditTransferService
+                   -  StandingOrderService
+                   -  DirectDebitService
+                   -  CardPaymentService
+                   -  WithdrawService
+                   -  DepositService
+                   -  OverdraftService
+                   -  MoneyRemittanceService
+                   -  StatementService
+              type: string
+              description: ">-\r\n* `CreditTransferService` \r\n* `StandingOrderService` \r\n* `DirectDebitService` \r\n* `CardPaymentService` \r\n* `WithdrawService` \r\n* `DepositService` \r\n* `OverdraftService` \r\n* `MoneyRemittanceService` \r\n* `StatementService` \r\n* "
+           PaymentDate:
+              $ref: '#/components/schemas/Datetime'
+              description: 'Key dates related to the payment. '
+           PaymentPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: Period to which the payment terms apply. (ISO20022)
+           PaymentPurpose:
+              enum:
+                   -  Salarypayment
+                   -  Treasurypayment
+                   -  Advancepayment
+                   -  Agriculturaltransfer
+                   -  Alimonypayment
+                   -  Childbenefit
+                   -  Bonuspayment.
+                   -  Cashmanagementtransfer
+                   -  Capitalbuilding
+                   -  Charitypayment
+                   -  Collectionpayment
+                   -  Commoditytransfer
+                   -  Commercialpayment
+                   -  Commission
+                   -  Costs
+                   -  Copyright
+                   -  Dividend
+                   -  Foreignexchange
+                   -  Purchasesaleofgoods
+                   -  Governmentpayment
+                   -  Intracompanypayment
+                   -  Insurancepremium
+                   -  Interest
+                   -  Licensefee
+                   -  Loan
+                   -  Loanrepayment
+                   -  Netting
+                   -  Payroll
+                   -  Pensionpayment
+                   -  Refund
+                   -  Rent
+                   -  Royalties
+                   -  Purchasesaleofservices
+                   -  Securities
+                   -  Socialsecuritybenefit
+                   -  Subscription
+                   -  Taxpayment
+                   -  Valueaddedtaxpayment
+                   -  Debitcollectionpayment
+                   -  Supplierpayment
+                   -  Hedging
+                   -  Multipleservicetypes
+                   -  Nototherwisespecified
+                   -  Cardpayment
+                   -  Creditcardbill
+                   -  Ferry
+                   -  Air
+                   -  Bus
+                   -  Railway
+                   -  Convalescentcarefacility
+                   -  Dentalservices
+                   -  Anesthesiaservices
+                   -  Homehealthcare
+                   -  Hospitalcare
+                   -  Intermediatecarefacility
+                   -  Longtermcarefacility
+                   -  Medicalservices
+                   -  Visioncare
+                   -  Durablemedicaleequipment
+                   -  Cabletvbill
+                   -  Electricitybill
+                   -  Gasbill
+                   -  Telephonebill
+                   -  Othertelecomrelatedbill
+                   -  Waterbill
+                   -  Study
+                   -  Pricepayment
+                   -  Installment
+                   -  Recurringinstallmentpayment
+                   -  Openingfee
+                   -  Cancellationfee
+                   -  Governmentinsurance
+                   -  Insurancepremiumcar
+                   -  Laborinsurance
+                   -  Lifeinsurance
+                   -  Propertyinsurance
+                   -  Healthinsurance
+                   -  Carloanprincipalrepayment
+                   -  Housingloanrepayment
+                   -  Estatetax
+                   -  Housingtax
+                   -  Incometax
+                   -  Netincometax
+                   -  Businessexpenses
+                   -  Trustfund
+                   -  Networkcharge
+                   -  Networkcommunication
+                   -  Receiptpayment
+                   -  Paymentterms
+                   -  Other
+                   -  Withholding
+              type: string
+              description: ">-\r\n* `Salarypayment` \r\n* `Treasurypayment` \r\n* `Advancepayment` \r\n* `Agriculturaltransfer` \r\n* `Alimonypayment` \r\n* `Childbenefit` \r\n* `Bonuspayment` \r\n* `Cashmanagementtransfer` \r\n* `Capitalbuilding` \r\n* `Charitypayment` \r\n* `Collectionpayment` \r\n* `Commoditytransfer` \r\n* `Commercialpayment` \r\n* `Commission` \r\n* `Costs` \r\n* `Copyright` \r\n* `Dividend` \r\n* `Foreignexchange` \r\n* `Purchasesaleofgoods` \r\n* `Governmentpayment` \r\n* `Intracompanypayment` \r\n* `Insurancepremium` \r\n* `Interest` \r\n* `Licensefee` \r\n* `Loan` \r\n* `Loanrepayment` \r\n* `Netting` \r\n* `Payroll` \r\n* `Pensionpayment` \r\n* `Refund` \r\n* `Rent` \r\n* `Royalties` \r\n* `Purchasesaleofservices` \r\n* `Securities` \r\n* `Socialsecuritybenefit` \r\n* `Subscription` \r\n* `Taxpayment` \r\n* `Valueaddedtaxpayment` \r\n* `Debitcollectionpayment` \r\n* `Supplierpayment` \r\n* `Hedging` \r\n* `Multipleservicetypes` \r\n* `Nototherwisespecified` \r\n* `Cardpayment` \r\n* `Creditcardbill` \r\n* `Ferry` \r\n* `Air` \r\n* `Bus` \r\n* `Railway` \r\n* `Convalescentcarefacility` \r\n* `Dentalservices` \r\n* `Anesthesiaservices` \r\n* `Homehealthcare` \r\n* `Hospitalcare` \r\n* `Intermediatecarefacility` \r\n* `Longtermcarefacility` \r\n* `Medicalservices` \r\n* `Visioncare` \r\n* `Durablemedicaleequipment` \r\n* `Cabletvbill` \r\n* `Electricitybill` \r\n* `Gasbill` \r\n* `Telephonebill` \r\n* `Othertelecomrelatedbill` \r\n* `Waterbill` \r\n* `Study` \r\n* `Pricepayment` \r\n* `Installment` \r\n* `Recurringinstallmentpayment` \r\n* `Openingfee` \r\n* `Cancellationfee` \r\n* `Governmentinsurance` \r\n* `Insurancepremiumcar` \r\n* `Laborinsurance` \r\n* `Lifeinsurance` \r\n* `Propertyinsurance` \r\n* `Healthinsurance` \r\n* `Carloanprincipalrepayment` \r\n* `Housingloanrepayment` \r\n* `Estatetax` \r\n* `Housingtax` \r\n* `Incometax` \r\n* `Netincometax` \r\n* `Businessexpenses` \r\n* `Trustfund` \r\n* `Networkcharge` \r\n* `Networkcommunication` \r\n* `Receiptpayment` \r\n* `Paymentterms` \r\n* `Other` \r\n* `Withholding` \r\n* "
+           PaymentAmount:
+              $ref: '#/components/schemas/Amount'
+              description: Amount of the payment (arranged to be paid)
+           PaymentMethod:
+              enum:
+                   -  Cheque
+                   -  Credittransfer
+                   -  Directdebit
+                   -  Transferadvice
+                   -  Direct
+                   -  Classical
+              type: string
+              description: ">-\r\n* `Cheque` \r\n* `Credittransfer` \r\n* `Directdebit` \r\n* `Transferadvice` \r\n* `Direct` \r\n* `Classical` \r\n* "
+           PaymentDateType:
+              enum:
+                   -  Requestedexecutiondate
+                   -  Acceptancedatetime
+                   -  Creationdate
+                   -  Valuedate
+                   -  Duedate
+                   -  Expirydate
+              type: string
+              description: ">-\r\n* `Requestedexecutiondate` \r\n* `Acceptancedatetime` \r\n* `Creationdate` \r\n* `Valuedate` \r\n* `Duedate` \r\n* `Expirydate` \r\n* "
+           PaymentType:
+              enum:
+                   -  Cashtransaction
+                   -  Domesticpayment
+                   -  Domestichighvaluepayment
+                   -  Domesticprioritypayment
+                   -  Crossborderpayment
+                   -  Crossborderprioritypayment
+                   -  Crossborderhighvaluepayment
+                   -  Thirdcurrencypayment
+                   -  Thirdcurrencyprioritypayment
+                   -  Tradesettlementpayment
+                   -  Foreignexchange
+                   -  Equivalentamount
+                   -  Loan
+                   -  Loanrepayment
+                   -  Securities
+                   -  Lockbox
+                   -  Dividend
+                   -  Crossedcheque
+                   -  Opencheque
+                   -  Ordercheque
+                   -  Circularcheque
+                   -  Travellerscheques
+                   -  Bankdraft
+                   -  Cashletter
+                   -  Documentarycredit
+                   -  Billofexchange
+                   -  Collection
+                   -  Cashmanagementtransfer
+                   -  Sweepaccount
+                   -  Topaccount
+                   -  Zerobalanceaccount
+                   -  Standingfacilities
+                   -  Swiftpayservicelevelcredit
+                   -  Priorityservicelevelcredit
+                   -  Standardservicelevelcredit
+                   -  Liquiditytransfer
+                   -  Advancepayment
+                   -  Valuedateadjustment
+                   -  Dvpgross
+                   -  Dvpnet
+                   -  Netting
+                   -  Limitpayment
+                   -  Backup
+                   -  Expresspayment
+                   -  Centralbankoperation
+                   -  Clspayment
+                   -  Eurodomesticpayment
+                   -  Agriculturaltransfer
+                   -  Alimonypayment
+                   -  Balanceretail
+                   -  Bonuspayment.
+                   -  Brokeragefee
+                   -  Capitalbuilding
+                   -  Charitypayment
+                   -  Childbenefit
+                   -  Commercialcredit
+                   -  Commission
+                   -  Commoditytransfer
+                   -  Costs
+                   -  Copyright
+                   -  Governmentpayment
+                   -  Insurancepremium
+                   -  Intracompanypayment
+                   -  Interest
+                   -  Licensefee
+                   -  Metals
+                   -  Pensionpayment
+                   -  Purchasesaleofgoods
+                   -  Refund
+                   -  Rent
+                   -  Royalties
+                   -  Purchasesaleofservices
+                   -  Salarypayment
+                   -  Socialsecuritybenefit
+                   -  Standingorder
+                   -  Subscription
+                   -  Treasurystatepayment
+                   -  Valueaddedtaxpayment
+                   -  Withholdingtax
+                   -  Taxpayment
+                   -  Miscellaneous
+                   -  Overnightdeposit
+                   -  Marginallending
+                   -  Other
+                   -  Upfront
+                   -  Unwind
+                   -  Principalexchange
+              type: string
+              description: ">-\r\n* `Cashtransaction` \r\n* `Domesticpayment` \r\n* `Domestichighvaluepayment` \r\n* `Domesticprioritypayment` \r\n* `Crossborderpayment` \r\n* `Crossborderprioritypayment` \r\n* `Crossborderhighvaluepayment` \r\n* `Thirdcurrencypayment` \r\n* `Thirdcurrencyprioritypayment` \r\n* `Tradesettlementpayment` \r\n* `Foreignexchange` \r\n* `Equivalentamount` \r\n* `Loan` \r\n* `Loanrepayment` \r\n* `Securities` \r\n* `Lockbox` \r\n* `Dividend` \r\n* `Crossedcheque` \r\n* `Opencheque` \r\n* `Ordercheque` \r\n* `Circularcheque` \r\n* `Travellerscheques` \r\n* `Bankdraft` \r\n* `Cashletter` \r\n* `Documentarycredit` \r\n* `Billofexchange` \r\n* `Collection` \r\n* `Cashmanagementtransfer` \r\n* `Sweepaccount` \r\n* `Topaccount` \r\n* `Zerobalanceaccount` \r\n* `Standingfacilities` \r\n* `Swiftpayservicelevelcredit` \r\n* `Priorityservicelevelcredit` \r\n* `Standardservicelevelcredit` \r\n* `Liquiditytransfer` \r\n* `Advancepayment` \r\n* `Valuedateadjustment` \r\n* `Dvpgross` \r\n* `Dvpnet` \r\n* `Netting` \r\n* `Limitpayment` \r\n* `Backup` \r\n* `Expresspayment` \r\n* `Centralbankoperation` \r\n* `Clspayment` \r\n* `Eurodomesticpayment` \r\n* `Agriculturaltransfer` \r\n* `Alimonypayment` \r\n* `Balanceretail` \r\n* `Bonuspayment` \r\n* `Brokeragefee` \r\n* `Capitalbuilding` \r\n* `Charitypayment` \r\n* `Childbenefit` \r\n* `Commercialcredit` \r\n* `Commission` \r\n* `Commoditytransfer` \r\n* `Costs` \r\n* `Copyright` \r\n* `Governmentpayment` \r\n* `Insurancepremium` \r\n* `Intracompanypayment` \r\n* `Interest` \r\n* `Licensefee` \r\n* `Metals` \r\n* `Pensionpayment` \r\n* `Purchasesaleofgoods` \r\n* `Refund` \r\n* `Rent` \r\n* `Royalties` \r\n* `Purchasesaleofservices` \r\n* `Salarypayment` \r\n* `Socialsecuritybenefit` \r\n* `Standingorder` \r\n* `Subscription` \r\n* `Treasurystatepayment` \r\n* `Valueaddedtaxpayment` \r\n* `Withholdingtax` \r\n* `Taxpayment` \r\n* `Miscellaneous` \r\n* `Overnightdeposit` \r\n* `Marginallending` \r\n* `Other` \r\n* `Upfront` \r\n* `Unwind` \r\n* `Principalexchange` \r\n* "
+           PaymentAmountType:
+              enum:
+                   -  Principal
+                   -  Actual
+                   -  Estimated
+                   -  Maximum
+                   -  Default
+                   -  Replacement
+                   -  Incremental
+                   -  Decremental
+                   -  Reserved
+                   -  Available
+                   -  Used
+              type: string
+              description: ">-\r\n* `Principal` \r\n* `Actual` \r\n* `Estimated` \r\n* `Maximum` \r\n* `Default` \r\n* `Replacement` \r\n* `Incremental` \r\n* `Decremental` \r\n* `Reserved` \r\n* `Available` \r\n* `Used` \r\n* "
+           PaymentTime:
+              enum:
+                   -  Paymentondelivery
+                   -  Endofmonthofdelivery
+                   -  Endofperiodafterdelivery
+                   -  Paymentonreceiptofinvoice
+                   -  Endofperiodafterreceipt
+                   -  Endofmonthofreceipt
+                   -  Endofperiodaftermatch
+                   -  Endofperiodaftershipmentdate
+                   -  Endofperiodafterinvoicedate
+              type: string
+              description: ">-\r\n* `Paymentondelivery` \r\n* `Endofmonthofdelivery` \r\n* `Endofperiodafterdelivery` \r\n* `Paymentonreceiptofinvoice` \r\n* `Endofperiodafterreceipt` \r\n* `Endofmonthofreceipt` \r\n* `Endofperiodaftermatch` \r\n* `Endofperiodaftershipmentdate` \r\n* `Endofperiodafterinvoicedate` \r\n* "
+     Frequency:
+        type: object
+        description: ' FrequencyCode|FrequencyCode (https://www.iso20022.org/standardsrepository/type/FrequencyCode)|Standard|ISO20022 ()'
+        properties:
+           FrequencyCode:
+              enum:
+                   -  Annual
+                   -  Monthly
+                   -  Quarterly
+                   -  Semiannual
+                   -  Weekly
+                   -  Daily
+                   -  Adhoc
+                   -  Intraday
+                   -  Overnight
+                   -  Tendays
+                   -  Fortnightly
+                   -  Triggeredbymovement
+                   -  Never
+                   -  Rate
+                   -  Oncreditevent
+                   -  Upfront
+                   -  Onexpiry
+                   -  Hourly
+              type: string
+              description: ">-\r\n* `Annual` \r\n* `Monthly` \r\n* `Quarterly` \r\n* `Semiannual` \r\n* `Weekly` \r\n* `Daily` \r\n* `Adhoc` \r\n* `Intraday` \r\n* `Overnight` \r\n* `Tendays` \r\n* `Fortnightly` \r\n* `Triggeredbymovement` \r\n* `Never` \r\n* `Rate` \r\n* `Oncreditevent` \r\n* `Upfront` \r\n* `Onexpiry` \r\n* `Hourly` \r\n* "
+           FrequencyName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           FrequencyDefinition:
+              $ref: '#/components/schemas/Text'
+              description: ''
+     Schedule:
+        type: object
+        description: "\r\n - "
+        properties:
+           ScheduleType:
+              type: string
+              description: ''
+              format: String
+     PaymentTransaction:
+        type: object
+        description: ' PaymentExecution|PaymentExecution (https://www.iso20022.org/standardsrepository/type/PaymentExecution)|Standard|ISO20022 BM ()'
+        properties:
+           PaymentTransactionType:
+              enum:
+                   -  Cashtransaction
+                   -  Domesticpayment
+                   -  Domestichighvaluepayment
+                   -  Domesticprioritypayment
+                   -  Crossborderpayment
+                   -  Crossborderprioritypayment
+                   -  Crossborderhighvaluepayment
+                   -  Thirdcurrencypayment
+                   -  Thirdcurrencyprioritypayment
+                   -  Tradesettlementpayment
+                   -  Foreignexchange
+                   -  Equivalentamount
+                   -  Loan
+                   -  Loanrepayment
+                   -  Securities
+                   -  Lockbox
+                   -  Dividend
+                   -  Crossedcheque
+                   -  Opencheque
+                   -  Ordercheque
+                   -  Circularcheque
+                   -  Travellerscheques
+                   -  Bankdraft
+                   -  Cashletter
+                   -  Documentarycredit
+                   -  Billofexchange
+                   -  Collection
+                   -  Cashmanagementtransfer
+                   -  Sweepaccount
+                   -  Topaccount
+                   -  Zerobalanceaccount
+                   -  Standingfacilities
+                   -  Swiftpayservicelevelcredit
+                   -  Priorityservicelevelcredit
+                   -  Standardservicelevelcredit
+                   -  Liquiditytransfer
+                   -  Advancepayment
+                   -  Valuedateadjustment
+                   -  Dvpgross
+                   -  Dvpnet
+                   -  Netting
+                   -  Limitpayment
+                   -  Backup
+                   -  Expresspayment
+                   -  Centralbankoperation
+                   -  Clspayment
+                   -  Eurodomesticpayment
+                   -  Agriculturaltransfer
+                   -  Alimonypayment
+                   -  Balanceretail
+                   -  Bonuspayment.
+                   -  Brokeragefee
+                   -  Capitalbuilding
+                   -  Charitypayment
+                   -  Childbenefit
+                   -  Commercialcredit
+                   -  Commission
+                   -  Commoditytransfer
+                   -  Costs
+                   -  Copyright
+                   -  Governmentpayment
+                   -  Insurancepremium
+                   -  Intracompanypayment
+                   -  Interest
+                   -  Licensefee
+                   -  Metals
+                   -  Pensionpayment
+                   -  Purchasesaleofgoods
+                   -  Refund
+                   -  Rent
+                   -  Royalties
+                   -  Purchasesaleofservices
+                   -  Salarypayment
+                   -  Socialsecuritybenefit
+                   -  Standingorder
+                   -  Subscription
+                   -  Treasurystatepayment
+                   -  Valueaddedtaxpayment
+                   -  Withholdingtax
+                   -  Taxpayment
+                   -  Miscellaneous
+                   -  Overnightdeposit
+                   -  Marginallending
+                   -  Other
+                   -  Upfront
+                   -  Unwind
+                   -  Principalexchange
+              type: string
+              description: ">-\r\n* `Cashtransaction` \r\n* `Domesticpayment` \r\n* `Domestichighvaluepayment` \r\n* `Domesticprioritypayment` \r\n* `Crossborderpayment` \r\n* `Crossborderprioritypayment` \r\n* `Crossborderhighvaluepayment` \r\n* `Thirdcurrencypayment` \r\n* `Thirdcurrencyprioritypayment` \r\n* `Tradesettlementpayment` \r\n* `Foreignexchange` \r\n* `Equivalentamount` \r\n* `Loan` \r\n* `Loanrepayment` \r\n* `Securities` \r\n* `Lockbox` \r\n* `Dividend` \r\n* `Crossedcheque` \r\n* `Opencheque` \r\n* `Ordercheque` \r\n* `Circularcheque` \r\n* `Travellerscheques` \r\n* `Bankdraft` \r\n* `Cashletter` \r\n* `Documentarycredit` \r\n* `Billofexchange` \r\n* `Collection` \r\n* `Cashmanagementtransfer` \r\n* `Sweepaccount` \r\n* `Topaccount` \r\n* `Zerobalanceaccount` \r\n* `Standingfacilities` \r\n* `Swiftpayservicelevelcredit` \r\n* `Priorityservicelevelcredit` \r\n* `Standardservicelevelcredit` \r\n* `Liquiditytransfer` \r\n* `Advancepayment` \r\n* `Valuedateadjustment` \r\n* `Dvpgross` \r\n* `Dvpnet` \r\n* `Netting` \r\n* `Limitpayment` \r\n* `Backup` \r\n* `Expresspayment` \r\n* `Centralbankoperation` \r\n* `Clspayment` \r\n* `Eurodomesticpayment` \r\n* `Agriculturaltransfer` \r\n* `Alimonypayment` \r\n* `Balanceretail` \r\n* `Bonuspayment` \r\n* `Brokeragefee` \r\n* `Capitalbuilding` \r\n* `Charitypayment` \r\n* `Childbenefit` \r\n* `Commercialcredit` \r\n* `Commission` \r\n* `Commoditytransfer` \r\n* `Costs` \r\n* `Copyright` \r\n* `Governmentpayment` \r\n* `Insurancepremium` \r\n* `Intracompanypayment` \r\n* `Interest` \r\n* `Licensefee` \r\n* `Metals` \r\n* `Pensionpayment` \r\n* `Purchasesaleofgoods` \r\n* `Refund` \r\n* `Rent` \r\n* `Royalties` \r\n* `Purchasesaleofservices` \r\n* `Salarypayment` \r\n* `Socialsecuritybenefit` \r\n* `Standingorder` \r\n* `Subscription` \r\n* `Treasurystatepayment` \r\n* `Valueaddedtaxpayment` \r\n* `Withholdingtax` \r\n* `Taxpayment` \r\n* `Miscellaneous` \r\n* `Overnightdeposit` \r\n* `Marginallending` \r\n* `Other` \r\n* `Upfront` \r\n* `Unwind` \r\n* `Principalexchange` \r\n* "
+           PaymentTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+              description: Paid amount
+           PaymentTransactionIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: >-
+                An identifier that allows to uniquely refer to a Payment
+                Transaction.
+           PaymentTransactionUsedMechanism:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                The payment mechanism the bank decides to use in the transaction
+                to execute a payment instruction 
+           PaymentTransactionDatetime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           PaymentTransactionPurpose:
+              enum:
+                   -  Salarypayment
+                   -  Treasurypayment
+                   -  Advancepayment
+                   -  Agriculturaltransfer
+                   -  Alimonypayment
+                   -  Childbenefit
+                   -  Bonuspayment.
+                   -  Cashmanagementtransfer
+                   -  Capitalbuilding
+                   -  Charitypayment
+                   -  Collectionpayment
+                   -  Commoditytransfer
+                   -  Commercialpayment
+                   -  Commission
+                   -  Costs
+                   -  Copyright
+                   -  Dividend
+                   -  Foreignexchange
+                   -  Purchasesaleofgoods
+                   -  Governmentpayment
+                   -  Intracompanypayment
+                   -  Insurancepremium
+                   -  Interest
+                   -  Licensefee
+                   -  Loan
+                   -  Loanrepayment
+                   -  Netting
+                   -  Payroll
+                   -  Pensionpayment
+                   -  Refund
+                   -  Rent
+                   -  Royalties
+                   -  Purchasesaleofservices
+                   -  Securities
+                   -  Socialsecuritybenefit
+                   -  Subscription
+                   -  Taxpayment
+                   -  Valueaddedtaxpayment
+                   -  Debitcollectionpayment
+                   -  Supplierpayment
+                   -  Hedging
+                   -  Multipleservicetypes
+                   -  Nototherwisespecified
+                   -  Cardpayment
+                   -  Creditcardbill
+                   -  Ferry
+                   -  Air
+                   -  Bus
+                   -  Railway
+                   -  Convalescentcarefacility
+                   -  Dentalservices
+                   -  Anesthesiaservices
+                   -  Homehealthcare
+                   -  Hospitalcare
+                   -  Intermediatecarefacility
+                   -  Longtermcarefacility
+                   -  Medicalservices
+                   -  Visioncare
+                   -  Durablemedicaleequipment
+                   -  Cabletvbill
+                   -  Electricitybill
+                   -  Gasbill
+                   -  Telephonebill
+                   -  Othertelecomrelatedbill
+                   -  Waterbill
+                   -  Study
+                   -  Pricepayment
+                   -  Installment
+                   -  Recurringinstallmentpayment
+                   -  Openingfee
+                   -  Cancellationfee
+                   -  Governmentinsurance
+                   -  Insurancepremiumcar
+                   -  Laborinsurance
+                   -  Lifeinsurance
+                   -  Propertyinsurance
+                   -  Healthinsurance
+                   -  Carloanprincipalrepayment
+                   -  Housingloanrepayment
+                   -  Estatetax
+                   -  Housingtax
+                   -  Incometax
+                   -  Netincometax
+                   -  Businessexpenses
+                   -  Trustfund
+                   -  Networkcharge
+                   -  Networkcommunication
+                   -  Receiptpayment
+                   -  Paymentterms
+                   -  Other
+                   -  Withholding
+              type: string
+              description: ">-\r\n* `Salarypayment` \r\n* `Treasurypayment` \r\n* `Advancepayment` \r\n* `Agriculturaltransfer` \r\n* `Alimonypayment` \r\n* `Childbenefit` \r\n* `Bonuspayment` \r\n* `Cashmanagementtransfer` \r\n* `Capitalbuilding` \r\n* `Charitypayment` \r\n* `Collectionpayment` \r\n* `Commoditytransfer` \r\n* `Commercialpayment` \r\n* `Commission` \r\n* `Costs` \r\n* `Copyright` \r\n* `Dividend` \r\n* `Foreignexchange` \r\n* `Purchasesaleofgoods` \r\n* `Governmentpayment` \r\n* `Intracompanypayment` \r\n* `Insurancepremium` \r\n* `Interest` \r\n* `Licensefee` \r\n* `Loan` \r\n* `Loanrepayment` \r\n* `Netting` \r\n* `Payroll` \r\n* `Pensionpayment` \r\n* `Refund` \r\n* `Rent` \r\n* `Royalties` \r\n* `Purchasesaleofservices` \r\n* `Securities` \r\n* `Socialsecuritybenefit` \r\n* `Subscription` \r\n* `Taxpayment` \r\n* `Valueaddedtaxpayment` \r\n* `Debitcollectionpayment` \r\n* `Supplierpayment` \r\n* `Hedging` \r\n* `Multipleservicetypes` \r\n* `Nototherwisespecified` \r\n* `Cardpayment` \r\n* `Creditcardbill` \r\n* `Ferry` \r\n* `Air` \r\n* `Bus` \r\n* `Railway` \r\n* `Convalescentcarefacility` \r\n* `Dentalservices` \r\n* `Anesthesiaservices` \r\n* `Homehealthcare` \r\n* `Hospitalcare` \r\n* `Intermediatecarefacility` \r\n* `Longtermcarefacility` \r\n* `Medicalservices` \r\n* `Visioncare` \r\n* `Durablemedicaleequipment` \r\n* `Cabletvbill` \r\n* `Electricitybill` \r\n* `Gasbill` \r\n* `Telephonebill` \r\n* `Othertelecomrelatedbill` \r\n* `Waterbill` \r\n* `Study` \r\n* `Pricepayment` \r\n* `Installment` \r\n* `Recurringinstallmentpayment` \r\n* `Openingfee` \r\n* `Cancellationfee` \r\n* `Governmentinsurance` \r\n* `Insurancepremiumcar` \r\n* `Laborinsurance` \r\n* `Lifeinsurance` \r\n* `Propertyinsurance` \r\n* `Healthinsurance` \r\n* `Carloanprincipalrepayment` \r\n* `Housingloanrepayment` \r\n* `Estatetax` \r\n* `Housingtax` \r\n* `Incometax` \r\n* `Netincometax` \r\n* `Businessexpenses` \r\n* `Trustfund` \r\n* `Networkcharge` \r\n* `Networkcommunication` \r\n* `Receiptpayment` \r\n* `Paymentterms` \r\n* `Other` \r\n* `Withholding` \r\n* "
+           PaymentTransactionStatus:
+              $ref: '#/components/schemas/Paymenttransactionstatus'
+              description: >-
+                Specifies the status of a payment transaction at a specified
+                time.
+
+                Elements
+           PaymentTransactionAppliedFeeAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           PaymentTransactionCurrency:
+              $ref: '#/components/schemas/Paymenttransactioncurrency'
+              description: ''
+           PaymentCreditDebitIndicator:
+              enum:
+                   -  Debit
+                   -  Credit
+              type: string
+              description: ">-\r\n* `Debit` \r\n* `Credit` \r\n* "
+           PaymentTransactionAmountType:
+              enum:
+                   -  Principal
+                   -  Actual
+                   -  Estimated
+                   -  Maximum
+                   -  Default
+                   -  Replacement
+                   -  Incremental
+                   -  Decremental
+                   -  Reserved
+                   -  Available
+                   -  Used
+              type: string
+              description: ">-\r\n* `Principal` \r\n* `Actual` \r\n* `Estimated` \r\n* `Maximum` \r\n* `Default` \r\n* `Replacement` \r\n* `Incremental` \r\n* `Decremental` \r\n* `Reserved` \r\n* `Available` \r\n* `Used` \r\n* "
+           PaymentTransactionDatetimeType:
+              enum:
+                   -  Requestedexecutiondate
+                   -  Acceptancedatetime
+                   -  Creationdate
+                   -  Valuedate
+                   -  Duedate
+                   -  Expirydate
+              type: string
+              description: ">-\r\n* `Requestedexecutiondate` \r\n* `Acceptancedatetime` \r\n* `Creationdate` \r\n* `Valuedate` \r\n* `Duedate` \r\n* `Expirydate` \r\n* "
+     Paymenttransactionstatus:
+        type: object
+        description: |
+          Specifies the status of a payment transaction at a specified time.
+          Elements 
+        properties:
+           PaymentTransactionStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PaymentTransactionStatusType:
+              enum:
+                   -  Acceptedtechnicalvalidation
+                   -  Received
+                   -  Partiallyaccepted
+                   -  Rejected
+                   -  Pending
+                   -  Acceptedcustomerprofile
+                   -  Acceptedsettlementinprocess
+                   -  Acceptedsettlementcompleted
+                   -  Accepted
+                   -  Acceptedcancellationrequest
+                   -  Rejectedcancellationrequest
+                   -  Acceptedwithchange
+                   -  Pendingcancellationrequest
+                   -  Paymentcancelled
+                   -  Nocancellationprocess
+              type: string
+              description: ">-\r\n* `Acceptedtechnicalvalidation` \r\n* `Received` \r\n* `Partiallyaccepted` \r\n* `Rejected` \r\n* `Pending` \r\n* `Acceptedcustomerprofile` \r\n* `Acceptedsettlementinprocess` \r\n* `Acceptedsettlementcompleted` \r\n* `Accepted` \r\n* `Acceptedcancellationrequest` \r\n* `Rejectedcancellationrequest` \r\n* `Acceptedwithchange` \r\n* `Pendingcancellationrequest` \r\n* `Paymentcancelled` \r\n* `Nocancellationprocess` \r\n* "
+     Paymenttransactioncurrency:
+        type: object
+        description: ' '
+        properties:
+           PaymentTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           PaymentTransactionCurrencyType:
+              enum:
+                   -  BaseCurrency
+                   -  ReportingCurrency
+                   -  SecondaryCurrency
+                   -  TransferCurrency
+              type: string
+              description: ">-\r\n* `BaseCurrency` \r\n* `ReportingCurrency` \r\n* `SecondaryCurrency` \r\n* `TransferCurrency` \r\n* "
+     ControlStandingOrderFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: ''
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     ControlStandingOrderFacility:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: >-
+                Number of the payments that will be made in completing this
+                frequency sequence including any executed since the sequence
+                start date.
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     ExchangeStandingOrderFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+              description: ''
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+              description: ''
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+              description: "\r\n"
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+              description: ''
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+              description: ''
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: ''
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+              description: ''
+     ExchangeStandingOrderFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: ''
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     ExchangeStandingOrderFacility:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: >-
+                Number of the payments that will be made in completing this
+                frequency sequence including any executed since the sequence
+                start date.
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     ExecuteStandingOrderFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+              description: ''
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+              description: ''
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+              description: "\r\n"
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+              description: ''
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+              description: ''
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: ''
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+              description: ''
+     ExecuteStandingOrderFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: ''
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     ExecuteStandingOrderFacility:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: >-
+                Number of the payments that will be made in completing this
+                frequency sequence including any executed since the sequence
+                start date.
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     InitiateStandingOrderFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+              description: ''
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+              description: ''
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+              description: "\r\n"
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+              description: ''
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+              description: ''
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: ''
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+              description: ''
+     InitiateStandingOrderFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: ''
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     InitiateStandingOrderFacility:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: >-
+                Number of the payments that will be made in completing this
+                frequency sequence including any executed since the sequence
+                start date.
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     RetrieveStandingOrderFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+              description: ''
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+              description: ''
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+              description: "\r\n"
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+              description: ''
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+              description: ''
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: ''
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+              description: ''
+     RetrieveStandingOrderFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: ''
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     RetrieveStandingOrderFacility:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: >-
+                Number of the payments that will be made in completing this
+                frequency sequence including any executed since the sequence
+                start date.
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     RequestStandingOrderFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+              description: ''
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+              description: ''
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+              description: "\r\n"
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+              description: ''
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+              description: ''
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: ''
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+              description: ''
+     RequestStandingOrderFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: ''
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     RequestStandingOrderFacility:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: >-
+                Number of the payments that will be made in completing this
+                frequency sequence including any executed since the sequence
+                start date.
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     UpdateStandingOrderFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+              description: ''
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+              description: ''
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+              description: "\r\n"
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+              description: ''
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+              description: ''
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: ''
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+              description: ''
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+              description: ''
+     UpdateStandingOrderFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: ''
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     UpdateStandingOrderFacility:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: >-
+                Number of the payments that will be made in completing this
+                frequency sequence including any executed since the sequence
+                start date.
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     ExchangeStandingOrderPaymentRequest:
+        type: object
+        description: ''
+        properties:
+           StandingOrderPaymentPreconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           StandingOrderPaymentFeatureSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           StandingOrderPaymentPostconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           StandingOrderPaymentServiceType:
+              enum:
+                   -  CreditTransferService
+                   -  StandingOrderService
+                   -  DirectDebitService
+                   -  CardPaymentService
+                   -  WithdrawService
+                   -  DepositService
+                   -  OverdraftService
+                   -  MoneyRemittanceService
+                   -  StatementService
+              type: string
+              description: ">-\r\n* `CreditTransferService` \r\n* `StandingOrderService` \r\n* `DirectDebitService` \r\n* `CardPaymentService` \r\n* `WithdrawService` \r\n* `DepositService` \r\n* `OverdraftService` \r\n* `MoneyRemittanceService` \r\n* `StatementService` \r\n* "
+           StandingOrderPaymentServiceDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderPaymentServiceInputsandOuputs:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderPaymentServiceWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           StandingOrderPaymentServiceName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           StandingOrderExecutionDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           StandingOrderExecutionResultType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderExecutionNotExecutedReasonDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderExecutionPrincipalAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           StandingOrderExecutionFeeAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+     Condition:
+        type: object
+        description: "\r\n - "
+        properties:
+           Condition:
+              type: string
+              description: >-
+                Condition is a premise upon which the fulfillment of an
+                agreement depends 
+
+
+                General and special arrangements, provisions, requirements,
+                rules, specifications, and standards that form an integral part
+                of an agreement or contract.
+
+
+                Read more:
+                http://www.businessdictionary.com/definition/termsandconditions.html
+
+              format: Class
+     BusinessService:
+        type: object
+        description: "\r\n - "
+        properties:
+           BusinessServiceType:
+              enum:
+                   -  Businessservicetypevalues
+              type: string
+              description: ">-\r\n* `Businessservicetypevalues` \r\n* "
+     Workproduct:
+        type: object
+        description: "\r\n - "
+        properties:
+           WorkProductType:
+              enum:
+                   -  Document
+                   -  WorkingPaper
+                   -  ActivityLog
+                   -  Form
+                   -  File
+                   -  MeetingSchedule
+                   -  MeetingMinute
+              type: string
+              description: ">-\r\n* `Document` \r\n* `WorkingPaper` \r\n* `ActivityLog` \r\n* `Form` \r\n* `File` \r\n* `MeetingSchedule` \r\n* `MeetingMinute` \r\n* "
+           WorkProductIdentifoication:
+              type: string
+              description: ''
+              format: String
+     ExchangeStandingOrderPaymentResponse:
+        type: object
+        description: ''
+        properties:
+           StandingOrderPaymentPreconditions:
+              $ref: '#/components/schemas/Condition'
+           StandingOrderPaymentFeatureSchedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           StandingOrderPaymentPostconditions:
+              $ref: '#/components/schemas/Condition'
+           StandingOrderPaymentServiceType:
+              enum:
+                   -  CreditTransferService
+                   -  StandingOrderService
+                   -  DirectDebitService
+                   -  CardPaymentService
+                   -  WithdrawService
+                   -  DepositService
+                   -  OverdraftService
+                   -  MoneyRemittanceService
+                   -  StatementService
+              type: string
+              description: ">-\r\n* `CreditTransferService` \r\n* `StandingOrderService` \r\n* `DirectDebitService` \r\n* `CardPaymentService` \r\n* `WithdrawService` \r\n* `DepositService` \r\n* `OverdraftService` \r\n* `MoneyRemittanceService` \r\n* `StatementService` \r\n* "
+           StandingOrderPaymentServiceDescription:
+              $ref: '#/components/schemas/Text'
+           StandingOrderPaymentServiceInputsandOuputs:
+              $ref: '#/components/schemas/Text'
+           StandingOrderPaymentServiceWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+           StandingOrderPaymentServiceName:
+              $ref: '#/components/schemas/Name'
+           StandingOrderExecutionDate:
+              $ref: '#/components/schemas/Datetime'
+           StandingOrderExecutionResultType:
+              $ref: '#/components/schemas/Text'
+           StandingOrderExecutionNotExecutedReasonDescription:
+              $ref: '#/components/schemas/Text'
+           StandingOrderExecutionPrincipalAmount:
+              $ref: '#/components/schemas/Amount'
+           StandingOrderExecutionFeeAmount:
+              $ref: '#/components/schemas/Amount'
+     ExchangeStandingOrderPayment:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: >-
+                Number of the payments that will be made in completing this
+                frequency sequence including any executed since the sequence
+                start date.
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     InitiateStandingOrderPaymentRequest:
+        type: object
+        description: ''
+        properties:
+           StandingOrderPaymentPreconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           StandingOrderPaymentFeatureSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           StandingOrderPaymentPostconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           StandingOrderPaymentServiceType:
+              enum:
+                   -  CreditTransferService
+                   -  StandingOrderService
+                   -  DirectDebitService
+                   -  CardPaymentService
+                   -  WithdrawService
+                   -  DepositService
+                   -  OverdraftService
+                   -  MoneyRemittanceService
+                   -  StatementService
+              type: string
+              description: ">-\r\n* `CreditTransferService` \r\n* `StandingOrderService` \r\n* `DirectDebitService` \r\n* `CardPaymentService` \r\n* `WithdrawService` \r\n* `DepositService` \r\n* `OverdraftService` \r\n* `MoneyRemittanceService` \r\n* `StatementService` \r\n* "
+           StandingOrderPaymentServiceDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderPaymentServiceInputsandOuputs:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderPaymentServiceWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           StandingOrderPaymentServiceName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           StandingOrderExecutionDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           StandingOrderExecutionResultType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderExecutionNotExecutedReasonDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderExecutionPrincipalAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           StandingOrderExecutionFeeAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+     InitiateStandingOrderPaymentResponse:
+        type: object
+        description: ''
+        properties:
+           StandingOrderPaymentPreconditions:
+              $ref: '#/components/schemas/Condition'
+           StandingOrderPaymentFeatureSchedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           StandingOrderPaymentPostconditions:
+              $ref: '#/components/schemas/Condition'
+           StandingOrderPaymentServiceType:
+              enum:
+                   -  CreditTransferService
+                   -  StandingOrderService
+                   -  DirectDebitService
+                   -  CardPaymentService
+                   -  WithdrawService
+                   -  DepositService
+                   -  OverdraftService
+                   -  MoneyRemittanceService
+                   -  StatementService
+              type: string
+              description: ">-\r\n* `CreditTransferService` \r\n* `StandingOrderService` \r\n* `DirectDebitService` \r\n* `CardPaymentService` \r\n* `WithdrawService` \r\n* `DepositService` \r\n* `OverdraftService` \r\n* `MoneyRemittanceService` \r\n* `StatementService` \r\n* "
+           StandingOrderPaymentServiceDescription:
+              $ref: '#/components/schemas/Text'
+           StandingOrderPaymentServiceInputsandOuputs:
+              $ref: '#/components/schemas/Text'
+           StandingOrderPaymentServiceWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+           StandingOrderPaymentServiceName:
+              $ref: '#/components/schemas/Name'
+           StandingOrderExecutionDate:
+              $ref: '#/components/schemas/Datetime'
+           StandingOrderExecutionResultType:
+              $ref: '#/components/schemas/Text'
+           StandingOrderExecutionNotExecutedReasonDescription:
+              $ref: '#/components/schemas/Text'
+           StandingOrderExecutionPrincipalAmount:
+              $ref: '#/components/schemas/Amount'
+           StandingOrderExecutionFeeAmount:
+              $ref: '#/components/schemas/Amount'
+     InitiateStandingOrderPayment:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: >-
+                Number of the payments that will be made in completing this
+                frequency sequence including any executed since the sequence
+                start date.
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     RetrieveStandingOrderPaymentRequest:
+        type: object
+        description: ''
+        properties:
+           StandingOrderPaymentPreconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           StandingOrderPaymentFeatureSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           StandingOrderPaymentPostconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           StandingOrderPaymentServiceType:
+              enum:
+                   -  CreditTransferService
+                   -  StandingOrderService
+                   -  DirectDebitService
+                   -  CardPaymentService
+                   -  WithdrawService
+                   -  DepositService
+                   -  OverdraftService
+                   -  MoneyRemittanceService
+                   -  StatementService
+              type: string
+              description: ">-\r\n* `CreditTransferService` \r\n* `StandingOrderService` \r\n* `DirectDebitService` \r\n* `CardPaymentService` \r\n* `WithdrawService` \r\n* `DepositService` \r\n* `OverdraftService` \r\n* `MoneyRemittanceService` \r\n* `StatementService` \r\n* "
+           StandingOrderPaymentServiceDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderPaymentServiceInputsandOuputs:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderPaymentServiceWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           StandingOrderPaymentServiceName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           StandingOrderExecutionDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           StandingOrderExecutionResultType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderExecutionNotExecutedReasonDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderExecutionPrincipalAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           StandingOrderExecutionFeeAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+     RetrieveStandingOrderPaymentResponse:
+        type: object
+        description: ''
+        properties:
+           StandingOrderPaymentPreconditions:
+              $ref: '#/components/schemas/Condition'
+           StandingOrderPaymentFeatureSchedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           StandingOrderPaymentPostconditions:
+              $ref: '#/components/schemas/Condition'
+           StandingOrderPaymentServiceType:
+              enum:
+                   -  CreditTransferService
+                   -  StandingOrderService
+                   -  DirectDebitService
+                   -  CardPaymentService
+                   -  WithdrawService
+                   -  DepositService
+                   -  OverdraftService
+                   -  MoneyRemittanceService
+                   -  StatementService
+              type: string
+              description: ">-\r\n* `CreditTransferService` \r\n* `StandingOrderService` \r\n* `DirectDebitService` \r\n* `CardPaymentService` \r\n* `WithdrawService` \r\n* `DepositService` \r\n* `OverdraftService` \r\n* `MoneyRemittanceService` \r\n* `StatementService` \r\n* "
+           StandingOrderPaymentServiceDescription:
+              $ref: '#/components/schemas/Text'
+           StandingOrderPaymentServiceInputsandOuputs:
+              $ref: '#/components/schemas/Text'
+           StandingOrderPaymentServiceWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+           StandingOrderPaymentServiceName:
+              $ref: '#/components/schemas/Name'
+           StandingOrderExecutionDate:
+              $ref: '#/components/schemas/Datetime'
+           StandingOrderExecutionResultType:
+              $ref: '#/components/schemas/Text'
+           StandingOrderExecutionNotExecutedReasonDescription:
+              $ref: '#/components/schemas/Text'
+           StandingOrderExecutionPrincipalAmount:
+              $ref: '#/components/schemas/Amount'
+           StandingOrderExecutionFeeAmount:
+              $ref: '#/components/schemas/Amount'
+     RetrieveStandingOrderPayment:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: >-
+                Number of the payments that will be made in completing this
+                frequency sequence including any executed since the sequence
+                start date.
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     UpdateStandingOrderPaymentRequest:
+        type: object
+        description: ''
+        properties:
+           StandingOrderPaymentPreconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           StandingOrderPaymentFeatureSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           StandingOrderPaymentPostconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           StandingOrderPaymentServiceType:
+              enum:
+                   -  CreditTransferService
+                   -  StandingOrderService
+                   -  DirectDebitService
+                   -  CardPaymentService
+                   -  WithdrawService
+                   -  DepositService
+                   -  OverdraftService
+                   -  MoneyRemittanceService
+                   -  StatementService
+              type: string
+              description: ">-\r\n* `CreditTransferService` \r\n* `StandingOrderService` \r\n* `DirectDebitService` \r\n* `CardPaymentService` \r\n* `WithdrawService` \r\n* `DepositService` \r\n* `OverdraftService` \r\n* `MoneyRemittanceService` \r\n* `StatementService` \r\n* "
+           StandingOrderPaymentServiceDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderPaymentServiceInputsandOuputs:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderPaymentServiceWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           StandingOrderPaymentServiceName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           StandingOrderExecutionDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           StandingOrderExecutionResultType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderExecutionNotExecutedReasonDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           StandingOrderExecutionPrincipalAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           StandingOrderExecutionFeeAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+     UpdateStandingOrderPaymentResponse:
+        type: object
+        description: ''
+        properties:
+           StandingOrderPaymentPreconditions:
+              $ref: '#/components/schemas/Condition'
+           StandingOrderPaymentFeatureSchedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           StandingOrderPaymentPostconditions:
+              $ref: '#/components/schemas/Condition'
+           StandingOrderPaymentServiceType:
+              enum:
+                   -  CreditTransferService
+                   -  StandingOrderService
+                   -  DirectDebitService
+                   -  CardPaymentService
+                   -  WithdrawService
+                   -  DepositService
+                   -  OverdraftService
+                   -  MoneyRemittanceService
+                   -  StatementService
+              type: string
+              description: ">-\r\n* `CreditTransferService` \r\n* `StandingOrderService` \r\n* `DirectDebitService` \r\n* `CardPaymentService` \r\n* `WithdrawService` \r\n* `DepositService` \r\n* `OverdraftService` \r\n* `MoneyRemittanceService` \r\n* `StatementService` \r\n* "
+           StandingOrderPaymentServiceDescription:
+              $ref: '#/components/schemas/Text'
+           StandingOrderPaymentServiceInputsandOuputs:
+              $ref: '#/components/schemas/Text'
+           StandingOrderPaymentServiceWorkProduct:
+              $ref: '#/components/schemas/Workproduct'
+           StandingOrderPaymentServiceName:
+              $ref: '#/components/schemas/Name'
+           StandingOrderExecutionDate:
+              $ref: '#/components/schemas/Datetime'
+           StandingOrderExecutionResultType:
+              $ref: '#/components/schemas/Text'
+           StandingOrderExecutionNotExecutedReasonDescription:
+              $ref: '#/components/schemas/Text'
+           StandingOrderExecutionPrincipalAmount:
+              $ref: '#/components/schemas/Amount'
+           StandingOrderExecutionFeeAmount:
+              $ref: '#/components/schemas/Amount'
+     UpdateStandingOrderPayment:
+        type: object
+        description: ''
+        properties:
+           StandingOrderRegulationReference:
+              $ref: '#/components/schemas/RuleSet'
+           StandingOrderRegulationType:
+              enum:
+                   -  Policy
+                   -  Regulation
+                   -  Law
+                   -  Guideline
+                   -  Criterion
+                   -  Standard
+              type: string
+              description: ">-\r\n* `Policy` \r\n* `Regulation` \r\n* `Law` \r\n* `Guideline` \r\n* `Criterion` \r\n* `Standard` \r\n* "
+           StandingOrderJurisdiction:
+              $ref: '#/components/schemas/Jurisdiction'
+           StandingOrderProductReference:
+              $ref: '#/components/schemas/ProductAgreement'
+           FeeAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderAmount:
+              $ref: '#/components/schemas/Amount'
+           FeeAmount:
+              $ref: '#/components/schemas/Amount'
+           PaymentDetailsDescription:
+              $ref: '#/components/schemas/PaymentArrangement'
+           StandingOrderFrequency:
+              $ref: '#/components/schemas/Frequency'
+           StandingOrderIdentification:
+              $ref: '#/components/schemas/Identifier'
+           StandingOrderStatus:
+              $ref: '#/components/schemas/Status'
+           StandingOrderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           StandingOrderCreditorAgent:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderCreditorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderDebtorAccount:
+              $ref: '#/components/schemas/Account'
+           StandingOrderCreditor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderDebtor:
+              $ref: '#/components/schemas/Involvedparty'
+           StandingOrderAmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           StandingOrderValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           StandingOrderType:
+              enum:
+                   -  UserDefinedStandingOrder
+                   -  PredefinedStandingOrder
+              type: string
+              description: ">-\r\n* `UserDefinedStandingOrder` \r\n* `PredefinedStandingOrder` \r\n* "
+           NumberofPayments:
+              type: string
+              description: >-
+                Number of the payments that will be made in completing this
+                frequency sequence including any executed since the sequence
+                start date.
+              format: Number
+           StandingOrderAccountReference:
+              $ref: '#/components/schemas/Account'
+           StandingOrderPaymentTransactionReference:
+              $ref: '#/components/schemas/PaymentTransaction'
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     ControlStandingOrderFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlStandingOrderFacilityRequest'
+        required: true
+     ExchangeStandingOrderFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeStandingOrderFacilityRequest'
+        required: true
+     ExecuteStandingOrderFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteStandingOrderFacilityRequest'
+        required: true
+     InitiateStandingOrderFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateStandingOrderFacilityRequest'
+        required: true
+     RetrieveStandingOrderFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveStandingOrderFacilityRequest'
+        required: true
+     RequestStandingOrderFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestStandingOrderFacilityRequest'
+        required: true
+     UpdateStandingOrderFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateStandingOrderFacilityRequest'
+        required: true
+     ExchangeStandingOrderPaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeStandingOrderPaymentRequest'
+        required: true
+     InitiateStandingOrderPaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateStandingOrderPaymentRequest'
+        required: true
+     RetrieveStandingOrderPaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveStandingOrderPaymentRequest'
+        required: true
+     UpdateStandingOrderPaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateStandingOrderPaymentRequest'
+        required: true
+  parameters:
+     standingorderfacilityid:
+        name: standingorderfacilityid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     standingorderpaymentid:
+        name: standingorderpaymentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     ControlStandingOrderFacilityResponse:
+        description: StandingOrderFacilityControl
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlStandingOrderFacilityResponse'
+     ExchangeStandingOrderFacilityResponse:
+        description: StandingOrderFacilityExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeStandingOrderFacilityResponse'
+     ExecuteStandingOrderFacilityResponse:
+        description: StandingOrderFacilityExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteStandingOrderFacilityResponse'
+     InitiateStandingOrderFacilityResponse:
+        description: StandingOrderFacilityInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateStandingOrderFacilityResponse'
+     RetrieveStandingOrderFacilityResponse:
+        description: StandingOrderFacilityRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveStandingOrderFacilityResponse'
+     RequestStandingOrderFacilityResponse:
+        description: StandingOrderFacilityRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestStandingOrderFacilityResponse'
+     UpdateStandingOrderFacilityResponse:
+        description: StandingOrderFacilityUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateStandingOrderFacilityResponse'
+     ExchangeStandingOrderPaymentResponse:
+        description: StandingOrderPaymentExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeStandingOrderPaymentResponse'
+     InitiateStandingOrderPaymentResponse:
+        description: StandingOrderPaymentInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateStandingOrderPaymentResponse'
+     RetrieveStandingOrderPaymentResponse:
+        description: StandingOrderPaymentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveStandingOrderPaymentResponse'
+     UpdateStandingOrderPaymentResponse:
+        description: StandingOrderPaymentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateStandingOrderPaymentResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

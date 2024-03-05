@@ -1,0 +1,2073 @@
+openapi: 3.0.1
+info:
+  title: Transaction Authorization
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain handles
+    risk based authorization for interactive customer transactions. This
+    combines the context (channel) transaction, customer details and recent
+    activity analysis as appropriate. The authorization may require a specific
+    level of party/customer authentication to get approval.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/TransactionAuthorization
+paths:
+   '/InteractiveTransactionAssessment/{interactivetransactionassessmentid}/Evaluate':
+      post:
+        tags:
+           - CR - InteractiveTransactionAssessment
+        summary: EvCR Evaluate a proposed interactive transaction for authorization
+        description: EvCR Evaluate a proposed interactive transaction for authorization
+        operationId: InteractiveTransactionAssessment/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/interactivetransactionassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/EvaluateInteractiveTransactionAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InteractiveTransactionAssessment/{interactivetransactionassessmentid}/Update':
+      put:
+        tags:
+           - CR - InteractiveTransactionAssessment
+        summary: UpCR Update details of a proposed transaction for authorization
+        description: UpCR Update details of a proposed transaction for authorization
+        operationId: InteractiveTransactionAssessment/Update
+        parameters:
+           - $ref: '#/components/parameters/interactivetransactionassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateInteractiveTransactionAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InteractiveTransactionAssessment/{interactivetransactionassessmentid}/Execute':
+      put:
+        tags:
+           - CR - InteractiveTransactionAssessment
+        summary: >-
+          ExCR Execute an automated action for transaction authorization (e.g.
+          upload data)
+        description: >-
+          ExCR Execute an automated action for transaction authorization (e.g.
+          upload data)
+        operationId: InteractiveTransactionAssessment/Execute
+        parameters:
+           - $ref: '#/components/parameters/interactivetransactionassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExecuteInteractiveTransactionAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InteractiveTransactionAssessment/{interactivetransactionassessmentid}/Request':
+      put:
+        tags:
+           - CR - InteractiveTransactionAssessment
+        summary: RqCR Request manual intervention (e.g. engage a specialist)
+        description: RqCR Request manual intervention (e.g. engage a specialist)
+        operationId: InteractiveTransactionAssessment/Request
+        parameters:
+           - $ref: '#/components/parameters/interactivetransactionassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestInteractiveTransactionAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InteractiveTransactionAssessment/{interactivetransactionassessmentid}/Retrieve':
+      get:
+        tags:
+           - CR - InteractiveTransactionAssessment
+        summary: ReCR Retrieve details about an interactive transaction authorization
+        description: ReCR Retrieve details about an interactive transaction authorization
+        operationId: InteractiveTransactionAssessment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/interactivetransactionassessmentid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveInteractiveTransactionAssessmentResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateInteractiveTransactionAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProposedTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProposedTransactionValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus(asobtainedbySDContactHandler):
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueSessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecordSessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelActivityHistoryReportReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelActivityHistoryReportFromto:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateInteractiveTransactionAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           TransactionAuthorizationGuidance:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionAuthorizationResult:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateInteractiveTransactionAssessment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer requesting the transaction
+              format: Object
+           EmployeeReference:
+              type: string
+              description: The servicing resource for assisted customer exchanges
+              format: Object
+           ProductReference:
+              type: string
+              description: The type of product involved
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to the specific product accessed by the proposed
+                transaction
+              format: Object
+           ProposedTransactionType:
+              type: string
+              description: >-
+                The general type of action proposed (e.g. balance report,
+                payment, change of address)
+              format: String
+           ProposedTransactionValue:
+              type: string
+              description: >-
+                Details key values in the transaction (e.g. amount for a
+                payment, dates for reporting, counterparties)
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record for the active contact where the
+                transaction is sourced
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus(asobtainedbySDContactHandler):
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueSessionMechanism:
+              type: string
+              description: >-
+                The mechanism for the session (e.g.. web, phone, chat, video,
+                VOIP, face to face at a branch  note there can be concurrent
+                sessions within a single customer contact)
+              format: String
+           SessionDialogueRecordSessionStartEndTime:
+              type: string
+              description: The start and end times for the session
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactActivityRecord:
+              type: string
+              description: >-
+                Description of all actions performed during the contact,
+                including all sessions
+              format: String
+           CustomerContactResult:
+              type: string
+              description: >-
+                The interim result of the contact (subject to transaction
+                approval)
+              format: String
+           ChannelActivityHistoryReportReference:
+              type: string
+              description: >-
+                Reference to a channel activity report extracted for the
+                customer
+              format: Object
+           ChannelActivityHistoryReportFromto:
+              type: string
+              description: The period for the channel activity report
+              format: String
+           ChannelActivityHistoryReport:
+              type: string
+              description: >-
+                The content of the report extracting recent channel activity
+                records to support the transaction authorization decision
+              format: String
+           TransactionAuthorizationGuidance:
+              type: string
+              description: >-
+                In case of failure, the guidance explains reason and details if
+                additional information can be considered
+              format: String
+           TransactionAuthorizationResult:
+              type: string
+              description: >-
+                Indicates success or failure or required increased
+                authentication level to be acquired for authorization
+              format: String
+     UpdateInteractiveTransactionAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProposedTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProposedTransactionValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus(asobtainedbySDContactHandler):
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueSessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecordSessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelActivityHistoryReportReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelActivityHistoryReportFromto:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateInteractiveTransactionAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProposedTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProposedTransactionValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus(asobtainedbySDContactHandler):
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueSessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecordSessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelActivityHistoryReportReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelActivityHistoryReportFromto:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateInteractiveTransactionAssessment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer requesting the transaction
+              format: Object
+           EmployeeReference:
+              type: string
+              description: The servicing resource for assisted customer exchanges
+              format: Object
+           ProductReference:
+              type: string
+              description: The type of product involved
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to the specific product accessed by the proposed
+                transaction
+              format: Object
+           ProposedTransactionType:
+              type: string
+              description: >-
+                The general type of action proposed (e.g. balance report,
+                payment, change of address)
+              format: String
+           ProposedTransactionValue:
+              type: string
+              description: >-
+                Details key values in the transaction (e.g. amount for a
+                payment, dates for reporting, counterparties)
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record for the active contact where the
+                transaction is sourced
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus(asobtainedbySDContactHandler):
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueSessionMechanism:
+              type: string
+              description: >-
+                The mechanism for the session (e.g.. web, phone, chat, video,
+                VOIP, face to face at a branch  note there can be concurrent
+                sessions within a single customer contact)
+              format: String
+           SessionDialogueRecordSessionStartEndTime:
+              type: string
+              description: The start and end times for the session
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactActivityRecord:
+              type: string
+              description: >-
+                Description of all actions performed during the contact,
+                including all sessions
+              format: String
+           CustomerContactResult:
+              type: string
+              description: >-
+                The interim result of the contact (subject to transaction
+                approval)
+              format: String
+           ChannelActivityHistoryReportReference:
+              type: string
+              description: >-
+                Reference to a channel activity report extracted for the
+                customer
+              format: Object
+           ChannelActivityHistoryReportFromto:
+              type: string
+              description: The period for the channel activity report
+              format: String
+           ChannelActivityHistoryReport:
+              type: string
+              description: >-
+                The content of the report extracting recent channel activity
+                records to support the transaction authorization decision
+              format: String
+           TransactionAuthorizationGuidance:
+              type: string
+              description: >-
+                In case of failure, the guidance explains reason and details if
+                additional information can be considered
+              format: String
+           TransactionAuthorizationResult:
+              type: string
+              description: >-
+                Indicates success or failure or required increased
+                authentication level to be acquired for authorization
+              format: String
+     ExecuteInteractiveTransactionAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProposedTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProposedTransactionValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus(asobtainedbySDContactHandler):
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueSessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecordSessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelActivityHistoryReportReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelActivityHistoryReportFromto:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteInteractiveTransactionAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           TransactionAuthorizationGuidance:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionAuthorizationResult:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteInteractiveTransactionAssessment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer requesting the transaction
+              format: Object
+           EmployeeReference:
+              type: string
+              description: The servicing resource for assisted customer exchanges
+              format: Object
+           ProductReference:
+              type: string
+              description: The type of product involved
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to the specific product accessed by the proposed
+                transaction
+              format: Object
+           ProposedTransactionType:
+              type: string
+              description: >-
+                The general type of action proposed (e.g. balance report,
+                payment, change of address)
+              format: String
+           ProposedTransactionValue:
+              type: string
+              description: >-
+                Details key values in the transaction (e.g. amount for a
+                payment, dates for reporting, counterparties)
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record for the active contact where the
+                transaction is sourced
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus(asobtainedbySDContactHandler):
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueSessionMechanism:
+              type: string
+              description: >-
+                The mechanism for the session (e.g.. web, phone, chat, video,
+                VOIP, face to face at a branch  note there can be concurrent
+                sessions within a single customer contact)
+              format: String
+           SessionDialogueRecordSessionStartEndTime:
+              type: string
+              description: The start and end times for the session
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactActivityRecord:
+              type: string
+              description: >-
+                Description of all actions performed during the contact,
+                including all sessions
+              format: String
+           CustomerContactResult:
+              type: string
+              description: >-
+                The interim result of the contact (subject to transaction
+                approval)
+              format: String
+           ChannelActivityHistoryReportReference:
+              type: string
+              description: >-
+                Reference to a channel activity report extracted for the
+                customer
+              format: Object
+           ChannelActivityHistoryReportFromto:
+              type: string
+              description: The period for the channel activity report
+              format: String
+           ChannelActivityHistoryReport:
+              type: string
+              description: >-
+                The content of the report extracting recent channel activity
+                records to support the transaction authorization decision
+              format: String
+           TransactionAuthorizationGuidance:
+              type: string
+              description: >-
+                In case of failure, the guidance explains reason and details if
+                additional information can be considered
+              format: String
+           TransactionAuthorizationResult:
+              type: string
+              description: >-
+                Indicates success or failure or required increased
+                authentication level to be acquired for authorization
+              format: String
+     RequestInteractiveTransactionAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProposedTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProposedTransactionValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus(asobtainedbySDContactHandler):
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueSessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecordSessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelActivityHistoryReportReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelActivityHistoryReportFromto:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestInteractiveTransactionAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           TransactionAuthorizationGuidance:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionAuthorizationResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestInteractiveTransactionAssessment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer requesting the transaction
+              format: Object
+           EmployeeReference:
+              type: string
+              description: The servicing resource for assisted customer exchanges
+              format: Object
+           ProductReference:
+              type: string
+              description: The type of product involved
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to the specific product accessed by the proposed
+                transaction
+              format: Object
+           ProposedTransactionType:
+              type: string
+              description: >-
+                The general type of action proposed (e.g. balance report,
+                payment, change of address)
+              format: String
+           ProposedTransactionValue:
+              type: string
+              description: >-
+                Details key values in the transaction (e.g. amount for a
+                payment, dates for reporting, counterparties)
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record for the active contact where the
+                transaction is sourced
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus(asobtainedbySDContactHandler):
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueSessionMechanism:
+              type: string
+              description: >-
+                The mechanism for the session (e.g.. web, phone, chat, video,
+                VOIP, face to face at a branch  note there can be concurrent
+                sessions within a single customer contact)
+              format: String
+           SessionDialogueRecordSessionStartEndTime:
+              type: string
+              description: The start and end times for the session
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactActivityRecord:
+              type: string
+              description: >-
+                Description of all actions performed during the contact,
+                including all sessions
+              format: String
+           CustomerContactResult:
+              type: string
+              description: >-
+                The interim result of the contact (subject to transaction
+                approval)
+              format: String
+           ChannelActivityHistoryReportReference:
+              type: string
+              description: >-
+                Reference to a channel activity report extracted for the
+                customer
+              format: Object
+           ChannelActivityHistoryReportFromto:
+              type: string
+              description: The period for the channel activity report
+              format: String
+           ChannelActivityHistoryReport:
+              type: string
+              description: >-
+                The content of the report extracting recent channel activity
+                records to support the transaction authorization decision
+              format: String
+           TransactionAuthorizationGuidance:
+              type: string
+              description: >-
+                In case of failure, the guidance explains reason and details if
+                additional information can be considered
+              format: String
+           TransactionAuthorizationResult:
+              type: string
+              description: >-
+                Indicates success or failure or required increased
+                authentication level to be acquired for authorization
+              format: String
+     RetrieveInteractiveTransactionAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProposedTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProposedTransactionValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordAuthenticationStatus(asobtainedbySDContactHandler):
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueSessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecordSessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactActivityRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelActivityHistoryReportReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelActivityHistoryReportFromto:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionAuthorizationGuidance:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionAuthorizationResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveInteractiveTransactionAssessment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer requesting the transaction
+              format: Object
+           EmployeeReference:
+              type: string
+              description: The servicing resource for assisted customer exchanges
+              format: Object
+           ProductReference:
+              type: string
+              description: The type of product involved
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to the specific product accessed by the proposed
+                transaction
+              format: Object
+           ProposedTransactionType:
+              type: string
+              description: >-
+                The general type of action proposed (e.g. balance report,
+                payment, change of address)
+              format: String
+           ProposedTransactionValue:
+              type: string
+              description: >-
+                Details key values in the transaction (e.g. amount for a
+                payment, dates for reporting, counterparties)
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the contact record for the active contact where the
+                transaction is sourced
+              format: Object
+           CustomerContactRecord:
+              type: string
+              description: >-
+                The contact record consolidates all aspects of the contact that
+                is crossreferenced by all  contact functions and called
+                servicing sessions that make up the contact
+              format: String
+           CustomerContactRecordCustomerReference:
+              type: string
+              description: >-
+                The customer reference as provided by the contacting party and
+                verified by the authentication function
+              format: Object
+           CustomerContactRecordContactDevice:
+              type: string
+              description: >-
+                The contact device can be determined by the channel operations
+                facilities (e.g. URL/ANIphone number)
+              format: String
+           CustomerContactRecordAuthenticationStatus(asobtainedbySDContactHandler):
+              type: string
+              description: >-
+                The contact authentication level is determined by the
+                authentication function and can be updated during the contact
+              format: String
+           CustomerContactRecordRoutingSelectionStatus:
+              type: string
+              description: The routing selections made through the contact
+              format: String
+           CustomerContactRecordMenuSelection:
+              type: string
+              description: >-
+                The requested service from a menu option can be indicated by the
+                customer when initiating or during contact
+              format: String
+           CustomerContactRecordServicingRequest:
+              type: string
+              description: >-
+                The customer may provide details of servicing resource request
+                when initiating or during contact
+              format: String
+           CustomerContactRecordServicingEventHistory:
+              type: string
+              description: >-
+                Contact Handler can reference recent servicing activity for
+                routing, security and servicing purposes (obtained from Service
+                Domain Channel Activity History)
+              format: String
+           CustomerContactRecordServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing position  can be where an inbound
+                contact is routed, or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordServicingResourceReference:
+              type: string
+              description: >-
+                Reference to the servicing resource  can be to handle an
+                inbound contact or the source of an outbound contact request
+              format: Object
+           CustomerContactRecordActivityRecord:
+              type: string
+              description: >-
+                Records the actions performed during contact, including all
+                dialogue sessions
+              format: String
+           CustomerSessionDialogueReference:
+              type: string
+              description: >-
+                Reference to any contact session dialogue records created during
+                the contact  there can be several
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueSessionMechanism:
+              type: string
+              description: >-
+                The mechanism for the session (e.g.. web, phone, chat, video,
+                VOIP, face to face at a branch  note there can be concurrent
+                sessions within a single customer contact)
+              format: String
+           SessionDialogueRecordSessionStartEndTime:
+              type: string
+              description: The start and end times for the session
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+           CustomerContactRecordDuration:
+              type: string
+              description: Records the start and end date times for the contact
+              format: String
+           CustomerContactActivityRecord:
+              type: string
+              description: >-
+                Description of all actions performed during the contact,
+                including all sessions
+              format: String
+           CustomerContactResult:
+              type: string
+              description: >-
+                The interim result of the contact (subject to transaction
+                approval)
+              format: String
+           ChannelActivityHistoryReportReference:
+              type: string
+              description: >-
+                Reference to a channel activity report extracted for the
+                customer
+              format: Object
+           ChannelActivityHistoryReportFromto:
+              type: string
+              description: The period for the channel activity report
+              format: String
+           ChannelActivityHistoryReport:
+              type: string
+              description: >-
+                The content of the report extracting recent channel activity
+                records to support the transaction authorization decision
+              format: String
+           TransactionAuthorizationGuidance:
+              type: string
+              description: >-
+                In case of failure, the guidance explains reason and details if
+                additional information can be considered
+              format: String
+           TransactionAuthorizationResult:
+              type: string
+              description: >-
+                Indicates success or failure or required increased
+                authentication level to be acquired for authorization
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateInteractiveTransactionAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateInteractiveTransactionAssessmentRequest
+        required: true
+     UpdateInteractiveTransactionAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateInteractiveTransactionAssessmentRequest
+        required: true
+     ExecuteInteractiveTransactionAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteInteractiveTransactionAssessmentRequest
+        required: true
+     RequestInteractiveTransactionAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestInteractiveTransactionAssessmentRequest
+        required: true
+     RetrieveInteractiveTransactionAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     interactivetransactionassessmentid:
+        name: interactivetransactionassessmentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateInteractiveTransactionAssessmentResponse:
+        description: InteractiveTransactionAssessmentEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateInteractiveTransactionAssessmentResponse
+     UpdateInteractiveTransactionAssessmentResponse:
+        description: InteractiveTransactionAssessmentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateInteractiveTransactionAssessmentResponse
+     ExecuteInteractiveTransactionAssessmentResponse:
+        description: InteractiveTransactionAssessmentExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteInteractiveTransactionAssessmentResponse
+     RequestInteractiveTransactionAssessmentResponse:
+        description: InteractiveTransactionAssessmentRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestInteractiveTransactionAssessmentResponse
+     RetrieveInteractiveTransactionAssessmentResponse:
+        description: InteractiveTransactionAssessmentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveInteractiveTransactionAssessmentResponse
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

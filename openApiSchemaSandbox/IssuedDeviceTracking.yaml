@@ -1,0 +1,1004 @@
+openapi: 3.0.1
+info:
+  title: Issued Device Tracking
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain handles
+    operational access to issued device tracking services. Services report on
+    the status of devices such as cards, fobs, etc. that have been issued to
+    customers. Service notifications include fraud warnings/alerts and device
+    cancellation.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/IssuedDeviceTracking
+paths:
+   '/IssuedDeviceState/{issueddevicestateid}/Initiate':
+      post:
+        tags:
+           - CR - IssuedDeviceState
+        summary: InCR Initiate tracking for an allocated issued device
+        description: InCR Initiate tracking for an allocated issued device
+        operationId: IssuedDeviceState/Initiate
+        parameters:
+           - $ref: '#/components/parameters/issueddevicestateid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateIssuedDeviceStateRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/IssuedDeviceState/{issueddevicestateid}/Update':
+      put:
+        tags:
+           - CR - IssuedDeviceState
+        summary: UpCR Update details of a tracked issued device
+        description: UpCR Update details of a tracked issued device
+        operationId: IssuedDeviceState/Update
+        parameters:
+           - $ref: '#/components/parameters/issueddevicestateid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateIssuedDeviceStateRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/IssuedDeviceState/{issueddevicestateid}/Retrieve':
+      get:
+        tags:
+           - CR - IssuedDeviceState
+        summary: ReCR Retrieve details about a tracked device
+        description: ReCR Retrieve details about a tracked device
+        operationId: IssuedDeviceState/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/issueddevicestateid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveIssuedDeviceStateResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InternalNotification/{internalnotificationid}/Update':
+      put:
+        tags:
+           - BQ - InternalNotification
+        summary: UpBQ Update captured internal status details for an issued device
+        description: UpBQ Update captured internal status details for an issued device
+        operationId: InternalNotification/Update
+        parameters:
+           - $ref: '#/components/parameters/internalnotificationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateInternalNotificationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InternalNotification/{internalnotificationid}/Capture':
+      put:
+        tags:
+           - BQ - InternalNotification
+        summary: CaBQ Capture status notification for an issued device
+        description: CaBQ Capture status notification for an issued device
+        operationId: InternalNotification/Capture
+        parameters:
+           - $ref: '#/components/parameters/internalnotificationid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureInternalNotificationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InternalNotification/{internalnotificationid}/Retrieve':
+      get:
+        tags:
+           - BQ - InternalNotification
+        summary: ReBQ Retrieve internal status notification details
+        description: ReBQ Retrieve internal status notification details
+        operationId: InternalNotification/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/internalnotificationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveInternalNotificationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ExternalReport/{externalreportid}/Update':
+      put:
+        tags:
+           - BQ - ExternalReport
+        summary: >-
+          UpBQ Update captured externally reported status details for an issued
+          device
+        description: >-
+          UpBQ Update captured externally reported status details for an issued
+          device
+        operationId: ExternalReport/Update
+        parameters:
+           - $ref: '#/components/parameters/externalreportid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateExternalReportRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ExternalReport/{externalreportid}/Capture':
+      put:
+        tags:
+           - BQ - ExternalReport
+        summary: CaBQ Capture external notification status details for an issued device
+        description: CaBQ Capture external notification status details for an issued device
+        operationId: ExternalReport/Capture
+        parameters:
+           - $ref: '#/components/parameters/externalreportid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureExternalReportRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ExternalReport/{externalreportid}/Retrieve':
+      get:
+        tags:
+           - BQ - ExternalReport
+        summary: ReBQ Retrieve external status notification details
+        description: ReBQ Retrieve external status notification details
+        operationId: ExternalReport/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/externalreportid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveExternalReportResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateIssuedDeviceStateRequest:
+        type: object
+        description: ''
+        properties:
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateIssuedDeviceStateResponse:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateIssuedDeviceState:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: >-
+                Reference to the external information feed service supplier (IP)
+                providing device status reports
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: >-
+                Reference to the issued device, include its status as maintained
+                by administration
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: Is the status of the issued device that is updated
+              format: String
+     UpdateIssuedDeviceStateRequest:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateIssuedDeviceStateResponse:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateIssuedDeviceState:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: >-
+                Reference to the external information feed service supplier (IP)
+                providing device status reports
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: >-
+                Reference to the issued device, include its status as maintained
+                by administration
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: Is the status of the issued device that is updated
+              format: String
+     RetrieveIssuedDeviceStateResponse:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveIssuedDeviceState:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: >-
+                Reference to the external information feed service supplier (IP)
+                providing device status reports
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: >-
+                Reference to the issued device, include its status as maintained
+                by administration
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: Is the status of the issued device that is updated
+              format: String
+     UpdateInternalNotificationRequest:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           IssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           StatusUpdateDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           StatusUpdateResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateInternalNotificationResponse:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           IssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           StatusUpdateDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           StatusUpdateResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateInternalNotification:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: >-
+                Reference to the external information feed service supplier (IP)
+                providing device status reports
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: >-
+                Reference to the issued device, include its status as maintained
+                by administration
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: Is the status of the issued device that is updated
+              format: String
+     CaptureInternalNotificationRequest:
+        type: object
+        description: ''
+        properties:
+           IssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           StatusUpdateDetails:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureInternalNotificationResponse:
+        type: object
+        description: ''
+        properties:
+           StatusUpdateResult:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureInternalNotification:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: >-
+                Reference to the external information feed service supplier (IP)
+                providing device status reports
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: >-
+                Reference to the issued device, include its status as maintained
+                by administration
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: Is the status of the issued device that is updated
+              format: String
+     RetrieveInternalNotificationResponse:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           IssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           StatusUpdateDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           StatusUpdateResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveInternalNotification:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: >-
+                Reference to the external information feed service supplier (IP)
+                providing device status reports
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: >-
+                Reference to the issued device, include its status as maintained
+                by administration
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: Is the status of the issued device that is updated
+              format: String
+     UpdateExternalReportRequest:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           InformationFeedServiceContentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           IssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           StatusUpdateDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           StatusUpdateResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateExternalReportResponse:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           InformationFeedServiceContentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           IssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           StatusUpdateDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           StatusUpdateResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateExternalReport:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: >-
+                Reference to the external information feed service supplier (IP)
+                providing device status reports
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: >-
+                Reference to the issued device, include its status as maintained
+                by administration
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: Is the status of the issued device that is updated
+              format: String
+     CaptureExternalReportRequest:
+        type: object
+        description: ''
+        properties:
+           InformationFeedServiceContentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           IssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           StatusUpdateDetails:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureExternalReportResponse:
+        type: object
+        description: ''
+        properties:
+           StatusUpdateResult:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureExternalReport:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: >-
+                Reference to the external information feed service supplier (IP)
+                providing device status reports
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: >-
+                Reference to the issued device, include its status as maintained
+                by administration
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: Is the status of the issued device that is updated
+              format: String
+     RetrieveExternalReportResponse:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           InformationFeedServiceContentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           IssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           StatusUpdateDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           StatusUpdateResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveExternalReport:
+        type: object
+        description: ''
+        properties:
+           InformationFeedProviderReference:
+              type: string
+              description: >-
+                Reference to the external information feed service supplier (IP)
+                providing device status reports
+              format: Object
+           IssuedDeviceAllocationInstanceReference:
+              type: string
+              description: >-
+                Reference to the issued device, include its status as maintained
+                by administration
+              format: Object
+           IssuedDeviceAllocationStatus:
+              type: string
+              description: Is the status of the issued device that is updated
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateIssuedDeviceStateRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateIssuedDeviceStateRequest'
+        required: true
+     UpdateIssuedDeviceStateRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateIssuedDeviceStateRequest'
+        required: true
+     RetrieveIssuedDeviceStateRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateInternalNotificationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInternalNotificationRequest'
+        required: true
+     CaptureInternalNotificationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureInternalNotificationRequest'
+        required: true
+     RetrieveInternalNotificationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateExternalReportRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateExternalReportRequest'
+        required: true
+     CaptureExternalReportRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureExternalReportRequest'
+        required: true
+     RetrieveExternalReportRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     issueddevicestateid:
+        name: issueddevicestateid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     internalnotificationid:
+        name: internalnotificationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     externalreportid:
+        name: externalreportid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateIssuedDeviceStateResponse:
+        description: IssuedDeviceStateInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateIssuedDeviceStateResponse'
+     UpdateIssuedDeviceStateResponse:
+        description: IssuedDeviceStateUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateIssuedDeviceStateResponse'
+     RetrieveIssuedDeviceStateResponse:
+        description: IssuedDeviceStateRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveIssuedDeviceStateResponse'
+     UpdateInternalNotificationResponse:
+        description: InternalNotificationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInternalNotificationResponse'
+     CaptureInternalNotificationResponse:
+        description: InternalNotificationCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureInternalNotificationResponse'
+     RetrieveInternalNotificationResponse:
+        description: InternalNotificationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveInternalNotificationResponse'
+     UpdateExternalReportResponse:
+        description: ExternalReportUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateExternalReportResponse'
+     CaptureExternalReportResponse:
+        description: ExternalReportCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureExternalReportResponse'
+     RetrieveExternalReportResponse:
+        description: ExternalReportRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveExternalReportResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

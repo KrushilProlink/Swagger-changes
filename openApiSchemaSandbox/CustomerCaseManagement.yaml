@@ -1,0 +1,1468 @@
+openapi: 3.0.1
+info:
+  title: Customer Case Management
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Track and assess case load
+    and resolution activity  allocate resources as necessary to optimize case
+    resolution performance
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CustomerCaseManagement
+paths:
+   '/CustomerCaseManagementPlan/{customercasemanagementplanid}/Create':
+      post:
+        tags:
+           - CR - CustomerCaseManagementPlan
+        summary: CrCR Create the management plan for customer case handling
+        description: CrCR Create the management plan for customer case handling
+        operationId: CustomerCaseManagementPlan/Create
+        parameters:
+           - $ref: '#/components/parameters/customercasemanagementplanid'
+        requestBody:
+          $ref: '#/components/requestBodies/CreateCustomerCaseManagementPlanRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerCaseManagementPlan/{customercasemanagementplanid}/Update':
+      put:
+        tags:
+           - CR - CustomerCaseManagementPlan
+        summary: UpCR Update aspects of the customer case handling management plan
+        description: UpCR Update aspects of the customer case handling management plan
+        operationId: CustomerCaseManagementPlan/Update
+        parameters:
+           - $ref: '#/components/parameters/customercasemanagementplanid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCustomerCaseManagementPlanRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerCaseManagementPlan/{customercasemanagementplanid}/Request':
+      put:
+        tags:
+           - CR - CustomerCaseManagementPlan
+        summary: RqCR Request manual intervention with the plan
+        description: RqCR Request manual intervention with the plan
+        operationId: CustomerCaseManagementPlan/Request
+        parameters:
+           - $ref: '#/components/parameters/customercasemanagementplanid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestCustomerCaseManagementPlanRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerCaseManagementPlan/{customercasemanagementplanid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerCaseManagementPlan
+        summary: ReCR Retrieve details about the customer case handling management plan
+        description: ReCR Retrieve details about the customer case handling management plan
+        operationId: CustomerCaseManagementPlan/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customercasemanagementplanid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCustomerCaseManagementPlanResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Rules/{rulesid}/Update':
+      put:
+        tags:
+           - BQ - Rules
+        summary: UpBQ Update details of the case resolution criterion
+        description: UpBQ Update details of the case resolution criterion
+        operationId: Rules/Update
+        parameters:
+           - $ref: '#/components/parameters/rulesid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateRulesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Rules/{rulesid}/Request':
+      put:
+        tags:
+           - BQ - Rules
+        summary: RqBQ Request manual intervention in the case resolution rules
+        description: RqBQ Request manual intervention in the case resolution rules
+        operationId: Rules/Request
+        parameters:
+           - $ref: '#/components/parameters/rulesid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestRulesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Rules/{rulesid}/Retrieve':
+      get:
+        tags:
+           - BQ - Rules
+        summary: ReBQ Retrieve details about the customer case criterion
+        description: ReBQ Retrieve details about the customer case criterion
+        operationId: Rules/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/rulesid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveRulesResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Performance/{performanceid}/Update':
+      put:
+        tags:
+           - BQ - Performance
+        summary: UpBQ Update performance analysis related information
+        description: UpBQ Update performance analysis related information
+        operationId: Performance/Update
+        parameters:
+           - $ref: '#/components/parameters/performanceid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePerformanceRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Performance/{performanceid}/Request':
+      put:
+        tags:
+           - BQ - Performance
+        summary: RqBQ Request manual intervention in unit performance analysis
+        description: RqBQ Request manual intervention in unit performance analysis
+        operationId: Performance/Request
+        parameters:
+           - $ref: '#/components/parameters/performanceid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestPerformanceRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Performance/{performanceid}/Retrieve':
+      get:
+        tags:
+           - BQ - Performance
+        summary: >-
+          ReBQ Retrieve details about business unit performance assessment
+          activity
+        description: >-
+          ReBQ Retrieve details about business unit performance assessment
+          activity
+        operationId: Performance/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/performanceid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePerformanceResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     CreateCustomerCaseManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: "\r\n"
+              format: String
+     CreateCustomerCaseManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: "\r\n"
+              format: String
+     CreateCustomerCaseManagementPlan:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan. This may
+                define required actions and target performance over a fixed
+                period or can be a 'rolling' plan that is continually refined
+                based on experience
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The specific policies and guidelines for case resolution
+                employees
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by customer case management
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: >-
+                The target and actual customer case service schedule  recording
+                planned and actual service availability and expected
+                throughput/productivity
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: >-
+                The setup/organization for the customer case business function
+                (covers operational and management/oversight roles and
+                responsibilities)
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill/qualification profile of the
+                customer case handling staff (target and actual)
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: >-
+                Details of staff training and certification activity (planned
+                and actual)
+              format: String
+     UpdateCustomerCaseManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCustomerCaseManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCustomerCaseManagementPlan:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan. This may
+                define required actions and target performance over a fixed
+                period or can be a 'rolling' plan that is continually refined
+                based on experience
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The specific policies and guidelines for case resolution
+                employees
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by customer case management
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: >-
+                The target and actual customer case service schedule  recording
+                planned and actual service availability and expected
+                throughput/productivity
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: >-
+                The setup/organization for the customer case business function
+                (covers operational and management/oversight roles and
+                responsibilities)
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill/qualification profile of the
+                customer case handling staff (target and actual)
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: >-
+                Details of staff training and certification activity (planned
+                and actual)
+              format: String
+     RequestCustomerCaseManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestCustomerCaseManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestCustomerCaseManagementPlan:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan. This may
+                define required actions and target performance over a fixed
+                period or can be a 'rolling' plan that is continually refined
+                based on experience
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The specific policies and guidelines for case resolution
+                employees
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by customer case management
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: >-
+                The target and actual customer case service schedule  recording
+                planned and actual service availability and expected
+                throughput/productivity
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: >-
+                The setup/organization for the customer case business function
+                (covers operational and management/oversight roles and
+                responsibilities)
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill/qualification profile of the
+                customer case handling staff (target and actual)
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: >-
+                Details of staff training and certification activity (planned
+                and actual)
+              format: String
+     RetrieveCustomerCaseManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCustomerCaseManagementPlan:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan. This may
+                define required actions and target performance over a fixed
+                period or can be a 'rolling' plan that is continually refined
+                based on experience
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The specific policies and guidelines for case resolution
+                employees
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by customer case management
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: >-
+                The target and actual customer case service schedule  recording
+                planned and actual service availability and expected
+                throughput/productivity
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: >-
+                The setup/organization for the customer case business function
+                (covers operational and management/oversight roles and
+                responsibilities)
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill/qualification profile of the
+                customer case handling staff (target and actual)
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: >-
+                Details of staff training and certification activity (planned
+                and actual)
+              format: String
+     UpdateRulesRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseDecisionCriterion:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionRules:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionAnalysis:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateRulesResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseDecisionCriterion:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionRules:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionAnalysis:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateRules:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan. This may
+                define required actions and target performance over a fixed
+                period or can be a 'rolling' plan that is continually refined
+                based on experience
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The specific policies and guidelines for case resolution
+                employees
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by customer case management
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: >-
+                The target and actual customer case service schedule  recording
+                planned and actual service availability and expected
+                throughput/productivity
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: >-
+                The setup/organization for the customer case business function
+                (covers operational and management/oversight roles and
+                responsibilities)
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill/qualification profile of the
+                customer case handling staff (target and actual)
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: >-
+                Details of staff training and certification activity (planned
+                and actual)
+              format: String
+     RequestRulesRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseDecisionCriterion:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionRules:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionAnalysis:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestRulesResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseDecisionCriterion:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionRules:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionAnalysis:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestRules:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan. This may
+                define required actions and target performance over a fixed
+                period or can be a 'rolling' plan that is continually refined
+                based on experience
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The specific policies and guidelines for case resolution
+                employees
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by customer case management
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: >-
+                The target and actual customer case service schedule  recording
+                planned and actual service availability and expected
+                throughput/productivity
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: >-
+                The setup/organization for the customer case business function
+                (covers operational and management/oversight roles and
+                responsibilities)
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill/qualification profile of the
+                customer case handling staff (target and actual)
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: >-
+                Details of staff training and certification activity (planned
+                and actual)
+              format: String
+     RetrieveRulesResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseDecisionCriterion:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionRules:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionAnalysis:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseDecisionCriterionHistory:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveRules:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan. This may
+                define required actions and target performance over a fixed
+                period or can be a 'rolling' plan that is continually refined
+                based on experience
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The specific policies and guidelines for case resolution
+                employees
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by customer case management
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: >-
+                The target and actual customer case service schedule  recording
+                planned and actual service availability and expected
+                throughput/productivity
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: >-
+                The setup/organization for the customer case business function
+                (covers operational and management/oversight roles and
+                responsibilities)
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill/qualification profile of the
+                customer case handling staff (target and actual)
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: >-
+                Details of staff training and certification activity (planned
+                and actual)
+              format: String
+     UpdatePerformanceRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseResourceUtilization:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseLoadingProjections:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseResolutionServiceStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdatePerformanceResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseResourceUtilization:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseLoadingProjections:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseResolutionServiceStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdatePerformance:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan. This may
+                define required actions and target performance over a fixed
+                period or can be a 'rolling' plan that is continually refined
+                based on experience
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The specific policies and guidelines for case resolution
+                employees
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by customer case management
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: >-
+                The target and actual customer case service schedule  recording
+                planned and actual service availability and expected
+                throughput/productivity
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: >-
+                The setup/organization for the customer case business function
+                (covers operational and management/oversight roles and
+                responsibilities)
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill/qualification profile of the
+                customer case handling staff (target and actual)
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: >-
+                Details of staff training and certification activity (planned
+                and actual)
+              format: String
+     RequestPerformanceRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseResourceUtilization:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseLoadingProjections:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseResolutionServiceStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestPerformanceResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseResourceUtilization:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseLoadingProjections:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseResolutionServiceStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestPerformance:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan. This may
+                define required actions and target performance over a fixed
+                period or can be a 'rolling' plan that is continually refined
+                based on experience
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The specific policies and guidelines for case resolution
+                employees
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by customer case management
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: >-
+                The target and actual customer case service schedule  recording
+                planned and actual service availability and expected
+                throughput/productivity
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: >-
+                The setup/organization for the customer case business function
+                (covers operational and management/oversight roles and
+                responsibilities)
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill/qualification profile of the
+                customer case handling staff (target and actual)
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: >-
+                Details of staff training and certification activity (planned
+                and actual)
+              format: String
+     RetrievePerformanceResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseResourceUtilization:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseLoadingProjections:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseResolutionServiceStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseServiceStatisticRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrievePerformance:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan. This may
+                define required actions and target performance over a fixed
+                period or can be a 'rolling' plan that is continually refined
+                based on experience
+              format: String
+           CustomerCasePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The specific policies and guidelines for case resolution
+                employees
+              format: String
+           CustomerCaseServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by customer case management
+              format: String
+           CustomerCaseServiceSchedule:
+              type: string
+              description: >-
+                The target and actual customer case service schedule  recording
+                planned and actual service availability and expected
+                throughput/productivity
+              format: String
+           CustomerCaseServiceOperatingConfiguration:
+              type: string
+              description: >-
+                The setup/organization for the customer case business function
+                (covers operational and management/oversight roles and
+                responsibilities)
+              format: String
+           CustomerCaseResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill/qualification profile of the
+                customer case handling staff (target and actual)
+              format: String
+           CustomerCaseTrainingPlan:
+              type: string
+              description: >-
+                Details of staff training and certification activity (planned
+                and actual)
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     CreateCustomerCaseManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateCustomerCaseManagementPlanRequest'
+        required: true
+     UpdateCustomerCaseManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerCaseManagementPlanRequest'
+        required: true
+     RequestCustomerCaseManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCustomerCaseManagementPlanRequest'
+        required: true
+     RetrieveCustomerCaseManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateRulesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRulesRequest'
+        required: true
+     RequestRulesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestRulesRequest'
+        required: true
+     RetrieveRulesRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdatePerformanceRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePerformanceRequest'
+        required: true
+     RequestPerformanceRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPerformanceRequest'
+        required: true
+     RetrievePerformanceRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     customercasemanagementplanid:
+        name: customercasemanagementplanid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     rulesid:
+        name: rulesid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     performanceid:
+        name: performanceid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     CreateCustomerCaseManagementPlanResponse:
+        description: CustomerCaseManagementPlanCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateCustomerCaseManagementPlanResponse'
+     UpdateCustomerCaseManagementPlanResponse:
+        description: CustomerCaseManagementPlanUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerCaseManagementPlanResponse'
+     RequestCustomerCaseManagementPlanResponse:
+        description: CustomerCaseManagementPlanRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCustomerCaseManagementPlanResponse'
+     RetrieveCustomerCaseManagementPlanResponse:
+        description: CustomerCaseManagementPlanRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCustomerCaseManagementPlanResponse'
+     UpdateRulesResponse:
+        description: RulesUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRulesResponse'
+     RequestRulesResponse:
+        description: RulesRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestRulesResponse'
+     RetrieveRulesResponse:
+        description: RulesRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveRulesResponse'
+     UpdatePerformanceResponse:
+        description: PerformanceUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePerformanceResponse'
+     RequestPerformanceResponse:
+        description: PerformanceRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPerformanceResponse'
+     RetrievePerformanceResponse:
+        description: PerformanceRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePerformanceResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

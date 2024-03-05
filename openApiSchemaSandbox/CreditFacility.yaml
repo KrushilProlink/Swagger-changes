@@ -1,0 +1,2911 @@
+openapi: 3.0.1
+info:
+  title: Credit Facility
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | The Credit Facility Service
+    Domain manages the Credit Facilities that a Corporate Customer has with the
+    bank. A Credit Facility is an agreement between the bank and a (corporate)
+    customer to allow the customer to acquire asset products from the bank up to
+    the limit of the credit facility without the need for a full due diligence
+    and underwriting for each of these products.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CreditFacility
+paths:
+   '/CreditLineFacility/{creditlinefacilityid}/Initiate':
+      post:
+        tags:
+           - CR - CreditLineFacility
+        summary: InCR Initiate a credit facility
+        description: InCR Initiate a credit facility
+        operationId: CreditLineFacility/Initiate
+        parameters:
+           - $ref: '#/components/parameters/creditlinefacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateCreditLineFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CreditLineFacility/{creditlinefacilityid}/Update':
+      put:
+        tags:
+           - CR - CreditLineFacility
+        summary: UpCR Update details for an existing credit facility
+        description: UpCR Update details for an existing credit facility
+        operationId: CreditLineFacility/Update
+        parameters:
+           - $ref: '#/components/parameters/creditlinefacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCreditLineFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CreditLineFacility/{creditlinefacilityid}/Retrieve':
+      get:
+        tags:
+           - CR - CreditLineFacility
+        summary: ReCR Retrieve details about a credit facility
+        description: ReCR Retrieve details about a credit facility
+        operationId: CreditLineFacility/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/creditlinefacilityid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCreditLineFacilityResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ServiceFees/{servicefeesid}/Execute':
+      put:
+        tags:
+           - BQ - ServiceFees
+        summary: ExBQ Execute Apply Service Fee
+        description: ExBQ Execute Apply Service Fee
+        operationId: ServiceFees/Execute
+        parameters:
+           - $ref: '#/components/parameters/servicefeesid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteServiceFeesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ServiceFees/{servicefeesid}/Retrieve':
+      get:
+        tags:
+           - BQ - ServiceFees
+        summary: ReBQ Retrieve details about a credit facility's applied fees
+        description: ReBQ Retrieve details about a credit facility's applied fees
+        operationId: ServiceFees/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/servicefeesid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveServiceFeesResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Maintenance/{maintenanceid}/Request':
+      put:
+        tags:
+           - BQ - Maintenance
+        summary: RqBQ Request a maintenance activity for a credit facility
+        description: RqBQ Request a maintenance activity for a credit facility
+        operationId: Maintenance/Request
+        parameters:
+           - $ref: '#/components/parameters/maintenanceid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestMaintenanceRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Maintenance/{maintenanceid}/Retrieve':
+      get:
+        tags:
+           - BQ - Maintenance
+        summary: >-
+          ReBQ Retrieve details about maintenance processing for a credit
+          facility
+        description: >-
+          ReBQ Retrieve details about maintenance processing for a credit
+          facility
+        operationId: Maintenance/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/maintenanceid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveMaintenanceResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateCreditLineFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           CreditFacilityNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCreditAssessmentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InsuranceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DelinquencyCollectionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankAccountingUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           CreditFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           CreditFacilityRateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityApplicableRate:
+              $ref: '#/components/schemas/Rate'
+              description: ''
+           RepaymentType:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestType:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestAccrualMethod:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityOriginationDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           CreditFacilityMaturityDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           CollateralReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CollateralAllocation:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityAccessTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityUnderlyingDrawdown:
+              type: string
+              description: "\r\n"
+              format: String
+           DrawdownReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DrawdownRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DrawdownLoanTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           EntitlementOptionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           EntitlementOptionSetting:
+              type: string
+              description: "\r\n"
+              format: String
+           RestrictionOptionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           RestrictionOptionSetting:
+              type: string
+              description: "\r\n"
+              format: String
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityRepaymentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           StagedRepaymentStatement:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCommentary:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     Amount:
+        type: object
+        description: ' CurrencyAndAmount|CurrencyAndAmount (https://www.iso20022.org/standardsrepository/type/CurrencyAndAmount)|Standard|ISO20022  ()'
+        properties:
+           AmountValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           AmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           DecimalPointPosition:
+              type: string
+              description: |
+                Decimal point position starts calulating from the right
+              format: String
+           AmountType:
+              enum:
+                   -  Principal
+                   -  Actual
+                   -  Estimated
+                   -  Maximum
+                   -  Default
+                   -  Replacement
+                   -  Incremental
+                   -  Decremental
+                   -  Reserved
+                   -  Available
+                   -  Used
+              type: string
+              description: ">-\r\n* `Principal` \r\n* `Actual` \r\n* `Estimated` \r\n* `Maximum` \r\n* `Default` \r\n* `Replacement` \r\n* `Incremental` \r\n* `Decremental` \r\n* `Reserved` \r\n* `Available` \r\n* `Used` \r\n* "
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Currencycode:
+        type: object
+        description: ' '
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     Rate:
+        type: object
+        description: ' PercentageRate|PercentageRate (https://www.iso20022.org/standardsrepository/type/PercentageRate)|Standard|ISO20022 BM ()'
+        properties:
+           RateValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           RateUnit:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                The unit of measure like Percentage or BPS
+
+
+                Basis points (BPS) refers to a common unit of measure for
+                interest rates and other percentages in finance.
+           RatePeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           RateCapitalUnit:
+              $ref: '#/components/schemas/Text'
+              description: ''
+     Text:
+        type: object
+        description: >-
+          The unit of measure like Percentage or BPS
+
+
+          Basis points (BPS) refers to a common unit of measure for interest
+          rates and other percentages in finance. 
+        properties:
+           Text:
+              type: string
+              description: >-
+                Text is a character string such as a finite set of characters
+                generally in the form of words of a language. (UN/CEFACT)
+              format: DataType
+     Datetimeperiod:
+        type: object
+        description: ' '
+        properties:
+           FromDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range starts. (ISO20022)
+           ToDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range ends. (ISO20022)
+     Datetime:
+        type: object
+        description: 'Date and time at which the range starts. (ISO20022) '
+        properties:
+           DateTimeContent:
+              type: string
+              description: ''
+              format: String
+           TimeZoneCode:
+              type: string
+              description: ''
+              format: String
+           DaylightSavingIndicator:
+              type: string
+              description: ''
+              format: String
+           Datetime:
+              type: string
+              description: >-
+                A date time identifies a date and time of day to various common
+                resolutions: year, month, week, day, hour, minute, second, and
+                fraction of second. (UN/CEFACT)
+
+
+                A particular point in the progression of time defined by a
+                mandatory date and a mandatory time component, expressed in
+                either UTC time format (YYYYMMDDThh:mm:ss.sssZ), local time
+                with UTC offset format (YYYYMMDDThh:mm:ss.sss/hh:mm), or
+                local time format (YYYYMMDDThh:mm:ss.sss). These
+                representations are defined in "XML Schema Part 2: Datatypes
+                Second Edition  W3C Recommendation 28 October 2004" which is
+                aligned with ISO 8601. (ISO20022)
+
+                Note on the time format:
+
+                1) beginning / end of calendar day
+
+                00:00:00  -  the beginning of a calendar day
+
+                24:00:00  -  the end of a calendar day
+
+                2) fractions of second in time format
+
+                Decimal fractions of seconds may be included. In this case, the
+                involved parties shall agree on the maximum number of digits
+                that are allowed.
+              format: DataType
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     InitiateCreditLineFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           StagedRepaymentStatement:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCommentary:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityOutstandingBalance:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCreditLineFacility:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the credit facility product instance
+              format: Object
+           CreditFacilityNumber:
+              type: string
+              description: >-
+                The associated credit facility account number in any suitable
+                format
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           PartyReference:
+              type: string
+              description: >-
+                The legal entity reference for the borrower, likely to be the
+                same as the corporate customer
+              format: Object
+           CustomerAgreementReference:
+              type: string
+              description: Reference to the associated customer agreement
+              format: Object
+           CustomerCreditAssessmentReference:
+              type: string
+              description: Reference to an associated credit assessment
+              format: Object
+           InsuranceReference:
+              type: string
+              description: Reference to applicable insurance arrangements
+              format: Object
+           DelinquencyCollectionReference:
+              type: string
+              description: >-
+                Reference to collections/delinquency processing made against the
+                credit facility
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the facility for booking purposes
+              format: Object
+           BankAccountingUnitReference:
+              type: string
+              description: >-
+                Bank accounting unit associated with the facility for booking
+                purposes
+              format: Object
+           CreditFacilityType:
+              type: string
+              description: >-
+                The specific type of credit facility (e.g. term, revolving,
+                letter of credit, retail)
+              format: String
+           CreditFacilityAmount:
+              $ref: '#/components/schemas/Amount'
+           CreditFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CreditFacilityRateType:
+              type: string
+              description: The rate type to be applied to the credit facility
+              format: String
+           CreditFacilityApplicableRate:
+              $ref: '#/components/schemas/Rate'
+           RepaymentType:
+              type: string
+              description: >-
+                The type of repayment arrangement in place (e.g. structured,
+                revolving)
+              format: String
+           InterestType:
+              type: string
+              description: The type of interest to be applied (e.g. prime plus)
+              format: String
+           InterestAccrualMethod:
+              type: string
+              description: The accrual method applied to interest calculations
+              format: String
+           CreditFacilityOriginationDate:
+              $ref: '#/components/schemas/Date'
+           CreditFacilityMaturityDate:
+              $ref: '#/components/schemas/Date'
+           CollateralReference:
+              type: string
+              description: Reference to allocated collateral
+              format: Object
+           CollateralAllocation:
+              type: string
+              description: The collateral value applied to the credit facility loan
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           CreditFacilityAccessTerms:
+              type: string
+              description: Access terms that apply (e.g. allowed drawdown terms, repayment)
+              format: String
+           CreditFacilityUnderlyingDrawdown:
+              type: string
+              description: >-
+                Details the one or more underlying loans made against the
+                facility
+              format: String
+           DrawdownReference:
+              type: string
+              description: Reference to the underlying loan
+              format: Object
+           DrawdownRecord:
+              type: string
+              description: Record of the underlying loan details
+              format: String
+           DrawdownLoanTransaction:
+              type: string
+              description: The underlying loan transaction details
+              format: String
+           EntitlementOptionDefinition:
+              type: string
+              description: The definition of an applicable entitlement option
+              format: String
+           EntitlementOptionSetting:
+              type: string
+              description: The setting for the entitlement option
+              format: String
+           RestrictionOptionDefinition:
+              type: string
+              description: The definition of an applicable restriction option
+              format: String
+           RestrictionOptionSetting:
+              type: string
+              description: The setting for the restriction option
+              format: String
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                facility
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           CreditFacilityRepaymentSchedule:
+              type: string
+              description: The schedule for repayments
+              format: String
+           StagedRepaymentStatement:
+              type: string
+              description: A statement maintained tracking repayments
+              format: String
+           CustomerCommentary:
+              type: string
+              description: A record of customer correspondence/feedback
+              format: String
+           CreditFacilityOutstandingBalance:
+              type: string
+              description: The outstanding balance available for the credit facility
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+     UpdateCreditLineFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCreditAssessmentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InsuranceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DelinquencyCollectionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankAccountingUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           CreditFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           CreditFacilityRateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityApplicableRate:
+              $ref: '#/components/schemas/Rate'
+              description: ''
+           RepaymentType:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestType:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestAccrualMethod:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityOriginationDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           CreditFacilityMaturityDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           CollateralReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CollateralAllocation:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityAccessTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityUnderlyingDrawdown:
+              type: string
+              description: "\r\n"
+              format: String
+           DrawdownReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DrawdownRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DrawdownLoanTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           EntitlementOptionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           EntitlementOptionSetting:
+              type: string
+              description: "\r\n"
+              format: String
+           RestrictionOptionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           RestrictionOptionSetting:
+              type: string
+              description: "\r\n"
+              format: String
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityRepaymentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           StagedRepaymentStatement:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCommentary:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityOutstandingBalance:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCreditLineFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCreditAssessmentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InsuranceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DelinquencyCollectionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankAccountingUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityAmount:
+              $ref: '#/components/schemas/Amount'
+           CreditFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CreditFacilityRateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityApplicableRate:
+              $ref: '#/components/schemas/Rate'
+           RepaymentType:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestType:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestAccrualMethod:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityOriginationDate:
+              $ref: '#/components/schemas/Date'
+           CreditFacilityMaturityDate:
+              $ref: '#/components/schemas/Date'
+           CollateralReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CollateralAllocation:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityAccessTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityUnderlyingDrawdown:
+              type: string
+              description: "\r\n"
+              format: String
+           DrawdownReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DrawdownRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DrawdownLoanTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           EntitlementOptionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           EntitlementOptionSetting:
+              type: string
+              description: "\r\n"
+              format: String
+           RestrictionOptionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           RestrictionOptionSetting:
+              type: string
+              description: "\r\n"
+              format: String
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityRepaymentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           StagedRepaymentStatement:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCommentary:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityOutstandingBalance:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCreditLineFacility:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the credit facility product instance
+              format: Object
+           CreditFacilityNumber:
+              type: string
+              description: >-
+                The associated credit facility account number in any suitable
+                format
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           PartyReference:
+              type: string
+              description: >-
+                The legal entity reference for the borrower, likely to be the
+                same as the corporate customer
+              format: Object
+           CustomerAgreementReference:
+              type: string
+              description: Reference to the associated customer agreement
+              format: Object
+           CustomerCreditAssessmentReference:
+              type: string
+              description: Reference to an associated credit assessment
+              format: Object
+           InsuranceReference:
+              type: string
+              description: Reference to applicable insurance arrangements
+              format: Object
+           DelinquencyCollectionReference:
+              type: string
+              description: >-
+                Reference to collections/delinquency processing made against the
+                credit facility
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the facility for booking purposes
+              format: Object
+           BankAccountingUnitReference:
+              type: string
+              description: >-
+                Bank accounting unit associated with the facility for booking
+                purposes
+              format: Object
+           CreditFacilityType:
+              type: string
+              description: >-
+                The specific type of credit facility (e.g. term, revolving,
+                letter of credit, retail)
+              format: String
+           CreditFacilityAmount:
+              $ref: '#/components/schemas/Amount'
+           CreditFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CreditFacilityRateType:
+              type: string
+              description: The rate type to be applied to the credit facility
+              format: String
+           CreditFacilityApplicableRate:
+              $ref: '#/components/schemas/Rate'
+           RepaymentType:
+              type: string
+              description: >-
+                The type of repayment arrangement in place (e.g. structured,
+                revolving)
+              format: String
+           InterestType:
+              type: string
+              description: The type of interest to be applied (e.g. prime plus)
+              format: String
+           InterestAccrualMethod:
+              type: string
+              description: The accrual method applied to interest calculations
+              format: String
+           CreditFacilityOriginationDate:
+              $ref: '#/components/schemas/Date'
+           CreditFacilityMaturityDate:
+              $ref: '#/components/schemas/Date'
+           CollateralReference:
+              type: string
+              description: Reference to allocated collateral
+              format: Object
+           CollateralAllocation:
+              type: string
+              description: The collateral value applied to the credit facility loan
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           CreditFacilityAccessTerms:
+              type: string
+              description: Access terms that apply (e.g. allowed drawdown terms, repayment)
+              format: String
+           CreditFacilityUnderlyingDrawdown:
+              type: string
+              description: >-
+                Details the one or more underlying loans made against the
+                facility
+              format: String
+           DrawdownReference:
+              type: string
+              description: Reference to the underlying loan
+              format: Object
+           DrawdownRecord:
+              type: string
+              description: Record of the underlying loan details
+              format: String
+           DrawdownLoanTransaction:
+              type: string
+              description: The underlying loan transaction details
+              format: String
+           EntitlementOptionDefinition:
+              type: string
+              description: The definition of an applicable entitlement option
+              format: String
+           EntitlementOptionSetting:
+              type: string
+              description: The setting for the entitlement option
+              format: String
+           RestrictionOptionDefinition:
+              type: string
+              description: The definition of an applicable restriction option
+              format: String
+           RestrictionOptionSetting:
+              type: string
+              description: The setting for the restriction option
+              format: String
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                facility
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           CreditFacilityRepaymentSchedule:
+              type: string
+              description: The schedule for repayments
+              format: String
+           StagedRepaymentStatement:
+              type: string
+              description: A statement maintained tracking repayments
+              format: String
+           CustomerCommentary:
+              type: string
+              description: A record of customer correspondence/feedback
+              format: String
+           CreditFacilityOutstandingBalance:
+              type: string
+              description: The outstanding balance available for the credit facility
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+     RetrieveCreditLineFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCreditAssessmentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InsuranceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DelinquencyCollectionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankAccountingUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityAmount:
+              $ref: '#/components/schemas/Amount'
+           CreditFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CreditFacilityRateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityApplicableRate:
+              $ref: '#/components/schemas/Rate'
+           RepaymentType:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestType:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestAccrualMethod:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityOriginationDate:
+              $ref: '#/components/schemas/Date'
+           CreditFacilityMaturityDate:
+              $ref: '#/components/schemas/Date'
+           CollateralReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CollateralAllocation:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityAccessTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityUnderlyingDrawdown:
+              type: string
+              description: "\r\n"
+              format: String
+           DrawdownReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DrawdownRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DrawdownLoanTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           EntitlementOptionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           EntitlementOptionSetting:
+              type: string
+              description: "\r\n"
+              format: String
+           RestrictionOptionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           RestrictionOptionSetting:
+              type: string
+              description: "\r\n"
+              format: String
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityRepaymentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           StagedRepaymentStatement:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCommentary:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityOutstandingBalance:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCreditLineFacility:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the credit facility product instance
+              format: Object
+           CreditFacilityNumber:
+              type: string
+              description: >-
+                The associated credit facility account number in any suitable
+                format
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           PartyReference:
+              type: string
+              description: >-
+                The legal entity reference for the borrower, likely to be the
+                same as the corporate customer
+              format: Object
+           CustomerAgreementReference:
+              type: string
+              description: Reference to the associated customer agreement
+              format: Object
+           CustomerCreditAssessmentReference:
+              type: string
+              description: Reference to an associated credit assessment
+              format: Object
+           InsuranceReference:
+              type: string
+              description: Reference to applicable insurance arrangements
+              format: Object
+           DelinquencyCollectionReference:
+              type: string
+              description: >-
+                Reference to collections/delinquency processing made against the
+                credit facility
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the facility for booking purposes
+              format: Object
+           BankAccountingUnitReference:
+              type: string
+              description: >-
+                Bank accounting unit associated with the facility for booking
+                purposes
+              format: Object
+           CreditFacilityType:
+              type: string
+              description: >-
+                The specific type of credit facility (e.g. term, revolving,
+                letter of credit, retail)
+              format: String
+           CreditFacilityAmount:
+              $ref: '#/components/schemas/Amount'
+           CreditFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CreditFacilityRateType:
+              type: string
+              description: The rate type to be applied to the credit facility
+              format: String
+           CreditFacilityApplicableRate:
+              $ref: '#/components/schemas/Rate'
+           RepaymentType:
+              type: string
+              description: >-
+                The type of repayment arrangement in place (e.g. structured,
+                revolving)
+              format: String
+           InterestType:
+              type: string
+              description: The type of interest to be applied (e.g. prime plus)
+              format: String
+           InterestAccrualMethod:
+              type: string
+              description: The accrual method applied to interest calculations
+              format: String
+           CreditFacilityOriginationDate:
+              $ref: '#/components/schemas/Date'
+           CreditFacilityMaturityDate:
+              $ref: '#/components/schemas/Date'
+           CollateralReference:
+              type: string
+              description: Reference to allocated collateral
+              format: Object
+           CollateralAllocation:
+              type: string
+              description: The collateral value applied to the credit facility loan
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           CreditFacilityAccessTerms:
+              type: string
+              description: Access terms that apply (e.g. allowed drawdown terms, repayment)
+              format: String
+           CreditFacilityUnderlyingDrawdown:
+              type: string
+              description: >-
+                Details the one or more underlying loans made against the
+                facility
+              format: String
+           DrawdownReference:
+              type: string
+              description: Reference to the underlying loan
+              format: Object
+           DrawdownRecord:
+              type: string
+              description: Record of the underlying loan details
+              format: String
+           DrawdownLoanTransaction:
+              type: string
+              description: The underlying loan transaction details
+              format: String
+           EntitlementOptionDefinition:
+              type: string
+              description: The definition of an applicable entitlement option
+              format: String
+           EntitlementOptionSetting:
+              type: string
+              description: The setting for the entitlement option
+              format: String
+           RestrictionOptionDefinition:
+              type: string
+              description: The definition of an applicable restriction option
+              format: String
+           RestrictionOptionSetting:
+              type: string
+              description: The setting for the restriction option
+              format: String
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                facility
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           CreditFacilityRepaymentSchedule:
+              type: string
+              description: The schedule for repayments
+              format: String
+           StagedRepaymentStatement:
+              type: string
+              description: A statement maintained tracking repayments
+              format: String
+           CustomerCommentary:
+              type: string
+              description: A record of customer correspondence/feedback
+              format: String
+           CreditFacilityOutstandingBalance:
+              type: string
+              description: The outstanding balance available for the credit facility
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+     ExecuteServiceFeesRequest:
+        type: object
+        description: ''
+        properties:
+           FeeConfigurationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeType:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeApplicationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionFeeType:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeProjectionsandCommitments:
+              type: string
+              description: "\r\n"
+              format: String
+           ProjectedTransactionDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProjectedTransactionFeeType:
+              type: string
+              description: "\r\n"
+              format: String
+           AccrualFeeType:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteServiceFeesResponse:
+        type: object
+        description: ''
+        properties:
+           FeeConfigurationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeApplicationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionFeeType:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionFeeCharge:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeProjectionsandCommitments:
+              type: string
+              description: "\r\n"
+              format: String
+           ProjectedTransactionFeeType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProjectedTransactionFeeCharge:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeAccrualAmount:
+              $ref: '#/components/schemas/Amount'
+           AccrualFeeType:
+              type: string
+              description: "\r\n"
+              format: String
+           AccrualFeeCharge:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteServiceFees:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the credit facility product instance
+              format: Object
+           CreditFacilityNumber:
+              type: string
+              description: >-
+                The associated credit facility account number in any suitable
+                format
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           PartyReference:
+              type: string
+              description: >-
+                The legal entity reference for the borrower, likely to be the
+                same as the corporate customer
+              format: Object
+           CustomerAgreementReference:
+              type: string
+              description: Reference to the associated customer agreement
+              format: Object
+           CustomerCreditAssessmentReference:
+              type: string
+              description: Reference to an associated credit assessment
+              format: Object
+           InsuranceReference:
+              type: string
+              description: Reference to applicable insurance arrangements
+              format: Object
+           DelinquencyCollectionReference:
+              type: string
+              description: >-
+                Reference to collections/delinquency processing made against the
+                credit facility
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the facility for booking purposes
+              format: Object
+           BankAccountingUnitReference:
+              type: string
+              description: >-
+                Bank accounting unit associated with the facility for booking
+                purposes
+              format: Object
+           CreditFacilityType:
+              type: string
+              description: >-
+                The specific type of credit facility (e.g. term, revolving,
+                letter of credit, retail)
+              format: String
+           CreditFacilityAmount:
+              $ref: '#/components/schemas/Amount'
+           CreditFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CreditFacilityRateType:
+              type: string
+              description: The rate type to be applied to the credit facility
+              format: String
+           CreditFacilityApplicableRate:
+              $ref: '#/components/schemas/Rate'
+           RepaymentType:
+              type: string
+              description: >-
+                The type of repayment arrangement in place (e.g. structured,
+                revolving)
+              format: String
+           InterestType:
+              type: string
+              description: The type of interest to be applied (e.g. prime plus)
+              format: String
+           InterestAccrualMethod:
+              type: string
+              description: The accrual method applied to interest calculations
+              format: String
+           CreditFacilityOriginationDate:
+              $ref: '#/components/schemas/Date'
+           CreditFacilityMaturityDate:
+              $ref: '#/components/schemas/Date'
+           CollateralReference:
+              type: string
+              description: Reference to allocated collateral
+              format: Object
+           CollateralAllocation:
+              type: string
+              description: The collateral value applied to the credit facility loan
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           CreditFacilityAccessTerms:
+              type: string
+              description: Access terms that apply (e.g. allowed drawdown terms, repayment)
+              format: String
+           CreditFacilityUnderlyingDrawdown:
+              type: string
+              description: >-
+                Details the one or more underlying loans made against the
+                facility
+              format: String
+           DrawdownReference:
+              type: string
+              description: Reference to the underlying loan
+              format: Object
+           DrawdownRecord:
+              type: string
+              description: Record of the underlying loan details
+              format: String
+           DrawdownLoanTransaction:
+              type: string
+              description: The underlying loan transaction details
+              format: String
+           EntitlementOptionDefinition:
+              type: string
+              description: The definition of an applicable entitlement option
+              format: String
+           EntitlementOptionSetting:
+              type: string
+              description: The setting for the entitlement option
+              format: String
+           RestrictionOptionDefinition:
+              type: string
+              description: The definition of an applicable restriction option
+              format: String
+           RestrictionOptionSetting:
+              type: string
+              description: The setting for the restriction option
+              format: String
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                facility
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           CreditFacilityRepaymentSchedule:
+              type: string
+              description: The schedule for repayments
+              format: String
+           StagedRepaymentStatement:
+              type: string
+              description: A statement maintained tracking repayments
+              format: String
+           CustomerCommentary:
+              type: string
+              description: A record of customer correspondence/feedback
+              format: String
+           CreditFacilityOutstandingBalance:
+              type: string
+              description: The outstanding balance available for the credit facility
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+     RetrieveServiceFeesResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityAccessTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityUnderlyingDrawdown:
+              type: string
+              description: "\r\n"
+              format: String
+           DrawdownReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DrawdownRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DrawdownLoanTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           EntitlementOptionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           EntitlementOptionSetting:
+              type: string
+              description: "\r\n"
+              format: String
+           RestrictionOptionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           RestrictionOptionSetting:
+              type: string
+              description: "\r\n"
+              format: String
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCommentary:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityOutstandingBalance:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeConfigurationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeType:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeApplicationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionFeeType:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionFeeCharge:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeProjectionsandCommitments:
+              type: string
+              description: "\r\n"
+              format: String
+           ProjectedTransactionDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProjectedTransactionFeeType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProjectedTransactionFeeCharge:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeAccrualAmount:
+              $ref: '#/components/schemas/Amount'
+           AccrualFeeType:
+              type: string
+              description: "\r\n"
+              format: String
+           AccrualFeeCharge:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveServiceFees:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the credit facility product instance
+              format: Object
+           CreditFacilityNumber:
+              type: string
+              description: >-
+                The associated credit facility account number in any suitable
+                format
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           PartyReference:
+              type: string
+              description: >-
+                The legal entity reference for the borrower, likely to be the
+                same as the corporate customer
+              format: Object
+           CustomerAgreementReference:
+              type: string
+              description: Reference to the associated customer agreement
+              format: Object
+           CustomerCreditAssessmentReference:
+              type: string
+              description: Reference to an associated credit assessment
+              format: Object
+           InsuranceReference:
+              type: string
+              description: Reference to applicable insurance arrangements
+              format: Object
+           DelinquencyCollectionReference:
+              type: string
+              description: >-
+                Reference to collections/delinquency processing made against the
+                credit facility
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the facility for booking purposes
+              format: Object
+           BankAccountingUnitReference:
+              type: string
+              description: >-
+                Bank accounting unit associated with the facility for booking
+                purposes
+              format: Object
+           CreditFacilityType:
+              type: string
+              description: >-
+                The specific type of credit facility (e.g. term, revolving,
+                letter of credit, retail)
+              format: String
+           CreditFacilityAmount:
+              $ref: '#/components/schemas/Amount'
+           CreditFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CreditFacilityRateType:
+              type: string
+              description: The rate type to be applied to the credit facility
+              format: String
+           CreditFacilityApplicableRate:
+              $ref: '#/components/schemas/Rate'
+           RepaymentType:
+              type: string
+              description: >-
+                The type of repayment arrangement in place (e.g. structured,
+                revolving)
+              format: String
+           InterestType:
+              type: string
+              description: The type of interest to be applied (e.g. prime plus)
+              format: String
+           InterestAccrualMethod:
+              type: string
+              description: The accrual method applied to interest calculations
+              format: String
+           CreditFacilityOriginationDate:
+              $ref: '#/components/schemas/Date'
+           CreditFacilityMaturityDate:
+              $ref: '#/components/schemas/Date'
+           CollateralReference:
+              type: string
+              description: Reference to allocated collateral
+              format: Object
+           CollateralAllocation:
+              type: string
+              description: The collateral value applied to the credit facility loan
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           CreditFacilityAccessTerms:
+              type: string
+              description: Access terms that apply (e.g. allowed drawdown terms, repayment)
+              format: String
+           CreditFacilityUnderlyingDrawdown:
+              type: string
+              description: >-
+                Details the one or more underlying loans made against the
+                facility
+              format: String
+           DrawdownReference:
+              type: string
+              description: Reference to the underlying loan
+              format: Object
+           DrawdownRecord:
+              type: string
+              description: Record of the underlying loan details
+              format: String
+           DrawdownLoanTransaction:
+              type: string
+              description: The underlying loan transaction details
+              format: String
+           EntitlementOptionDefinition:
+              type: string
+              description: The definition of an applicable entitlement option
+              format: String
+           EntitlementOptionSetting:
+              type: string
+              description: The setting for the entitlement option
+              format: String
+           RestrictionOptionDefinition:
+              type: string
+              description: The definition of an applicable restriction option
+              format: String
+           RestrictionOptionSetting:
+              type: string
+              description: The setting for the restriction option
+              format: String
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                facility
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           CreditFacilityRepaymentSchedule:
+              type: string
+              description: The schedule for repayments
+              format: String
+           StagedRepaymentStatement:
+              type: string
+              description: A statement maintained tracking repayments
+              format: String
+           CustomerCommentary:
+              type: string
+              description: A record of customer correspondence/feedback
+              format: String
+           CreditFacilityOutstandingBalance:
+              type: string
+              description: The outstanding balance available for the credit facility
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+     RequestMaintenanceRequest:
+        type: object
+        description: ''
+        properties:
+           MaintenanceReportType:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestMaintenanceResponse:
+        type: object
+        description: ''
+        properties:
+           CreditFacilityTaxReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityFeeType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityFees:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityPenalties:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityCollateralValuation:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestMaintenance:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the credit facility product instance
+              format: Object
+           CreditFacilityNumber:
+              type: string
+              description: >-
+                The associated credit facility account number in any suitable
+                format
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           PartyReference:
+              type: string
+              description: >-
+                The legal entity reference for the borrower, likely to be the
+                same as the corporate customer
+              format: Object
+           CustomerAgreementReference:
+              type: string
+              description: Reference to the associated customer agreement
+              format: Object
+           CustomerCreditAssessmentReference:
+              type: string
+              description: Reference to an associated credit assessment
+              format: Object
+           InsuranceReference:
+              type: string
+              description: Reference to applicable insurance arrangements
+              format: Object
+           DelinquencyCollectionReference:
+              type: string
+              description: >-
+                Reference to collections/delinquency processing made against the
+                credit facility
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the facility for booking purposes
+              format: Object
+           BankAccountingUnitReference:
+              type: string
+              description: >-
+                Bank accounting unit associated with the facility for booking
+                purposes
+              format: Object
+           CreditFacilityType:
+              type: string
+              description: >-
+                The specific type of credit facility (e.g. term, revolving,
+                letter of credit, retail)
+              format: String
+           CreditFacilityAmount:
+              $ref: '#/components/schemas/Amount'
+           CreditFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CreditFacilityRateType:
+              type: string
+              description: The rate type to be applied to the credit facility
+              format: String
+           CreditFacilityApplicableRate:
+              $ref: '#/components/schemas/Rate'
+           RepaymentType:
+              type: string
+              description: >-
+                The type of repayment arrangement in place (e.g. structured,
+                revolving)
+              format: String
+           InterestType:
+              type: string
+              description: The type of interest to be applied (e.g. prime plus)
+              format: String
+           InterestAccrualMethod:
+              type: string
+              description: The accrual method applied to interest calculations
+              format: String
+           CreditFacilityOriginationDate:
+              $ref: '#/components/schemas/Date'
+           CreditFacilityMaturityDate:
+              $ref: '#/components/schemas/Date'
+           CollateralReference:
+              type: string
+              description: Reference to allocated collateral
+              format: Object
+           CollateralAllocation:
+              type: string
+              description: The collateral value applied to the credit facility loan
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           CreditFacilityAccessTerms:
+              type: string
+              description: Access terms that apply (e.g. allowed drawdown terms, repayment)
+              format: String
+           CreditFacilityUnderlyingDrawdown:
+              type: string
+              description: >-
+                Details the one or more underlying loans made against the
+                facility
+              format: String
+           DrawdownReference:
+              type: string
+              description: Reference to the underlying loan
+              format: Object
+           DrawdownRecord:
+              type: string
+              description: Record of the underlying loan details
+              format: String
+           DrawdownLoanTransaction:
+              type: string
+              description: The underlying loan transaction details
+              format: String
+           EntitlementOptionDefinition:
+              type: string
+              description: The definition of an applicable entitlement option
+              format: String
+           EntitlementOptionSetting:
+              type: string
+              description: The setting for the entitlement option
+              format: String
+           RestrictionOptionDefinition:
+              type: string
+              description: The definition of an applicable restriction option
+              format: String
+           RestrictionOptionSetting:
+              type: string
+              description: The setting for the restriction option
+              format: String
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                facility
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           CreditFacilityRepaymentSchedule:
+              type: string
+              description: The schedule for repayments
+              format: String
+           StagedRepaymentStatement:
+              type: string
+              description: A statement maintained tracking repayments
+              format: String
+           CustomerCommentary:
+              type: string
+              description: A record of customer correspondence/feedback
+              format: String
+           CreditFacilityOutstandingBalance:
+              type: string
+              description: The outstanding balance available for the credit facility
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+     RetrieveMaintenanceResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCreditAssessmentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InsuranceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DelinquencyCollectionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankAccountingUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityAmount:
+              $ref: '#/components/schemas/Amount'
+           CreditFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CreditFacilityRateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityApplicableRate:
+              $ref: '#/components/schemas/Rate'
+           RepaymentType:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestType:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestAccrualMethod:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityOriginationDate:
+              $ref: '#/components/schemas/Date'
+           CreditFacilityMaturityDate:
+              $ref: '#/components/schemas/Date'
+           CollateralReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CollateralAllocation:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityAccessTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityUnderlyingDrawdown:
+              type: string
+              description: "\r\n"
+              format: String
+           DrawdownReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DrawdownRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DrawdownLoanTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           EntitlementOptionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           EntitlementOptionSetting:
+              type: string
+              description: "\r\n"
+              format: String
+           RestrictionOptionDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           RestrictionOptionSetting:
+              type: string
+              description: "\r\n"
+              format: String
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditFacilityRepaymentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           StagedRepaymentStatement:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCommentary:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityOutstandingBalance:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           MaintenanceReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityTaxReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityFeeType:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityFees:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityPenalties:
+              type: string
+              description: "\r\n"
+              format: String
+           CreditFacilityCollateralValuation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveMaintenance:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the credit facility product instance
+              format: Object
+           CreditFacilityNumber:
+              type: string
+              description: >-
+                The associated credit facility account number in any suitable
+                format
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           PartyReference:
+              type: string
+              description: >-
+                The legal entity reference for the borrower, likely to be the
+                same as the corporate customer
+              format: Object
+           CustomerAgreementReference:
+              type: string
+              description: Reference to the associated customer agreement
+              format: Object
+           CustomerCreditAssessmentReference:
+              type: string
+              description: Reference to an associated credit assessment
+              format: Object
+           InsuranceReference:
+              type: string
+              description: Reference to applicable insurance arrangements
+              format: Object
+           DelinquencyCollectionReference:
+              type: string
+              description: >-
+                Reference to collections/delinquency processing made against the
+                credit facility
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the facility for booking purposes
+              format: Object
+           BankAccountingUnitReference:
+              type: string
+              description: >-
+                Bank accounting unit associated with the facility for booking
+                purposes
+              format: Object
+           CreditFacilityType:
+              type: string
+              description: >-
+                The specific type of credit facility (e.g. term, revolving,
+                letter of credit, retail)
+              format: String
+           CreditFacilityAmount:
+              $ref: '#/components/schemas/Amount'
+           CreditFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CreditFacilityRateType:
+              type: string
+              description: The rate type to be applied to the credit facility
+              format: String
+           CreditFacilityApplicableRate:
+              $ref: '#/components/schemas/Rate'
+           RepaymentType:
+              type: string
+              description: >-
+                The type of repayment arrangement in place (e.g. structured,
+                revolving)
+              format: String
+           InterestType:
+              type: string
+              description: The type of interest to be applied (e.g. prime plus)
+              format: String
+           InterestAccrualMethod:
+              type: string
+              description: The accrual method applied to interest calculations
+              format: String
+           CreditFacilityOriginationDate:
+              $ref: '#/components/schemas/Date'
+           CreditFacilityMaturityDate:
+              $ref: '#/components/schemas/Date'
+           CollateralReference:
+              type: string
+              description: Reference to allocated collateral
+              format: Object
+           CollateralAllocation:
+              type: string
+              description: The collateral value applied to the credit facility loan
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           CreditFacilityAccessTerms:
+              type: string
+              description: Access terms that apply (e.g. allowed drawdown terms, repayment)
+              format: String
+           CreditFacilityUnderlyingDrawdown:
+              type: string
+              description: >-
+                Details the one or more underlying loans made against the
+                facility
+              format: String
+           DrawdownReference:
+              type: string
+              description: Reference to the underlying loan
+              format: Object
+           DrawdownRecord:
+              type: string
+              description: Record of the underlying loan details
+              format: String
+           DrawdownLoanTransaction:
+              type: string
+              description: The underlying loan transaction details
+              format: String
+           EntitlementOptionDefinition:
+              type: string
+              description: The definition of an applicable entitlement option
+              format: String
+           EntitlementOptionSetting:
+              type: string
+              description: The setting for the entitlement option
+              format: String
+           RestrictionOptionDefinition:
+              type: string
+              description: The definition of an applicable restriction option
+              format: String
+           RestrictionOptionSetting:
+              type: string
+              description: The setting for the restriction option
+              format: String
+           Associations:
+              type: string
+              description: >-
+                Definition of the involved parties or associations to the
+                facility
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           CreditFacilityRepaymentSchedule:
+              type: string
+              description: The schedule for repayments
+              format: String
+           StagedRepaymentStatement:
+              type: string
+              description: A statement maintained tracking repayments
+              format: String
+           CustomerCommentary:
+              type: string
+              description: A record of customer correspondence/feedback
+              format: String
+           CreditFacilityOutstandingBalance:
+              type: string
+              description: The outstanding balance available for the credit facility
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateCreditLineFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCreditLineFacilityRequest'
+        required: true
+     UpdateCreditLineFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCreditLineFacilityRequest'
+        required: true
+     RetrieveCreditLineFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     ExecuteServiceFeesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteServiceFeesRequest'
+        required: true
+     RetrieveServiceFeesRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RequestMaintenanceRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestMaintenanceRequest'
+        required: true
+     RetrieveMaintenanceRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     creditlinefacilityid:
+        name: creditlinefacilityid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     servicefeesid:
+        name: servicefeesid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     maintenanceid:
+        name: maintenanceid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateCreditLineFacilityResponse:
+        description: CreditLineFacilityInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCreditLineFacilityResponse'
+     UpdateCreditLineFacilityResponse:
+        description: CreditLineFacilityUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCreditLineFacilityResponse'
+     RetrieveCreditLineFacilityResponse:
+        description: CreditLineFacilityRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCreditLineFacilityResponse'
+     ExecuteServiceFeesResponse:
+        description: ServiceFeesExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteServiceFeesResponse'
+     RetrieveServiceFeesResponse:
+        description: ServiceFeesRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveServiceFeesResponse'
+     RequestMaintenanceResponse:
+        description: MaintenanceRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestMaintenanceResponse'
+     RetrieveMaintenanceResponse:
+        description: MaintenanceRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveMaintenanceResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

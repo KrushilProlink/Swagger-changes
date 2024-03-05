@@ -1,0 +1,2086 @@
+openapi: 3.0.1
+info:
+  title: Customer Workbench
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain
+    represents customer side devices. Most commonly providing a customer access
+    portal to the banks products and services through any suitable channel and
+    device
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CustomerWorkbench
+paths:
+   '/CustomerWorkbenchOperatingSession/{customerworkbenchoperatingsessionid}/Initiate':
+      post:
+        tags:
+           - CR - CustomerWorkbenchOperatingSession
+        summary: InCR Initiate a customer workbench operating session
+        description: InCR Initiate a customer workbench operating session
+        operationId: CustomerWorkbenchOperatingSession/Initiate
+        parameters:
+           - $ref: '#/components/parameters/customerworkbenchoperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/InitiateCustomerWorkbenchOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerWorkbenchOperatingSession/{customerworkbenchoperatingsessionid}/Update':
+      put:
+        tags:
+           - CR - CustomerWorkbenchOperatingSession
+        summary: UpCR Update details of a workbench session
+        description: UpCR Update details of a workbench session
+        operationId: CustomerWorkbenchOperatingSession/Update
+        parameters:
+           - $ref: '#/components/parameters/customerworkbenchoperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateCustomerWorkbenchOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerWorkbenchOperatingSession/{customerworkbenchoperatingsessionid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerWorkbenchOperatingSession
+        summary: ReCR Retrieve details about the workbench session
+        description: ReCR Retrieve details about the workbench session
+        operationId: CustomerWorkbenchOperatingSession/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customerworkbenchoperatingsessionid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveCustomerWorkbenchOperatingSessionResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SWUpdate/{swupdateid}/Initiate':
+      post:
+        tags:
+           - BQ - SWUpdate
+        summary: InBQ Initiate a SW update
+        description: InBQ Initiate a SW update
+        operationId: SWUpdate/Initiate
+        parameters:
+           - $ref: '#/components/parameters/swupdateid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateSWUpdateRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/SWUpdate/{swupdateid}/Retrieve':
+      get:
+        tags:
+           - BQ - SWUpdate
+        summary: ReBQ Retrieve details about a SW update
+        description: ReBQ Retrieve details about a SW update
+        operationId: SWUpdate/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/swupdateid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveSWUpdateResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Broadcast/{broadcastid}/Initiate':
+      post:
+        tags:
+           - BQ - Broadcast
+        summary: InBQ Initiate a workstation broadcast
+        description: InBQ Initiate a workstation broadcast
+        operationId: Broadcast/Initiate
+        parameters:
+           - $ref: '#/components/parameters/broadcastid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateBroadcastRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Broadcast/{broadcastid}/Request':
+      put:
+        tags:
+           - BQ - Broadcast
+        summary: ReBQ Retrieve details about a workstation broadcast
+        description: ReBQ Retrieve details about a workstation broadcast
+        operationId: Broadcast/Request
+        parameters:
+           - $ref: '#/components/parameters/broadcastid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestBroadcastRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Browsing/{browsingid}/Initiate':
+      post:
+        tags:
+           - BQ - Browsing
+        summary: InBQ Initiate a browsing session
+        description: InBQ Initiate a browsing session
+        operationId: Browsing/Initiate
+        parameters:
+           - $ref: '#/components/parameters/browsingid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateBrowsingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Browsing/{browsingid}/Execute':
+      put:
+        tags:
+           - BQ - Browsing
+        summary: ExBQ Execute tasks within a browsing session
+        description: ExBQ Execute tasks within a browsing session
+        operationId: Browsing/Execute
+        parameters:
+           - $ref: '#/components/parameters/browsingid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteBrowsingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Browsing/{browsingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Browsing
+        summary: ReBQ Retrieve details about a browsing session
+        description: ReBQ Retrieve details about a browsing session
+        operationId: Browsing/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/browsingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveBrowsingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Contact/{contactid}/Initiate':
+      post:
+        tags:
+           - BQ - Contact
+        summary: InBQ Initiate a contact with the bank
+        description: InBQ Initiate a contact with the bank
+        operationId: Contact/Initiate
+        parameters:
+           - $ref: '#/components/parameters/contactid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateContactRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Contact/{contactid}/Execute':
+      put:
+        tags:
+           - BQ - Contact
+        summary: ExBQ Execute an automated action within the contact (e.g. self serve)
+        description: ExBQ Execute an automated action within the contact (e.g. self serve)
+        operationId: Contact/Execute
+        parameters:
+           - $ref: '#/components/parameters/contactid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteContactRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Contact/{contactid}/Request':
+      put:
+        tags:
+           - BQ - Contact
+        summary: RqBQ Request manual intervention in a contact (e.g. request service)
+        description: RqBQ Request manual intervention in a contact (e.g. request service)
+        operationId: Contact/Request
+        parameters:
+           - $ref: '#/components/parameters/contactid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestContactRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Contact/{contactid}/Retrieve':
+      get:
+        tags:
+           - BQ - Contact
+        summary: ReBQ Retrieve details about a contact
+        description: ReBQ Retrieve details about a contact
+        operationId: Contact/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/contactid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveContactResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductandServiceAccess/{productandserviceaccessid}/Initiate':
+      post:
+        tags:
+           - BQ - ProductandServiceAccess
+        summary: InBQ Initiate product/service access within the contact
+        description: InBQ Initiate product/service access within the contact
+        operationId: ProductandServiceAccess/Initiate
+        parameters:
+           - $ref: '#/components/parameters/productandserviceaccessid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateProductandServiceAccessRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductandServiceAccess/{productandserviceaccessid}/Execute':
+      put:
+        tags:
+           - BQ - ProductandServiceAccess
+        summary: >-
+          ExBQ Execute an automated action with the product/service access (e.g.
+          self serve)
+        description: >-
+          ExBQ Execute an automated action with the product/service access (e.g.
+          self serve)
+        operationId: ProductandServiceAccess/Execute
+        parameters:
+           - $ref: '#/components/parameters/productandserviceaccessid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteProductandServiceAccessRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductandServiceAccess/{productandserviceaccessid}/Request':
+      put:
+        tags:
+           - BQ - ProductandServiceAccess
+        summary: >-
+          RqBQ Request manual intervention in a product/service access (e.g.
+          request service)
+        description: >-
+          RqBQ Request manual intervention in a product/service access (e.g.
+          request service)
+        operationId: ProductandServiceAccess/Request
+        parameters:
+           - $ref: '#/components/parameters/productandserviceaccessid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestProductandServiceAccessRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductandServiceAccess/{productandserviceaccessid}/Retrieve':
+      get:
+        tags:
+           - BQ - ProductandServiceAccess
+        summary: ReBQ Retrieve details about product/service access
+        description: ReBQ Retrieve details about product/service access
+        operationId: ProductandServiceAccess/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/productandserviceaccessid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveProductandServiceAccessResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateCustomerWorkbenchOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: "\r\n"
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: "\r\n"
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     InitiateCustomerWorkbenchOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCustomerWorkbenchOperatingSession:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     UpdateCustomerWorkbenchOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: "\r\n"
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: "\r\n"
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     UpdateCustomerWorkbenchOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: "\r\n"
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: "\r\n"
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     UpdateCustomerWorkbenchOperatingSession:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     RetrieveCustomerWorkbenchOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: "\r\n"
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: "\r\n"
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     RetrieveCustomerWorkbenchOperatingSession:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     InitiateSWUpdateRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: "\r\n"
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: "\r\n"
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           SWUpdateApplication:
+              type: string
+              description: "\r\n"
+              format: String
+           SWUpdateVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           SWUpdateImage:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateSWUpdateResponse:
+        type: object
+        description: ''
+        properties:
+           InstalledBankApplicationType:
+              type: string
+              description: "\r\n"
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     InitiateSWUpdate:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     RetrieveSWUpdateResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: "\r\n"
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: "\r\n"
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+           SWUpdateApplication:
+              type: string
+              description: "\r\n"
+              format: String
+           SWUpdateVersion:
+              type: string
+              description: "\r\n"
+              format: String
+           SWUpdateImage:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveSWUpdate:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     InitiateBroadcastRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerWorkbenchBroadcastRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchBroadcastRecordDateTime:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     InitiateBroadcastResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerWorkbenchBroadcastRecordDateTime:
+              $ref: '#/components/schemas/Date'
+     InitiateBroadcast:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     RequestBroadcastResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerWorkbenchBroadcastRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerWorkbenchBroadcastRecordDateTime:
+              $ref: '#/components/schemas/Date'
+     RequestBroadcast:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     InitiateBrowsingRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerURL:
+              type: string
+              description: "\r\n"
+              format: String
+           BankWebsiteURL:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteBrowsingRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerURL:
+              type: string
+              description: "\r\n"
+              format: String
+           BankWebsiteURL:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveBrowsingResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerURL:
+              type: string
+              description: "\r\n"
+              format: String
+           BankWebsiteURL:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveBrowsing:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     InitiateContactResponse:
+        type: object
+        description: ''
+        properties:
+           ContactStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactActivityLog:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateContact:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     ExecuteContactResponse:
+        type: object
+        description: ''
+        properties:
+           ContactStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactActivityLog:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteContact:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     RequestContactResponse:
+        type: object
+        description: ''
+        properties:
+           ContactStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactActivityLog:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestContact:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     RetrieveContactResponse:
+        type: object
+        description: ''
+        properties:
+           ContactStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactActivityLog:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveContact:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     InitiateProductandServiceAccessRequest:
+        type: object
+        description: ''
+        properties:
+           ContactStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactActivityLog:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerDetailsPreferences:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceMenuAccessLog:
+              type: string
+              description: "\r\n"
+              format: String
+           AccessStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerResidentFiles:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateProductandServiceAccessResponse:
+        type: object
+        description: ''
+        properties:
+           ContactStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactActivityLog:
+              type: string
+              description: "\r\n"
+              format: String
+           AccessStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerResidentFiles:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateProductandServiceAccess:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     ExecuteProductandServiceAccessRequest:
+        type: object
+        description: ''
+        properties:
+           ContactStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactActivityLog:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerDetailsPreferences:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceMenuAccessLog:
+              type: string
+              description: "\r\n"
+              format: String
+           AccessStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerResidentFiles:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteProductandServiceAccessResponse:
+        type: object
+        description: ''
+        properties:
+           ContactStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactActivityLog:
+              type: string
+              description: "\r\n"
+              format: String
+           AccessStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerResidentFiles:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteProductandServiceAccess:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     RequestProductandServiceAccessRequest:
+        type: object
+        description: ''
+        properties:
+           ContactStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactActivityLog:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerDetailsPreferences:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceMenuAccessLog:
+              type: string
+              description: "\r\n"
+              format: String
+           AccessStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerResidentFiles:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestProductandServiceAccessResponse:
+        type: object
+        description: ''
+        properties:
+           ContactStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactActivityLog:
+              type: string
+              description: "\r\n"
+              format: String
+           AccessStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerResidentFiles:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestProductandServiceAccess:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     RetrieveProductandServiceAccessResponse:
+        type: object
+        description: ''
+        properties:
+           ContactStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactActivityLog:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerDetailsPreferences:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceMenuAccessLog:
+              type: string
+              description: "\r\n"
+              format: String
+           AccessStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerResidentFiles:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveProductandServiceAccess:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: The customer running the workbench device
+              format: Object
+           CustomerWorkbenchDeviceType:
+              type: string
+              description: The type of user device (e.g. mobile, laptop, workstation )
+              format: String
+           CustomerWorkbenchDeviceRegistration:
+              type: string
+              description: >-
+                Reference to device properties used to identify the device 
+                (e.g. URL, ANI, serial number)
+              format: String
+           CustomerWorkbenchDeviceManufacturer:
+              type: string
+              description: The make of the device if known
+              format: String
+           CustomerWorkbenchDeviceOperatingSystemVersionNumber:
+              type: string
+              description: >-
+                The operating system type and version (use to match downloaded
+                software)
+              format: String
+           CustomerWorkbenchDeviceAccessPermissions:
+              type: string
+              description: >-
+                The bank's access permissions (e.g. local storage access,
+                administrator permissions, system download permission)
+              format: String
+           InstalledBankApplicationType:
+              type: string
+              description: Details of the local bank applications
+              format: String
+           InstalledBankApplicationVersionNumber:
+              type: string
+              description: The version number(s) of device resident bank software
+              format: String
+           LastUpdateDateTime:
+              $ref: '#/components/schemas/Date'
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateCustomerWorkbenchOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateCustomerWorkbenchOperatingSessionRequest
+        required: true
+     UpdateCustomerWorkbenchOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCustomerWorkbenchOperatingSessionRequest
+        required: true
+     RetrieveCustomerWorkbenchOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateSWUpdateRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateSWUpdateRequest'
+        required: true
+     RetrieveSWUpdateRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateBroadcastRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateBroadcastRequest'
+        required: true
+     RequestBroadcastRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateBrowsingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateBrowsingRequest'
+        required: true
+     ExecuteBrowsingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteBrowsingRequest'
+        required: true
+     RetrieveBrowsingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateContactRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     ExecuteContactRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RequestContactRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveContactRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateProductandServiceAccessRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateProductandServiceAccessRequest'
+        required: true
+     ExecuteProductandServiceAccessRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteProductandServiceAccessRequest'
+        required: true
+     RequestProductandServiceAccessRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestProductandServiceAccessRequest'
+        required: true
+     RetrieveProductandServiceAccessRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     customerworkbenchoperatingsessionid:
+        name: customerworkbenchoperatingsessionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     swupdateid:
+        name: swupdateid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     broadcastid:
+        name: broadcastid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     browsingid:
+        name: browsingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     contactid:
+        name: contactid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     productandserviceaccessid:
+        name: productandserviceaccessid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateCustomerWorkbenchOperatingSessionResponse:
+        description: CustomerWorkbenchOperatingSessionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateCustomerWorkbenchOperatingSessionResponse
+     UpdateCustomerWorkbenchOperatingSessionResponse:
+        description: CustomerWorkbenchOperatingSessionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCustomerWorkbenchOperatingSessionResponse
+     RetrieveCustomerWorkbenchOperatingSessionResponse:
+        description: CustomerWorkbenchOperatingSessionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveCustomerWorkbenchOperatingSessionResponse
+     InitiateSWUpdateResponse:
+        description: SWUpdateInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateSWUpdateResponse'
+     RetrieveSWUpdateResponse:
+        description: SWUpdateRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveSWUpdateResponse'
+     InitiateBroadcastResponse:
+        description: BroadcastInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateBroadcastResponse'
+     RequestBroadcastResponse:
+        description: BroadcastRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestBroadcastResponse'
+     InitiateBrowsingResponse:
+        description: BrowsingInitiate
+        content:
+          'application/json:':
+            schema:
+              type: string
+     ExecuteBrowsingResponse:
+        description: BrowsingExecute
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrieveBrowsingResponse:
+        description: BrowsingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveBrowsingResponse'
+     InitiateContactResponse:
+        description: ContactInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateContactResponse'
+     ExecuteContactResponse:
+        description: ContactExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteContactResponse'
+     RequestContactResponse:
+        description: ContactRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestContactResponse'
+     RetrieveContactResponse:
+        description: ContactRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveContactResponse'
+     InitiateProductandServiceAccessResponse:
+        description: ProductandServiceAccessInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateProductandServiceAccessResponse'
+     ExecuteProductandServiceAccessResponse:
+        description: ProductandServiceAccessExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteProductandServiceAccessResponse'
+     RequestProductandServiceAccessResponse:
+        description: ProductandServiceAccessRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestProductandServiceAccessResponse'
+     RetrieveProductandServiceAccessResponse:
+        description: ProductandServiceAccessRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveProductandServiceAccessResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

@@ -1,0 +1,1327 @@
+openapi: 3.0.1
+info:
+  title: eBranch Operations
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain operates
+    the bank's online web based electronic branch capabilities  controlling
+    access and load balancing across available communications and processing
+    resources to optimize performance/availability
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/eBranchOperations
+paths:
+   '/eBranchChannelOperatingSession/{ebranchchanneloperatingsessionid}/Initiate':
+      post:
+        tags:
+           - CR - eBranchChannelOperatingSession
+        summary: InCR Initiate the eBranch channel service
+        description: InCR Initiate the eBranch channel service
+        operationId: eBranchChannelOperatingSession/Initiate
+        parameters:
+           - $ref: '#/components/parameters/ebranchchanneloperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/InitiateeBranchChannelOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/eBranchChannelOperatingSession/{ebranchchanneloperatingsessionid}/Update':
+      put:
+        tags:
+           - CR - eBranchChannelOperatingSession
+        summary: UpCR Update the eBranch access service menu during the session
+        description: UpCR Update the eBranch access service menu during the session
+        operationId: eBranchChannelOperatingSession/Update
+        parameters:
+           - $ref: '#/components/parameters/ebranchchanneloperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateeBranchChannelOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/eBranchChannelOperatingSession/{ebranchchanneloperatingsessionid}/Request':
+      put:
+        tags:
+           - CR - eBranchChannelOperatingSession
+        summary: RqCR Report an issue with the production service
+        description: RqCR Report an issue with the production service
+        operationId: eBranchChannelOperatingSession/Request
+        parameters:
+           - $ref: '#/components/parameters/ebranchchanneloperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequesteBranchChannelOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/eBranchChannelOperatingSession/{ebranchchanneloperatingsessionid}/Retrieve':
+      get:
+        tags:
+           - CR - eBranchChannelOperatingSession
+        summary: ReCR Retrieve details and statistics relating to a session
+        description: ReCR Retrieve details and statistics relating to a session
+        operationId: eBranchChannelOperatingSession/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/ebranchchanneloperatingsessionid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveeBranchChannelOperatingSessionResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Inbound/{inboundid}/Initiate':
+      post:
+        tags:
+           - BQ - Inbound
+        summary: InBQ Initiate an inbound eBranch connection
+        description: InBQ Initiate an inbound eBranch connection
+        operationId: Inbound/Initiate
+        parameters:
+           - $ref: '#/components/parameters/inboundid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateInboundRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Inbound/{inboundid}/Retrieve':
+      get:
+        tags:
+           - BQ - Inbound
+        summary: ReBQ Retrieve details about an inbound eBranch connection
+        description: ReBQ Retrieve details about an inbound eBranch connection
+        operationId: Inbound/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/inboundid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveInboundResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Outbound/{outboundid}/Initiate':
+      post:
+        tags:
+           - BQ - Outbound
+        summary: InBQ Initiate an outbound eBranch connection
+        description: InBQ Initiate an outbound eBranch connection
+        operationId: Outbound/Initiate
+        parameters:
+           - $ref: '#/components/parameters/outboundid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateOutboundRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Outbound/{outboundid}/Retrieve':
+      get:
+        tags:
+           - BQ - Outbound
+        summary: ReBQ Retrieve details about an outbound eBranch connection
+        description: ReBQ Retrieve details about an outbound eBranch connection
+        operationId: Outbound/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/outboundid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveOutboundResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateeBranchChannelOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           EBranchOperationsServiceMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchServiceSessionReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchProductionIssueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateeBranchChannelOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           EBranchOperationsServiceMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchServiceSessionReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchProductionIssueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateeBranchChannelOperatingSession:
+        type: object
+        description: ''
+        properties:
+           EBranchOperationsServiceMenu:
+              type: string
+              description: >-
+                The channel customer selection menu  selection is configurable
+                for the session. This is used optionally to identify the purpose
+                of the connection
+              format: String
+           EBranchServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           EBranchServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           EBranchServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           EBranchProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     UpdateeBranchChannelOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           EBranchOperationsServiceMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchServiceSessionReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchProductionIssueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateeBranchChannelOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           EBranchOperationsServiceMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchServiceSessionReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchProductionIssueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateeBranchChannelOperatingSession:
+        type: object
+        description: ''
+        properties:
+           EBranchOperationsServiceMenu:
+              type: string
+              description: >-
+                The channel customer selection menu  selection is configurable
+                for the session. This is used optionally to identify the purpose
+                of the connection
+              format: String
+           EBranchServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           EBranchServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           EBranchServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           EBranchProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     RequesteBranchChannelOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           EBranchProductionIssueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: "\r\n"
+              format: String
+     RequesteBranchChannelOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           EBranchProductionIssueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     RequesteBranchChannelOperatingSession:
+        type: object
+        description: ''
+        properties:
+           EBranchOperationsServiceMenu:
+              type: string
+              description: >-
+                The channel customer selection menu  selection is configurable
+                for the session. This is used optionally to identify the purpose
+                of the connection
+              format: String
+           EBranchServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           EBranchServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           EBranchServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           EBranchProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     RetrieveeBranchChannelOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           EBranchOperationsServiceMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchServiceSessionReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchProductionIssueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveeBranchChannelOperatingSession:
+        type: object
+        description: ''
+        properties:
+           EBranchOperationsServiceMenu:
+              type: string
+              description: >-
+                The channel customer selection menu  selection is configurable
+                for the session. This is used optionally to identify the purpose
+                of the connection
+              format: String
+           EBranchServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           EBranchServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           EBranchServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           EBranchProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     InitiateInboundRequest:
+        type: object
+        description: ''
+        properties:
+           EBranchOperationsServiceMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EBranchDevicePropertyValue:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchInboundConnectionContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     InitiateInboundResponse:
+        type: object
+        description: ''
+        properties:
+           EBranchServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchInboundConnectionStartTime:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchInboundConnectionDuration:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateInbound:
+        type: object
+        description: ''
+        properties:
+           EBranchOperationsServiceMenu:
+              type: string
+              description: >-
+                The channel customer selection menu  selection is configurable
+                for the session. This is used optionally to identify the purpose
+                of the connection
+              format: String
+           EBranchServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           EBranchServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           EBranchServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           EBranchProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     RetrieveInboundResponse:
+        type: object
+        description: ''
+        properties:
+           EBranchOperationsServiceMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EBranchDevicePropertyValue:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchInboundConnectionStartTime:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchInboundConnectionDuration:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchInboundConnectionContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveInbound:
+        type: object
+        description: ''
+        properties:
+           EBranchOperationsServiceMenu:
+              type: string
+              description: >-
+                The channel customer selection menu  selection is configurable
+                for the session. This is used optionally to identify the purpose
+                of the connection
+              format: String
+           EBranchServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           EBranchServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           EBranchServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           EBranchProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     InitiateOutboundRequest:
+        type: object
+        description: ''
+        properties:
+           EBranchServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchCustomerDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     InitiateOutboundResponse:
+        type: object
+        description: ''
+        properties:
+           EBranchServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchOutboundConnectionStartTime:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchOutboundConnectionDuration:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateOutbound:
+        type: object
+        description: ''
+        properties:
+           EBranchOperationsServiceMenu:
+              type: string
+              description: >-
+                The channel customer selection menu  selection is configurable
+                for the session. This is used optionally to identify the purpose
+                of the connection
+              format: String
+           EBranchServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           EBranchServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           EBranchServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           EBranchProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     RetrieveOutboundResponse:
+        type: object
+        description: ''
+        properties:
+           EBranchServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchCustomerDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EBranchOutboundConnectionStartTime:
+              type: string
+              description: "\r\n"
+              format: String
+           EBranchOutboundConnectionDuration:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveOutbound:
+        type: object
+        description: ''
+        properties:
+           EBranchOperationsServiceMenu:
+              type: string
+              description: >-
+                The channel customer selection menu  selection is configurable
+                for the session. This is used optionally to identify the purpose
+                of the connection
+              format: String
+           EBranchServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           EBranchServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           EBranchServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           EBranchProductionIssueRecord:
+              type: string
+              description: A record of any production issues arising during the session
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The source of the issue report if appropriate
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the specific customer contact where the issue
+                occurred if appropriate
+              format: Object
+           ProductionIssueType:
+              type: string
+              description: >-
+                The type of network event or error being recorded (e.g. device
+                failure)
+              format: String
+           ProductionIssueDescription:
+              type: string
+              description: The description of the event error
+              format: String
+           ProductionIssueDiagnosis:
+              type: string
+              description: Evaluation of the event cause and impact assessment
+              format: String
+           ProductionIssueResolutionTask:
+              type: string
+              description: Description of corrective action proposed and taken
+              format: String
+           ProductionIssueStatus:
+              type: string
+              description: >-
+                Tracking the state of resolution of a reported issue during the
+                session
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateeBranchChannelOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateeBranchChannelOperatingSessionRequest
+        required: true
+     UpdateeBranchChannelOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateeBranchChannelOperatingSessionRequest'
+        required: true
+     RequesteBranchChannelOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequesteBranchChannelOperatingSessionRequest
+        required: true
+     RetrieveeBranchChannelOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateInboundRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateInboundRequest'
+        required: true
+     RetrieveInboundRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateOutboundRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOutboundRequest'
+        required: true
+     RetrieveOutboundRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     ebranchchanneloperatingsessionid:
+        name: ebranchchanneloperatingsessionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     inboundid:
+        name: inboundid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     outboundid:
+        name: outboundid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateeBranchChannelOperatingSessionResponse:
+        description: eBranchChannelOperatingSessionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateeBranchChannelOperatingSessionResponse
+     UpdateeBranchChannelOperatingSessionResponse:
+        description: eBranchChannelOperatingSessionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateeBranchChannelOperatingSessionResponse
+     RequesteBranchChannelOperatingSessionResponse:
+        description: eBranchChannelOperatingSessionRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequesteBranchChannelOperatingSessionResponse
+     RetrieveeBranchChannelOperatingSessionResponse:
+        description: eBranchChannelOperatingSessionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveeBranchChannelOperatingSessionResponse
+     InitiateInboundResponse:
+        description: InboundInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateInboundResponse'
+     RetrieveInboundResponse:
+        description: InboundRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveInboundResponse'
+     InitiateOutboundResponse:
+        description: OutboundInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOutboundResponse'
+     RetrieveOutboundResponse:
+        description: OutboundRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveOutboundResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

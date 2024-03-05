@@ -1,0 +1,1583 @@
+openapi: 3.0.1
+info:
+  title: Product Portfolio
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Maintain a portfolio of
+    analytical views of the product portfolio to support product profitability
+    and performance analysis
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/ProductPortfolio
+paths:
+   '/ProductPortfolioAnalysis/{productportfolioanalysisid}/Evaluate':
+      post:
+        tags:
+           - CR - ProductPortfolioAnalysis
+        summary: EvCR Evaluate product portfolio performance
+        description: EvCR Evaluate product portfolio performance
+        operationId: ProductPortfolioAnalysis/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/productportfolioanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateProductPortfolioAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductPortfolioAnalysis/{productportfolioanalysisid}/Update':
+      put:
+        tags:
+           - CR - ProductPortfolioAnalysis
+        summary: >-
+          UpCR Update settings or content for product portfolio analysis
+          activity
+        description: >-
+          UpCR Update settings or content for product portfolio analysis
+          activity
+        operationId: ProductPortfolioAnalysis/Update
+        parameters:
+           - $ref: '#/components/parameters/productportfolioanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateProductPortfolioAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductPortfolioAnalysis/{productportfolioanalysisid}/Request':
+      put:
+        tags:
+           - CR - ProductPortfolioAnalysis
+        summary: >-
+          RqCR Request manual intervention in the product portfolio analysis
+          activity
+        description: >-
+          RqCR Request manual intervention in the product portfolio analysis
+          activity
+        operationId: ProductPortfolioAnalysis/Request
+        parameters:
+           - $ref: '#/components/parameters/productportfolioanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestProductPortfolioAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductPortfolioAnalysis/{productportfolioanalysisid}/Retrieve':
+      get:
+        tags:
+           - CR - ProductPortfolioAnalysis
+        summary: ReCR Retrieve details about product portfolio analysis activity
+        description: ReCR Retrieve details about product portfolio analysis activity
+        operationId: ProductPortfolioAnalysis/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/productportfolioanalysisid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveProductPortfolioAnalysisResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PerformanceAnalysis/{performanceanalysisid}/Evaluate':
+      post:
+        tags:
+           - BQ - PerformanceAnalysis
+        summary: EvBQ Evaluate product performance using a specific type of analysis
+        description: EvBQ Evaluate product performance using a specific type of analysis
+        operationId: PerformanceAnalysis/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/performanceanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluatePerformanceAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PerformanceAnalysis/{performanceanalysisid}/Update':
+      put:
+        tags:
+           - BQ - PerformanceAnalysis
+        summary: UpBQ Update details of a specific product performance analysis
+        description: UpBQ Update details of a specific product performance analysis
+        operationId: PerformanceAnalysis/Update
+        parameters:
+           - $ref: '#/components/parameters/performanceanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePerformanceAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PerformanceAnalysis/{performanceanalysisid}/Execute':
+      put:
+        tags:
+           - BQ - PerformanceAnalysis
+        summary: ExBQ Execute an automated action against ongoing analysis
+        description: ExBQ Execute an automated action against ongoing analysis
+        operationId: PerformanceAnalysis/Execute
+        parameters:
+           - $ref: '#/components/parameters/performanceanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecutePerformanceAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PerformanceAnalysis/{performanceanalysisid}/Request':
+      put:
+        tags:
+           - BQ - PerformanceAnalysis
+        summary: RqBQ Request manual intervention to ongoing analysis
+        description: RqBQ Request manual intervention to ongoing analysis
+        operationId: PerformanceAnalysis/Request
+        parameters:
+           - $ref: '#/components/parameters/performanceanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestPerformanceAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PerformanceAnalysis/{performanceanalysisid}/Retrieve':
+      get:
+        tags:
+           - BQ - PerformanceAnalysis
+        summary: ReBQ Retrieve details about a specific product performance analysis
+        description: ReBQ Retrieve details about a specific product performance analysis
+        operationId: PerformanceAnalysis/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/performanceanalysisid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePerformanceAnalysisResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateProductPortfolioAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     EvaluateProductPortfolioAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     EvaluateProductPortfolioAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: Definition of the product portfolio
+              format: String
+           ProductType:
+              type: string
+              description: The product type within the portfolio analysis
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: >-
+                Specific properties and characteristics of the product that
+                provide context for the performance analysis
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for products as defined by
+                senior management functions (target/anticipated and actual as
+                assessed).
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing product portfolio analysis for the
+                enterprise or division
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the products making up the overall portfolio
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed to products in
+                the portfolio (e.g. scheduled review, specialized analysis,
+                sensitivity assessment/projection)
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     UpdateProductPortfolioAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateProductPortfolioAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateProductPortfolioAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: Definition of the product portfolio
+              format: String
+           ProductType:
+              type: string
+              description: The product type within the portfolio analysis
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: >-
+                Specific properties and characteristics of the product that
+                provide context for the performance analysis
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for products as defined by
+                senior management functions (target/anticipated and actual as
+                assessed).
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing product portfolio analysis for the
+                enterprise or division
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the products making up the overall portfolio
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed to products in
+                the portfolio (e.g. scheduled review, specialized analysis,
+                sensitivity assessment/projection)
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     RequestProductPortfolioAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     RequestProductPortfolioAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestProductPortfolioAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: Definition of the product portfolio
+              format: String
+           ProductType:
+              type: string
+              description: The product type within the portfolio analysis
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: >-
+                Specific properties and characteristics of the product that
+                provide context for the performance analysis
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for products as defined by
+                senior management functions (target/anticipated and actual as
+                assessed).
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing product portfolio analysis for the
+                enterprise or division
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the products making up the overall portfolio
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed to products in
+                the portfolio (e.g. scheduled review, specialized analysis,
+                sensitivity assessment/projection)
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     RetrieveProductPortfolioAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveProductPortfolioAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: Definition of the product portfolio
+              format: String
+           ProductType:
+              type: string
+              description: The product type within the portfolio analysis
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: >-
+                Specific properties and characteristics of the product that
+                provide context for the performance analysis
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for products as defined by
+                senior management functions (target/anticipated and actual as
+                assessed).
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing product portfolio analysis for the
+                enterprise or division
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the products making up the overall portfolio
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed to products in
+                the portfolio (e.g. scheduled review, specialized analysis,
+                sensitivity assessment/projection)
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     EvaluatePerformanceAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluatePerformanceAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluatePerformanceAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: Definition of the product portfolio
+              format: String
+           ProductType:
+              type: string
+              description: The product type within the portfolio analysis
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: >-
+                Specific properties and characteristics of the product that
+                provide context for the performance analysis
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for products as defined by
+                senior management functions (target/anticipated and actual as
+                assessed).
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing product portfolio analysis for the
+                enterprise or division
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the products making up the overall portfolio
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed to products in
+                the portfolio (e.g. scheduled review, specialized analysis,
+                sensitivity assessment/projection)
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     UpdatePerformanceAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ProductPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdatePerformanceAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ProductPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdatePerformanceAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: Definition of the product portfolio
+              format: String
+           ProductType:
+              type: string
+              description: The product type within the portfolio analysis
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: >-
+                Specific properties and characteristics of the product that
+                provide context for the performance analysis
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for products as defined by
+                senior management functions (target/anticipated and actual as
+                assessed).
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing product portfolio analysis for the
+                enterprise or division
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the products making up the overall portfolio
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed to products in
+                the portfolio (e.g. scheduled review, specialized analysis,
+                sensitivity assessment/projection)
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     ExecutePerformanceAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ProductPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecutePerformanceAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ProductPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecutePerformanceAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: Definition of the product portfolio
+              format: String
+           ProductType:
+              type: string
+              description: The product type within the portfolio analysis
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: >-
+                Specific properties and characteristics of the product that
+                provide context for the performance analysis
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for products as defined by
+                senior management functions (target/anticipated and actual as
+                assessed).
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing product portfolio analysis for the
+                enterprise or division
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the products making up the overall portfolio
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed to products in
+                the portfolio (e.g. scheduled review, specialized analysis,
+                sensitivity assessment/projection)
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     RequestPerformanceAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ProductPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestPerformanceAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ProductPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestPerformanceAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: Definition of the product portfolio
+              format: String
+           ProductType:
+              type: string
+              description: The product type within the portfolio analysis
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: >-
+                Specific properties and characteristics of the product that
+                provide context for the performance analysis
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for products as defined by
+                senior management functions (target/anticipated and actual as
+                assessed).
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing product portfolio analysis for the
+                enterprise or division
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the products making up the overall portfolio
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed to products in
+                the portfolio (e.g. scheduled review, specialized analysis,
+                sensitivity assessment/projection)
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     RetrievePerformanceAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ProductPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrievePerformanceAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductPortfolioMakeup:
+              type: string
+              description: Definition of the product portfolio
+              format: String
+           ProductType:
+              type: string
+              description: The product type within the portfolio analysis
+              format: String
+           ProductTypeDefinition:
+              type: string
+              description: >-
+                Specific properties and characteristics of the product that
+                provide context for the performance analysis
+              format: String
+           ProductPortfolioPerformanceGoals:
+              type: string
+              description: >-
+                Definition of the performance goals for products as defined by
+                senior management functions (target/anticipated and actual as
+                assessed).
+              format: String
+           ProductPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing product portfolio analysis for the
+                enterprise or division
+              format: String
+           ProductPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the products making up the overall portfolio
+              format: String
+           ProductAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed to products in
+                the portfolio (e.g. scheduled review, specialized analysis,
+                sensitivity assessment/projection)
+              format: String
+           ProductAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           ProductAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateProductPortfolioAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateProductPortfolioAnalysisRequest'
+        required: true
+     UpdateProductPortfolioAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProductPortfolioAnalysisRequest'
+        required: true
+     RequestProductPortfolioAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestProductPortfolioAnalysisRequest'
+        required: true
+     RetrieveProductPortfolioAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     EvaluatePerformanceAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluatePerformanceAnalysisRequest'
+        required: true
+     UpdatePerformanceAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePerformanceAnalysisRequest'
+        required: true
+     ExecutePerformanceAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePerformanceAnalysisRequest'
+        required: true
+     RequestPerformanceAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPerformanceAnalysisRequest'
+        required: true
+     RetrievePerformanceAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     productportfolioanalysisid:
+        name: productportfolioanalysisid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     performanceanalysisid:
+        name: performanceanalysisid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateProductPortfolioAnalysisResponse:
+        description: ProductPortfolioAnalysisEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateProductPortfolioAnalysisResponse'
+     UpdateProductPortfolioAnalysisResponse:
+        description: ProductPortfolioAnalysisUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProductPortfolioAnalysisResponse'
+     RequestProductPortfolioAnalysisResponse:
+        description: ProductPortfolioAnalysisRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestProductPortfolioAnalysisResponse'
+     RetrieveProductPortfolioAnalysisResponse:
+        description: ProductPortfolioAnalysisRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveProductPortfolioAnalysisResponse'
+     EvaluatePerformanceAnalysisResponse:
+        description: PerformanceAnalysisEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluatePerformanceAnalysisResponse'
+     UpdatePerformanceAnalysisResponse:
+        description: PerformanceAnalysisUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePerformanceAnalysisResponse'
+     ExecutePerformanceAnalysisResponse:
+        description: PerformanceAnalysisExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePerformanceAnalysisResponse'
+     RequestPerformanceAnalysisResponse:
+        description: PerformanceAnalysisRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPerformanceAnalysisResponse'
+     RetrievePerformanceAnalysisResponse:
+        description: PerformanceAnalysisRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePerformanceAnalysisResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

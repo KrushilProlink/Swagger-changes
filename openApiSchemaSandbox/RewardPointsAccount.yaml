@@ -1,0 +1,3030 @@
+openapi: 3.0.1
+info:
+  title: Reward Points Account
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Administer the booking and
+    remittance of rewards points
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/RewardPointsAccount
+paths:
+   '/RewardPointsLog/{rewardpointslogid}/Capture':
+      put:
+        tags:
+           - CR - RewardPointsLog
+        summary: CaCR Capture Reward Points Log activity or event related information
+        description: CaCR Capture Reward Points Log activity or event related information
+        operationId: RewardPointsLog/Capture
+        parameters:
+           - $ref: '#/components/parameters/rewardpointslogid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureRewardPointsLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RewardPointsLog/{rewardpointslogid}/Control':
+      put:
+        tags:
+           - CR - RewardPointsLog
+        summary: CoCR Control the processing of Reward Points Log
+        description: CoCR Control the processing of Reward Points Log
+        operationId: RewardPointsLog/Control
+        parameters:
+           - $ref: '#/components/parameters/rewardpointslogid'
+        requestBody:
+          $ref: '#/components/requestBodies/ControlRewardPointsLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RewardPointsLog/{rewardpointslogid}/Exchange':
+      put:
+        tags:
+           - CR - RewardPointsLog
+        summary: EcCR Accept, verify, etc. aspects of Reward Points Log processing
+        description: EcCR Accept, verify, etc. aspects of Reward Points Log processing
+        operationId: RewardPointsLog/Exchange
+        parameters:
+           - $ref: '#/components/parameters/rewardpointslogid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeRewardPointsLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RewardPointsLog/{rewardpointslogid}/Grant':
+      put:
+        tags:
+           - CR - RewardPointsLog
+        summary: GrCR Obtain permission to act in relation to Reward Points Log
+        description: GrCR Obtain permission to act in relation to Reward Points Log
+        operationId: RewardPointsLog/Grant
+        parameters:
+           - $ref: '#/components/parameters/rewardpointslogid'
+        requestBody:
+          $ref: '#/components/requestBodies/GrantRewardPointsLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RewardPointsLog/{rewardpointslogid}/Initiate':
+      post:
+        tags:
+           - CR - RewardPointsLog
+        summary: InCR Instantiate a new Reward Points Log
+        description: InCR Instantiate a new Reward Points Log
+        operationId: RewardPointsLog/Initiate
+        parameters:
+           - $ref: '#/components/parameters/rewardpointslogid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateRewardPointsLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RewardPointsLog/{rewardpointslogid}/Retrieve':
+      get:
+        tags:
+           - CR - RewardPointsLog
+        summary: ReCR Retrieve details about any aspect of Reward Points Log
+        description: ReCR Retrieve details about any aspect of Reward Points Log
+        operationId: RewardPointsLog/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/rewardpointslogid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveRewardPointsLogResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RewardPointsLog/{rewardpointslogid}/Request':
+      put:
+        tags:
+           - CR - RewardPointsLog
+        summary: >-
+          RqCR Request manual intervention or a decision with respect to Reward
+          Points Log
+        description: >-
+          RqCR Request manual intervention or a decision with respect to Reward
+          Points Log
+        operationId: RewardPointsLog/Request
+        parameters:
+           - $ref: '#/components/parameters/rewardpointslogid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestRewardPointsLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RewardPointsLog/{rewardpointslogid}/Update':
+      put:
+        tags:
+           - CR - RewardPointsLog
+        summary: UpCR Update details relating to Reward Points Log
+        description: UpCR Update details relating to Reward Points Log
+        operationId: RewardPointsLog/Update
+        parameters:
+           - $ref: '#/components/parameters/rewardpointslogid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateRewardPointsLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Capture/{captureid}/Capture':
+      put:
+        tags:
+           - BQ - Capture
+        summary: CaBQ Capture Capture activity or event related information
+        description: CaBQ Capture Capture activity or event related information
+        operationId: Capture/Capture
+        parameters:
+           - $ref: '#/components/parameters/captureid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureCaptureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Expiration/{expirationid}/Capture':
+      put:
+        tags:
+           - BQ - Expiration
+        summary: CaBQ Capture Expiration activity or event related information
+        description: CaBQ Capture Expiration activity or event related information
+        operationId: Expiration/Capture
+        parameters:
+           - $ref: '#/components/parameters/expirationid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureExpirationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Capture/{captureid}/Initiate':
+      post:
+        tags:
+           - BQ - Capture
+        summary: InBQ Instantiate a new Capture
+        description: InBQ Instantiate a new Capture
+        operationId: Capture/Initiate
+        parameters:
+           - $ref: '#/components/parameters/captureid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateCaptureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Expiration/{expirationid}/Initiate':
+      post:
+        tags:
+           - BQ - Expiration
+        summary: InBQ Instantiate a new Expiration
+        description: InBQ Instantiate a new Expiration
+        operationId: Expiration/Initiate
+        parameters:
+           - $ref: '#/components/parameters/expirationid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateExpirationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Capture/{captureid}/Retrieve':
+      get:
+        tags:
+           - BQ - Capture
+        summary: ReBQ Retrieve details about any aspect of Capture
+        description: ReBQ Retrieve details about any aspect of Capture
+        operationId: Capture/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/captureid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCaptureResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Expiration/{expirationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Expiration
+        summary: ReBQ Retrieve details about any aspect of Expiration
+        description: ReBQ Retrieve details about any aspect of Expiration
+        operationId: Expiration/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/expirationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveExpirationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Capture/{captureid}/Update':
+      put:
+        tags:
+           - BQ - Capture
+        summary: UpBQ Update details relating to Capture
+        description: UpBQ Update details relating to Capture
+        operationId: Capture/Update
+        parameters:
+           - $ref: '#/components/parameters/captureid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCaptureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Expiration/{expirationid}/Update':
+      put:
+        tags:
+           - BQ - Expiration
+        summary: UpBQ Update details relating to Expiration
+        description: UpBQ Update details relating to Expiration
+        operationId: Expiration/Update
+        parameters:
+           - $ref: '#/components/parameters/expirationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateExpirationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     CaptureRewardPointsLogRequest:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureRewardPointsLogResponse:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureRewardPointsLog:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     ControlRewardPointsLogRequest:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: "\r\n"
+              format: String
+     ControlRewardPointsLogResponse:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: "\r\n"
+              format: String
+     ControlRewardPointsLog:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     ExchangeRewardPointsLogRequest:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: "\r\n"
+              format: String
+     ExchangeRewardPointsLogResponse:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: "\r\n"
+              format: String
+     ExchangeRewardPointsLog:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     GrantRewardPointsLogRequest:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: "\r\n"
+              format: String
+     GrantRewardPointsLogResponse:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: "\r\n"
+              format: String
+     GrantRewardPointsLog:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     InitiateRewardPointsLogRequest:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateRewardPointsLogResponse:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateRewardPointsLog:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     RetrieveRewardPointsLogResponse:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveRewardPointsLog:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     RequestRewardPointsLogRequest:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestRewardPointsLogResponse:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestRewardPointsLog:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     UpdateRewardPointsLogRequest:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateRewardPointsLogResponse:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateRewardPointsLog:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     CaptureCaptureRequest:
+        type: object
+        description: ''
+        properties:
+           CapturePreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureEventSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           CapturePostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     BusinessService:
+        type: object
+        description: "\r\n - "
+        properties:
+           BusinessServiceType:
+              enum:
+                   -  Businessservicetypevalues
+              type: string
+              description: ">-\r\n* `Businessservicetypevalues` \r\n* "
+     CaptureCaptureResponse:
+        type: object
+        description: ''
+        properties:
+           CapturePreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureEventSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           CapturePostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureCapture:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     CaptureExpirationRequest:
+        type: object
+        description: ''
+        properties:
+           ExpirationPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationEventSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           LogEventExpiration:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           ExpirationPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureExpirationResponse:
+        type: object
+        description: ''
+        properties:
+           ExpirationPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationEventSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           LogEventExpiration:
+              $ref: '#/components/schemas/BusinessService'
+           ExpirationPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureExpiration:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     InitiateCaptureRequest:
+        type: object
+        description: ''
+        properties:
+           CapturePreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureEventSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           CapturePostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCaptureResponse:
+        type: object
+        description: ''
+        properties:
+           CapturePreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureEventSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           CapturePostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCapture:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     InitiateExpirationRequest:
+        type: object
+        description: ''
+        properties:
+           ExpirationPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationEventSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           LogEventExpiration:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           ExpirationPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateExpirationResponse:
+        type: object
+        description: ''
+        properties:
+           ExpirationPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationEventSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           LogEventExpiration:
+              $ref: '#/components/schemas/BusinessService'
+           ExpirationPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateExpiration:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     RetrieveCaptureResponse:
+        type: object
+        description: ''
+        properties:
+           CapturePreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureEventSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           CapturePostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCapture:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     RetrieveExpirationResponse:
+        type: object
+        description: ''
+        properties:
+           ExpirationPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationEventSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           LogEventExpiration:
+              $ref: '#/components/schemas/BusinessService'
+           ExpirationPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveExpiration:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     UpdateCaptureRequest:
+        type: object
+        description: ''
+        properties:
+           CapturePreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureEventSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           CapturePostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCaptureResponse:
+        type: object
+        description: ''
+        properties:
+           CapturePreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureEventSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           CapturePostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           CaptureServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCapture:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     UpdateExpirationRequest:
+        type: object
+        description: ''
+        properties:
+           ExpirationPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationEventSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           LogEventExpiration:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           ExpirationPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateExpirationResponse:
+        type: object
+        description: ''
+        properties:
+           ExpirationPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationEventSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           LogEventExpiration:
+              $ref: '#/components/schemas/BusinessService'
+           ExpirationPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ExpirationLogEventExpirationServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateExpiration:
+        type: object
+        description: ''
+        properties:
+           RewardPointsLogParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service events logged within Reward Points Log
+              format: String
+           RewardPointsLogSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Log
+              format: String
+           RewardPointsLogType:
+              type: string
+              description: The type of Reward Points Log
+              format: String
+           RewardPointsLogSchedule:
+              type: string
+              description: Timetable to track RewardPoints
+              format: String
+           RewardPointsLogUsageLog:
+              type: string
+              description: >-
+                Reference to the log of (usage) ativities/events  of Reward
+                Points Log
+              format: String
+           RewardPointsLogUpdateLog:
+              type: string
+              description: >-
+                Reference to the log of (update) ativities/events of Reward
+                Points Log
+              format: String
+           RewardPointsLogReference:
+              type: string
+              description: Reference to the party who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit which is involved in Reward
+                Points Log
+              format: Object
+           RewardPointsLogCustomerReference:
+              type: string
+              description: Reference to the customer who is involved in Reward Points Log
+              format: Object
+           RewardPointsLogServiceConfiguration:
+              type: string
+              description: The configuration of Reward Points Log
+              format: String
+           RewardPointsLogPosition:
+              type: string
+              description: The position of Reward Points Log
+              format: String
+           RewardPointsLogPositionType:
+              type: string
+              description: >-
+                A classification value expressing the kind of position withing
+                the Reward Points Log
+              format: String
+           RewardPointsLogPositionLimitTime:
+              type: string
+              description: >-
+                Reference to the time limitation related to the position  of
+                Reward Points Log
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     CaptureRewardPointsLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureRewardPointsLogRequest'
+        required: true
+     ControlRewardPointsLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlRewardPointsLogRequest'
+        required: true
+     ExchangeRewardPointsLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeRewardPointsLogRequest'
+        required: true
+     GrantRewardPointsLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/GrantRewardPointsLogRequest'
+        required: true
+     InitiateRewardPointsLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateRewardPointsLogRequest'
+        required: true
+     RetrieveRewardPointsLogRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RequestRewardPointsLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestRewardPointsLogRequest'
+        required: true
+     UpdateRewardPointsLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRewardPointsLogRequest'
+        required: true
+     CaptureCaptureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureCaptureRequest'
+        required: true
+     CaptureExpirationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureExpirationRequest'
+        required: true
+     InitiateCaptureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCaptureRequest'
+        required: true
+     InitiateExpirationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateExpirationRequest'
+        required: true
+     RetrieveCaptureRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveExpirationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateCaptureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCaptureRequest'
+        required: true
+     UpdateExpirationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateExpirationRequest'
+        required: true
+  parameters:
+     rewardpointslogid:
+        name: rewardpointslogid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     captureid:
+        name: captureid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     expirationid:
+        name: expirationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     CaptureRewardPointsLogResponse:
+        description: RewardPointsLogCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureRewardPointsLogResponse'
+     ControlRewardPointsLogResponse:
+        description: RewardPointsLogControl
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlRewardPointsLogResponse'
+     ExchangeRewardPointsLogResponse:
+        description: RewardPointsLogExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeRewardPointsLogResponse'
+     GrantRewardPointsLogResponse:
+        description: RewardPointsLogGrant
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/GrantRewardPointsLogResponse'
+     InitiateRewardPointsLogResponse:
+        description: RewardPointsLogInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateRewardPointsLogResponse'
+     RetrieveRewardPointsLogResponse:
+        description: RewardPointsLogRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveRewardPointsLogResponse'
+     RequestRewardPointsLogResponse:
+        description: RewardPointsLogRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestRewardPointsLogResponse'
+     UpdateRewardPointsLogResponse:
+        description: RewardPointsLogUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRewardPointsLogResponse'
+     CaptureCaptureResponse:
+        description: CaptureCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureCaptureResponse'
+     CaptureExpirationResponse:
+        description: ExpirationCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureExpirationResponse'
+     InitiateCaptureResponse:
+        description: CaptureInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCaptureResponse'
+     InitiateExpirationResponse:
+        description: ExpirationInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateExpirationResponse'
+     RetrieveCaptureResponse:
+        description: CaptureRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCaptureResponse'
+     RetrieveExpirationResponse:
+        description: ExpirationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveExpirationResponse'
+     UpdateCaptureResponse:
+        description: CaptureUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCaptureResponse'
+     UpdateExpirationResponse:
+        description: ExpirationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateExpirationResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

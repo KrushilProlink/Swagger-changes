@@ -1,0 +1,1203 @@
+openapi: 3.0.1
+info:
+  title: Corporate Treasury
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain
+    orchestrates the consolidation and presentation of summary transaction
+    details in order to assemble a timely and accurate view of the overall
+    treasury position of the Bank at any one time. It is also responsible for
+    determining the different interest and exchange rates applied to different
+    products and services within the bank
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CorporateTreasury
+paths:
+   '/CorporateTreasuryManagementPlan/{corporatetreasurymanagementplanid}/Update':
+      put:
+        tags:
+           - CR - CorporateTreasuryManagementPlan
+        summary: UpCR Update the corporate treasury plan
+        description: UpCR Update the corporate treasury plan
+        operationId: CorporateTreasuryManagementPlan/Update
+        parameters:
+           - $ref: '#/components/parameters/corporatetreasurymanagementplanid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateCorporateTreasuryManagementPlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CorporateTreasuryManagementPlan/{corporatetreasurymanagementplanid}/Retrieve':
+      get:
+        tags:
+           - CR - CorporateTreasuryManagementPlan
+        summary: ReCR Retrieve details about the corporate treasury plan
+        description: ReCR Retrieve details about the corporate treasury plan
+        operationId: CorporateTreasuryManagementPlan/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/corporatetreasurymanagementplanid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveCorporateTreasuryManagementPlanResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Liquidity/{liquidityid}/Capture':
+      put:
+        tags:
+           - BQ - Liquidity
+        summary: CaBQ Capture transactions feeding into liquidity analysis
+        description: CaBQ Capture transactions feeding into liquidity analysis
+        operationId: Liquidity/Capture
+        parameters:
+           - $ref: '#/components/parameters/liquidityid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureLiquidityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Liquidity/{liquidityid}/Retrieve':
+      get:
+        tags:
+           - BQ - Liquidity
+        summary: ReBQ Retrieve liquidity analysis details
+        description: ReBQ Retrieve liquidity analysis details
+        operationId: Liquidity/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/liquidityid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveLiquidityResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TacticalFunding/{tacticalfundingid}/Retrieve':
+      get:
+        tags:
+           - BQ - TacticalFunding
+        summary: ReBQ Retrieve tactical funding details
+        description: ReBQ Retrieve tactical funding details
+        operationId: TacticalFunding/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/tacticalfundingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveTacticalFundingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/StrategicFunding/{strategicfundingid}/Capture':
+      put:
+        tags:
+           - BQ - StrategicFunding
+        summary: CaBQ Capture details of large strategic transactions
+        description: CaBQ Capture details of large strategic transactions
+        operationId: StrategicFunding/Capture
+        parameters:
+           - $ref: '#/components/parameters/strategicfundingid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureStrategicFundingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/StrategicFunding/{strategicfundingid}/Retrieve':
+      get:
+        tags:
+           - BQ - StrategicFunding
+        summary: ReBQ Retrieve strategic funding details
+        description: ReBQ Retrieve strategic funding details
+        operationId: StrategicFunding/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/strategicfundingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveStrategicFundingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Securitization/{securitizationid}/Update':
+      put:
+        tags:
+           - BQ - Securitization
+        summary: UpBQ Update securitization tranche and task details
+        description: UpBQ Update securitization tranche and task details
+        operationId: Securitization/Update
+        parameters:
+           - $ref: '#/components/parameters/securitizationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateSecuritizationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Securitization/{securitizationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Securitization
+        summary: ReBQ Retrieve securitization tranche and task related details
+        description: ReBQ Retrieve securitization tranche and task related details
+        operationId: Securitization/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/securitizationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveSecuritizationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BankRates/{bankratesid}/Retrieve':
+      get:
+        tags:
+           - BQ - BankRates
+        summary: ReBQ Retrieve bank rate table and details
+        description: ReBQ Retrieve bank rate table and details
+        operationId: BankRates/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/bankratesid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveBankRatesResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     UpdateCorporateTreasuryManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           TreasuryPlanningPoliciesAndGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+           TreasuryPlanOperatingParameters:
+              type: string
+              description: "\r\n"
+              format: String
+           TreasuryPlanGoals:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCorporateTreasuryManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           TreasuryPlanningPoliciesAndGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+           TreasuryPlanOperatingParameters:
+              type: string
+              description: "\r\n"
+              format: String
+           TreasuryPlanGoals:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCorporateTreasuryManagementPlan:
+        type: object
+        description: ''
+        properties:
+           TreasuryPlanningPoliciesAndGuidelines:
+              type: string
+              description: >-
+                The bank's treasury policies and guidelines reflected in the
+                plan
+              format: String
+           TreasuryPlanOperatingParameters:
+              type: string
+              description: >-
+                The array of group treasury positions and limits to be met
+                through the plan
+              format: String
+           TreasuryPlanGoals:
+              type: string
+              description: >-
+                Target financial performance goals set out in the bank's
+                corporate treasury plan
+              format: String
+           EnterpriseFinancialStatements:
+              type: string
+              description: >-
+                The bank financial statements include the balance sheet,
+                statement of cash flows, statement of retained earnings and the
+                income statement
+              format: String
+           EnterpriseBalanceSheetDetailedContent:
+              type: string
+              description: >-
+                The balance sheet breakdown include individual
+                assets/liabilities as necessary
+              format: String
+           EnterpriseBankAccountingAndCashManagementRecords:
+              type: string
+              description: >-
+                Account records that cover booking, pooling and netting
+                activities across all relevant bank activity
+              format: String
+           CapitalWholesaleMarketTransactions:
+              type: string
+              description: >-
+                Includes large transactions and net positions for smaller trade
+                activity as appropriate
+              format: String
+           CurrencyandRateRiskAnalysis:
+              $ref: '#/components/schemas/Rate'
+     Rate:
+        type: object
+        description: >-
+          Analytical views detailing exposure and sensitivity to currency and
+          interest rate fluctuations PercentageRate|PercentageRate
+          (https://www.iso20022.org/standardsrepository/type/PercentageRate)|Standard|ISO20022
+          BM ()
+        properties:
+           RateValue:
+              $ref: '#/components/schemas/Value'
+           RateUnit:
+              $ref: '#/components/schemas/Text'
+           RatePeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           RateCapitalUnit:
+              $ref: '#/components/schemas/Text'
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Text:
+        type: object
+        description: >-
+          The unit of measure like Percentage or BPS
+
+
+          Basis points (BPS) refers to a common unit of measure for interest
+          rates and other percentages in finance. 
+        properties:
+           Text:
+              type: string
+              description: >-
+                Text is a character string such as a finite set of characters
+                generally in the form of words of a language. (UN/CEFACT)
+              format: DataType
+     Datetimeperiod:
+        type: object
+        description: ' '
+        properties:
+           FromDateTime:
+              $ref: '#/components/schemas/Datetime'
+           ToDateTime:
+              $ref: '#/components/schemas/Datetime'
+     Datetime:
+        type: object
+        description: 'Date and time at which the range starts. (ISO20022) '
+        properties:
+           DateTimeContent:
+              type: string
+              description: ''
+              format: String
+           TimeZoneCode:
+              type: string
+              description: ''
+              format: String
+           DaylightSavingIndicator:
+              type: string
+              description: ''
+              format: String
+           Datetime:
+              type: string
+              description: >-
+                A date time identifies a date and time of day to various common
+                resolutions: year, month, week, day, hour, minute, second, and
+                fraction of second. (UN/CEFACT)
+
+
+                A particular point in the progression of time defined by a
+                mandatory date and a mandatory time component, expressed in
+                either UTC time format (YYYYMMDDThh:mm:ss.sssZ), local time
+                with UTC offset format (YYYYMMDDThh:mm:ss.sss/hh:mm), or
+                local time format (YYYYMMDDThh:mm:ss.sss). These
+                representations are defined in "XML Schema Part 2: Datatypes
+                Second Edition  W3C Recommendation 28 October 2004" which is
+                aligned with ISO 8601. (ISO20022)
+
+                Note on the time format:
+
+                1) beginning / end of calendar day
+
+                00:00:00  -  the beginning of a calendar day
+
+                24:00:00  -  the end of a calendar day
+
+                2) fractions of second in time format
+
+                Decimal fractions of seconds may be included. In this case, the
+                involved parties shall agree on the maximum number of digits
+                that are allowed.
+              format: DataType
+     RetrieveCorporateTreasuryManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           TreasuryPlanningPoliciesAndGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+           TreasuryPlanOperatingParameters:
+              type: string
+              description: "\r\n"
+              format: String
+           TreasuryPlanGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           EnterpriseFinancialStatements:
+              type: string
+              description: "\r\n"
+              format: String
+           EnterpriseBalanceSheetDetailedContent:
+              type: string
+              description: "\r\n"
+              format: String
+           EnterpriseBankAccountingAndCashManagementRecords:
+              type: string
+              description: "\r\n"
+              format: String
+           CapitalWholesaleMarketTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           CurrencyandRateRiskAnalysis:
+              $ref: '#/components/schemas/Rate'
+     RetrieveCorporateTreasuryManagementPlan:
+        type: object
+        description: ''
+        properties:
+           TreasuryPlanningPoliciesAndGuidelines:
+              type: string
+              description: >-
+                The bank's treasury policies and guidelines reflected in the
+                plan
+              format: String
+           TreasuryPlanOperatingParameters:
+              type: string
+              description: >-
+                The array of group treasury positions and limits to be met
+                through the plan
+              format: String
+           TreasuryPlanGoals:
+              type: string
+              description: >-
+                Target financial performance goals set out in the bank's
+                corporate treasury plan
+              format: String
+           EnterpriseFinancialStatements:
+              type: string
+              description: >-
+                The bank financial statements include the balance sheet,
+                statement of cash flows, statement of retained earnings and the
+                income statement
+              format: String
+           EnterpriseBalanceSheetDetailedContent:
+              type: string
+              description: >-
+                The balance sheet breakdown include individual
+                assets/liabilities as necessary
+              format: String
+           EnterpriseBankAccountingAndCashManagementRecords:
+              type: string
+              description: >-
+                Account records that cover booking, pooling and netting
+                activities across all relevant bank activity
+              format: String
+           CapitalWholesaleMarketTransactions:
+              type: string
+              description: >-
+                Includes large transactions and net positions for smaller trade
+                activity as appropriate
+              format: String
+           CurrencyandRateRiskAnalysis:
+              $ref: '#/components/schemas/Rate'
+     CaptureLiquidityRequest:
+        type: object
+        description: ''
+        properties:
+           EnterpriseLargePaymentTransactionRecords:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveLiquidityResponse:
+        type: object
+        description: ''
+        properties:
+           EnterpriseBankAccountingAndCashManagementRecords:
+              type: string
+              description: "\r\n"
+              format: String
+           CurrencyandRateRiskAnalysis:
+              $ref: '#/components/schemas/Rate'
+           EnterpriseLiquidityCashManagementAnalysis:
+              type: string
+              description: "\r\n"
+              format: String
+           EnterpriseLargePaymentTransactionRecords:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitFinancialReports:
+              type: string
+              description: "\r\n"
+              format: String
+           LiquidityResolutionTask:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveLiquidity:
+        type: object
+        description: ''
+        properties:
+           TreasuryPlanningPoliciesAndGuidelines:
+              type: string
+              description: >-
+                The bank's treasury policies and guidelines reflected in the
+                plan
+              format: String
+           TreasuryPlanOperatingParameters:
+              type: string
+              description: >-
+                The array of group treasury positions and limits to be met
+                through the plan
+              format: String
+           TreasuryPlanGoals:
+              type: string
+              description: >-
+                Target financial performance goals set out in the bank's
+                corporate treasury plan
+              format: String
+           EnterpriseFinancialStatements:
+              type: string
+              description: >-
+                The bank financial statements include the balance sheet,
+                statement of cash flows, statement of retained earnings and the
+                income statement
+              format: String
+           EnterpriseBalanceSheetDetailedContent:
+              type: string
+              description: >-
+                The balance sheet breakdown include individual
+                assets/liabilities as necessary
+              format: String
+           EnterpriseBankAccountingAndCashManagementRecords:
+              type: string
+              description: >-
+                Account records that cover booking, pooling and netting
+                activities across all relevant bank activity
+              format: String
+           CapitalWholesaleMarketTransactions:
+              type: string
+              description: >-
+                Includes large transactions and net positions for smaller trade
+                activity as appropriate
+              format: String
+           CurrencyandRateRiskAnalysis:
+              $ref: '#/components/schemas/Rate'
+     RetrieveTacticalFundingResponse:
+        type: object
+        description: ''
+        properties:
+           CapitalAdequacyRequirements:
+              type: string
+              description: "\r\n"
+              format: String
+           BankPositionsandHedgingRequirements:
+              type: string
+              description: "\r\n"
+              format: String
+           EnterpriseBalanceSheetPositions:
+              type: string
+              description: "\r\n"
+              format: String
+           TacticalFundingResolutionTask:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveTacticalFunding:
+        type: object
+        description: ''
+        properties:
+           TreasuryPlanningPoliciesAndGuidelines:
+              type: string
+              description: >-
+                The bank's treasury policies and guidelines reflected in the
+                plan
+              format: String
+           TreasuryPlanOperatingParameters:
+              type: string
+              description: >-
+                The array of group treasury positions and limits to be met
+                through the plan
+              format: String
+           TreasuryPlanGoals:
+              type: string
+              description: >-
+                Target financial performance goals set out in the bank's
+                corporate treasury plan
+              format: String
+           EnterpriseFinancialStatements:
+              type: string
+              description: >-
+                The bank financial statements include the balance sheet,
+                statement of cash flows, statement of retained earnings and the
+                income statement
+              format: String
+           EnterpriseBalanceSheetDetailedContent:
+              type: string
+              description: >-
+                The balance sheet breakdown include individual
+                assets/liabilities as necessary
+              format: String
+           EnterpriseBankAccountingAndCashManagementRecords:
+              type: string
+              description: >-
+                Account records that cover booking, pooling and netting
+                activities across all relevant bank activity
+              format: String
+           CapitalWholesaleMarketTransactions:
+              type: string
+              description: >-
+                Includes large transactions and net positions for smaller trade
+                activity as appropriate
+              format: String
+           CurrencyandRateRiskAnalysis:
+              $ref: '#/components/schemas/Rate'
+     CaptureStrategicFundingRequest:
+        type: object
+        description: ''
+        properties:
+           ECMAndDCMMarketTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           StrategicInvestmentHoldingsTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveStrategicFundingResponse:
+        type: object
+        description: ''
+        properties:
+           FinancialPerformanceandBalanceSheetProjections:
+              type: string
+              description: "\r\n"
+              format: String
+           ECMAndDCMMarketTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           StrategicInvestmentHoldingsTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           EnterpriseBalanceSheetPositions:
+              type: string
+              description: "\r\n"
+              format: String
+           StrategicFundingResolutionTask:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveStrategicFunding:
+        type: object
+        description: ''
+        properties:
+           TreasuryPlanningPoliciesAndGuidelines:
+              type: string
+              description: >-
+                The bank's treasury policies and guidelines reflected in the
+                plan
+              format: String
+           TreasuryPlanOperatingParameters:
+              type: string
+              description: >-
+                The array of group treasury positions and limits to be met
+                through the plan
+              format: String
+           TreasuryPlanGoals:
+              type: string
+              description: >-
+                Target financial performance goals set out in the bank's
+                corporate treasury plan
+              format: String
+           EnterpriseFinancialStatements:
+              type: string
+              description: >-
+                The bank financial statements include the balance sheet,
+                statement of cash flows, statement of retained earnings and the
+                income statement
+              format: String
+           EnterpriseBalanceSheetDetailedContent:
+              type: string
+              description: >-
+                The balance sheet breakdown include individual
+                assets/liabilities as necessary
+              format: String
+           EnterpriseBankAccountingAndCashManagementRecords:
+              type: string
+              description: >-
+                Account records that cover booking, pooling and netting
+                activities across all relevant bank activity
+              format: String
+           CapitalWholesaleMarketTransactions:
+              type: string
+              description: >-
+                Includes large transactions and net positions for smaller trade
+                activity as appropriate
+              format: String
+           CurrencyandRateRiskAnalysis:
+              $ref: '#/components/schemas/Rate'
+     UpdateSecuritizationRequest:
+        type: object
+        description: ''
+        properties:
+           SecuritizationTrancheRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritizationTask:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSecuritizationResponse:
+        type: object
+        description: ''
+        properties:
+           SecuritizationTrancheRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritizationTask:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSecuritization:
+        type: object
+        description: ''
+        properties:
+           TreasuryPlanningPoliciesAndGuidelines:
+              type: string
+              description: >-
+                The bank's treasury policies and guidelines reflected in the
+                plan
+              format: String
+           TreasuryPlanOperatingParameters:
+              type: string
+              description: >-
+                The array of group treasury positions and limits to be met
+                through the plan
+              format: String
+           TreasuryPlanGoals:
+              type: string
+              description: >-
+                Target financial performance goals set out in the bank's
+                corporate treasury plan
+              format: String
+           EnterpriseFinancialStatements:
+              type: string
+              description: >-
+                The bank financial statements include the balance sheet,
+                statement of cash flows, statement of retained earnings and the
+                income statement
+              format: String
+           EnterpriseBalanceSheetDetailedContent:
+              type: string
+              description: >-
+                The balance sheet breakdown include individual
+                assets/liabilities as necessary
+              format: String
+           EnterpriseBankAccountingAndCashManagementRecords:
+              type: string
+              description: >-
+                Account records that cover booking, pooling and netting
+                activities across all relevant bank activity
+              format: String
+           CapitalWholesaleMarketTransactions:
+              type: string
+              description: >-
+                Includes large transactions and net positions for smaller trade
+                activity as appropriate
+              format: String
+           CurrencyandRateRiskAnalysis:
+              $ref: '#/components/schemas/Rate'
+     RetrieveSecuritizationResponse:
+        type: object
+        description: ''
+        properties:
+           BankSecuritizationPoliciesandguidelines:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritizationTrancheReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SecuritizationTrancheRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SecuritizationTask:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveSecuritization:
+        type: object
+        description: ''
+        properties:
+           TreasuryPlanningPoliciesAndGuidelines:
+              type: string
+              description: >-
+                The bank's treasury policies and guidelines reflected in the
+                plan
+              format: String
+           TreasuryPlanOperatingParameters:
+              type: string
+              description: >-
+                The array of group treasury positions and limits to be met
+                through the plan
+              format: String
+           TreasuryPlanGoals:
+              type: string
+              description: >-
+                Target financial performance goals set out in the bank's
+                corporate treasury plan
+              format: String
+           EnterpriseFinancialStatements:
+              type: string
+              description: >-
+                The bank financial statements include the balance sheet,
+                statement of cash flows, statement of retained earnings and the
+                income statement
+              format: String
+           EnterpriseBalanceSheetDetailedContent:
+              type: string
+              description: >-
+                The balance sheet breakdown include individual
+                assets/liabilities as necessary
+              format: String
+           EnterpriseBankAccountingAndCashManagementRecords:
+              type: string
+              description: >-
+                Account records that cover booking, pooling and netting
+                activities across all relevant bank activity
+              format: String
+           CapitalWholesaleMarketTransactions:
+              type: string
+              description: >-
+                Includes large transactions and net positions for smaller trade
+                activity as appropriate
+              format: String
+           CurrencyandRateRiskAnalysis:
+              $ref: '#/components/schemas/Rate'
+     RetrieveBankRatesResponse:
+        type: object
+        description: ''
+        properties:
+           BankRateType:
+              type: string
+              description: "\r\n"
+              format: String
+           BankRateValue:
+              $ref: '#/components/schemas/Rate'
+           BankRateValueDate:
+              $ref: '#/components/schemas/Date'
+           BankRateValueHistory:
+              $ref: '#/components/schemas/Rate'
+           BankRateRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankRateRecordDate:
+              $ref: '#/components/schemas/Date'
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     RetrieveBankRates:
+        type: object
+        description: ''
+        properties:
+           TreasuryPlanningPoliciesAndGuidelines:
+              type: string
+              description: >-
+                The bank's treasury policies and guidelines reflected in the
+                plan
+              format: String
+           TreasuryPlanOperatingParameters:
+              type: string
+              description: >-
+                The array of group treasury positions and limits to be met
+                through the plan
+              format: String
+           TreasuryPlanGoals:
+              type: string
+              description: >-
+                Target financial performance goals set out in the bank's
+                corporate treasury plan
+              format: String
+           EnterpriseFinancialStatements:
+              type: string
+              description: >-
+                The bank financial statements include the balance sheet,
+                statement of cash flows, statement of retained earnings and the
+                income statement
+              format: String
+           EnterpriseBalanceSheetDetailedContent:
+              type: string
+              description: >-
+                The balance sheet breakdown include individual
+                assets/liabilities as necessary
+              format: String
+           EnterpriseBankAccountingAndCashManagementRecords:
+              type: string
+              description: >-
+                Account records that cover booking, pooling and netting
+                activities across all relevant bank activity
+              format: String
+           CapitalWholesaleMarketTransactions:
+              type: string
+              description: >-
+                Includes large transactions and net positions for smaller trade
+                activity as appropriate
+              format: String
+           CurrencyandRateRiskAnalysis:
+              $ref: '#/components/schemas/Rate'
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     UpdateCorporateTreasuryManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCorporateTreasuryManagementPlanRequest
+        required: true
+     RetrieveCorporateTreasuryManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     CaptureLiquidityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureLiquidityRequest'
+        required: true
+     RetrieveLiquidityRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveTacticalFundingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     CaptureStrategicFundingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureStrategicFundingRequest'
+        required: true
+     RetrieveStrategicFundingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateSecuritizationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSecuritizationRequest'
+        required: true
+     RetrieveSecuritizationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveBankRatesRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     corporatetreasurymanagementplanid:
+        name: corporatetreasurymanagementplanid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     liquidityid:
+        name: liquidityid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     tacticalfundingid:
+        name: tacticalfundingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     strategicfundingid:
+        name: strategicfundingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     securitizationid:
+        name: securitizationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     bankratesid:
+        name: bankratesid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     UpdateCorporateTreasuryManagementPlanResponse:
+        description: CorporateTreasuryManagementPlanUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCorporateTreasuryManagementPlanResponse
+     RetrieveCorporateTreasuryManagementPlanResponse:
+        description: CorporateTreasuryManagementPlanRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveCorporateTreasuryManagementPlanResponse
+     CaptureLiquidityResponse:
+        description: LiquidityCapture
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrieveLiquidityResponse:
+        description: LiquidityRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveLiquidityResponse'
+     RetrieveTacticalFundingResponse:
+        description: TacticalFundingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveTacticalFundingResponse'
+     CaptureStrategicFundingResponse:
+        description: StrategicFundingCapture
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrieveStrategicFundingResponse:
+        description: StrategicFundingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveStrategicFundingResponse'
+     UpdateSecuritizationResponse:
+        description: SecuritizationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSecuritizationResponse'
+     RetrieveSecuritizationResponse:
+        description: SecuritizationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveSecuritizationResponse'
+     RetrieveBankRatesResponse:
+        description: BankRatesRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveBankRatesResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

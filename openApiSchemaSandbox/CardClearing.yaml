@@ -1,0 +1,2135 @@
+openapi: 3.0.1
+info:
+  title: Card Clearing
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain
+    orchestrates the capture and consolidation of card financial transactions
+    originating from various sources, such as POS Network, ECommerce Gateway,
+    ATM Network, or Card Case Management. It also handles the clearing of the
+    transactions from the Acquirers to the Issuers through the Card Networks
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CardClearing
+paths:
+   '/CardClearingProcedure/{cardclearingprocedureid}/Initiate':
+      post:
+        tags:
+           - CR - CardClearingProcedure
+        summary: InCR Initiate a card clearing process
+        description: InCR Initiate a card clearing process
+        operationId: CardClearingProcedure/Initiate
+        parameters:
+           - $ref: '#/components/parameters/cardclearingprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateCardClearingProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CardClearingProcedure/{cardclearingprocedureid}/Update':
+      put:
+        tags:
+           - CR - CardClearingProcedure
+        summary: UpCR Update details of a card clearing processing batch
+        description: UpCR Update details of a card clearing processing batch
+        operationId: CardClearingProcedure/Update
+        parameters:
+           - $ref: '#/components/parameters/cardclearingprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCardClearingProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CardClearingProcedure/{cardclearingprocedureid}/Retrieve':
+      get:
+        tags:
+           - CR - CardClearingProcedure
+        summary: ReCR Retrieve details about a card clearing process
+        description: ReCR Retrieve details about a card clearing process
+        operationId: CardClearingProcedure/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/cardclearingprocedureid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCardClearingProcedureResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Capture/{captureid}/Update':
+      put:
+        tags:
+           - BQ - Capture
+        summary: UpBQ Update details of a captured card transaction (for repair)
+        description: UpBQ Update details of a captured card transaction (for repair)
+        operationId: Capture/Update
+        parameters:
+           - $ref: '#/components/parameters/captureid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCaptureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Capture/{captureid}/Retrieve':
+      get:
+        tags:
+           - BQ - Capture
+        summary: ReBQ Retrieve details about a captured card transaction
+        description: ReBQ Retrieve details about a captured card transaction
+        operationId: Capture/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/captureid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCaptureResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Addressing/{addressingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Addressing
+        summary: ReBQ Retrieve details about card transaction addressing
+        description: ReBQ Retrieve details about card transaction addressing
+        operationId: Addressing/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/addressingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAddressingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FXConversion/{fxconversionid}/Retrieve':
+      get:
+        tags:
+           - BQ - FXConversion
+        summary: ReBQ Retrieve details about card transaction FX conversion|
+        description: ReBQ Retrieve details about card transaction FX conversion|
+        operationId: FXConversion/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/fxconversionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveFXConversionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Fees/{feesid}/Update':
+      put:
+        tags:
+           - BQ - Fees
+        summary: UpBQ Update details of applied fees
+        description: UpBQ Update details of applied fees
+        operationId: Fees/Update
+        parameters:
+           - $ref: '#/components/parameters/feesid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateFeesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Fees/{feesid}/Retrieve':
+      get:
+        tags:
+           - BQ - Fees
+        summary: ReBQ Retrieve details about card transaction intercharge fees
+        description: ReBQ Retrieve details about card transaction intercharge fees
+        operationId: Fees/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/feesid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveFeesResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Matching/{matchingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Matching
+        summary: ReBQ Retrieve details about card transaction matching
+        description: ReBQ Retrieve details about card transaction matching
+        operationId: Matching/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/matchingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveMatchingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Reconciliation/{reconciliationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Reconciliation
+        summary: ReBQ Retrieve details about card transaction reconciliation
+        description: ReBQ Retrieve details about card transaction reconciliation
+        operationId: Reconciliation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/reconciliationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveReconciliationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Routing/{routingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Routing
+        summary: ReBQ Retrieve details about card transaction routing
+        description: ReBQ Retrieve details about card transaction routing
+        operationId: Routing/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/routingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveRoutingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateCardClearingProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+              description: The scheduled time for the process  likely initiation time
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     Date:
+        type: object
+        description: >-
+          The scheduled time for the process  likely initiation time
+          ISODate|ISODate
+          (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022
+          BM ()
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     InitiateCardClearingProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     InitiateCardClearingProcedure:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     UpdateCardClearingProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+              description: The scheduled time for the process  likely initiation time
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     UpdateCardClearingProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     UpdateCardClearingProcedure:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     RetrieveCardClearingProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     RetrieveCardClearingProcedure:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     UpdateCaptureRequest:
+        type: object
+        description: ''
+        properties:
+           CardTransactionRecordReference:
+              type: string
+              description: >-
+                Reference to the card transaction as recorded by issuer and/or
+                acquirer  these can be batched for some clearing processes
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: Reference to the network the card transaction is handled by
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: Refers to the card holder's issuing bank
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: Refers to the merchant's acquiring bank
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: The currency that the transaction is made in
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+              description: Significant dates and times associated with the transaction
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization)
+              format: String
+     Currencycode:
+        type: object
+        description: >-
+          The currency that the transaction is made in CurrencyCode|CurrencyCode
+          (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022
+          BM ()
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     UpdateCaptureResponse:
+        type: object
+        description: ''
+        properties:
+           CardTransactionRecordReference:
+              type: string
+              description: >-
+                Reference to the card transaction as recorded by issuer and/or
+                acquirer  these can be batched for some clearing processes
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: Reference to the network the card transaction is handled by
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: Refers to the card holder's issuing bank
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: Refers to the merchant's acquiring bank
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization)
+              format: String
+     UpdateCapture:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     RetrieveCaptureResponse:
+        type: object
+        description: ''
+        properties:
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           CardTransactionRecordReference:
+              type: string
+              description: >-
+                Reference to the card transaction as recorded by issuer and/or
+                acquirer  these can be batched for some clearing processes
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: Reference to the network the card transaction is handled by
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: Refers to the card holder's issuing bank
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: Refers to the merchant's acquiring bank
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization)
+              format: String
+     RetrieveCapture:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     RetrieveAddressingResponse:
+        type: object
+        description: ''
+        properties:
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           CardTransactionRecordReference:
+              type: string
+              description: >-
+                Reference to the card transaction as recorded by issuer and/or
+                acquirer  these can be batched for some clearing processes
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: Reference to the network the card transaction is handled by
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: Refers to the card holder's issuing bank
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: Refers to the merchant's acquiring bank
+              format: Object
+           AddressingTaskResult:
+              type: string
+              description: Details of the transaction addressing
+              format: String
+     RetrieveAddressing:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     RetrieveFXConversionResponse:
+        type: object
+        description: ''
+        properties:
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           CardTransactionRecordReference:
+              type: string
+              description: >-
+                Reference to the card transaction as recorded by issuer and/or
+                acquirer  these can be batched for some clearing processes
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: Reference to the network the card transaction is handled by
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: Refers to the card holder's issuing bank
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: Refers to the merchant's acquiring bank
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization)
+              format: String
+           FXConversionRatesandFees:
+              $ref: '#/components/schemas/Rate'
+           FXConversionTaskResult:
+              type: string
+              description: Details of the transaction FX conversion
+              format: String
+     Rate:
+        type: object
+        description: >-
+          The FX rates and fees that are applied to the transactions
+          PercentageRate|PercentageRate
+          (https://www.iso20022.org/standardsrepository/type/PercentageRate)|Standard|ISO20022
+          BM ()
+        properties:
+           RateValue:
+              $ref: '#/components/schemas/Value'
+           RateUnit:
+              $ref: '#/components/schemas/Text'
+           RatePeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+           RateCapitalUnit:
+              $ref: '#/components/schemas/Text'
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Text:
+        type: object
+        description: >-
+          The unit of measure like Percentage or BPS
+
+
+          Basis points (BPS) refers to a common unit of measure for interest
+          rates and other percentages in finance. 
+        properties:
+           Text:
+              type: string
+              description: >-
+                Text is a character string such as a finite set of characters
+                generally in the form of words of a language. (UN/CEFACT)
+              format: DataType
+     Datetimeperiod:
+        type: object
+        description: ' '
+        properties:
+           FromDateTime:
+              $ref: '#/components/schemas/Datetime'
+           ToDateTime:
+              $ref: '#/components/schemas/Datetime'
+     Datetime:
+        type: object
+        description: 'Date and time at which the range starts. (ISO20022) '
+        properties:
+           DateTimeContent:
+              type: string
+              description: ''
+              format: String
+           TimeZoneCode:
+              type: string
+              description: ''
+              format: String
+           DaylightSavingIndicator:
+              type: string
+              description: ''
+              format: String
+           Datetime:
+              type: string
+              description: >-
+                A date time identifies a date and time of day to various common
+                resolutions: year, month, week, day, hour, minute, second, and
+                fraction of second. (UN/CEFACT)
+
+
+                A particular point in the progression of time defined by a
+                mandatory date and a mandatory time component, expressed in
+                either UTC time format (YYYYMMDDThh:mm:ss.sssZ), local time
+                with UTC offset format (YYYYMMDDThh:mm:ss.sss/hh:mm), or
+                local time format (YYYYMMDDThh:mm:ss.sss). These
+                representations are defined in "XML Schema Part 2: Datatypes
+                Second Edition  W3C Recommendation 28 October 2004" which is
+                aligned with ISO 8601. (ISO20022)
+
+                Note on the time format:
+
+                1) beginning / end of calendar day
+
+                00:00:00  -  the beginning of a calendar day
+
+                24:00:00  -  the end of a calendar day
+
+                2) fractions of second in time format
+
+                Decimal fractions of seconds may be included. In this case, the
+                involved parties shall agree on the maximum number of digits
+                that are allowed.
+              format: DataType
+     RetrieveFXConversion:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     UpdateFeesRequest:
+        type: object
+        description: ''
+        properties:
+           InterchargeFees:
+              type: string
+              description: >-
+                Defines intercharge rates and fees to be applied to card
+                transactions
+              format: String
+           FeeTaskResult:
+              type: string
+              description: Details of the transaction fee processing
+              format: String
+     UpdateFeesResponse:
+        type: object
+        description: ''
+        properties:
+           InterchargeFees:
+              type: string
+              description: >-
+                Defines intercharge rates and fees to be applied to card
+                transactions
+              format: String
+           FeeTaskResult:
+              type: string
+              description: Details of the transaction fee processing
+              format: String
+     UpdateFees:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     RetrieveFeesResponse:
+        type: object
+        description: ''
+        properties:
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           CardTransactionRecordReference:
+              type: string
+              description: >-
+                Reference to the card transaction as recorded by issuer and/or
+                acquirer  these can be batched for some clearing processes
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: Reference to the network the card transaction is handled by
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: Refers to the card holder's issuing bank
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: Refers to the merchant's acquiring bank
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization)
+              format: String
+           InterchargeFees:
+              type: string
+              description: >-
+                Defines intercharge rates and fees to be applied to card
+                transactions
+              format: String
+           FeeTaskResult:
+              type: string
+              description: Details of the transaction fee processing
+              format: String
+     RetrieveFees:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     RetrieveMatchingResponse:
+        type: object
+        description: ''
+        properties:
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           CardTransactionRecordReference:
+              type: string
+              description: >-
+                Reference to the card transaction as recorded by issuer and/or
+                acquirer  these can be batched for some clearing processes
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: Reference to the network the card transaction is handled by
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: Refers to the card holder's issuing bank
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: Refers to the merchant's acquiring bank
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization)
+              format: String
+           MatchingTaskResult:
+              type: string
+              description: Details of the transaction matching processing
+              format: String
+     RetrieveMatching:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     RetrieveReconciliationResponse:
+        type: object
+        description: ''
+        properties:
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           CardTransactionRecordReference:
+              type: string
+              description: >-
+                Reference to the card transaction as recorded by issuer and/or
+                acquirer  these can be batched for some clearing processes
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: Reference to the network the card transaction is handled by
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: Refers to the card holder's issuing bank
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: Refers to the merchant's acquiring bank
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization)
+              format: String
+           ReconciliationTaskResult:
+              type: string
+              description: Details of the transaction matching processing
+              format: String
+     RetrieveReconciliation:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     RetrieveRoutingResponse:
+        type: object
+        description: ''
+        properties:
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           CardTransactionRecordReference:
+              type: string
+              description: >-
+                Reference to the card transaction as recorded by issuer and/or
+                acquirer  these can be batched for some clearing processes
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: Reference to the network the card transaction is handled by
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: Refers to the card holder's issuing bank
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: Refers to the merchant's acquiring bank
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization)
+              format: String
+           RoutingTaskResult:
+              type: string
+              description: Details of the transaction routing processing
+              format: String
+     RetrieveRouting:
+        type: object
+        description: ''
+        properties:
+           NetworkReference:
+              type: string
+              description: Refers to the card network
+              format: Object
+           ParticipantAcquirerBankReference:
+              type: string
+              description: >-
+                Reference to the Acquiring bank for which the Network
+                orchestrates clearing processing
+              format: Object
+           ParticipantAcquirerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           ParticipantIssuerBankReference:
+              type: string
+              description: >-
+                Reference to the Issuing bank for which the Network orchestrates
+                clearing processing
+              format: Object
+           ParticipantIssuerBankClearingandSettlementTerms:
+              type: string
+              description: >-
+                Defines card clearing fees/terms in force  referenced by
+                Network
+              format: String
+           CardClearingProcessType:
+              type: string
+              description: >-
+                Defines the type of clearing process  e.g. capture, batch,
+                chargeback between combinations of N,I&A
+              format: String
+           CardClearingProcessDateTime:
+              $ref: '#/components/schemas/Date'
+           CardClearingServiceSchedule:
+              type: string
+              description: The schedule of activities for card clearing
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateCardClearingProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCardClearingProcedureRequest'
+        required: true
+     UpdateCardClearingProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCardClearingProcedureRequest'
+        required: true
+     RetrieveCardClearingProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateCaptureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCaptureRequest'
+        required: true
+     RetrieveCaptureRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveAddressingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveFXConversionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateFeesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFeesRequest'
+        required: true
+     RetrieveFeesRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveMatchingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveReconciliationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveRoutingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     cardclearingprocedureid:
+        name: cardclearingprocedureid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     captureid:
+        name: captureid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     addressingid:
+        name: addressingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     fxconversionid:
+        name: fxconversionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     feesid:
+        name: feesid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     matchingid:
+        name: matchingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     reconciliationid:
+        name: reconciliationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     routingid:
+        name: routingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateCardClearingProcedureResponse:
+        description: CardClearingProcedureInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCardClearingProcedureResponse'
+     UpdateCardClearingProcedureResponse:
+        description: CardClearingProcedureUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCardClearingProcedureResponse'
+     RetrieveCardClearingProcedureResponse:
+        description: CardClearingProcedureRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCardClearingProcedureResponse'
+     UpdateCaptureResponse:
+        description: CaptureUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCaptureResponse'
+     RetrieveCaptureResponse:
+        description: CaptureRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCaptureResponse'
+     RetrieveAddressingResponse:
+        description: AddressingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAddressingResponse'
+     RetrieveFXConversionResponse:
+        description: FXConversionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveFXConversionResponse'
+     UpdateFeesResponse:
+        description: FeesUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFeesResponse'
+     RetrieveFeesResponse:
+        description: FeesRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveFeesResponse'
+     RetrieveMatchingResponse:
+        description: MatchingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveMatchingResponse'
+     RetrieveReconciliationResponse:
+        description: ReconciliationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveReconciliationResponse'
+     RetrieveRoutingResponse:
+        description: RoutingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveRoutingResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

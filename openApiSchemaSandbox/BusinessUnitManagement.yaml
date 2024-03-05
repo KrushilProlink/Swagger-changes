@@ -1,0 +1,1770 @@
+openapi: 3.0.1
+info:
+  title: Business Unit Management
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Track and report on business
+    unit activity and financial performance
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/BusinessUnitManagement
+paths:
+   '/BusinessUnitManagementPlan/{businessunitmanagementplanid}/Create':
+      post:
+        tags:
+           - CR - BusinessUnitManagementPlan
+        summary: CrCR Create the management plan for the business unit
+        description: CrCR Create the management plan for the business unit
+        operationId: BusinessUnitManagementPlan/Create
+        parameters:
+           - $ref: '#/components/parameters/businessunitmanagementplanid'
+        requestBody:
+          $ref: '#/components/requestBodies/CreateBusinessUnitManagementPlanRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BusinessUnitManagementPlan/{businessunitmanagementplanid}/Update':
+      put:
+        tags:
+           - CR - BusinessUnitManagementPlan
+        summary: UpCR Update aspects of the business unit management plan
+        description: UpCR Update aspects of the business unit management plan
+        operationId: BusinessUnitManagementPlan/Update
+        parameters:
+           - $ref: '#/components/parameters/businessunitmanagementplanid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateBusinessUnitManagementPlanRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BusinessUnitManagementPlan/{businessunitmanagementplanid}/Request':
+      put:
+        tags:
+           - CR - BusinessUnitManagementPlan
+        summary: >-
+          RqCR Request manual intervention with the plan (e.g. reprioritize
+          activities)
+        description: >-
+          RqCR Request manual intervention with the plan (e.g. reprioritize
+          activities)
+        operationId: BusinessUnitManagementPlan/Request
+        parameters:
+           - $ref: '#/components/parameters/businessunitmanagementplanid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestBusinessUnitManagementPlanRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BusinessUnitManagementPlan/{businessunitmanagementplanid}/Retrieve':
+      get:
+        tags:
+           - CR - BusinessUnitManagementPlan
+        summary: ReCR Retrieve details about the business unit management plan
+        description: ReCR Retrieve details about the business unit management plan
+        operationId: BusinessUnitManagementPlan/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/businessunitmanagementplanid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveBusinessUnitManagementPlanResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Performance/{performanceid}/Update':
+      put:
+        tags:
+           - BQ - Performance
+        summary: UpBQ Update details of the activity analysis for the business unit
+        description: UpBQ Update details of the activity analysis for the business unit
+        operationId: Performance/Update
+        parameters:
+           - $ref: '#/components/parameters/performanceid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePerformanceRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Performance/{performanceid}/Request':
+      put:
+        tags:
+           - BQ - Performance
+        summary: >-
+          RqBQ Request manual intervention in the business unit performance
+          analysis (e.g. revise projections)
+        description: >-
+          RqBQ Request manual intervention in the business unit performance
+          analysis (e.g. revise projections)
+        operationId: Performance/Request
+        parameters:
+           - $ref: '#/components/parameters/performanceid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestPerformanceRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Performance/{performanceid}/Retrieve':
+      get:
+        tags:
+           - BQ - Performance
+        summary: ReBQ Retrieve details about the business unit activity analysis
+        description: ReBQ Retrieve details about the business unit activity analysis
+        operationId: Performance/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/performanceid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePerformanceResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Troubleshooting/{troubleshootingid}/Create':
+      post:
+        tags:
+           - BQ - Troubleshooting
+        summary: >-
+          CrBQ Create a service troubleshooting activity (to address major
+          production issue)
+        description: >-
+          CrBQ Create a service troubleshooting activity (to address major
+          production issue)
+        operationId: Troubleshooting/Create
+        parameters:
+           - $ref: '#/components/parameters/troubleshootingid'
+        requestBody:
+          $ref: '#/components/requestBodies/CreateTroubleshootingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Troubleshooting/{troubleshootingid}/Update':
+      put:
+        tags:
+           - BQ - Troubleshooting
+        summary: UpBQ Update details of a troubleshooting plan item
+        description: UpBQ Update details of a troubleshooting plan item
+        operationId: Troubleshooting/Update
+        parameters:
+           - $ref: '#/components/parameters/troubleshootingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateTroubleshootingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Troubleshooting/{troubleshootingid}/Request':
+      put:
+        tags:
+           - BQ - Troubleshooting
+        summary: RqBQ Request manual intervention to a troubleshooting action
+        description: RqBQ Request manual intervention to a troubleshooting action
+        operationId: Troubleshooting/Request
+        parameters:
+           - $ref: '#/components/parameters/troubleshootingid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestTroubleshootingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Troubleshooting/{troubleshootingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Troubleshooting
+        summary: ReBQ Retrieve details about troubleshooting activity
+        description: ReBQ Retrieve details about troubleshooting activity
+        operationId: Troubleshooting/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/troubleshootingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveTroubleshootingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     CreateBusinessUnitManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     CreateBusinessUnitManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     CreateBusinessUnitManagementPlan:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     UpdateBusinessUnitManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     UpdateBusinessUnitManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     UpdateBusinessUnitManagementPlan:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     RequestBusinessUnitManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     RequestBusinessUnitManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     RequestBusinessUnitManagementPlan:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     RetrieveBusinessUnitManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     RetrieveBusinessUnitManagementPlan:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     UpdatePerformanceRequest:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitResourceUtilization:
+              type: string
+              description: >-
+                Record of the business unit employee target and actual
+                utilization/productivity
+              format: String
+           BusinessUnitOutputWorkProjections:
+              type: string
+              description: >-
+                Estimated projected business unit product/service delivery and
+                work volume targets as appropriate for the type of unit
+              format: String
+           BusinessUnitPerformanceStatistics:
+              type: string
+              description: >-
+                Tracked business unit activity and performance statistics used
+                to manage the business unit
+              format: String
+           BusinessUnitPerformanceStatisticType:
+              type: string
+              description: >-
+                The type of activity that is tracked and analyzed (e.g. delivery
+                rate, utilization)
+              format: String
+           BusinessUnitPerformanceStatisticValue:
+              type: string
+              description: >-
+                The statistical analysis that can include historical and trended
+                views of the activity
+              format: String
+           BusinessUnitPerformanceStatisticInterpretation:
+              type: string
+              description: >-
+                Narrative that might explain any divergence from expected
+                performance/delivery
+              format: String
+           BusinessUnitPerformanceStatisticRecommendation:
+              type: string
+              description: >-
+                Proposed operational changes/recommendations arising from the
+                performance tracking and analysis
+              format: String
+     UpdatePerformanceResponse:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitResourceUtilization:
+              type: string
+              description: >-
+                Record of the business unit employee target and actual
+                utilization/productivity
+              format: String
+           BusinessUnitOutputWorkProjections:
+              type: string
+              description: >-
+                Estimated projected business unit product/service delivery and
+                work volume targets as appropriate for the type of unit
+              format: String
+           BusinessUnitPerformanceStatistics:
+              type: string
+              description: >-
+                Tracked business unit activity and performance statistics used
+                to manage the business unit
+              format: String
+           BusinessUnitPerformanceStatisticType:
+              type: string
+              description: >-
+                The type of activity that is tracked and analyzed (e.g. delivery
+                rate, utilization)
+              format: String
+           BusinessUnitPerformanceStatisticValue:
+              type: string
+              description: >-
+                The statistical analysis that can include historical and trended
+                views of the activity
+              format: String
+           BusinessUnitPerformanceStatisticInterpretation:
+              type: string
+              description: >-
+                Narrative that might explain any divergence from expected
+                performance/delivery
+              format: String
+           BusinessUnitPerformanceStatisticRecommendation:
+              type: string
+              description: >-
+                Proposed operational changes/recommendations arising from the
+                performance tracking and analysis
+              format: String
+     UpdatePerformance:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     RequestPerformanceRequest:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitResourceUtilization:
+              type: string
+              description: >-
+                Record of the business unit employee target and actual
+                utilization/productivity
+              format: String
+           BusinessUnitOutputWorkProjections:
+              type: string
+              description: >-
+                Estimated projected business unit product/service delivery and
+                work volume targets as appropriate for the type of unit
+              format: String
+           BusinessUnitPerformanceStatistics:
+              type: string
+              description: >-
+                Tracked business unit activity and performance statistics used
+                to manage the business unit
+              format: String
+           BusinessUnitPerformanceStatisticType:
+              type: string
+              description: >-
+                The type of activity that is tracked and analyzed (e.g. delivery
+                rate, utilization)
+              format: String
+           BusinessUnitPerformanceStatisticValue:
+              type: string
+              description: >-
+                The statistical analysis that can include historical and trended
+                views of the activity
+              format: String
+           BusinessUnitPerformanceStatisticInterpretation:
+              type: string
+              description: >-
+                Narrative that might explain any divergence from expected
+                performance/delivery
+              format: String
+           BusinessUnitPerformanceStatisticRecommendation:
+              type: string
+              description: >-
+                Proposed operational changes/recommendations arising from the
+                performance tracking and analysis
+              format: String
+     RequestPerformanceResponse:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitResourceUtilization:
+              type: string
+              description: >-
+                Record of the business unit employee target and actual
+                utilization/productivity
+              format: String
+           BusinessUnitOutputWorkProjections:
+              type: string
+              description: >-
+                Estimated projected business unit product/service delivery and
+                work volume targets as appropriate for the type of unit
+              format: String
+           BusinessUnitPerformanceStatistics:
+              type: string
+              description: >-
+                Tracked business unit activity and performance statistics used
+                to manage the business unit
+              format: String
+           BusinessUnitPerformanceStatisticType:
+              type: string
+              description: >-
+                The type of activity that is tracked and analyzed (e.g. delivery
+                rate, utilization)
+              format: String
+           BusinessUnitPerformanceStatisticValue:
+              type: string
+              description: >-
+                The statistical analysis that can include historical and trended
+                views of the activity
+              format: String
+           BusinessUnitPerformanceStatisticInterpretation:
+              type: string
+              description: >-
+                Narrative that might explain any divergence from expected
+                performance/delivery
+              format: String
+           BusinessUnitPerformanceStatisticRecommendation:
+              type: string
+              description: >-
+                Proposed operational changes/recommendations arising from the
+                performance tracking and analysis
+              format: String
+     RequestPerformance:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     RetrievePerformanceResponse:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitResourceUtilization:
+              type: string
+              description: >-
+                Record of the business unit employee target and actual
+                utilization/productivity
+              format: String
+           BusinessUnitOutputWorkProjections:
+              type: string
+              description: >-
+                Estimated projected business unit product/service delivery and
+                work volume targets as appropriate for the type of unit
+              format: String
+           BusinessUnitPerformanceStatistics:
+              type: string
+              description: >-
+                Tracked business unit activity and performance statistics used
+                to manage the business unit
+              format: String
+           BusinessUnitPerformanceStatisticType:
+              type: string
+              description: >-
+                The type of activity that is tracked and analyzed (e.g. delivery
+                rate, utilization)
+              format: String
+           BusinessUnitPerformanceStatisticValue:
+              type: string
+              description: >-
+                The statistical analysis that can include historical and trended
+                views of the activity
+              format: String
+           BusinessUnitPerformanceStatisticInterpretation:
+              type: string
+              description: >-
+                Narrative that might explain any divergence from expected
+                performance/delivery
+              format: String
+           BusinessUnitPerformanceStatisticRecommendation:
+              type: string
+              description: >-
+                Proposed operational changes/recommendations arising from the
+                performance tracking and analysis
+              format: String
+     RetrievePerformance:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     CreateTroubleshootingRequest:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+           BusinessUnitProductionIssueRecord:
+              type: string
+              description: >-
+                A record of any production issues arising during the session
+                (see Advanced Voice Channel Operations for detailed content)
+              format: String
+           BusinessUnitIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: >-
+                A record of the root cause analysis for recurring issues and
+                suggested remedial action that can be internal to the unit or
+                recommended to service providers and subscribers as appropriate
+              format: String
+     CreateTroubleshootingResponse:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+           BusinessUnitProductionIssueRecord:
+              type: string
+              description: >-
+                A record of any production issues arising during the session
+                (see Advanced Voice Channel Operations for detailed content)
+              format: String
+           BusinessUnitIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: >-
+                A record of the root cause analysis for recurring issues and
+                suggested remedial action that can be internal to the unit or
+                recommended to service providers and subscribers as appropriate
+              format: String
+     CreateTroubleshooting:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     UpdateTroubleshootingRequest:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitProductionIssueRecord:
+              type: string
+              description: >-
+                A record of any production issues arising during the session
+                (see Advanced Voice Channel Operations for detailed content)
+              format: String
+           BusinessUnitIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: >-
+                A record of the root cause analysis for recurring issues and
+                suggested remedial action that can be internal to the unit or
+                recommended to service providers and subscribers as appropriate
+              format: String
+     UpdateTroubleshootingResponse:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitProductionIssueRecord:
+              type: string
+              description: >-
+                A record of any production issues arising during the session
+                (see Advanced Voice Channel Operations for detailed content)
+              format: String
+           BusinessUnitIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: >-
+                A record of the root cause analysis for recurring issues and
+                suggested remedial action that can be internal to the unit or
+                recommended to service providers and subscribers as appropriate
+              format: String
+     UpdateTroubleshooting:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     RequestTroubleshootingRequest:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitProductionIssueRecord:
+              type: string
+              description: >-
+                A record of any production issues arising during the session
+                (see Advanced Voice Channel Operations for detailed content)
+              format: String
+           BusinessUnitIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: >-
+                A record of the root cause analysis for recurring issues and
+                suggested remedial action that can be internal to the unit or
+                recommended to service providers and subscribers as appropriate
+              format: String
+     RequestTroubleshootingResponse:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitProductionIssueRecord:
+              type: string
+              description: >-
+                A record of any production issues arising during the session
+                (see Advanced Voice Channel Operations for detailed content)
+              format: String
+           BusinessUnitIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: >-
+                A record of the root cause analysis for recurring issues and
+                suggested remedial action that can be internal to the unit or
+                recommended to service providers and subscribers as appropriate
+              format: String
+     RequestTroubleshooting:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     RetrieveTroubleshootingResponse:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitProductionIssueRecord:
+              type: string
+              description: >-
+                A record of any production issues arising during the session
+                (see Advanced Voice Channel Operations for detailed content)
+              format: String
+           BusinessUnitIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: >-
+                A record of the root cause analysis for recurring issues and
+                suggested remedial action that can be internal to the unit or
+                recommended to service providers and subscribers as appropriate
+              format: String
+     RetrieveTroubleshooting:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitManagementPlanPeriod:
+              type: string
+              description: >-
+                The time period addressed by the management plan (typically this
+                will include setting the default daily operating goals and
+                arrangements for the business unit that is periodically updated)
+              format: String
+           BusinessUnitUsagePoliciesAndGuidelines:
+              type: string
+              description: >-
+                The policies and guidelines for business unit employees and
+                service users
+              format: String
+           BusinessUnitPerformanceGoals:
+              type: string
+              description: >-
+                The target and actual business unit performance goals that are
+                tracked by business unit management
+              format: String
+           BusinessUnitOperatingSchedule:
+              type: string
+              description: >-
+                The target and actual business unit operating schedule 
+                recording planned and actual business activity
+              format: String
+           BusinessUnitOperatingOrganization:
+              type: string
+              description: >-
+                The assigned roles and responsibilities and associated
+                work/delivery responsibilities for the staff making up the
+                business unit
+              format: String
+           BusinessUnitResourcePlan:
+              type: string
+              description: >-
+                Details the number and skill profile of the business unit staff
+                (target and actual)
+              format: String
+           BusinessUnitTrainingPlan:
+              type: string
+              description: Details of staff training and certification as appropriate
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     CreateBusinessUnitManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateBusinessUnitManagementPlanRequest'
+        required: true
+     UpdateBusinessUnitManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateBusinessUnitManagementPlanRequest'
+        required: true
+     RequestBusinessUnitManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestBusinessUnitManagementPlanRequest'
+        required: true
+     RetrieveBusinessUnitManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdatePerformanceRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePerformanceRequest'
+        required: true
+     RequestPerformanceRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPerformanceRequest'
+        required: true
+     RetrievePerformanceRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     CreateTroubleshootingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateTroubleshootingRequest'
+        required: true
+     UpdateTroubleshootingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTroubleshootingRequest'
+        required: true
+     RequestTroubleshootingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestTroubleshootingRequest'
+        required: true
+     RetrieveTroubleshootingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     businessunitmanagementplanid:
+        name: businessunitmanagementplanid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     performanceid:
+        name: performanceid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     troubleshootingid:
+        name: troubleshootingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     CreateBusinessUnitManagementPlanResponse:
+        description: BusinessUnitManagementPlanCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateBusinessUnitManagementPlanResponse'
+     UpdateBusinessUnitManagementPlanResponse:
+        description: BusinessUnitManagementPlanUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateBusinessUnitManagementPlanResponse'
+     RequestBusinessUnitManagementPlanResponse:
+        description: BusinessUnitManagementPlanRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestBusinessUnitManagementPlanResponse'
+     RetrieveBusinessUnitManagementPlanResponse:
+        description: BusinessUnitManagementPlanRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveBusinessUnitManagementPlanResponse'
+     UpdatePerformanceResponse:
+        description: PerformanceUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePerformanceResponse'
+     RequestPerformanceResponse:
+        description: PerformanceRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPerformanceResponse'
+     RetrievePerformanceResponse:
+        description: PerformanceRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePerformanceResponse'
+     CreateTroubleshootingResponse:
+        description: TroubleshootingCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateTroubleshootingResponse'
+     UpdateTroubleshootingResponse:
+        description: TroubleshootingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTroubleshootingResponse'
+     RequestTroubleshootingResponse:
+        description: TroubleshootingRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestTroubleshootingResponse'
+     RetrieveTroubleshootingResponse:
+        description: TroubleshootingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveTroubleshootingResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

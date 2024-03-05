@@ -1,0 +1,1613 @@
+openapi: 3.0.1
+info:
+  title: Customer Access Entitlement
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain maintains
+    the details of the allowed channel/device based access to products and
+    services that the customer has in place.  This profile is referenced in
+    servicing and fulfillment activity and may include customer preferences and
+    access limits/constraints that span multiple products.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CustomerAccessEntitlement
+paths:
+   '/CustomerAccessProfileAgreement/{customeraccessprofileagreementid}/Evaluate':
+      post:
+        tags:
+           - CR - CustomerAccessProfileAgreement
+        summary: EvCR Establish a customer access profile agreement
+        description: EvCR Establish a customer access profile agreement
+        operationId: CustomerAccessProfileAgreement/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/customeraccessprofileagreementid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/EvaluateCustomerAccessProfileAgreementRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerAccessProfileAgreement/{customeraccessprofileagreementid}/Update':
+      put:
+        tags:
+           - CR - CustomerAccessProfileAgreement
+        summary: UpCR Update details of a customer access profile agreement
+        description: UpCR Update details of a customer access profile agreement
+        operationId: CustomerAccessProfileAgreement/Update
+        parameters:
+           - $ref: '#/components/parameters/customeraccessprofileagreementid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateCustomerAccessProfileAgreementRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerAccessProfileAgreement/{customeraccessprofileagreementid}/Control':
+      put:
+        tags:
+           - CR - CustomerAccessProfileAgreement
+        summary: CoCR Control the handling of a customer access profile (e.g. suspend)
+        description: CoCR Control the handling of a customer access profile (e.g. suspend)
+        operationId: CustomerAccessProfileAgreement/Control
+        parameters:
+           - $ref: '#/components/parameters/customeraccessprofileagreementid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ControlCustomerAccessProfileAgreementRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerAccessProfileAgreement/{customeraccessprofileagreementid}/Exchange':
+      put:
+        tags:
+           - CR - CustomerAccessProfileAgreement
+        summary: EcCR Accept, verify, etc. a customer access profile agreement
+        description: EcCR Accept, verify, etc. a customer access profile agreement
+        operationId: CustomerAccessProfileAgreement/Exchange
+        parameters:
+           - $ref: '#/components/parameters/customeraccessprofileagreementid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExchangeCustomerAccessProfileAgreementRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerAccessProfileAgreement/{customeraccessprofileagreementid}/Request':
+      put:
+        tags:
+           - CR - CustomerAccessProfileAgreement
+        summary: >-
+          RqCR Request manual intervention in a customer access profile (e.g.
+          handle exceptions)
+        description: >-
+          RqCR Request manual intervention in a customer access profile (e.g.
+          handle exceptions)
+        operationId: CustomerAccessProfileAgreement/Request
+        parameters:
+           - $ref: '#/components/parameters/customeraccessprofileagreementid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestCustomerAccessProfileAgreementRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerAccessProfileAgreement/{customeraccessprofileagreementid}/Grant':
+      put:
+        tags:
+           - CR - CustomerAccessProfileAgreement
+        summary: GrCR Grant access under the agreement
+        description: GrCR Grant access under the agreement
+        operationId: CustomerAccessProfileAgreement/Grant
+        parameters:
+           - $ref: '#/components/parameters/customeraccessprofileagreementid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/GrantCustomerAccessProfileAgreementRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerAccessProfileAgreement/{customeraccessprofileagreementid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerAccessProfileAgreement
+        summary: ReCR Retrieve details about a customer access profile agreement
+        description: ReCR Retrieve details about a customer access profile agreement
+        operationId: CustomerAccessProfileAgreement/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customeraccessprofileagreementid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveCustomerAccessProfileAgreementResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Restrictions/{restrictionsid}/Evaluate':
+      post:
+        tags:
+           - BQ - Restrictions
+        summary: EvBQ Establish restrictions for the access profile agreement
+        description: EvBQ Establish restrictions for the access profile agreement
+        operationId: Restrictions/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/restrictionsid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateRestrictionsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Restrictions/{restrictionsid}/Update':
+      put:
+        tags:
+           - BQ - Restrictions
+        summary: UpBQ Update details for the restrictions in the agreement
+        description: UpBQ Update details for the restrictions in the agreement
+        operationId: Restrictions/Update
+        parameters:
+           - $ref: '#/components/parameters/restrictionsid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateRestrictionsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Restrictions/{restrictionsid}/Retrieve':
+      get:
+        tags:
+           - BQ - Restrictions
+        summary: ReBQ Retrieve details about the restrictions in the agreement
+        description: ReBQ Retrieve details about the restrictions in the agreement
+        operationId: Restrictions/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/restrictionsid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveRestrictionsResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Preferences/{preferencesid}/Evaluate':
+      post:
+        tags:
+           - BQ - Preferences
+        summary: EvBQ Establish preferences for the access profile agreement
+        description: EvBQ Establish preferences for the access profile agreement
+        operationId: Preferences/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/preferencesid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluatePreferencesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Preferences/{preferencesid}/Update':
+      put:
+        tags:
+           - BQ - Preferences
+        summary: UpBQ Update details for the preferences in the agreement
+        description: UpBQ Update details for the preferences in the agreement
+        operationId: Preferences/Update
+        parameters:
+           - $ref: '#/components/parameters/preferencesid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePreferencesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Preferences/{preferencesid}/Retrieve':
+      get:
+        tags:
+           - BQ - Preferences
+        summary: ReBQ Retrieve details about the preferences in the agreement
+        description: ReBQ Retrieve details about the preferences in the agreement
+        operationId: Preferences/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/preferencesid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePreferencesResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateCustomerAccessProfileAgreementRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+              description: "\r\n"
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+              description: "\r\n"
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+     Involvedparty:
+        type: object
+        description: "\r\n - "
+        properties:
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyInvolvement:
+              $ref: '#/components/schemas/Partyrole'
+              description: ''
+     Party:
+        type: object
+        description: ' '
+        properties:
+           PartyName:
+              $ref: '#/components/schemas/Name'
+              description: >-
+                Name by which a party is known and which is usually used to
+                identify that party. (ISO20022)
+           PartyType:
+              enum:
+                   -  Person
+                   -  Organisation
+              type: string
+              description: ">-\r\n* `Person` \r\n* `Organisation` \r\n* "
+           PartyDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           PartyIdentification:
+              $ref: '#/components/schemas/Partyidentification'
+              description: ''
+           PartyLegalStructureType:
+              enum:
+                   -  Individual
+                   -  CommunityInterestCompany
+                   -  CoOperative
+                   -  Charity
+                   -  GeneralPartnership
+                   -  LimitedLiabilityPartnership
+                   -  ScottishLimitedPartnership
+                   -  LimitedPartnership
+                   -  PrivateLimitedCompany
+                   -  PublicLimitedCompany
+                   -  Sole(SoleTrader)
+              type: string
+              description: ">-\r\n* `Individual` \r\n* `CommunityInterestCompany` \r\n* `CoOperative` \r\n* `Charity` \r\n* `GeneralPartnership` \r\n* `LimitedLiabilityPartnership` \r\n* `ScottishLimitedPartnership` \r\n* `LimitedPartnership` \r\n* `PrivateLimitedCompany` \r\n* `PublicLimitedCompany` \r\n* `SoleSoleTrader` \r\n* "
+     Name:
+        type: object
+        description: >-
+          Name by which a party is known and which is usually used to identify
+          that party. (ISO20022)
+           
+        properties:
+           Name:
+              type: string
+              description: >-
+                A name is a word or phrase that constitutes the distinctive
+                designation of a person, place, thing or concept. (UN/CEFAT)
+              format: DataType
+     Datetime:
+        type: object
+        description: ' '
+        properties:
+           DateTimeContent:
+              type: string
+              description: ''
+              format: String
+           TimeZoneCode:
+              type: string
+              description: ''
+              format: String
+           DaylightSavingIndicator:
+              type: string
+              description: ''
+              format: String
+           Datetime:
+              type: string
+              description: >-
+                A date time identifies a date and time of day to various common
+                resolutions: year, month, week, day, hour, minute, second, and
+                fraction of second. (UN/CEFACT)
+
+
+                A particular point in the progression of time defined by a
+                mandatory date and a mandatory time component, expressed in
+                either UTC time format (YYYYMMDDThh:mm:ss.sssZ), local time
+                with UTC offset format (YYYYMMDDThh:mm:ss.sss/hh:mm), or
+                local time format (YYYYMMDDThh:mm:ss.sss). These
+                representations are defined in "XML Schema Part 2: Datatypes
+                Second Edition  W3C Recommendation 28 October 2004" which is
+                aligned with ISO 8601. (ISO20022)
+
+                Note on the time format:
+
+                1) beginning / end of calendar day
+
+                00:00:00  -  the beginning of a calendar day
+
+                24:00:00  -  the end of a calendar day
+
+                2) fractions of second in time format
+
+                Decimal fractions of seconds may be included. In this case, the
+                involved parties shall agree on the maximum number of digits
+                that are allowed.
+              format: DataType
+     Partyidentification:
+        type: object
+        description: ' '
+        properties:
+           PartyIdentificationType:
+              enum:
+                   -  Taxidentificationnumber
+                   -  Nationalregistrationnumber
+                   -  LEI(LegalEntityIdentifier)
+                   -  Alienregistrationnumber
+                   -  Passportnumber
+                   -  Corporateidentification
+                   -  Driverlicensenumber
+                   -  Socialsecuritynumber
+                   -  Identitycardnumber
+                   -  Concat
+              type: string
+              description: ">-\r\n* `Taxidentificationnumber` \r\n* `Nationalregistrationnumber` \r\n* `LEILegalEntityIdentifier` \r\n* `Alienregistrationnumber` \r\n* `Passportnumber` \r\n* `Corporateidentification` \r\n* `Driverlicensenumber` \r\n* `Socialsecuritynumber` \r\n* `Identitycardnumber` \r\n* `Concat` \r\n* "
+           PartyIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           Partyidentification:
+              type: string
+              description: ''
+              format: DataType
+     Identifier:
+        type: object
+        description: ' '
+        properties:
+           IdentifierValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           IdentifierIssuingAuthority:
+              $ref: '#/components/schemas/Involvedparty'
+              description: Entity that assigns and manages the identification.
+           IdentifierStartDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           IdentifierEndDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           Identifier:
+              type: string
+              description: >-
+                An identifier is a character string used to uniquely identify
+                one instance of an object within an identification scheme that
+                is managed by an agency. (UN/CEFAT)
+              format: DataType
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Partyrole:
+        type: object
+        description: ' '
+        properties:
+           PartyRoleType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           PartyRoleName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           PartyRoleValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           PartyInvolvementType:
+              enum:
+                   -  Agreementinvolvement
+                   -  Partyinvolvement
+                   -  Arrangementinvolvement
+                   -  Relationshipinvolvement
+                   -  Locationinvolvement
+                   -  Bankguaranteeinvolvement
+              type: string
+              description: ">-\r\n* `Agreementinvolvement` \r\n* `Partyinvolvement` \r\n* `Arrangementinvolvement` \r\n* `Relationshipinvolvement` \r\n* `Locationinvolvement` \r\n* `Bankguaranteeinvolvement` \r\n* "
+     Text:
+        type: object
+        description: ' '
+        properties:
+           Text:
+              type: string
+              description: >-
+                Text is a character string such as a finite set of characters
+                generally in the form of words of a language. (UN/CEFACT)
+              format: DataType
+     Datetimeperiod:
+        type: object
+        description: ' '
+        properties:
+           FromDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range starts. (ISO20022)
+           ToDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range ends. (ISO20022)
+           Datetimeperiod:
+              type: string
+              description: >-
+                Time span defined by a start date and time, and an end date and
+                time. (ISO20022)
+              format: DataType
+     ChannelAccessArrangement:
+        type: object
+        description: "\r\n - "
+        properties:
+           ChannelAccessArrangement:
+              type: string
+              description: >-
+                An arrangement that allows or restricts the access to a channel
+                through a specific access point
+              format: Class
+     AccessArrangementInvolvement:
+        type: object
+        description: "\r\n - "
+        properties:
+           AccessAgreementInvolvementIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           InvolvementType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+     DocumentDirectoryEntry:
+        type: object
+        description: "\r\n - "
+        properties:
+           DocumentDirectoryEntryIdentification:
+              type: string
+              description: >-
+                Identification allowing the retrieval of a document from a
+                Document Directory
+              format: String
+     EvaluateCustomerAccessProfileAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     EvaluateCustomerAccessProfileAgreement:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     UpdateCustomerAccessProfileAgreementRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+              description: "\r\n"
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+              description: "\r\n"
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+     UpdateCustomerAccessProfileAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     UpdateCustomerAccessProfileAgreement:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     ControlCustomerAccessProfileAgreementRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+              description: "\r\n"
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+              description: "\r\n"
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+     ControlCustomerAccessProfileAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     ControlCustomerAccessProfileAgreement:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     ExchangeCustomerAccessProfileAgreementRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+              description: "\r\n"
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+              description: "\r\n"
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+     ExchangeCustomerAccessProfileAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     ExchangeCustomerAccessProfileAgreement:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     RequestCustomerAccessProfileAgreementRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+              description: "\r\n"
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+              description: "\r\n"
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+     RequestCustomerAccessProfileAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     RequestCustomerAccessProfileAgreement:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     GrantCustomerAccessProfileAgreementRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+              description: "\r\n"
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+              description: "\r\n"
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+     GrantCustomerAccessProfileAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     GrantCustomerAccessProfileAgreement:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     RetrieveCustomerAccessProfileAgreementRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+              description: "\r\n"
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+              description: "\r\n"
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+     RetrieveCustomerAccessProfileAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     RetrieveCustomerAccessProfileAgreement:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     EvaluateRestrictionsRequest:
+        type: object
+        description: ''
+        properties:
+           ChannelAccessRestrictionsRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+              description: "\r\n"
+           ChannelAccessProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ChannelUsage'
+              description: "\r\n"
+           ChannelAccessProductandServiceChannelDeviceRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+              description: "\r\n"
+           ChannelAccessProductandServiceLocationRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+              description: "\r\n"
+           ChannelAccessProductandServiceFrequencyLimitRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+              description: "\r\n"
+           ChannelAccessProductandServiceTimeDurationRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+              description: "\r\n"
+     ChannelUsage:
+        type: object
+        description: "\r\n - "
+        properties:
+           ChannelUsage:
+              type: string
+              description: >-
+                The use of a channel by a customer (in a specific customer
+                relationship) over a specified time period.
+              format: Class
+     AccessRestrictionArrangement:
+        type: object
+        description: "\r\n - "
+        properties:
+           AccessRestrictionType:
+              enum:
+                   -  Accessrestrictionbylocation
+              type: string
+              description: ">-\r\n* `Accessrestrictionbylocation` \r\n* "
+           AccessRestrictionDescription:
+              $ref: '#/components/schemas/Text'
+              description: Details restrictions on allowed product/services
+           AllowedProductService:
+              $ref: '#/components/schemas/Text'
+              description: Details allowed products/services and associated features
+     EvaluateRestrictionsResponse:
+        type: object
+        description: ''
+        properties:
+           ChannelAccessRestrictionsRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           ChannelAccessProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ChannelUsage'
+           ChannelAccessProductandServiceChannelDeviceRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+           ChannelAccessProductandServiceLocationRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+           ChannelAccessProductandServiceFrequencyLimitRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+           ChannelAccessProductandServiceTimeDurationRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+     EvaluateRestrictions:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     UpdateRestrictionsRequest:
+        type: object
+        description: ''
+        properties:
+           ChannelAccessRestrictionsRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+              description: "\r\n"
+           ChannelAccessProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ChannelUsage'
+              description: "\r\n"
+           ChannelAccessProductandServiceChannelDeviceRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+              description: "\r\n"
+           ChannelAccessProductandServiceLocationRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+              description: "\r\n"
+           ChannelAccessProductandServiceFrequencyLimitRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+              description: "\r\n"
+           ChannelAccessProductandServiceTimeDurationRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+              description: "\r\n"
+     UpdateRestrictionsResponse:
+        type: object
+        description: ''
+        properties:
+           ChannelAccessRestrictionsRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           ChannelAccessProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ChannelUsage'
+           ChannelAccessProductandServiceChannelDeviceRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+           ChannelAccessProductandServiceLocationRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+           ChannelAccessProductandServiceFrequencyLimitRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+           ChannelAccessProductandServiceTimeDurationRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+     UpdateRestrictions:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     RetrieveRestrictionsRequest:
+        type: object
+        description: ''
+        properties:
+           ChannelAccessRestrictionsRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+              description: "\r\n"
+           ChannelAccessProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ChannelUsage'
+              description: "\r\n"
+           ChannelAccessProductandServiceChannelDeviceRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+              description: "\r\n"
+           ChannelAccessProductandServiceLocationRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+              description: "\r\n"
+           ChannelAccessProductandServiceFrequencyLimitRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+              description: "\r\n"
+           ChannelAccessProductandServiceTimeDurationRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+              description: "\r\n"
+     RetrieveRestrictionsResponse:
+        type: object
+        description: ''
+        properties:
+           ChannelAccessRestrictionsRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           ChannelAccessProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ChannelUsage'
+           ChannelAccessProductandServiceChannelDeviceRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+           ChannelAccessProductandServiceLocationRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+           ChannelAccessProductandServiceFrequencyLimitRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+           ChannelAccessProductandServiceTimeDurationRestrictions:
+              $ref: '#/components/schemas/AccessRestrictionArrangement'
+     RetrieveRestrictions:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     EvaluatePreferencesRequest:
+        type: object
+        description: ''
+        properties:
+           ChannelAccessPreferencesRecord:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+              description: "\r\n"
+           ChannelAccessPreferenceReference:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+              description: "\r\n"
+           ChannelAccessPreferenceType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           ChannelAccessPreferenceProfile:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           ChannelAccessChannelDeviceType:
+              enum:
+                   -  CommunicationChannel
+                   -  AuthenticationChannel
+              type: string
+              description: ">-\r\n* `CommunicationChannel` \r\n* `AuthenticationChannel` \r\n* "
+           ChannelAccessChannelDeviceTypePreference:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+              description: "\r\n"
+           ProductandServiceType:
+              enum:
+                   -  ITService
+                   -  AdministrativeService
+                   -  SystemService
+                   -  FinancialService
+                   -  InformationService
+                   -  BusinessService
+              type: string
+              description: ">-\r\n* `ITService` \r\n* `AdministrativeService` \r\n* `SystemService` \r\n* `FinancialService` \r\n* `InformationService` \r\n* `BusinessService` \r\n* "
+     AccessPreferenceArrangement:
+        type: object
+        description: "\r\n - "
+        properties:
+           AccessPreferenceType:
+              $ref: '#/components/schemas/Text'
+              description: The type of preference (e.g. for correspondence)
+           PreferencedChannelDevice:
+              $ref: '#/components/schemas/Text'
+              description: Details the specific device or channel with the preference
+           ProductServiceType:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                The types of product and service to which this preference
+                applies
+           AccessPreferenceDescription:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                Details the preference (e.g. no paper correspondence, no
+                solicitations)
+     EvaluatePreferencesResponse:
+        type: object
+        description: ''
+        properties:
+           ChannelAccessPreferencesRecord:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+           ChannelAccessPreferenceReference:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+           ChannelAccessPreferenceType:
+              $ref: '#/components/schemas/Text'
+           ChannelAccessPreferenceProfile:
+              $ref: '#/components/schemas/Text'
+           ChannelAccessChannelDeviceType:
+              enum:
+                   -  CommunicationChannel
+                   -  AuthenticationChannel
+              type: string
+              description: ">-\r\n* `CommunicationChannel` \r\n* `AuthenticationChannel` \r\n* "
+           ChannelAccessChannelDeviceTypePreference:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+           ProductandServiceType:
+              enum:
+                   -  ITService
+                   -  AdministrativeService
+                   -  SystemService
+                   -  FinancialService
+                   -  InformationService
+                   -  BusinessService
+              type: string
+              description: ">-\r\n* `ITService` \r\n* `AdministrativeService` \r\n* `SystemService` \r\n* `FinancialService` \r\n* `InformationService` \r\n* `BusinessService` \r\n* "
+     EvaluatePreferences:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     UpdatePreferencesRequest:
+        type: object
+        description: ''
+        properties:
+           ChannelAccessPreferencesRecord:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+              description: "\r\n"
+           ChannelAccessPreferenceReference:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+              description: "\r\n"
+           ChannelAccessPreferenceType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           ChannelAccessPreferenceProfile:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           ChannelAccessChannelDeviceType:
+              enum:
+                   -  CommunicationChannel
+                   -  AuthenticationChannel
+              type: string
+              description: ">-\r\n* `CommunicationChannel` \r\n* `AuthenticationChannel` \r\n* "
+           ChannelAccessChannelDeviceTypePreference:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+              description: "\r\n"
+           ProductandServiceType:
+              enum:
+                   -  ITService
+                   -  AdministrativeService
+                   -  SystemService
+                   -  FinancialService
+                   -  InformationService
+                   -  BusinessService
+              type: string
+              description: ">-\r\n* `ITService` \r\n* `AdministrativeService` \r\n* `SystemService` \r\n* `FinancialService` \r\n* `InformationService` \r\n* `BusinessService` \r\n* "
+     UpdatePreferencesResponse:
+        type: object
+        description: ''
+        properties:
+           ChannelAccessPreferencesRecord:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+           ChannelAccessPreferenceReference:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+           ChannelAccessPreferenceType:
+              $ref: '#/components/schemas/Text'
+           ChannelAccessPreferenceProfile:
+              $ref: '#/components/schemas/Text'
+           ChannelAccessChannelDeviceType:
+              enum:
+                   -  CommunicationChannel
+                   -  AuthenticationChannel
+              type: string
+              description: ">-\r\n* `CommunicationChannel` \r\n* `AuthenticationChannel` \r\n* "
+           ChannelAccessChannelDeviceTypePreference:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+           ProductandServiceType:
+              enum:
+                   -  ITService
+                   -  AdministrativeService
+                   -  SystemService
+                   -  FinancialService
+                   -  InformationService
+                   -  BusinessService
+              type: string
+              description: ">-\r\n* `ITService` \r\n* `AdministrativeService` \r\n* `SystemService` \r\n* `FinancialService` \r\n* `InformationService` \r\n* `BusinessService` \r\n* "
+     UpdatePreferences:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     RetrievePreferencesRequest:
+        type: object
+        description: ''
+        properties:
+           ChannelAccessPreferencesRecord:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+              description: "\r\n"
+           ChannelAccessPreferenceReference:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+              description: "\r\n"
+           ChannelAccessPreferenceType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           ChannelAccessPreferenceProfile:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           ChannelAccessChannelDeviceType:
+              enum:
+                   -  CommunicationChannel
+                   -  AuthenticationChannel
+              type: string
+              description: ">-\r\n* `CommunicationChannel` \r\n* `AuthenticationChannel` \r\n* "
+           ChannelAccessChannelDeviceTypePreference:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+              description: "\r\n"
+           ProductandServiceType:
+              enum:
+                   -  ITService
+                   -  AdministrativeService
+                   -  SystemService
+                   -  FinancialService
+                   -  InformationService
+                   -  BusinessService
+              type: string
+              description: ">-\r\n* `ITService` \r\n* `AdministrativeService` \r\n* `SystemService` \r\n* `FinancialService` \r\n* `InformationService` \r\n* `BusinessService` \r\n* "
+     RetrievePreferencesResponse:
+        type: object
+        description: ''
+        properties:
+           ChannelAccessPreferencesRecord:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+           ChannelAccessPreferenceReference:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+           ChannelAccessPreferenceType:
+              $ref: '#/components/schemas/Text'
+           ChannelAccessPreferenceProfile:
+              $ref: '#/components/schemas/Text'
+           ChannelAccessChannelDeviceType:
+              enum:
+                   -  CommunicationChannel
+                   -  AuthenticationChannel
+              type: string
+              description: ">-\r\n* `CommunicationChannel` \r\n* `AuthenticationChannel` \r\n* "
+           ChannelAccessChannelDeviceTypePreference:
+              $ref: '#/components/schemas/AccessPreferenceArrangement'
+           ProductandServiceType:
+              enum:
+                   -  ITService
+                   -  AdministrativeService
+                   -  SystemService
+                   -  FinancialService
+                   -  InformationService
+                   -  BusinessService
+              type: string
+              description: ">-\r\n* `ITService` \r\n* `AdministrativeService` \r\n* `SystemService` \r\n* `FinancialService` \r\n* `InformationService` \r\n* `BusinessService` \r\n* "
+     RetrievePreferences:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerChannelAccessProfileRecord:
+              $ref: '#/components/schemas/ChannelAccessArrangement'
+           CustomerAccessAgreementValidFromToDate:
+              $ref: '#/components/schemas/Datetimeperiod'
+           CustomerAccessAgreementSignaturesResponsibleParties:
+              $ref: '#/components/schemas/AccessArrangementInvolvement'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateCustomerAccessProfileAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateCustomerAccessProfileAgreementRequest
+        required: true
+     UpdateCustomerAccessProfileAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerAccessProfileAgreementRequest'
+        required: true
+     ControlCustomerAccessProfileAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ControlCustomerAccessProfileAgreementRequest
+        required: true
+     ExchangeCustomerAccessProfileAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExchangeCustomerAccessProfileAgreementRequest
+        required: true
+     RequestCustomerAccessProfileAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestCustomerAccessProfileAgreementRequest
+        required: true
+     GrantCustomerAccessProfileAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/GrantCustomerAccessProfileAgreementRequest'
+        required: true
+     RetrieveCustomerAccessProfileAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveCustomerAccessProfileAgreementRequest
+        required: true
+     EvaluateRestrictionsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateRestrictionsRequest'
+        required: true
+     UpdateRestrictionsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRestrictionsRequest'
+        required: true
+     RetrieveRestrictionsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveRestrictionsRequest'
+        required: true
+     EvaluatePreferencesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluatePreferencesRequest'
+        required: true
+     UpdatePreferencesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePreferencesRequest'
+        required: true
+     RetrievePreferencesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePreferencesRequest'
+        required: true
+  parameters:
+     customeraccessprofileagreementid:
+        name: customeraccessprofileagreementid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     restrictionsid:
+        name: restrictionsid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     preferencesid:
+        name: preferencesid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateCustomerAccessProfileAgreementResponse:
+        description: CustomerAccessProfileAgreementEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateCustomerAccessProfileAgreementResponse
+     UpdateCustomerAccessProfileAgreementResponse:
+        description: CustomerAccessProfileAgreementUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCustomerAccessProfileAgreementResponse
+     ControlCustomerAccessProfileAgreementResponse:
+        description: CustomerAccessProfileAgreementControl
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ControlCustomerAccessProfileAgreementResponse
+     ExchangeCustomerAccessProfileAgreementResponse:
+        description: CustomerAccessProfileAgreementExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExchangeCustomerAccessProfileAgreementResponse
+     RequestCustomerAccessProfileAgreementResponse:
+        description: CustomerAccessProfileAgreementRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestCustomerAccessProfileAgreementResponse
+     GrantCustomerAccessProfileAgreementResponse:
+        description: CustomerAccessProfileAgreementGrant
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/GrantCustomerAccessProfileAgreementResponse'
+     RetrieveCustomerAccessProfileAgreementResponse:
+        description: CustomerAccessProfileAgreementRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveCustomerAccessProfileAgreementResponse
+     EvaluateRestrictionsResponse:
+        description: RestrictionsEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateRestrictionsResponse'
+     UpdateRestrictionsResponse:
+        description: RestrictionsUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRestrictionsResponse'
+     RetrieveRestrictionsResponse:
+        description: RestrictionsRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveRestrictionsResponse'
+     EvaluatePreferencesResponse:
+        description: PreferencesEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluatePreferencesResponse'
+     UpdatePreferencesResponse:
+        description: PreferencesUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePreferencesResponse'
+     RetrievePreferencesResponse:
+        description: PreferencesRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePreferencesResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

@@ -1,0 +1,4239 @@
+openapi: 3.0.1
+info:
+  title: Payment Rail Operations
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This Service Domain handles
+    the operational interface with payment service providers, formatting
+    outbound transactions and onward routing inbound transactions during
+    scheduled operating sessions. It also links to holding account facilities
+    for net payment handling
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/PaymentRailOperations
+paths:
+   '/PaymentRailOperatingSession/{paymentrailoperatingsessionid}/Control':
+      put:
+        tags:
+           - CR - PaymentRailOperatingSession
+        summary: Control Payment Rail Operating Session
+        description: Control Payment Rail Operating Session
+        operationId: PaymentRailOperatingSession/Control
+        parameters:
+           - $ref: '#/components/parameters/paymentrailoperatingsessionid'
+        requestBody:
+          $ref: '#/components/requestBodies/ControlPaymentRailOperatingSessionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentRailOperatingSession/{paymentrailoperatingsessionid}/Exchange':
+      put:
+        tags:
+           - CR - PaymentRailOperatingSession
+        summary: Exchange Payment Rail Operating Session
+        description: Exchange Payment Rail Operating Session
+        operationId: PaymentRailOperatingSession/Exchange
+        parameters:
+           - $ref: '#/components/parameters/paymentrailoperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExchangePaymentRailOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentRailOperatingSession/{paymentrailoperatingsessionid}/Execute':
+      put:
+        tags:
+           - CR - PaymentRailOperatingSession
+        summary: Execute Payment Rail Operating Session
+        description: Execute Payment Rail Operating Session
+        operationId: PaymentRailOperatingSession/Execute
+        parameters:
+           - $ref: '#/components/parameters/paymentrailoperatingsessionid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecutePaymentRailOperatingSessionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentRailOperatingSession/{paymentrailoperatingsessionid}/Initiate':
+      post:
+        tags:
+           - CR - PaymentRailOperatingSession
+        summary: Initiate Payment Rail Operating Session
+        description: Initiate Payment Rail Operating Session
+        operationId: PaymentRailOperatingSession/Initiate
+        parameters:
+           - $ref: '#/components/parameters/paymentrailoperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/InitiatePaymentRailOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentRailOperatingSession/{paymentrailoperatingsessionid}/Notify':
+      get:
+        tags:
+           - CR - PaymentRailOperatingSession
+        summary: Notify Payment Rail Operating Session
+        description: Notify Payment Rail Operating Session
+        operationId: PaymentRailOperatingSession/Notify
+        parameters:
+           - $ref: '#/components/parameters/paymentrailoperatingsessionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/NotifyPaymentRailOperatingSessionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentRailOperatingSession/{paymentrailoperatingsessionid}/Request':
+      put:
+        tags:
+           - CR - PaymentRailOperatingSession
+        summary: Request Payment Rail Operating Session
+        description: Request Payment Rail Operating Session
+        operationId: PaymentRailOperatingSession/Request
+        parameters:
+           - $ref: '#/components/parameters/paymentrailoperatingsessionid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestPaymentRailOperatingSessionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentRailOperatingSession/{paymentrailoperatingsessionid}/Retrieve':
+      get:
+        tags:
+           - CR - PaymentRailOperatingSession
+        summary: Retrieve Payment Rail Operating Session
+        description: Retrieve Payment Rail Operating Session
+        operationId: PaymentRailOperatingSession/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/paymentrailoperatingsessionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePaymentRailOperatingSessionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentRailOperatingSession/{paymentrailoperatingsessionid}/Update':
+      put:
+        tags:
+           - CR - PaymentRailOperatingSession
+        summary: Update Payment Rail Operating Session
+        description: Update Payment Rail Operating Session
+        operationId: PaymentRailOperatingSession/Update
+        parameters:
+           - $ref: '#/components/parameters/paymentrailoperatingsessionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePaymentRailOperatingSessionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InboundTransaction/{inboundtransactionid}/Exchange':
+      put:
+        tags:
+           - BQ - InboundTransaction
+        summary: Exchange Inbound Transaction Function
+        description: Exchange Inbound Transaction Function
+        operationId: InboundTransaction/Exchange
+        parameters:
+           - $ref: '#/components/parameters/inboundtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeInboundTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/OutboundTransaction/{outboundtransactionid}/Exchange':
+      put:
+        tags:
+           - BQ - OutboundTransaction
+        summary: Exchange Outbound Transaction Function
+        description: Exchange Outbound Transaction Function
+        operationId: OutboundTransaction/Exchange
+        parameters:
+           - $ref: '#/components/parameters/outboundtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeOutboundTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentAccountReconciliation/{paymentaccountreconciliationid}/Exchange':
+      put:
+        tags:
+           - BQ - PaymentAccountReconciliation
+        summary: Exchange Payment Account Reconciliation Function
+        description: Exchange Payment Account Reconciliation Function
+        operationId: PaymentAccountReconciliation/Exchange
+        parameters:
+           - $ref: '#/components/parameters/paymentaccountreconciliationid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExchangePaymentAccountReconciliationRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentClearingandSettlement/{paymentclearingandsettlementid}/Exchange':
+      put:
+        tags:
+           - BQ - PaymentClearingandSettlement
+        summary: Exchange Payment Clearing and Settlement Function
+        description: Exchange Payment Clearing and Settlement Function
+        operationId: PaymentClearingandSettlement/Exchange
+        parameters:
+           - $ref: '#/components/parameters/paymentclearingandsettlementid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExchangePaymentClearingandSettlementRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InboundTransaction/{inboundtransactionid}/Execute':
+      put:
+        tags:
+           - BQ - InboundTransaction
+        summary: Execute Inbound Transaction Function
+        description: Execute Inbound Transaction Function
+        operationId: InboundTransaction/Execute
+        parameters:
+           - $ref: '#/components/parameters/inboundtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteInboundTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/OutboundTransaction/{outboundtransactionid}/Execute':
+      put:
+        tags:
+           - BQ - OutboundTransaction
+        summary: Execute Outbound Transaction Function
+        description: Execute Outbound Transaction Function
+        operationId: OutboundTransaction/Execute
+        parameters:
+           - $ref: '#/components/parameters/outboundtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteOutboundTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentAccountReconciliation/{paymentaccountreconciliationid}/Execute':
+      put:
+        tags:
+           - BQ - PaymentAccountReconciliation
+        summary: Execute Payment Account Reconciliation Function
+        description: Execute Payment Account Reconciliation Function
+        operationId: PaymentAccountReconciliation/Execute
+        parameters:
+           - $ref: '#/components/parameters/paymentaccountreconciliationid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExecutePaymentAccountReconciliationRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentClearingandSettlement/{paymentclearingandsettlementid}/Execute':
+      put:
+        tags:
+           - BQ - PaymentClearingandSettlement
+        summary: Execute Payment Clearing and Settlement Function
+        description: Execute Payment Clearing and Settlement Function
+        operationId: PaymentClearingandSettlement/Execute
+        parameters:
+           - $ref: '#/components/parameters/paymentclearingandsettlementid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExecutePaymentClearingandSettlementRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InboundTransaction/{inboundtransactionid}/Initiate':
+      post:
+        tags:
+           - BQ - InboundTransaction
+        summary: Initiate Inbound Transaction Function
+        description: Initiate Inbound Transaction Function
+        operationId: InboundTransaction/Initiate
+        parameters:
+           - $ref: '#/components/parameters/inboundtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateInboundTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/OutboundTransaction/{outboundtransactionid}/Initiate':
+      post:
+        tags:
+           - BQ - OutboundTransaction
+        summary: Initiate Outbound Transaction Function
+        description: Initiate Outbound Transaction Function
+        operationId: OutboundTransaction/Initiate
+        parameters:
+           - $ref: '#/components/parameters/outboundtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateOutboundTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentAccountReconciliation/{paymentaccountreconciliationid}/Initiate':
+      post:
+        tags:
+           - BQ - PaymentAccountReconciliation
+        summary: Initiate Payment Account Reconciliation Function
+        description: Initiate Payment Account Reconciliation Function
+        operationId: PaymentAccountReconciliation/Initiate
+        parameters:
+           - $ref: '#/components/parameters/paymentaccountreconciliationid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/InitiatePaymentAccountReconciliationRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentClearingandSettlement/{paymentclearingandsettlementid}/Initiate':
+      post:
+        tags:
+           - BQ - PaymentClearingandSettlement
+        summary: Initiate Payment Clearing and Settlement Function
+        description: Initiate Payment Clearing and Settlement Function
+        operationId: PaymentClearingandSettlement/Initiate
+        parameters:
+           - $ref: '#/components/parameters/paymentclearingandsettlementid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/InitiatePaymentClearingandSettlementRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InboundTransaction/{inboundtransactionid}/Notify':
+      get:
+        tags:
+           - BQ - InboundTransaction
+        summary: Notify Inbound Transaction Function
+        description: Notify Inbound Transaction Function
+        operationId: InboundTransaction/Notify
+        parameters:
+           - $ref: '#/components/parameters/inboundtransactionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/NotifyInboundTransactionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/OutboundTransaction/{outboundtransactionid}/Notify':
+      get:
+        tags:
+           - BQ - OutboundTransaction
+        summary: Notify Outbound Transaction Function
+        description: Notify Outbound Transaction Function
+        operationId: OutboundTransaction/Notify
+        parameters:
+           - $ref: '#/components/parameters/outboundtransactionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/NotifyOutboundTransactionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentAccountReconciliation/{paymentaccountreconciliationid}/Notify':
+      get:
+        tags:
+           - BQ - PaymentAccountReconciliation
+        summary: Notify Payment Account Reconciliation Function
+        description: Notify Payment Account Reconciliation Function
+        operationId: PaymentAccountReconciliation/Notify
+        parameters:
+           - $ref: '#/components/parameters/paymentaccountreconciliationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/NotifyPaymentAccountReconciliationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentClearingandSettlement/{paymentclearingandsettlementid}/Notify':
+      get:
+        tags:
+           - BQ - PaymentClearingandSettlement
+        summary: Notify Payment Clearing and Settlement Function
+        description: Notify Payment Clearing and Settlement Function
+        operationId: PaymentClearingandSettlement/Notify
+        parameters:
+           - $ref: '#/components/parameters/paymentclearingandsettlementid'
+        responses:
+          '200':
+            $ref: '#/components/responses/NotifyPaymentClearingandSettlementResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InboundTransaction/{inboundtransactionid}/Request':
+      put:
+        tags:
+           - BQ - InboundTransaction
+        summary: Request Inbound Transaction Function
+        description: Request Inbound Transaction Function
+        operationId: InboundTransaction/Request
+        parameters:
+           - $ref: '#/components/parameters/inboundtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestInboundTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/OutboundTransaction/{outboundtransactionid}/Request':
+      put:
+        tags:
+           - BQ - OutboundTransaction
+        summary: Request Outbound Transaction Function
+        description: Request Outbound Transaction Function
+        operationId: OutboundTransaction/Request
+        parameters:
+           - $ref: '#/components/parameters/outboundtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestOutboundTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentAccountReconciliation/{paymentaccountreconciliationid}/Request':
+      put:
+        tags:
+           - BQ - PaymentAccountReconciliation
+        summary: Request Payment Account Reconciliation Function
+        description: Request Payment Account Reconciliation Function
+        operationId: PaymentAccountReconciliation/Request
+        parameters:
+           - $ref: '#/components/parameters/paymentaccountreconciliationid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestPaymentAccountReconciliationRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentClearingandSettlement/{paymentclearingandsettlementid}/Request':
+      put:
+        tags:
+           - BQ - PaymentClearingandSettlement
+        summary: Request Payment Clearing and Settlement Function
+        description: Request Payment Clearing and Settlement Function
+        operationId: PaymentClearingandSettlement/Request
+        parameters:
+           - $ref: '#/components/parameters/paymentclearingandsettlementid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestPaymentClearingandSettlementRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InboundTransaction/{inboundtransactionid}/Retrieve':
+      get:
+        tags:
+           - BQ - InboundTransaction
+        summary: Retrieve Inbound Transaction Function
+        description: Retrieve Inbound Transaction Function
+        operationId: InboundTransaction/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/inboundtransactionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveInboundTransactionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/OutboundTransaction/{outboundtransactionid}/Retrieve':
+      get:
+        tags:
+           - BQ - OutboundTransaction
+        summary: Retrieve Outbound Transaction Function
+        description: Retrieve Outbound Transaction Function
+        operationId: OutboundTransaction/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/outboundtransactionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveOutboundTransactionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentAccountReconciliation/{paymentaccountreconciliationid}/Retrieve':
+      get:
+        tags:
+           - BQ - PaymentAccountReconciliation
+        summary: Retrieve Payment Account Reconciliation Function
+        description: Retrieve Payment Account Reconciliation Function
+        operationId: PaymentAccountReconciliation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/paymentaccountreconciliationid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrievePaymentAccountReconciliationResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentClearingandSettlement/{paymentclearingandsettlementid}/Retrieve':
+      get:
+        tags:
+           - BQ - PaymentClearingandSettlement
+        summary: Retrieve Payment Clearing and Settlement Function
+        description: Retrieve Payment Clearing and Settlement Function
+        operationId: PaymentClearingandSettlement/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/paymentclearingandsettlementid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrievePaymentClearingandSettlementResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InboundTransaction/{inboundtransactionid}/Update':
+      put:
+        tags:
+           - BQ - InboundTransaction
+        summary: Update Inbound Transaction Function
+        description: Update Inbound Transaction Function
+        operationId: InboundTransaction/Update
+        parameters:
+           - $ref: '#/components/parameters/inboundtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateInboundTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/OutboundTransaction/{outboundtransactionid}/Update':
+      put:
+        tags:
+           - BQ - OutboundTransaction
+        summary: Update Outbound Transaction Function
+        description: Update Outbound Transaction Function
+        operationId: OutboundTransaction/Update
+        parameters:
+           - $ref: '#/components/parameters/outboundtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateOutboundTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentAccountReconciliation/{paymentaccountreconciliationid}/Update':
+      put:
+        tags:
+           - BQ - PaymentAccountReconciliation
+        summary: Update Payment Account Reconciliation Function
+        description: Update Payment Account Reconciliation Function
+        operationId: PaymentAccountReconciliation/Update
+        parameters:
+           - $ref: '#/components/parameters/paymentaccountreconciliationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePaymentAccountReconciliationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentClearingandSettlement/{paymentclearingandsettlementid}/Update':
+      put:
+        tags:
+           - BQ - PaymentClearingandSettlement
+        summary: Update Payment Clearing and Settlement Function
+        description: Update Payment Clearing and Settlement Function
+        operationId: PaymentClearingandSettlement/Update
+        parameters:
+           - $ref: '#/components/parameters/paymentclearingandsettlementid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePaymentClearingandSettlementRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     ControlPaymentRailOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+     Schedule:
+        type: object
+        description: "\r\n - "
+        properties:
+           ScheduleType:
+              type: string
+              description: ''
+              format: String
+     Status:
+        type: object
+        description: ' Status |Status  (https://www.iso20022.org/standardsrepository/type/Status)|Standard|ISO20022 BM ()'
+        properties:
+           StatusReason:
+              $ref: '#/components/schemas/Text'
+              description: Specifies the reasons for the status.
+           StatusDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the status was assigned.
+           StatusValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: Period of time during which the status is valid.
+           StatusInvolvedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: >-
+                Party who plays a  specific role in the context of assigning a
+                status.
+     Text:
+        type: object
+        description: 'Specifies the reasons for the status. '
+        properties:
+           Text:
+              type: string
+              description: >-
+                Text is a character string such as a finite set of characters
+                generally in the form of words of a language. (UN/CEFACT)
+              format: DataType
+     Datetime:
+        type: object
+        description: 'Date and time at which the status was assigned. '
+        properties:
+           DateTimeContent:
+              type: string
+              description: ''
+              format: String
+           TimeZoneCode:
+              type: string
+              description: ''
+              format: String
+           DaylightSavingIndicator:
+              type: string
+              description: ''
+              format: String
+           Datetime:
+              type: string
+              description: >-
+                A date time identifies a date and time of day to various common
+                resolutions: year, month, week, day, hour, minute, second, and
+                fraction of second. (UN/CEFACT)
+
+
+                A particular point in the progression of time defined by a
+                mandatory date and a mandatory time component, expressed in
+                either UTC time format (YYYYMMDDThh:mm:ss.sssZ), local time
+                with UTC offset format (YYYYMMDDThh:mm:ss.sss/hh:mm), or
+                local time format (YYYYMMDDThh:mm:ss.sss). These
+                representations are defined in "XML Schema Part 2: Datatypes
+                Second Edition  W3C Recommendation 28 October 2004" which is
+                aligned with ISO 8601. (ISO20022)
+
+                Note on the time format:
+
+                1) beginning / end of calendar day
+
+                00:00:00  -  the beginning of a calendar day
+
+                24:00:00  -  the end of a calendar day
+
+                2) fractions of second in time format
+
+                Decimal fractions of seconds may be included. In this case, the
+                involved parties shall agree on the maximum number of digits
+                that are allowed.
+              format: DataType
+     Datetimeperiod:
+        type: object
+        description: 'Period of time during which the status is valid. '
+        properties:
+           FromDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range starts. (ISO20022)
+           ToDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range ends. (ISO20022)
+           Datetimeperiod:
+              type: string
+              description: >-
+                Time span defined by a start date and time, and an end date and
+                time. (ISO20022)
+              format: DataType
+     Involvedparty:
+        type: object
+        description: >-
+          Party who plays a  specific role in the context of assigning a
+          status. 
+        properties:
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyInvolvement:
+              $ref: '#/components/schemas/Partyrole'
+              description: ''
+     Party:
+        type: object
+        description: ' '
+        properties:
+           PartyName:
+              $ref: '#/components/schemas/Name'
+              description: >-
+                Name by which a party is known and which is usually used to
+                identify that party. (ISO20022)
+           PartyType:
+              enum:
+                   -  Person
+                   -  Organisation
+              type: string
+              description: ">-\r\n* `Person` \r\n* `Organisation` \r\n* "
+           PartyDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           PartyIdentification:
+              $ref: '#/components/schemas/Partyidentification'
+              description: ''
+           PartyLegalStructureType:
+              enum:
+                   -  Individual
+                   -  CommunityInterestCompany
+                   -  CoOperative
+                   -  Charity
+                   -  GeneralPartnership
+                   -  LimitedLiabilityPartnership
+                   -  ScottishLimitedPartnership
+                   -  LimitedPartnership
+                   -  PrivateLimitedCompany
+                   -  PublicLimitedCompany
+                   -  Sole(SoleTrader)
+              type: string
+              description: ">-\r\n* `Individual` \r\n* `CommunityInterestCompany` \r\n* `CoOperative` \r\n* `Charity` \r\n* `GeneralPartnership` \r\n* `LimitedLiabilityPartnership` \r\n* `ScottishLimitedPartnership` \r\n* `LimitedPartnership` \r\n* `PrivateLimitedCompany` \r\n* `PublicLimitedCompany` \r\n* `SoleSoleTrader` \r\n* "
+     Name:
+        type: object
+        description: >-
+          Name by which a party is known and which is usually used to identify
+          that party. (ISO20022)
+           
+        properties:
+           Name:
+              type: string
+              description: >-
+                A name is a word or phrase that constitutes the distinctive
+                designation of a person, place, thing or concept. (UN/CEFAT)
+              format: DataType
+     Partyidentification:
+        type: object
+        description: ' '
+        properties:
+           PartyIdentificationType:
+              enum:
+                   -  Taxidentificationnumber
+                   -  Nationalregistrationnumber
+                   -  LEI(LegalEntityIdentifier)
+                   -  Alienregistrationnumber
+                   -  Passportnumber
+                   -  Corporateidentification
+                   -  Driverlicensenumber
+                   -  Socialsecuritynumber
+                   -  Identitycardnumber
+                   -  Concat
+              type: string
+              description: ">-\r\n* `Taxidentificationnumber` \r\n* `Nationalregistrationnumber` \r\n* `LEILegalEntityIdentifier` \r\n* `Alienregistrationnumber` \r\n* `Passportnumber` \r\n* `Corporateidentification` \r\n* `Driverlicensenumber` \r\n* `Socialsecuritynumber` \r\n* `Identitycardnumber` \r\n* `Concat` \r\n* "
+           PartyIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           Partyidentification:
+              type: string
+              description: ''
+              format: DataType
+     Identifier:
+        type: object
+        description: ' '
+        properties:
+           IdentifierValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           IdentifierIssuingAuthority:
+              $ref: '#/components/schemas/Involvedparty'
+              description: Entity that assigns and manages the identification.
+           IdentifierStartDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           IdentifierEndDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Partyrole:
+        type: object
+        description: ' '
+        properties:
+           PartyRoleType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           PartyRoleName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           PartyRoleValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           PartyInvolvementType:
+              enum:
+                   -  Agreementinvolvement
+                   -  Partyinvolvement
+                   -  Arrangementinvolvement
+                   -  Relationshipinvolvement
+                   -  Locationinvolvement
+                   -  Bankguaranteeinvolvement
+              type: string
+              description: ">-\r\n* `Agreementinvolvement` \r\n* `Partyinvolvement` \r\n* `Arrangementinvolvement` \r\n* `Relationshipinvolvement` \r\n* `Locationinvolvement` \r\n* `Bankguaranteeinvolvement` \r\n* "
+     Log:
+        type: object
+        description: "\r\n - "
+        properties:
+           LogType:
+              type: string
+              description: ''
+              format: String
+           LogPeriod:
+              type: string
+              description: ''
+              format: String
+           LogDate:
+              type: string
+              description: Key dates associated with the log (e.g. start time).
+              format: String
+           LogIdentification:
+              type: string
+              description: ''
+              format: String
+     Sessiontype:
+        type: object
+        description: "\r\n - "
+        properties:
+           SessionTypeName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           SessionType:
+              enum:
+                   -  ContactHandlingSession
+                   -  CustomerDialogueSession
+                   -  ChannelOperatingSession
+                   -  GatewayOperatingSession
+                   -  SwitchOperatingSession
+                   -  DeviceOperatingSession
+                   -  ACHOperatingSession
+              type: string
+              description: ">-\r\n* `ContactHandlingSession` \r\n* `CustomerDialogueSession` \r\n* `ChannelOperatingSession` \r\n* `GatewayOperatingSession` \r\n* `SwitchOperatingSession` \r\n* `DeviceOperatingSession` \r\n* `ACHOperatingSession` \r\n* "
+     Servicetype:
+        type: object
+        description: "\r\n - "
+        properties:
+           ServiceTypeName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           ServiceType:
+              enum:
+                   -  ITService
+                   -  AdministrativeService
+                   -  SystemService
+                   -  FinancialService
+                   -  InformationService
+                   -  BusinessService
+              type: string
+              description: ">-\r\n* `ITService` \r\n* `AdministrativeService` \r\n* `SystemService` \r\n* `FinancialService` \r\n* `InformationService` \r\n* `BusinessService` \r\n* "
+     SystemConfigurationOption:
+        type: object
+        description: "\r\n - "
+        properties:
+           SystemConfigurationOption:
+              type: string
+              description: >-
+                Options for configuring the system or the function/feature of
+                system.
+              format: Class
+     Session:
+        type: object
+        description: "\r\n - "
+        properties:
+           SessionDuration:
+              $ref: '#/components/schemas/Duration'
+              description: The time the session was active
+           SessionDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Key dates and times for the session
+           SessionStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           SessionType:
+              $ref: '#/components/schemas/Sessiontype'
+              description: >-
+                Specifies the classification of session like Customer Contact
+                Session, Channel Operating Session, Device Operating Session,
+                etc.
+           SessionScheduel:
+              $ref: '#/components/schemas/Schedule'
+              description: ''
+     Duration:
+        type: object
+        description: 'The time the session was active '
+        properties:
+           Duration:
+              type: string
+              description: >-
+                A duration is the specification of a length of time without a
+                fixed start or end time, expressed in Gregorian calendar time
+                units (Year, Month, Week, Day) and Hours, Minutes or Seconds.
+                (UN/CEFACT)
+              format: DataType
+     ControlPaymentRailOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     ControlPaymentRailOperatingSession:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     ExchangePaymentRailOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+     ExchangePaymentRailOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     ExchangePaymentRailOperatingSession:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     ExecutePaymentRailOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+     ExecutePaymentRailOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     ExecutePaymentRailOperatingSession:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     InitiatePaymentRailOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+     InitiatePaymentRailOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     InitiatePaymentRailOperatingSession:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     NotifyPaymentRailOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+     NotifyPaymentRailOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     NotifyPaymentRailOperatingSession:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     RequestPaymentRailOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+     RequestPaymentRailOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     RequestPaymentRailOperatingSession:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     RetrievePaymentRailOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+     RetrievePaymentRailOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     RetrievePaymentRailOperatingSession:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     UpdatePaymentRailOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+              description: "\r\n"
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+     UpdatePaymentRailOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     UpdatePaymentRailOperatingSession:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     ExchangeInboundTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           InboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           InboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     Condition:
+        type: object
+        description: "\r\n - "
+        properties:
+           Condition:
+              type: string
+              description: >-
+                Condition is a premise upon which the fulfillment of an
+                agreement depends 
+
+
+                General and special arrangements, provisions, requirements,
+                rules, specifications, and standards that form an integral part
+                of an agreement or contract.
+
+
+                Read more:
+                http://www.businessdictionary.com/definition/termsandconditions.html
+
+              format: Class
+     BusinessService:
+        type: object
+        description: "\r\n - "
+        properties:
+           BusinessServiceType:
+              enum:
+                   -  Businessservicetypevalues
+              type: string
+              description: ">-\r\n* `Businessservicetypevalues` \r\n* "
+     Function:
+        type: object
+        description: "\r\n - "
+        properties:
+           Function:
+              type: string
+              description: >-
+                A kind of action.
+
+
+                Functions as Behaviour Qualifier: The collection of operational
+                services/functions offered by the operational facility.
+              format: Class
+     ExchangeInboundTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           InboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+           InboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+     ExchangeInboundTransaction:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     ExchangeOutboundTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           OutboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           OutboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     ExchangeOutboundTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           OutboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+           OutboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+     ExchangeOutboundTransaction:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     ExchangePaymentAccountReconciliationRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           PaymentAccountReconciliationFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           PaymentAccountReconciliationFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     ExchangePaymentAccountReconciliationResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           PaymentAccountReconciliationFunctionReference:
+              $ref: '#/components/schemas/Function'
+           PaymentAccountReconciliationFunctionType:
+              $ref: '#/components/schemas/Text'
+     ExchangePaymentAccountReconciliation:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     ExchangePaymentClearingandSettlementRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           PaymentClearingandSettlementFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           PaymentClearingandSettlementFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     ExchangePaymentClearingandSettlementResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           PaymentClearingandSettlementFunctionReference:
+              $ref: '#/components/schemas/Function'
+           PaymentClearingandSettlementFunctionType:
+              $ref: '#/components/schemas/Text'
+     ExchangePaymentClearingandSettlement:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     ExecuteInboundTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           InboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           InboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     ExecuteInboundTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           InboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+           InboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+     ExecuteInboundTransaction:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     ExecuteOutboundTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           OutboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           OutboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     ExecuteOutboundTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           OutboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+           OutboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+     ExecuteOutboundTransaction:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     ExecutePaymentAccountReconciliationRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           PaymentAccountReconciliationFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           PaymentAccountReconciliationFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     ExecutePaymentAccountReconciliationResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           PaymentAccountReconciliationFunctionReference:
+              $ref: '#/components/schemas/Function'
+           PaymentAccountReconciliationFunctionType:
+              $ref: '#/components/schemas/Text'
+     ExecutePaymentAccountReconciliation:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     ExecutePaymentClearingandSettlementRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           PaymentClearingandSettlementFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           PaymentClearingandSettlementFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     ExecutePaymentClearingandSettlementResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           PaymentClearingandSettlementFunctionReference:
+              $ref: '#/components/schemas/Function'
+           PaymentClearingandSettlementFunctionType:
+              $ref: '#/components/schemas/Text'
+     ExecutePaymentClearingandSettlement:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     InitiateInboundTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           InboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           InboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     InitiateInboundTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           InboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+           InboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+     InitiateInboundTransaction:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     InitiateOutboundTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           OutboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           OutboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     InitiateOutboundTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           OutboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+           OutboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+     InitiateOutboundTransaction:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     InitiatePaymentAccountReconciliationRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           PaymentAccountReconciliationFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           PaymentAccountReconciliationFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     InitiatePaymentAccountReconciliationResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           PaymentAccountReconciliationFunctionReference:
+              $ref: '#/components/schemas/Function'
+           PaymentAccountReconciliationFunctionType:
+              $ref: '#/components/schemas/Text'
+     InitiatePaymentAccountReconciliation:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     InitiatePaymentClearingandSettlementRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           PaymentClearingandSettlementFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           PaymentClearingandSettlementFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     InitiatePaymentClearingandSettlementResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           PaymentClearingandSettlementFunctionReference:
+              $ref: '#/components/schemas/Function'
+           PaymentClearingandSettlementFunctionType:
+              $ref: '#/components/schemas/Text'
+     InitiatePaymentClearingandSettlement:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     NotifyInboundTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           InboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           InboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     NotifyInboundTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           InboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+           InboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+     NotifyInboundTransaction:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     NotifyOutboundTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           OutboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           OutboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     NotifyOutboundTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           OutboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+           OutboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+     NotifyOutboundTransaction:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     NotifyPaymentAccountReconciliationRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           PaymentAccountReconciliationFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           PaymentAccountReconciliationFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     NotifyPaymentAccountReconciliationResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           PaymentAccountReconciliationFunctionReference:
+              $ref: '#/components/schemas/Function'
+           PaymentAccountReconciliationFunctionType:
+              $ref: '#/components/schemas/Text'
+     NotifyPaymentAccountReconciliation:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     NotifyPaymentClearingandSettlementRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           PaymentClearingandSettlementFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           PaymentClearingandSettlementFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     NotifyPaymentClearingandSettlementResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           PaymentClearingandSettlementFunctionReference:
+              $ref: '#/components/schemas/Function'
+           PaymentClearingandSettlementFunctionType:
+              $ref: '#/components/schemas/Text'
+     NotifyPaymentClearingandSettlement:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     RequestInboundTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           InboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           InboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     RequestInboundTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           InboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+           InboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+     RequestInboundTransaction:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     RequestOutboundTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           OutboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           OutboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     RequestOutboundTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           OutboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+           OutboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+     RequestOutboundTransaction:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     RequestPaymentAccountReconciliationRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           PaymentAccountReconciliationFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           PaymentAccountReconciliationFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     RequestPaymentAccountReconciliationResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           PaymentAccountReconciliationFunctionReference:
+              $ref: '#/components/schemas/Function'
+           PaymentAccountReconciliationFunctionType:
+              $ref: '#/components/schemas/Text'
+     RequestPaymentAccountReconciliation:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     RequestPaymentClearingandSettlementRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           PaymentClearingandSettlementFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           PaymentClearingandSettlementFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     RequestPaymentClearingandSettlementResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           PaymentClearingandSettlementFunctionReference:
+              $ref: '#/components/schemas/Function'
+           PaymentClearingandSettlementFunctionType:
+              $ref: '#/components/schemas/Text'
+     RequestPaymentClearingandSettlement:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     RetrieveInboundTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           InboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           InboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     RetrieveInboundTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           InboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+           InboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+     RetrieveInboundTransaction:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     RetrieveOutboundTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           OutboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           OutboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     RetrieveOutboundTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           OutboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+           OutboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+     RetrieveOutboundTransaction:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     RetrievePaymentAccountReconciliationRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           PaymentAccountReconciliationFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           PaymentAccountReconciliationFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     RetrievePaymentAccountReconciliationResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           PaymentAccountReconciliationFunctionReference:
+              $ref: '#/components/schemas/Function'
+           PaymentAccountReconciliationFunctionType:
+              $ref: '#/components/schemas/Text'
+     RetrievePaymentAccountReconciliation:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     RetrievePaymentClearingandSettlementRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           PaymentClearingandSettlementFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           PaymentClearingandSettlementFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     RetrievePaymentClearingandSettlementResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           PaymentClearingandSettlementFunctionReference:
+              $ref: '#/components/schemas/Function'
+           PaymentClearingandSettlementFunctionType:
+              $ref: '#/components/schemas/Text'
+     RetrievePaymentClearingandSettlement:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     UpdateInboundTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           InboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           InboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     UpdateInboundTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           InboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+           InboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+     UpdateInboundTransaction:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     UpdateOutboundTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           OutboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           OutboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     UpdateOutboundTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           OutboundTransactionFunctionReference:
+              $ref: '#/components/schemas/Function'
+           OutboundTransactionFunctionType:
+              $ref: '#/components/schemas/Text'
+     UpdateOutboundTransaction:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     UpdatePaymentAccountReconciliationRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           PaymentAccountReconciliationFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           PaymentAccountReconciliationFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     UpdatePaymentAccountReconciliationResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           PaymentAccountReconciliationFunctionReference:
+              $ref: '#/components/schemas/Function'
+           PaymentAccountReconciliationFunctionType:
+              $ref: '#/components/schemas/Text'
+     UpdatePaymentAccountReconciliation:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     UpdatePaymentClearingandSettlementRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+              description: "\r\n"
+           PaymentClearingandSettlementFunctionReference:
+              $ref: '#/components/schemas/Function'
+              description: "\r\n"
+           PaymentClearingandSettlementFunctionType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     UpdatePaymentClearingandSettlementResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+           PaymentClearingandSettlementFunctionReference:
+              $ref: '#/components/schemas/Function'
+           PaymentClearingandSettlementFunctionType:
+              $ref: '#/components/schemas/Text'
+     UpdatePaymentClearingandSettlement:
+        type: object
+        description: ''
+        properties:
+           PaymentRailOperatingSessionSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionStatus:
+              $ref: '#/components/schemas/Status'
+           PaymentRailOperatingSessionUsageLog:
+              $ref: '#/components/schemas/Log'
+           PaymentRailOperatingSessionAssociatedPartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PaymentRailOperatingSessionType:
+              $ref: '#/components/schemas/Sessiontype'
+           PaymentRailOperatingSessionServiceProviderSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PaymentRailOperatingSessionServiceType:
+              $ref: '#/components/schemas/Servicetype'
+           PaymentRailOperatingSessionServiceConfiguration:
+              $ref: '#/components/schemas/SystemConfigurationOption'
+           PaymentRailOperatingSessionReference:
+              $ref: '#/components/schemas/Session'
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     ControlPaymentRailOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlPaymentRailOperatingSessionRequest'
+        required: true
+     ExchangePaymentRailOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangePaymentRailOperatingSessionRequest'
+        required: true
+     ExecutePaymentRailOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePaymentRailOperatingSessionRequest'
+        required: true
+     InitiatePaymentRailOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiatePaymentRailOperatingSessionRequest'
+        required: true
+     NotifyPaymentRailOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/NotifyPaymentRailOperatingSessionRequest'
+        required: true
+     RequestPaymentRailOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPaymentRailOperatingSessionRequest'
+        required: true
+     RetrievePaymentRailOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePaymentRailOperatingSessionRequest'
+        required: true
+     UpdatePaymentRailOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePaymentRailOperatingSessionRequest'
+        required: true
+     ExchangeInboundTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeInboundTransactionRequest'
+        required: true
+     ExchangeOutboundTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeOutboundTransactionRequest'
+        required: true
+     ExchangePaymentAccountReconciliationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangePaymentAccountReconciliationRequest'
+        required: true
+     ExchangePaymentClearingandSettlementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangePaymentClearingandSettlementRequest'
+        required: true
+     ExecuteInboundTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteInboundTransactionRequest'
+        required: true
+     ExecuteOutboundTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteOutboundTransactionRequest'
+        required: true
+     ExecutePaymentAccountReconciliationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePaymentAccountReconciliationRequest'
+        required: true
+     ExecutePaymentClearingandSettlementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePaymentClearingandSettlementRequest'
+        required: true
+     InitiateInboundTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateInboundTransactionRequest'
+        required: true
+     InitiateOutboundTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOutboundTransactionRequest'
+        required: true
+     InitiatePaymentAccountReconciliationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiatePaymentAccountReconciliationRequest'
+        required: true
+     InitiatePaymentClearingandSettlementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiatePaymentClearingandSettlementRequest'
+        required: true
+     NotifyInboundTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/NotifyInboundTransactionRequest'
+        required: true
+     NotifyOutboundTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/NotifyOutboundTransactionRequest'
+        required: true
+     NotifyPaymentAccountReconciliationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/NotifyPaymentAccountReconciliationRequest'
+        required: true
+     NotifyPaymentClearingandSettlementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/NotifyPaymentClearingandSettlementRequest'
+        required: true
+     RequestInboundTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestInboundTransactionRequest'
+        required: true
+     RequestOutboundTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestOutboundTransactionRequest'
+        required: true
+     RequestPaymentAccountReconciliationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPaymentAccountReconciliationRequest'
+        required: true
+     RequestPaymentClearingandSettlementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPaymentClearingandSettlementRequest'
+        required: true
+     RetrieveInboundTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveInboundTransactionRequest'
+        required: true
+     RetrieveOutboundTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveOutboundTransactionRequest'
+        required: true
+     RetrievePaymentAccountReconciliationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePaymentAccountReconciliationRequest'
+        required: true
+     RetrievePaymentClearingandSettlementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePaymentClearingandSettlementRequest'
+        required: true
+     UpdateInboundTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInboundTransactionRequest'
+        required: true
+     UpdateOutboundTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateOutboundTransactionRequest'
+        required: true
+     UpdatePaymentAccountReconciliationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePaymentAccountReconciliationRequest'
+        required: true
+     UpdatePaymentClearingandSettlementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePaymentClearingandSettlementRequest'
+        required: true
+  parameters:
+     paymentrailoperatingsessionid:
+        name: paymentrailoperatingsessionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     inboundtransactionid:
+        name: inboundtransactionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     outboundtransactionid:
+        name: outboundtransactionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     paymentaccountreconciliationid:
+        name: paymentaccountreconciliationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     paymentclearingandsettlementid:
+        name: paymentclearingandsettlementid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     ControlPaymentRailOperatingSessionResponse:
+        description: PaymentRailOperatingSessionControl
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlPaymentRailOperatingSessionResponse'
+     ExchangePaymentRailOperatingSessionResponse:
+        description: PaymentRailOperatingSessionExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangePaymentRailOperatingSessionResponse'
+     ExecutePaymentRailOperatingSessionResponse:
+        description: PaymentRailOperatingSessionExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePaymentRailOperatingSessionResponse'
+     InitiatePaymentRailOperatingSessionResponse:
+        description: PaymentRailOperatingSessionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiatePaymentRailOperatingSessionResponse'
+     NotifyPaymentRailOperatingSessionResponse:
+        description: PaymentRailOperatingSessionNotify
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/NotifyPaymentRailOperatingSessionResponse'
+     RequestPaymentRailOperatingSessionResponse:
+        description: PaymentRailOperatingSessionRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPaymentRailOperatingSessionResponse'
+     RetrievePaymentRailOperatingSessionResponse:
+        description: PaymentRailOperatingSessionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePaymentRailOperatingSessionResponse'
+     UpdatePaymentRailOperatingSessionResponse:
+        description: PaymentRailOperatingSessionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePaymentRailOperatingSessionResponse'
+     ExchangeInboundTransactionResponse:
+        description: InboundTransactionExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeInboundTransactionResponse'
+     ExchangeOutboundTransactionResponse:
+        description: OutboundTransactionExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeOutboundTransactionResponse'
+     ExchangePaymentAccountReconciliationResponse:
+        description: PaymentAccountReconciliationExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExchangePaymentAccountReconciliationResponse
+     ExchangePaymentClearingandSettlementResponse:
+        description: PaymentClearingandSettlementExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExchangePaymentClearingandSettlementResponse
+     ExecuteInboundTransactionResponse:
+        description: InboundTransactionExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteInboundTransactionResponse'
+     ExecuteOutboundTransactionResponse:
+        description: OutboundTransactionExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteOutboundTransactionResponse'
+     ExecutePaymentAccountReconciliationResponse:
+        description: PaymentAccountReconciliationExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePaymentAccountReconciliationResponse'
+     ExecutePaymentClearingandSettlementResponse:
+        description: PaymentClearingandSettlementExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePaymentClearingandSettlementResponse'
+     InitiateInboundTransactionResponse:
+        description: InboundTransactionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateInboundTransactionResponse'
+     InitiateOutboundTransactionResponse:
+        description: OutboundTransactionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOutboundTransactionResponse'
+     InitiatePaymentAccountReconciliationResponse:
+        description: PaymentAccountReconciliationInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiatePaymentAccountReconciliationResponse
+     InitiatePaymentClearingandSettlementResponse:
+        description: PaymentClearingandSettlementInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiatePaymentClearingandSettlementResponse
+     NotifyInboundTransactionResponse:
+        description: InboundTransactionNotify
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/NotifyInboundTransactionResponse'
+     NotifyOutboundTransactionResponse:
+        description: OutboundTransactionNotify
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/NotifyOutboundTransactionResponse'
+     NotifyPaymentAccountReconciliationResponse:
+        description: PaymentAccountReconciliationNotify
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/NotifyPaymentAccountReconciliationResponse'
+     NotifyPaymentClearingandSettlementResponse:
+        description: PaymentClearingandSettlementNotify
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/NotifyPaymentClearingandSettlementResponse'
+     RequestInboundTransactionResponse:
+        description: InboundTransactionRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestInboundTransactionResponse'
+     RequestOutboundTransactionResponse:
+        description: OutboundTransactionRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestOutboundTransactionResponse'
+     RequestPaymentAccountReconciliationResponse:
+        description: PaymentAccountReconciliationRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPaymentAccountReconciliationResponse'
+     RequestPaymentClearingandSettlementResponse:
+        description: PaymentClearingandSettlementRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPaymentClearingandSettlementResponse'
+     RetrieveInboundTransactionResponse:
+        description: InboundTransactionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveInboundTransactionResponse'
+     RetrieveOutboundTransactionResponse:
+        description: OutboundTransactionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveOutboundTransactionResponse'
+     RetrievePaymentAccountReconciliationResponse:
+        description: PaymentAccountReconciliationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrievePaymentAccountReconciliationResponse
+     RetrievePaymentClearingandSettlementResponse:
+        description: PaymentClearingandSettlementRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrievePaymentClearingandSettlementResponse
+     UpdateInboundTransactionResponse:
+        description: InboundTransactionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInboundTransactionResponse'
+     UpdateOutboundTransactionResponse:
+        description: OutboundTransactionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateOutboundTransactionResponse'
+     UpdatePaymentAccountReconciliationResponse:
+        description: PaymentAccountReconciliationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePaymentAccountReconciliationResponse'
+     UpdatePaymentClearingandSettlementResponse:
+        description: PaymentClearingandSettlementUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePaymentClearingandSettlementResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

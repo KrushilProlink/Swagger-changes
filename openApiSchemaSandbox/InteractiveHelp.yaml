@@ -1,0 +1,438 @@
+openapi: 3.0.1
+info:
+  title: Interactive Help
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Operate the automated
+    facility that provides interactive context sensitive servicing guidance to
+    employees and selfserve customers
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/InteractiveHelp
+paths:
+   '/HelpServiceSelection/{helpserviceselectionid}/Initiate':
+      post:
+        tags:
+           - BQ - HelpServiceSelection
+        summary: InBQ Initiate an interactive help service exchange
+        description: InBQ Initiate an interactive help service exchange
+        operationId: HelpServiceSelection/Initiate
+        parameters:
+           - $ref: '#/components/parameters/helpserviceselectionid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateHelpServiceSelectionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/HelpServiceSelection/{helpserviceselectionid}/Capture':
+      put:
+        tags:
+           - BQ - HelpServiceSelection
+        summary: CaBQ Capture user feedback relating to the service exchange
+        description: CaBQ Capture user feedback relating to the service exchange
+        operationId: HelpServiceSelection/Capture
+        parameters:
+           - $ref: '#/components/parameters/helpserviceselectionid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureHelpServiceSelectionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/HelpServiceSelection/{helpserviceselectionid}/Execute':
+      put:
+        tags:
+           - BQ - HelpServiceSelection
+        summary: ExBQ Execute an automated action within the exchange
+        description: ExBQ Execute an automated action within the exchange
+        operationId: HelpServiceSelection/Execute
+        parameters:
+           - $ref: '#/components/parameters/helpserviceselectionid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteHelpServiceSelectionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/HelpServiceSelection/{helpserviceselectionid}/Retrieve':
+      get:
+        tags:
+           - BQ - HelpServiceSelection
+        summary: ReBQ Retrieve details about an interactive help service exchange
+        description: ReBQ Retrieve details about an interactive help service exchange
+        operationId: HelpServiceSelection/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/helpserviceselectionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveHelpServiceSelectionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateHelpServiceSelectionRequest:
+        type: object
+        description: ''
+        properties:
+           HelpSelectionInteractionType:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionProductFeatureType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionKeyWordMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionKeyWordSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionFeedback:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateTime:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateHelpServiceSelectionResponse:
+        type: object
+        description: ''
+        properties:
+           HelpSelectionInteractionType:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionProductFeatureType:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionKeyWordMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTime:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureHelpServiceSelectionRequest:
+        type: object
+        description: ''
+        properties:
+           HelpSelectionTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionFeedback:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateTime:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureHelpServiceSelectionResponse:
+        type: object
+        description: ''
+        properties:
+           DateTime:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteHelpServiceSelectionRequest:
+        type: object
+        description: ''
+        properties:
+           HelpSelectionInteractionType:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionProductFeatureType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionKeyWordMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionKeyWordSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionFeedback:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateTime:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteHelpServiceSelectionResponse:
+        type: object
+        description: ''
+        properties:
+           HelpSelectionInteractionType:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionProductFeatureType:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionKeyWordMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           InteractiveHelp:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTime:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveHelpServiceSelectionResponse:
+        type: object
+        description: ''
+        properties:
+           HelpSelectionInteractionType:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionProductFeatureType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionKeyWordMenu:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionKeyWordSelection:
+              type: string
+              description: "\r\n"
+              format: String
+           InteractiveHelp:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           HelpSelectionFeedback:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateTime:
+              type: string
+              description: "\r\n"
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateHelpServiceSelectionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateHelpServiceSelectionRequest'
+        required: true
+     CaptureHelpServiceSelectionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureHelpServiceSelectionRequest'
+        required: true
+     ExecuteHelpServiceSelectionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteHelpServiceSelectionRequest'
+        required: true
+     RetrieveHelpServiceSelectionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     helpserviceselectionid:
+        name: helpserviceselectionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateHelpServiceSelectionResponse:
+        description: HelpServiceSelectionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateHelpServiceSelectionResponse'
+     CaptureHelpServiceSelectionResponse:
+        description: HelpServiceSelectionCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureHelpServiceSelectionResponse'
+     ExecuteHelpServiceSelectionResponse:
+        description: HelpServiceSelectionExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteHelpServiceSelectionResponse'
+     RetrieveHelpServiceSelectionResponse:
+        description: HelpServiceSelectionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveHelpServiceSelectionResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

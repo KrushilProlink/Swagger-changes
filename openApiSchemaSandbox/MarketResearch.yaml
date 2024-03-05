@@ -1,0 +1,801 @@
+openapi: 3.0.1
+info:
+  title: Market Research
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain handles
+    the capture of market research from multiple external sources. This can
+    include live feeds, analysis and reports in any form. The information is
+    classified/catalogued and stored for retrieval.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/MarketResearch
+paths:
+   '/GeneralMarketResearchDirectoryEntry/{generalmarketresearchdirectoryentryid}/Register':
+      post:
+        tags:
+           - CR - GeneralMarketResearchDirectoryEntry
+        summary: InCR Register or establish a market research viewpoint
+        description: InCR Register or establish a market research viewpoint
+        operationId: GeneralMarketResearchDirectoryEntry/Register
+        parameters:
+           - $ref: '#/components/parameters/generalmarketresearchdirectoryentryid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RegisterGeneralMarketResearchDirectoryEntryRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/GeneralMarketResearchDirectoryEntry/{generalmarketresearchdirectoryentryid}/Update':
+      put:
+        tags:
+           - CR - GeneralMarketResearchDirectoryEntry
+        summary: UpCR Update the details or makeup of a market research viewpoint
+        description: UpCR Update the details or makeup of a market research viewpoint
+        operationId: GeneralMarketResearchDirectoryEntry/Update
+        parameters:
+           - $ref: '#/components/parameters/generalmarketresearchdirectoryentryid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateGeneralMarketResearchDirectoryEntryRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/GeneralMarketResearchDirectoryEntry/{generalmarketresearchdirectoryentryid}/Execute':
+      put:
+        tags:
+           - CR - GeneralMarketResearchDirectoryEntry
+        summary: >-
+          ExCR Automatically extract details of a maintained market research
+          viewpoint
+        description: >-
+          ExCR Automatically extract details of a maintained market research
+          viewpoint
+        operationId: GeneralMarketResearchDirectoryEntry/Execute
+        parameters:
+           - $ref: '#/components/parameters/generalmarketresearchdirectoryentryid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExecuteGeneralMarketResearchDirectoryEntryRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/GeneralMarketResearchDirectoryEntry/{generalmarketresearchdirectoryentryid}/Request':
+      put:
+        tags:
+           - CR - GeneralMarketResearchDirectoryEntry
+        summary: RqCR Request a viewpoint is refreshed or adjusted in some manner
+        description: RqCR Request a viewpoint is refreshed or adjusted in some manner
+        operationId: GeneralMarketResearchDirectoryEntry/Request
+        parameters:
+           - $ref: '#/components/parameters/generalmarketresearchdirectoryentryid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestGeneralMarketResearchDirectoryEntryRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/GeneralMarketResearchDirectoryEntry/{generalmarketresearchdirectoryentryid}/Retrieve':
+      get:
+        tags:
+           - CR - GeneralMarketResearchDirectoryEntry
+        summary: >-
+          ReCR Retrieve details about and the content of a maintained market
+          research viewpoint
+        description: >-
+          ReCR Retrieve details about and the content of a maintained market
+          research viewpoint
+        operationId: GeneralMarketResearchDirectoryEntry/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/generalmarketresearchdirectoryentryid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveGeneralMarketResearchDirectoryEntryResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     RegisterGeneralMarketResearchDirectoryEntryRequest:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchViewpointType:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchViewpointDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ReferencedMarketResearchRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportTypeReference:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportVersionPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchViewpointUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RegisterGeneralMarketResearchDirectoryEntryResponse:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchViewpointType:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchViewpointDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportVersionPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+     RegisterGeneralMarketResearchDirectoryEntry:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchViewpointType:
+              type: string
+              description: >-
+                The type of research view provided by the research (e.g.
+                competitor research)
+              format: String
+           GeneralMarketResearchViewpointDescription:
+              type: string
+              description: >-
+                A description of the available market research consolidated for
+                this maintained viewpoint
+              format: String
+           ReferencedMarketResearchRecord:
+              type: string
+              description: >-
+                The externally sourced reports that are used to assemble the
+                research viewpoint
+              format: String
+           MarketResearchReportTypeReference:
+              type: string
+              description: >-
+                Reference to a specific type of predefined market research
+                report or database
+              format: String
+           MarketResearchReportTypeDefinition:
+              type: string
+              description: >-
+                Describes the available market research report content (e.g.
+                customer social network usage analysis)
+              format: String
+           MarketResearchReportVersionPeriod:
+              type: string
+              description: Defines the version and period covered by the research
+              format: String
+           MarketResearchReport:
+              type: string
+              description: Is the content of the report or database in any suitable form
+              format: String
+           GeneralMarketResearchViewpointUsage:
+              type: string
+              description: Usage record of the research viewpoint
+              format: String
+           MarketResearchReportRequest:
+              type: string
+              description: Details of the research request
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit requesting the research
+              format: Object
+     UpdateGeneralMarketResearchDirectoryEntryRequest:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchViewpointType:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchViewpointDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ReferencedMarketResearchRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportTypeReference:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportVersionPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateGeneralMarketResearchDirectoryEntryResponse:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchViewpointType:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchViewpointDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ReferencedMarketResearchRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportTypeReference:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportVersionPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateGeneralMarketResearchDirectoryEntry:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchViewpointType:
+              type: string
+              description: >-
+                The type of research view provided by the research (e.g.
+                competitor research)
+              format: String
+           GeneralMarketResearchViewpointDescription:
+              type: string
+              description: >-
+                A description of the available market research consolidated for
+                this maintained viewpoint
+              format: String
+           ReferencedMarketResearchRecord:
+              type: string
+              description: >-
+                The externally sourced reports that are used to assemble the
+                research viewpoint
+              format: String
+           MarketResearchReportTypeReference:
+              type: string
+              description: >-
+                Reference to a specific type of predefined market research
+                report or database
+              format: String
+           MarketResearchReportTypeDefinition:
+              type: string
+              description: >-
+                Describes the available market research report content (e.g.
+                customer social network usage analysis)
+              format: String
+           MarketResearchReportVersionPeriod:
+              type: string
+              description: Defines the version and period covered by the research
+              format: String
+           MarketResearchReport:
+              type: string
+              description: Is the content of the report or database in any suitable form
+              format: String
+           GeneralMarketResearchViewpointUsage:
+              type: string
+              description: Usage record of the research viewpoint
+              format: String
+           MarketResearchReportRequest:
+              type: string
+              description: Details of the research request
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit requesting the research
+              format: Object
+     ExecuteGeneralMarketResearchDirectoryEntryRequest:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchViewpointUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     ExecuteGeneralMarketResearchDirectoryEntryResponse:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchViewpointType:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchViewpointDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ReferencedMarketResearchRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportVersionPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchViewpointUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     ExecuteGeneralMarketResearchDirectoryEntry:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchViewpointType:
+              type: string
+              description: >-
+                The type of research view provided by the research (e.g.
+                competitor research)
+              format: String
+           GeneralMarketResearchViewpointDescription:
+              type: string
+              description: >-
+                A description of the available market research consolidated for
+                this maintained viewpoint
+              format: String
+           ReferencedMarketResearchRecord:
+              type: string
+              description: >-
+                The externally sourced reports that are used to assemble the
+                research viewpoint
+              format: String
+           MarketResearchReportTypeReference:
+              type: string
+              description: >-
+                Reference to a specific type of predefined market research
+                report or database
+              format: String
+           MarketResearchReportTypeDefinition:
+              type: string
+              description: >-
+                Describes the available market research report content (e.g.
+                customer social network usage analysis)
+              format: String
+           MarketResearchReportVersionPeriod:
+              type: string
+              description: Defines the version and period covered by the research
+              format: String
+           MarketResearchReport:
+              type: string
+              description: Is the content of the report or database in any suitable form
+              format: String
+           GeneralMarketResearchViewpointUsage:
+              type: string
+              description: Usage record of the research viewpoint
+              format: String
+           MarketResearchReportRequest:
+              type: string
+              description: Details of the research request
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit requesting the research
+              format: Object
+     RequestGeneralMarketResearchDirectoryEntryRequest:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchViewpointUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestGeneralMarketResearchDirectoryEntryResponse:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchViewpointType:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchViewpointDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ReferencedMarketResearchRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportVersionPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchViewpointUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestGeneralMarketResearchDirectoryEntry:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchViewpointType:
+              type: string
+              description: >-
+                The type of research view provided by the research (e.g.
+                competitor research)
+              format: String
+           GeneralMarketResearchViewpointDescription:
+              type: string
+              description: >-
+                A description of the available market research consolidated for
+                this maintained viewpoint
+              format: String
+           ReferencedMarketResearchRecord:
+              type: string
+              description: >-
+                The externally sourced reports that are used to assemble the
+                research viewpoint
+              format: String
+           MarketResearchReportTypeReference:
+              type: string
+              description: >-
+                Reference to a specific type of predefined market research
+                report or database
+              format: String
+           MarketResearchReportTypeDefinition:
+              type: string
+              description: >-
+                Describes the available market research report content (e.g.
+                customer social network usage analysis)
+              format: String
+           MarketResearchReportVersionPeriod:
+              type: string
+              description: Defines the version and period covered by the research
+              format: String
+           MarketResearchReport:
+              type: string
+              description: Is the content of the report or database in any suitable form
+              format: String
+           GeneralMarketResearchViewpointUsage:
+              type: string
+              description: Usage record of the research viewpoint
+              format: String
+           MarketResearchReportRequest:
+              type: string
+              description: Details of the research request
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit requesting the research
+              format: Object
+     RetrieveGeneralMarketResearchDirectoryEntryResponse:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchViewpointType:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchViewpointDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ReferencedMarketResearchRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportTypeReference:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportTypeDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportVersionPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchViewpointUsage:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketResearchReportRequest:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveGeneralMarketResearchDirectoryEntry:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchViewpointType:
+              type: string
+              description: >-
+                The type of research view provided by the research (e.g.
+                competitor research)
+              format: String
+           GeneralMarketResearchViewpointDescription:
+              type: string
+              description: >-
+                A description of the available market research consolidated for
+                this maintained viewpoint
+              format: String
+           ReferencedMarketResearchRecord:
+              type: string
+              description: >-
+                The externally sourced reports that are used to assemble the
+                research viewpoint
+              format: String
+           MarketResearchReportTypeReference:
+              type: string
+              description: >-
+                Reference to a specific type of predefined market research
+                report or database
+              format: String
+           MarketResearchReportTypeDefinition:
+              type: string
+              description: >-
+                Describes the available market research report content (e.g.
+                customer social network usage analysis)
+              format: String
+           MarketResearchReportVersionPeriod:
+              type: string
+              description: Defines the version and period covered by the research
+              format: String
+           MarketResearchReport:
+              type: string
+              description: Is the content of the report or database in any suitable form
+              format: String
+           GeneralMarketResearchViewpointUsage:
+              type: string
+              description: Usage record of the research viewpoint
+              format: String
+           MarketResearchReportRequest:
+              type: string
+              description: Details of the research request
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit requesting the research
+              format: Object
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     RegisterGeneralMarketResearchDirectoryEntryRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RegisterGeneralMarketResearchDirectoryEntryRequest
+        required: true
+     UpdateGeneralMarketResearchDirectoryEntryRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateGeneralMarketResearchDirectoryEntryRequest
+        required: true
+     ExecuteGeneralMarketResearchDirectoryEntryRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteGeneralMarketResearchDirectoryEntryRequest
+        required: true
+     RequestGeneralMarketResearchDirectoryEntryRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestGeneralMarketResearchDirectoryEntryRequest
+        required: true
+     RetrieveGeneralMarketResearchDirectoryEntryRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     generalmarketresearchdirectoryentryid:
+        name: generalmarketresearchdirectoryentryid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     RegisterGeneralMarketResearchDirectoryEntryResponse:
+        description: GeneralMarketResearchDirectoryEntryRegister
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RegisterGeneralMarketResearchDirectoryEntryResponse
+     UpdateGeneralMarketResearchDirectoryEntryResponse:
+        description: GeneralMarketResearchDirectoryEntryUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateGeneralMarketResearchDirectoryEntryResponse
+     ExecuteGeneralMarketResearchDirectoryEntryResponse:
+        description: GeneralMarketResearchDirectoryEntryExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteGeneralMarketResearchDirectoryEntryResponse
+     RequestGeneralMarketResearchDirectoryEntryResponse:
+        description: GeneralMarketResearchDirectoryEntryRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestGeneralMarketResearchDirectoryEntryResponse
+     RetrieveGeneralMarketResearchDirectoryEntryResponse:
+        description: GeneralMarketResearchDirectoryEntryRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveGeneralMarketResearchDirectoryEntryResponse
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

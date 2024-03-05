@@ -1,0 +1,935 @@
+openapi: 3.0.1
+info:
+  title: Regulatory Reporting
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain
+    administers and orchestrates the tasks required to meet the bank's
+    regulatory reporting obligations
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/RegulatoryReporting
+paths:
+   '/RegulatoryComplianceAdministrativePlan/{regulatorycomplianceadministrativeplanid}/Update':
+      put:
+        tags:
+           - CR - RegulatoryComplianceAdministrativePlan
+        summary: UpCR Update the regulatory reporting set up or schedule
+        description: UpCR Update the regulatory reporting set up or schedule
+        operationId: RegulatoryComplianceAdministrativePlan/Update
+        parameters:
+           - $ref: '#/components/parameters/regulatorycomplianceadministrativeplanid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateRegulatoryComplianceAdministrativePlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RegulatoryComplianceAdministrativePlan/{regulatorycomplianceadministrativeplanid}/Retrieve':
+      get:
+        tags:
+           - CR - RegulatoryComplianceAdministrativePlan
+        summary: ReCR Retrieve any details of the regulatory reporting administration
+        description: ReCR Retrieve any details of the regulatory reporting administration
+        operationId: RegulatoryComplianceAdministrativePlan/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/regulatorycomplianceadministrativeplanid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveRegulatoryComplianceAdministrativePlanResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RegulatoryComplianceAdministrativePlan/{regulatorycomplianceadministrativeplanid}/Create':
+      post:
+        tags:
+           - CR - RegulatoryComplianceAdministrativePlan
+        summary: CrBQ Initiate the handling of a regulatory reporting enquiry
+        description: CrBQ Initiate the handling of a regulatory reporting enquiry
+        operationId: RegulatoryComplianceAdministrativePlan/Create
+        parameters:
+           - $ref: '#/components/parameters/regulatorycomplianceadministrativeplanid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/CreateRegulatoryComplianceAdministrativePlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Authoring/{authoringid}/Capture':
+      put:
+        tags:
+           - BQ - Authoring
+        summary: >-
+          CaBQ Provide transaction records as required to support regulatory
+          reporting
+        description: >-
+          CaBQ Provide transaction records as required to support regulatory
+          reporting
+        operationId: Authoring/Capture
+        parameters:
+           - $ref: '#/components/parameters/authoringid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureAuthoringRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Consolidation/{consolidationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Consolidation
+        summary: ReBQ Retrieve consolidated information for review
+        description: ReBQ Retrieve consolidated information for review
+        operationId: Consolidation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/consolidationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveConsolidationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Consolidation/{consolidationid}/Update':
+      put:
+        tags:
+           - BQ - Consolidation
+        summary: >-
+          UpBQ Update or augment consolidated information to support report
+          generation
+        description: >-
+          UpBQ Update or augment consolidated information to support report
+          generation
+        operationId: Consolidation/Update
+        parameters:
+           - $ref: '#/components/parameters/consolidationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateConsolidationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Authoring/{authoringid}/Retrieve':
+      get:
+        tags:
+           - BQ - Authoring
+        summary: ReBQ Retrieve regulatory reporting detail and reports for review
+        description: ReBQ Retrieve regulatory reporting detail and reports for review
+        operationId: Authoring/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/authoringid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAuthoringResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Enquiries/{enquiriesid}/Update':
+      put:
+        tags:
+           - BQ - Enquiries
+        summary: >-
+          UpBQ Update or augment consolidated information to support enquiry
+          handling
+        description: >-
+          UpBQ Update or augment consolidated information to support enquiry
+          handling
+        operationId: Enquiries/Update
+        parameters:
+           - $ref: '#/components/parameters/enquiriesid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateEnquiriesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Enquiries/{enquiriesid}/Capture':
+      put:
+        tags:
+           - BQ - Enquiries
+        summary: >-
+          CaBQ Provide transaction records as required to support regulatory
+          enquiry
+        description: >-
+          CaBQ Provide transaction records as required to support regulatory
+          enquiry
+        operationId: Enquiries/Capture
+        parameters:
+           - $ref: '#/components/parameters/enquiriesid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureEnquiriesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Enquiries/{enquiriesid}/Retrieve':
+      get:
+        tags:
+           - BQ - Enquiries
+        summary: ReBQ Retrieve regulatory enquiry detail and response for review
+        description: ReBQ Retrieve regulatory enquiry detail and response for review
+        operationId: Enquiries/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/enquiriesid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveEnquiriesResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     UpdateRegulatoryComplianceAdministrativePlanRequest:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthorityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryReportType:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateRegulatoryComplianceAdministrativePlanResponse:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthorityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryReportType:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateRegulatoryComplianceAdministrativePlan:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthorityReference:
+              type: string
+              description: Reference to the interested regulatory reporting authority
+              format: Object
+           RegulatoryReportingSchedule:
+              type: string
+              description: >-
+                The details of all regulatory reporting requirements and
+                scheduled reporting tasks
+              format: String
+           RegulationReference:
+              type: string
+              description: Reference to the regulation for which content is being collected
+              format: Object
+           RegulatoryReportType:
+              type: string
+              description: The types of report, included in the reporting schedule
+              format: String
+     RetrieveRegulatoryComplianceAdministrativePlanResponse:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthorityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryReportType:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveRegulatoryComplianceAdministrativePlan:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthorityReference:
+              type: string
+              description: Reference to the interested regulatory reporting authority
+              format: Object
+           RegulatoryReportingSchedule:
+              type: string
+              description: >-
+                The details of all regulatory reporting requirements and
+                scheduled reporting tasks
+              format: String
+           RegulationReference:
+              type: string
+              description: Reference to the regulation for which content is being collected
+              format: Object
+           RegulatoryReportType:
+              type: string
+              description: The types of report, included in the reporting schedule
+              format: String
+     CreateRegulatoryComplianceAdministrativePlanRequest:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthorityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryEnquiry:
+              type: string
+              description: "\r\n"
+              format: String
+           EnquiryBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EnquiryProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EnquiryCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EnquiryTransactionRecords:
+              type: string
+              description: "\r\n"
+              format: String
+     CreateRegulatoryComplianceAdministrativePlanResponse:
+        type: object
+        description: ''
+        properties:
+           EnquiryTransactionRecords:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulatoryEnquiryWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulatoryEnquiryResult:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulatoryEnquiryDocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     CreateRegulatoryComplianceAdministrativePlan:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthorityReference:
+              type: string
+              description: Reference to the interested regulatory reporting authority
+              format: Object
+           RegulatoryReportingSchedule:
+              type: string
+              description: >-
+                The details of all regulatory reporting requirements and
+                scheduled reporting tasks
+              format: String
+           RegulationReference:
+              type: string
+              description: Reference to the regulation for which content is being collected
+              format: Object
+           RegulatoryReportType:
+              type: string
+              description: The types of report, included in the reporting schedule
+              format: String
+     CaptureAuthoringRequest:
+        type: object
+        description: ''
+        properties:
+           SourceTransactionRecords:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureAuthoringResponse:
+        type: object
+        description: ''
+        properties:
+           SourceTransactionRecords:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureAuthoring:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthorityReference:
+              type: string
+              description: Reference to the interested regulatory reporting authority
+              format: Object
+           RegulatoryReportingSchedule:
+              type: string
+              description: >-
+                The details of all regulatory reporting requirements and
+                scheduled reporting tasks
+              format: String
+           RegulationReference:
+              type: string
+              description: Reference to the regulation for which content is being collected
+              format: Object
+           RegulatoryReportType:
+              type: string
+              description: The types of report, included in the reporting schedule
+              format: String
+     RetrieveConsolidationResponse:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthorityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulatoryReportTypeContentRequirements:
+              type: string
+              description: "\r\n"
+              format: String
+           SourceBusinessUnitEmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SourceProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SourceCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SourceTransactionRecords:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveConsolidation:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthorityReference:
+              type: string
+              description: Reference to the interested regulatory reporting authority
+              format: Object
+           RegulatoryReportingSchedule:
+              type: string
+              description: >-
+                The details of all regulatory reporting requirements and
+                scheduled reporting tasks
+              format: String
+           RegulationReference:
+              type: string
+              description: Reference to the regulation for which content is being collected
+              format: Object
+           RegulatoryReportType:
+              type: string
+              description: The types of report, included in the reporting schedule
+              format: String
+     UpdateConsolidationRequest:
+        type: object
+        description: ''
+        properties:
+           SourceBusinessUnitEmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SourceProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SourceTransactionRecords:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveAuthoringResponse:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthorityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           SourceTransactionRecords:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulatoryReportTypeComplianceReportingRequirements:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingBusinessLegalEntityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ReportingBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryReportReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryReportDocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveAuthoring:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthorityReference:
+              type: string
+              description: Reference to the interested regulatory reporting authority
+              format: Object
+           RegulatoryReportingSchedule:
+              type: string
+              description: >-
+                The details of all regulatory reporting requirements and
+                scheduled reporting tasks
+              format: String
+           RegulationReference:
+              type: string
+              description: Reference to the regulation for which content is being collected
+              format: Object
+           RegulatoryReportType:
+              type: string
+              description: The types of report, included in the reporting schedule
+              format: String
+     UpdateEnquiriesRequest:
+        type: object
+        description: ''
+        properties:
+           EnquiryBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EnquiryProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EnquiryTransactionRecords:
+              type: string
+              description: "\r\n"
+              format: String
+     CaptureEnquiriesRequest:
+        type: object
+        description: ''
+        properties:
+           EnquiryTransactionRecords:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveEnquiriesResponse:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthorityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryEnquiry:
+              type: string
+              description: "\r\n"
+              format: String
+           EnquiryBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EnquiryProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EnquiryCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EnquiryTransactionRecords:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulatoryEnquiryWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulatoryEnquiryResult:
+              type: string
+              description: "\r\n"
+              format: String
+           RegulatoryEnquiryDocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveEnquiries:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthorityReference:
+              type: string
+              description: Reference to the interested regulatory reporting authority
+              format: Object
+           RegulatoryReportingSchedule:
+              type: string
+              description: >-
+                The details of all regulatory reporting requirements and
+                scheduled reporting tasks
+              format: String
+           RegulationReference:
+              type: string
+              description: Reference to the regulation for which content is being collected
+              format: Object
+           RegulatoryReportType:
+              type: string
+              description: The types of report, included in the reporting schedule
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     UpdateRegulatoryComplianceAdministrativePlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateRegulatoryComplianceAdministrativePlanRequest
+        required: true
+     RetrieveRegulatoryComplianceAdministrativePlanRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     CreateRegulatoryComplianceAdministrativePlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/CreateRegulatoryComplianceAdministrativePlanRequest
+        required: true
+     CaptureAuthoringRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureAuthoringRequest'
+        required: true
+     RetrieveConsolidationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateConsolidationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateConsolidationRequest'
+        required: true
+     RetrieveAuthoringRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateEnquiriesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateEnquiriesRequest'
+        required: true
+     CaptureEnquiriesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureEnquiriesRequest'
+        required: true
+     RetrieveEnquiriesRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     regulatorycomplianceadministrativeplanid:
+        name: regulatorycomplianceadministrativeplanid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     authoringid:
+        name: authoringid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     consolidationid:
+        name: consolidationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     enquiriesid:
+        name: enquiriesid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     UpdateRegulatoryComplianceAdministrativePlanResponse:
+        description: RegulatoryComplianceAdministrativePlanUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateRegulatoryComplianceAdministrativePlanResponse
+     RetrieveRegulatoryComplianceAdministrativePlanResponse:
+        description: RegulatoryComplianceAdministrativePlanRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveRegulatoryComplianceAdministrativePlanResponse
+     CreateRegulatoryComplianceAdministrativePlanResponse:
+        description: RegulatoryComplianceAdministrativePlanCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/CreateRegulatoryComplianceAdministrativePlanResponse
+     CaptureAuthoringResponse:
+        description: AuthoringCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureAuthoringResponse'
+     RetrieveConsolidationResponse:
+        description: ConsolidationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveConsolidationResponse'
+     UpdateConsolidationResponse:
+        description: ConsolidationUpdate
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrieveAuthoringResponse:
+        description: AuthoringRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAuthoringResponse'
+     UpdateEnquiriesResponse:
+        description: EnquiriesUpdate
+        content:
+          'application/json:':
+            schema:
+              type: string
+     CaptureEnquiriesResponse:
+        description: EnquiriesCapture
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrieveEnquiriesResponse:
+        description: EnquiriesRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveEnquiriesResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

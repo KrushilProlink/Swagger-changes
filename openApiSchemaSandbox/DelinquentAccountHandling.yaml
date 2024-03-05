@@ -1,0 +1,3897 @@
+openapi: 3.0.1
+info:
+  title: Delinquent Account Handling
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain handles
+    delinquent accounts (typically for active credit/charge cards) for followup
+    of payments due through periodic review and contacts. This process ends when
+    the account is cancelled and is transferred to Collections
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/DelinquentAccountHandling
+paths:
+   '/DelinquentAccountProcedure/{delinquentaccountprocedureid}/Initiate':
+      post:
+        tags:
+           - CR - DelinquentAccountProcedure
+        summary: InCR Initiate delinquent account processing
+        description: InCR Initiate delinquent account processing
+        operationId: DelinquentAccountProcedure/Initiate
+        parameters:
+           - $ref: '#/components/parameters/delinquentaccountprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateDelinquentAccountProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/DelinquentAccountProcedure/{delinquentaccountprocedureid}/Update':
+      put:
+        tags:
+           - CR - DelinquentAccountProcedure
+        summary: UpCR Update details of delinquent account processing
+        description: UpCR Update details of delinquent account processing
+        operationId: DelinquentAccountProcedure/Update
+        parameters:
+           - $ref: '#/components/parameters/delinquentaccountprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateDelinquentAccountProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/DelinquentAccountProcedure/{delinquentaccountprocedureid}/Retrieve':
+      get:
+        tags:
+           - CR - DelinquentAccountProcedure
+        summary: ReCR Retrieve details about a delinquent account procedure
+        description: ReCR Retrieve details about a delinquent account procedure
+        operationId: DelinquentAccountProcedure/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/delinquentaccountprocedureid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveDelinquentAccountProcedureResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Assessment/{assessmentid}/Retrieve':
+      get:
+        tags:
+           - BQ - Assessment
+        summary: ReBQ Retrieve details about a delinquent account assessment
+        description: ReBQ Retrieve details about a delinquent account assessment
+        operationId: Assessment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/assessmentid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAssessmentResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Contact/{contactid}/Initiate':
+      post:
+        tags:
+           - BQ - Contact
+        summary: InBQ Initiate contact with the customer for a delinquent account
+        description: InBQ Initiate contact with the customer for a delinquent account
+        operationId: Contact/Initiate
+        parameters:
+           - $ref: '#/components/parameters/contactid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateContactRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Contact/{contactid}/Request':
+      put:
+        tags:
+           - BQ - Contact
+        summary: >-
+          RqBQ Request contact processing for an active delinquent account
+          procedure
+        description: >-
+          RqBQ Request contact processing for an active delinquent account
+          procedure
+        operationId: Contact/Request
+        parameters:
+           - $ref: '#/components/parameters/contactid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestContactRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Contact/{contactid}/Retrieve':
+      get:
+        tags:
+           - BQ - Contact
+        summary: ReBQ Retrieve details about a contact
+        description: ReBQ Retrieve details about a contact
+        operationId: Contact/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/contactid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveContactResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Payment/{paymentid}/Initiate':
+      post:
+        tags:
+           - BQ - Payment
+        summary: InBQ Initiate payment processing against the delinquent account
+        description: InBQ Initiate payment processing against the delinquent account
+        operationId: Payment/Initiate
+        parameters:
+           - $ref: '#/components/parameters/paymentid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiatePaymentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Payment/{paymentid}/Update':
+      put:
+        tags:
+           - BQ - Payment
+        summary: UpBQ Update a payment transaction
+        description: UpBQ Update a payment transaction
+        operationId: Payment/Update
+        parameters:
+           - $ref: '#/components/parameters/paymentid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePaymentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Payment/{paymentid}/Retrieve':
+      get:
+        tags:
+           - BQ - Payment
+        summary: >-
+          ReBQ Retrieve details about a payment made against the delinquent
+          account
+        description: >-
+          ReBQ Retrieve details about a payment made against the delinquent
+          account
+        operationId: Payment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/paymentid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePaymentResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Resolution/{resolutionid}/Update':
+      put:
+        tags:
+           - BQ - Resolution
+        summary: UpBQ Update a resolution plan
+        description: UpBQ Update a resolution plan
+        operationId: Resolution/Update
+        parameters:
+           - $ref: '#/components/parameters/resolutionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateResolutionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Resolution/{resolutionid}/Retrieve':
+      get:
+        tags:
+           - BQ - Resolution
+        summary: ReBQ Retrieve details about a delinquent account recovery plan
+        description: ReBQ Retrieve details about a delinquent account recovery plan
+        operationId: Resolution/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/resolutionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveResolutionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateDelinquentAccountProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           TaxReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: "\r\n"
+              format: String
+           LinkType:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterestTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FeeTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanType:
+              type: string
+              description: "\r\n"
+              format: String
+     Currencycode:
+        type: object
+        description: ' CurrencyCode|CurrencyCode (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022 BM ()'
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     InitiateDelinquentAccountProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateDelinquentAccountProcedure:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: The linked credit product reference
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: The associated account number in any suitable format (e.g. IBAN)
+              format: String
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the account for booking purposes
+              format: Object
+           IssuedDevice:
+              type: string
+              description: >-
+                Reference to an issued device associated with the facility (such
+                as a card or key fob)
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           Associations:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           LinkType:
+              type: string
+              description: The type and purpose for the link
+              format: String
+           AccountDetails:
+              type: string
+              description: Details of the linked account
+              format: String
+           PositionLimits:
+              type: string
+              description: Position limits that are maintained by the account
+              format: String
+           PositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           PositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: Reference to the customer's collateral holdings and allocations
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: Record of collateral applied to the customer products
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: Payments deposited to the account
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: Product execution transactions (payments)
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           InterestTransactions:
+              type: string
+              description: Interest accrued against the account
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           FeeTransactions:
+              type: string
+              description: Fees applied against the account
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: Reference to a linked credit plan if applicable
+              format: Object
+           CreditPlanType:
+              type: string
+              description: >-
+                The credit plan type (e.g. (Cash, Credit, Charge, Balance
+                Transfer, Promotions, Securitized, etc.)
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: >-
+                Details the schedule of actions to be applied to the delinquent
+                account
+              format: String
+     UpdateDelinquentAccountProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           TaxReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: "\r\n"
+              format: String
+           LinkType:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterestTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FeeTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanType:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateDelinquentAccountProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: "\r\n"
+              format: String
+           LinkType:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterestTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FeeTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanType:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateDelinquentAccountProcedure:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: The linked credit product reference
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: The associated account number in any suitable format (e.g. IBAN)
+              format: String
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the account for booking purposes
+              format: Object
+           IssuedDevice:
+              type: string
+              description: >-
+                Reference to an issued device associated with the facility (such
+                as a card or key fob)
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           Associations:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           LinkType:
+              type: string
+              description: The type and purpose for the link
+              format: String
+           AccountDetails:
+              type: string
+              description: Details of the linked account
+              format: String
+           PositionLimits:
+              type: string
+              description: Position limits that are maintained by the account
+              format: String
+           PositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           PositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: Reference to the customer's collateral holdings and allocations
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: Record of collateral applied to the customer products
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: Payments deposited to the account
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: Product execution transactions (payments)
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           InterestTransactions:
+              type: string
+              description: Interest accrued against the account
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           FeeTransactions:
+              type: string
+              description: Fees applied against the account
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: Reference to a linked credit plan if applicable
+              format: Object
+           CreditPlanType:
+              type: string
+              description: >-
+                The credit plan type (e.g. (Cash, Credit, Charge, Balance
+                Transfer, Promotions, Securitized, etc.)
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: >-
+                Details the schedule of actions to be applied to the delinquent
+                account
+              format: String
+     RetrieveDelinquentAccountProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: "\r\n"
+              format: String
+           LinkType:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterestTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FeeTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanType:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveDelinquentAccountProcedure:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: The linked credit product reference
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: The associated account number in any suitable format (e.g. IBAN)
+              format: String
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the account for booking purposes
+              format: Object
+           IssuedDevice:
+              type: string
+              description: >-
+                Reference to an issued device associated with the facility (such
+                as a card or key fob)
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           Associations:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           LinkType:
+              type: string
+              description: The type and purpose for the link
+              format: String
+           AccountDetails:
+              type: string
+              description: Details of the linked account
+              format: String
+           PositionLimits:
+              type: string
+              description: Position limits that are maintained by the account
+              format: String
+           PositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           PositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: Reference to the customer's collateral holdings and allocations
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: Record of collateral applied to the customer products
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: Payments deposited to the account
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: Product execution transactions (payments)
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           InterestTransactions:
+              type: string
+              description: Interest accrued against the account
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           FeeTransactions:
+              type: string
+              description: Fees applied against the account
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: Reference to a linked credit plan if applicable
+              format: Object
+           CreditPlanType:
+              type: string
+              description: >-
+                The credit plan type (e.g. (Cash, Credit, Charge, Balance
+                Transfer, Promotions, Securitized, etc.)
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: >-
+                Details the schedule of actions to be applied to the delinquent
+                account
+              format: String
+     RetrieveAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: "\r\n"
+              format: String
+           LinkType:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterestTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FeeTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanType:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountAssessmentWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountAssessmentRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveAssessment:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: The linked credit product reference
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: The associated account number in any suitable format (e.g. IBAN)
+              format: String
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the account for booking purposes
+              format: Object
+           IssuedDevice:
+              type: string
+              description: >-
+                Reference to an issued device associated with the facility (such
+                as a card or key fob)
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           Associations:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           LinkType:
+              type: string
+              description: The type and purpose for the link
+              format: String
+           AccountDetails:
+              type: string
+              description: Details of the linked account
+              format: String
+           PositionLimits:
+              type: string
+              description: Position limits that are maintained by the account
+              format: String
+           PositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           PositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: Reference to the customer's collateral holdings and allocations
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: Record of collateral applied to the customer products
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: Payments deposited to the account
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: Product execution transactions (payments)
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           InterestTransactions:
+              type: string
+              description: Interest accrued against the account
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           FeeTransactions:
+              type: string
+              description: Fees applied against the account
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: Reference to a linked credit plan if applicable
+              format: Object
+           CreditPlanType:
+              type: string
+              description: >-
+                The credit plan type (e.g. (Cash, Credit, Charge, Balance
+                Transfer, Promotions, Securitized, etc.)
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: >-
+                Details the schedule of actions to be applied to the delinquent
+                account
+              format: String
+     InitiateContactRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           TaxReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: "\r\n"
+              format: String
+           LinkType:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterestTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FeeTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanType:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateContactResponse:
+        type: object
+        description: ''
+        properties:
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerDelinquentAccountContactRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactMessage:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactDate:
+              $ref: '#/components/schemas/Date'
+           ContactResult:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountContactResult:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountContactWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     InitiateContact:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: The linked credit product reference
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: The associated account number in any suitable format (e.g. IBAN)
+              format: String
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the account for booking purposes
+              format: Object
+           IssuedDevice:
+              type: string
+              description: >-
+                Reference to an issued device associated with the facility (such
+                as a card or key fob)
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           Associations:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           LinkType:
+              type: string
+              description: The type and purpose for the link
+              format: String
+           AccountDetails:
+              type: string
+              description: Details of the linked account
+              format: String
+           PositionLimits:
+              type: string
+              description: Position limits that are maintained by the account
+              format: String
+           PositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           PositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: Reference to the customer's collateral holdings and allocations
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: Record of collateral applied to the customer products
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: Payments deposited to the account
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: Product execution transactions (payments)
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           InterestTransactions:
+              type: string
+              description: Interest accrued against the account
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           FeeTransactions:
+              type: string
+              description: Fees applied against the account
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: Reference to a linked credit plan if applicable
+              format: Object
+           CreditPlanType:
+              type: string
+              description: >-
+                The credit plan type (e.g. (Cash, Credit, Charge, Balance
+                Transfer, Promotions, Securitized, etc.)
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: >-
+                Details the schedule of actions to be applied to the delinquent
+                account
+              format: String
+     RequestContactResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerDelinquentAccountContactRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactMessage:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactDate:
+              $ref: '#/components/schemas/Date'
+           ContactResult:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestContact:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: The linked credit product reference
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: The associated account number in any suitable format (e.g. IBAN)
+              format: String
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the account for booking purposes
+              format: Object
+           IssuedDevice:
+              type: string
+              description: >-
+                Reference to an issued device associated with the facility (such
+                as a card or key fob)
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           Associations:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           LinkType:
+              type: string
+              description: The type and purpose for the link
+              format: String
+           AccountDetails:
+              type: string
+              description: Details of the linked account
+              format: String
+           PositionLimits:
+              type: string
+              description: Position limits that are maintained by the account
+              format: String
+           PositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           PositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: Reference to the customer's collateral holdings and allocations
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: Record of collateral applied to the customer products
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: Payments deposited to the account
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: Product execution transactions (payments)
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           InterestTransactions:
+              type: string
+              description: Interest accrued against the account
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           FeeTransactions:
+              type: string
+              description: Fees applied against the account
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: Reference to a linked credit plan if applicable
+              format: Object
+           CreditPlanType:
+              type: string
+              description: >-
+                The credit plan type (e.g. (Cash, Credit, Charge, Balance
+                Transfer, Promotions, Securitized, etc.)
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: >-
+                Details the schedule of actions to be applied to the delinquent
+                account
+              format: String
+     RetrieveContactResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: "\r\n"
+              format: String
+           LinkType:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterestTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FeeTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanType:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerDelinquentAccountContactRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactMessage:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactDate:
+              $ref: '#/components/schemas/Date'
+           ContactResult:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveContact:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: The linked credit product reference
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: The associated account number in any suitable format (e.g. IBAN)
+              format: String
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the account for booking purposes
+              format: Object
+           IssuedDevice:
+              type: string
+              description: >-
+                Reference to an issued device associated with the facility (such
+                as a card or key fob)
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           Associations:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           LinkType:
+              type: string
+              description: The type and purpose for the link
+              format: String
+           AccountDetails:
+              type: string
+              description: Details of the linked account
+              format: String
+           PositionLimits:
+              type: string
+              description: Position limits that are maintained by the account
+              format: String
+           PositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           PositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: Reference to the customer's collateral holdings and allocations
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: Record of collateral applied to the customer products
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: Payments deposited to the account
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: Product execution transactions (payments)
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           InterestTransactions:
+              type: string
+              description: Interest accrued against the account
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           FeeTransactions:
+              type: string
+              description: Fees applied against the account
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: Reference to a linked credit plan if applicable
+              format: Object
+           CreditPlanType:
+              type: string
+              description: >-
+                The credit plan type (e.g. (Cash, Credit, Charge, Balance
+                Transfer, Promotions, Securitized, etc.)
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: >-
+                Details the schedule of actions to be applied to the delinquent
+                account
+              format: String
+     InitiatePaymentRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiatePaymentResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     InitiatePayment:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: The linked credit product reference
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: The associated account number in any suitable format (e.g. IBAN)
+              format: String
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the account for booking purposes
+              format: Object
+           IssuedDevice:
+              type: string
+              description: >-
+                Reference to an issued device associated with the facility (such
+                as a card or key fob)
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           Associations:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           LinkType:
+              type: string
+              description: The type and purpose for the link
+              format: String
+           AccountDetails:
+              type: string
+              description: Details of the linked account
+              format: String
+           PositionLimits:
+              type: string
+              description: Position limits that are maintained by the account
+              format: String
+           PositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           PositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: Reference to the customer's collateral holdings and allocations
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: Record of collateral applied to the customer products
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: Payments deposited to the account
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: Product execution transactions (payments)
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           InterestTransactions:
+              type: string
+              description: Interest accrued against the account
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           FeeTransactions:
+              type: string
+              description: Fees applied against the account
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: Reference to a linked credit plan if applicable
+              format: Object
+           CreditPlanType:
+              type: string
+              description: >-
+                The credit plan type (e.g. (Cash, Credit, Charge, Balance
+                Transfer, Promotions, Securitized, etc.)
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: >-
+                Details the schedule of actions to be applied to the delinquent
+                account
+              format: String
+     UpdatePaymentRequest:
+        type: object
+        description: ''
+        properties:
+           PaymentTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdatePaymentResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdatePayment:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: The linked credit product reference
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: The associated account number in any suitable format (e.g. IBAN)
+              format: String
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the account for booking purposes
+              format: Object
+           IssuedDevice:
+              type: string
+              description: >-
+                Reference to an issued device associated with the facility (such
+                as a card or key fob)
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           Associations:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           LinkType:
+              type: string
+              description: The type and purpose for the link
+              format: String
+           AccountDetails:
+              type: string
+              description: Details of the linked account
+              format: String
+           PositionLimits:
+              type: string
+              description: Position limits that are maintained by the account
+              format: String
+           PositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           PositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: Reference to the customer's collateral holdings and allocations
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: Record of collateral applied to the customer products
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: Payments deposited to the account
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: Product execution transactions (payments)
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           InterestTransactions:
+              type: string
+              description: Interest accrued against the account
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           FeeTransactions:
+              type: string
+              description: Fees applied against the account
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: Reference to a linked credit plan if applicable
+              format: Object
+           CreditPlanType:
+              type: string
+              description: >-
+                The credit plan type (e.g. (Cash, Credit, Charge, Balance
+                Transfer, Promotions, Securitized, etc.)
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: >-
+                Details the schedule of actions to be applied to the delinquent
+                account
+              format: String
+     RetrievePaymentResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrievePayment:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: The linked credit product reference
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: The associated account number in any suitable format (e.g. IBAN)
+              format: String
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the account for booking purposes
+              format: Object
+           IssuedDevice:
+              type: string
+              description: >-
+                Reference to an issued device associated with the facility (such
+                as a card or key fob)
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           Associations:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           LinkType:
+              type: string
+              description: The type and purpose for the link
+              format: String
+           AccountDetails:
+              type: string
+              description: Details of the linked account
+              format: String
+           PositionLimits:
+              type: string
+              description: Position limits that are maintained by the account
+              format: String
+           PositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           PositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: Reference to the customer's collateral holdings and allocations
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: Record of collateral applied to the customer products
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: Payments deposited to the account
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: Product execution transactions (payments)
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           InterestTransactions:
+              type: string
+              description: Interest accrued against the account
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           FeeTransactions:
+              type: string
+              description: Fees applied against the account
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: Reference to a linked credit plan if applicable
+              format: Object
+           CreditPlanType:
+              type: string
+              description: >-
+                The credit plan type (e.g. (Cash, Credit, Charge, Balance
+                Transfer, Promotions, Securitized, etc.)
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: >-
+                Details the schedule of actions to be applied to the delinquent
+                account
+              format: String
+     UpdateResolutionRequest:
+        type: object
+        description: ''
+        properties:
+           DelinquentAccountResolutionTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountResolutionActionPlan:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountResolutionWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateResolutionResponse:
+        type: object
+        description: ''
+        properties:
+           DelinquentAccountResolutionTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountResolutionActionPlan:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountResolutionWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateResolution:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: The linked credit product reference
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: The associated account number in any suitable format (e.g. IBAN)
+              format: String
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the account for booking purposes
+              format: Object
+           IssuedDevice:
+              type: string
+              description: >-
+                Reference to an issued device associated with the facility (such
+                as a card or key fob)
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           Associations:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           LinkType:
+              type: string
+              description: The type and purpose for the link
+              format: String
+           AccountDetails:
+              type: string
+              description: Details of the linked account
+              format: String
+           PositionLimits:
+              type: string
+              description: Position limits that are maintained by the account
+              format: String
+           PositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           PositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: Reference to the customer's collateral holdings and allocations
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: Record of collateral applied to the customer products
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: Payments deposited to the account
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: Product execution transactions (payments)
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           InterestTransactions:
+              type: string
+              description: Interest accrued against the account
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           FeeTransactions:
+              type: string
+              description: Fees applied against the account
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: Reference to a linked credit plan if applicable
+              format: Object
+           CreditPlanType:
+              type: string
+              description: >-
+                The credit plan type (e.g. (Cash, Credit, Charge, Balance
+                Transfer, Promotions, Securitized, etc.)
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: >-
+                Details the schedule of actions to be applied to the delinquent
+                account
+              format: String
+     RetrieveResolutionResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           IssuedDevice:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Associations:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationType:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: "\r\n"
+              format: String
+           AssociationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: "\r\n"
+              format: String
+           LinkType:
+              type: string
+              description: "\r\n"
+              format: String
+           AccountDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           PositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InterestTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FeeTransactions:
+              type: string
+              description: "\r\n"
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CreditPlanType:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountResolutionTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountResolutionActionPlan:
+              type: string
+              description: "\r\n"
+              format: String
+           DelinquentAccountResolutionWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveResolution:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: The linked credit product reference
+              format: Object
+           ProductAccountNumber:
+              type: string
+              description: The associated account number in any suitable format (e.g. IBAN)
+              format: String
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           BankBranchLocationReference:
+              type: string
+              description: Bank branch associated with the account for booking purposes
+              format: Object
+           IssuedDevice:
+              type: string
+              description: >-
+                Reference to an issued device associated with the facility (such
+                as a card or key fob)
+              format: String
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           Associations:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           AssociationType:
+              type: string
+              description: The type of association (e.g. guarantor, cosigner)
+              format: String
+           AssociationObligationEntitlement:
+              type: string
+              description: >-
+                Description of the role, obligations or entitlements of the
+                associated party
+              format: String
+           AssociationReference:
+              type: string
+              description: Reference to the associated party
+              format: Object
+           LinkedAccounts:
+              type: string
+              description: Definition of the associations to the account
+              format: String
+           LinkType:
+              type: string
+              description: The type and purpose for the link
+              format: String
+           AccountDetails:
+              type: string
+              description: Details of the linked account
+              format: String
+           PositionLimits:
+              type: string
+              description: Position limits that are maintained by the account
+              format: String
+           PositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           PositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           PositionLimitValue:
+              type: string
+              description: The current calculated position
+              format: String
+           CollateralAssetAllocationInstanceReference:
+              type: string
+              description: Reference to the customer's collateral holdings and allocations
+              format: Object
+           CollateralAssetAllocationProfile:
+              type: string
+              description: Record of collateral applied to the customer products
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the account (e.g. opening date,
+                closing date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: Payments deposited to the account
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: Product execution transactions (payments)
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           InterestTransactions:
+              type: string
+              description: Interest accrued against the account
+              format: String
+           InterestTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           FeeTransactions:
+              type: string
+              description: Fees applied against the account
+              format: String
+           FeeTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           CreditPlanReference:
+              type: string
+              description: Reference to a linked credit plan if applicable
+              format: Object
+           CreditPlanType:
+              type: string
+              description: >-
+                The credit plan type (e.g. (Cash, Credit, Charge, Balance
+                Transfer, Promotions, Securitized, etc.)
+              format: String
+           DelinquentAccountProcessingSchedule:
+              type: string
+              description: >-
+                Details the schedule of actions to be applied to the delinquent
+                account
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateDelinquentAccountProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateDelinquentAccountProcedureRequest'
+        required: true
+     UpdateDelinquentAccountProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateDelinquentAccountProcedureRequest'
+        required: true
+     RetrieveDelinquentAccountProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateContactRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateContactRequest'
+        required: true
+     RequestContactRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveContactRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiatePaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiatePaymentRequest'
+        required: true
+     UpdatePaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePaymentRequest'
+        required: true
+     RetrievePaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateResolutionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateResolutionRequest'
+        required: true
+     RetrieveResolutionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     delinquentaccountprocedureid:
+        name: delinquentaccountprocedureid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     assessmentid:
+        name: assessmentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     contactid:
+        name: contactid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     paymentid:
+        name: paymentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     resolutionid:
+        name: resolutionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateDelinquentAccountProcedureResponse:
+        description: DelinquentAccountProcedureInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateDelinquentAccountProcedureResponse'
+     UpdateDelinquentAccountProcedureResponse:
+        description: DelinquentAccountProcedureUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateDelinquentAccountProcedureResponse'
+     RetrieveDelinquentAccountProcedureResponse:
+        description: DelinquentAccountProcedureRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveDelinquentAccountProcedureResponse'
+     RetrieveAssessmentResponse:
+        description: AssessmentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAssessmentResponse'
+     InitiateContactResponse:
+        description: ContactInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateContactResponse'
+     RequestContactResponse:
+        description: ContactRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestContactResponse'
+     RetrieveContactResponse:
+        description: ContactRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveContactResponse'
+     InitiatePaymentResponse:
+        description: PaymentInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiatePaymentResponse'
+     UpdatePaymentResponse:
+        description: PaymentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePaymentResponse'
+     RetrievePaymentResponse:
+        description: PaymentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePaymentResponse'
+     UpdateResolutionResponse:
+        description: ResolutionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateResolutionResponse'
+     RetrieveResolutionResponse:
+        description: ResolutionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveResolutionResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

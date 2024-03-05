@@ -1,0 +1,789 @@
+openapi: 3.0.1
+info:
+  title: Legal Compliance
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Provide specialist legal
+    advice, assess for legal compliance and resolve legal cases as they occur
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/LegalCompliance
+paths:
+   '/LegalComplianceAssessment/{legalcomplianceassessmentid}/Evaluate':
+      post:
+        tags:
+           - CR - LegalComplianceAssessment
+        summary: EvCR Start a legal assessment action
+        description: EvCR Start a legal assessment action
+        operationId: LegalComplianceAssessment/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/legalcomplianceassessmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateLegalComplianceAssessmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/LegalComplianceAssessment/{legalcomplianceassessmentid}/Update':
+      put:
+        tags:
+           - CR - LegalComplianceAssessment
+        summary: >-
+          UpCR Update submitted details or content for an ongoing legal
+          assessment
+        description: >-
+          UpCR Update submitted details or content for an ongoing legal
+          assessment
+        operationId: LegalComplianceAssessment/Update
+        parameters:
+           - $ref: '#/components/parameters/legalcomplianceassessmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateLegalComplianceAssessmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/LegalComplianceAssessment/{legalcomplianceassessmentid}/Request':
+      put:
+        tags:
+           - CR - LegalComplianceAssessment
+        summary: RqCR Request a review or adjudication for an assessment
+        description: RqCR Request a review or adjudication for an assessment
+        operationId: LegalComplianceAssessment/Request
+        parameters:
+           - $ref: '#/components/parameters/legalcomplianceassessmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestLegalComplianceAssessmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/LegalComplianceAssessment/{legalcomplianceassessmentid}/Retrieve':
+      get:
+        tags:
+           - CR - LegalComplianceAssessment
+        summary: ReCR Retrieve details and content from a legal assessment action
+        description: ReCR Retrieve details and content from a legal assessment action
+        operationId: LegalComplianceAssessment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/legalcomplianceassessmentid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveLegalComplianceAssessmentResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateLegalComplianceAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           LegalAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           JurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LawReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateLegalComplianceAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           LegalAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           LawDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           LawComplianceandReportingRequirements:
+              type: string
+              description: "\r\n"
+              format: String
+           LawComplianceAccountability:
+              type: string
+              description: "\r\n"
+              format: String
+           LegalPenalties:
+              type: string
+              description: "\r\n"
+              format: String
+           LegalGuideline:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           LegalAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateLegalComplianceAssessment:
+        type: object
+        description: ''
+        properties:
+           LegalAssessmentType:
+              type: string
+              description: The type of law that is applied by the assessment action
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: The business function or unit assessed if appropriate
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: The associated product/service being assessed if appropriate
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer assessed if appropriate
+              format: Object
+           JurisdictionReference:
+              type: string
+              description: Indication of the legal jurisdiction that applies
+              format: Object
+           LawReference:
+              type: string
+              description: Reference to the specific law
+              format: Object
+           LawDefinition:
+              type: string
+              description: A definition of the required behavior to remain within the law
+              format: String
+           LawComplianceandReportingRequirements:
+              type: string
+              description: >-
+                Description of the measurements and reporting required to
+                demonstrate legal compliance
+              format: String
+           LawComplianceAccountability:
+              type: string
+              description: >-
+                Explanation of the business context, responsibility and
+                accountability for legal compliance
+              format: String
+           LegalPenalties:
+              type: string
+              description: Outline of the possible implications of breaking the law
+              format: String
+           LegalGuideline:
+              type: string
+              description: Guidelines and requirements for following the law
+              format: String
+           DocumentReference:
+              type: string
+              description: >-
+                Reference to any documentation classified/archived as
+                appropriate
+              format: Object
+           LegalAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the legal assessment action
+              format: String
+           LegalAssessmentResult:
+              type: string
+              description: >-
+                Outcome/result of the legal assessment, this can include
+                remedial actions
+              format: String
+     UpdateLegalComplianceAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           LegalAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           JurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LawReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateLegalComplianceAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           LegalAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           JurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LawReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateLegalComplianceAssessment:
+        type: object
+        description: ''
+        properties:
+           LegalAssessmentType:
+              type: string
+              description: The type of law that is applied by the assessment action
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: The business function or unit assessed if appropriate
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: The associated product/service being assessed if appropriate
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer assessed if appropriate
+              format: Object
+           JurisdictionReference:
+              type: string
+              description: Indication of the legal jurisdiction that applies
+              format: Object
+           LawReference:
+              type: string
+              description: Reference to the specific law
+              format: Object
+           LawDefinition:
+              type: string
+              description: A definition of the required behavior to remain within the law
+              format: String
+           LawComplianceandReportingRequirements:
+              type: string
+              description: >-
+                Description of the measurements and reporting required to
+                demonstrate legal compliance
+              format: String
+           LawComplianceAccountability:
+              type: string
+              description: >-
+                Explanation of the business context, responsibility and
+                accountability for legal compliance
+              format: String
+           LegalPenalties:
+              type: string
+              description: Outline of the possible implications of breaking the law
+              format: String
+           LegalGuideline:
+              type: string
+              description: Guidelines and requirements for following the law
+              format: String
+           DocumentReference:
+              type: string
+              description: >-
+                Reference to any documentation classified/archived as
+                appropriate
+              format: Object
+           LegalAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the legal assessment action
+              format: String
+           LegalAssessmentResult:
+              type: string
+              description: >-
+                Outcome/result of the legal assessment, this can include
+                remedial actions
+              format: String
+     RequestLegalComplianceAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           LegalAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           JurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LawReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestLegalComplianceAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           LegalAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           JurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LawReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           LegalAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestLegalComplianceAssessment:
+        type: object
+        description: ''
+        properties:
+           LegalAssessmentType:
+              type: string
+              description: The type of law that is applied by the assessment action
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: The business function or unit assessed if appropriate
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: The associated product/service being assessed if appropriate
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer assessed if appropriate
+              format: Object
+           JurisdictionReference:
+              type: string
+              description: Indication of the legal jurisdiction that applies
+              format: Object
+           LawReference:
+              type: string
+              description: Reference to the specific law
+              format: Object
+           LawDefinition:
+              type: string
+              description: A definition of the required behavior to remain within the law
+              format: String
+           LawComplianceandReportingRequirements:
+              type: string
+              description: >-
+                Description of the measurements and reporting required to
+                demonstrate legal compliance
+              format: String
+           LawComplianceAccountability:
+              type: string
+              description: >-
+                Explanation of the business context, responsibility and
+                accountability for legal compliance
+              format: String
+           LegalPenalties:
+              type: string
+              description: Outline of the possible implications of breaking the law
+              format: String
+           LegalGuideline:
+              type: string
+              description: Guidelines and requirements for following the law
+              format: String
+           DocumentReference:
+              type: string
+              description: >-
+                Reference to any documentation classified/archived as
+                appropriate
+              format: Object
+           LegalAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the legal assessment action
+              format: String
+           LegalAssessmentResult:
+              type: string
+              description: >-
+                Outcome/result of the legal assessment, this can include
+                remedial actions
+              format: String
+     RetrieveLegalComplianceAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           LegalAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           JurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LawReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LawDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           LawComplianceandReportingRequirements:
+              type: string
+              description: "\r\n"
+              format: String
+           LawComplianceAccountability:
+              type: string
+              description: "\r\n"
+              format: String
+           LegalPenalties:
+              type: string
+              description: "\r\n"
+              format: String
+           LegalGuideline:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           LegalAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveLegalComplianceAssessment:
+        type: object
+        description: ''
+        properties:
+           LegalAssessmentType:
+              type: string
+              description: The type of law that is applied by the assessment action
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: The business function or unit assessed if appropriate
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: The associated product/service being assessed if appropriate
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer assessed if appropriate
+              format: Object
+           JurisdictionReference:
+              type: string
+              description: Indication of the legal jurisdiction that applies
+              format: Object
+           LawReference:
+              type: string
+              description: Reference to the specific law
+              format: Object
+           LawDefinition:
+              type: string
+              description: A definition of the required behavior to remain within the law
+              format: String
+           LawComplianceandReportingRequirements:
+              type: string
+              description: >-
+                Description of the measurements and reporting required to
+                demonstrate legal compliance
+              format: String
+           LawComplianceAccountability:
+              type: string
+              description: >-
+                Explanation of the business context, responsibility and
+                accountability for legal compliance
+              format: String
+           LegalPenalties:
+              type: string
+              description: Outline of the possible implications of breaking the law
+              format: String
+           LegalGuideline:
+              type: string
+              description: Guidelines and requirements for following the law
+              format: String
+           DocumentReference:
+              type: string
+              description: >-
+                Reference to any documentation classified/archived as
+                appropriate
+              format: Object
+           LegalAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the legal assessment action
+              format: String
+           LegalAssessmentResult:
+              type: string
+              description: >-
+                Outcome/result of the legal assessment, this can include
+                remedial actions
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateLegalComplianceAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateLegalComplianceAssessmentRequest'
+        required: true
+     UpdateLegalComplianceAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateLegalComplianceAssessmentRequest'
+        required: true
+     RequestLegalComplianceAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestLegalComplianceAssessmentRequest'
+        required: true
+     RetrieveLegalComplianceAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     legalcomplianceassessmentid:
+        name: legalcomplianceassessmentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateLegalComplianceAssessmentResponse:
+        description: LegalComplianceAssessmentEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateLegalComplianceAssessmentResponse'
+     UpdateLegalComplianceAssessmentResponse:
+        description: LegalComplianceAssessmentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateLegalComplianceAssessmentResponse'
+     RequestLegalComplianceAssessmentResponse:
+        description: LegalComplianceAssessmentRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestLegalComplianceAssessmentResponse'
+     RetrieveLegalComplianceAssessmentResponse:
+        description: LegalComplianceAssessmentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveLegalComplianceAssessmentResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

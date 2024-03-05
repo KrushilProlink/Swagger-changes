@@ -1,0 +1,2875 @@
+openapi: 3.0.1
+info:
+  title: Party Lifecycle Management
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain tracks
+    the state of a party relationship with the bank from the initial checks made
+    during the establishment of a new party connection and subsequently
+    maintained as necessary over the duration of the relationship. The checks
+    and the maintenance requirements will vary by party type and jurisdiction.
+    The checks cover bank specific and legal and regulatory considerations and
+    may be updated based on a standard schedule or by request in specific
+    circumstances.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/PartyLifecycleManagement
+paths:
+   '/PartyRelationshipAdministrativePlan/{partyrelationshipadministrativeplanid}/Initiate':
+      post:
+        tags:
+           - CR - PartyRelationshipAdministrativePlan
+        summary: InCR Initiate party lifecycle administrative plan
+        description: InCR Initiate party lifecycle administrative plan
+        operationId: PartyRelationshipAdministrativePlan/Initiate
+        parameters:
+           - $ref: '#/components/parameters/partyrelationshipadministrativeplanid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/InitiatePartyRelationshipAdministrativePlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PartyRelationshipAdministrativePlan/{partyrelationshipadministrativeplanid}/Update':
+      put:
+        tags:
+           - CR - PartyRelationshipAdministrativePlan
+        summary: UpCR Update details about a party lifecycle administrative plan
+        description: UpCR Update details about a party lifecycle administrative plan
+        operationId: PartyRelationshipAdministrativePlan/Update
+        parameters:
+           - $ref: '#/components/parameters/partyrelationshipadministrativeplanid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdatePartyRelationshipAdministrativePlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PartyRelationshipAdministrativePlan/{partyrelationshipadministrativeplanid}/Control':
+      put:
+        tags:
+           - CR - PartyRelationshipAdministrativePlan
+        summary: >-
+          CoCR Control the processing of a partylifecycle administrative plan
+          (e.g. terminate)
+        description: >-
+          CoCR Control the processing of a partylifecycle administrative plan
+          (e.g. terminate)
+        operationId: PartyRelationshipAdministrativePlan/Control
+        parameters:
+           - $ref: '#/components/parameters/partyrelationshipadministrativeplanid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ControlPartyRelationshipAdministrativePlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PartyRelationshipAdministrativePlan/{partyrelationshipadministrativeplanid}/Exchange':
+      put:
+        tags:
+           - CR - PartyRelationshipAdministrativePlan
+        summary: EcCR Accept, verify, etc. of the party lifecycle administrative plan
+        description: EcCR Accept, verify, etc. of the party lifecycle administrative plan
+        operationId: PartyRelationshipAdministrativePlan/Exchange
+        parameters:
+           - $ref: '#/components/parameters/partyrelationshipadministrativeplanid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExchangePartyRelationshipAdministrativePlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PartyRelationshipAdministrativePlan/{partyrelationshipadministrativeplanid}/Execute':
+      put:
+        tags:
+           - CR - PartyRelationshipAdministrativePlan
+        summary: ExCR Execute an automated action (e.g. input data)
+        description: ExCR Execute an automated action (e.g. input data)
+        operationId: PartyRelationshipAdministrativePlan/Execute
+        parameters:
+           - $ref: '#/components/parameters/partyrelationshipadministrativeplanid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExecutePartyRelationshipAdministrativePlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PartyRelationshipAdministrativePlan/{partyrelationshipadministrativeplanid}/Request':
+      put:
+        tags:
+           - CR - PartyRelationshipAdministrativePlan
+        summary: RqCR Request manual intervention (e.g. negotiate resolution)
+        description: RqCR Request manual intervention (e.g. negotiate resolution)
+        operationId: PartyRelationshipAdministrativePlan/Request
+        parameters:
+           - $ref: '#/components/parameters/partyrelationshipadministrativeplanid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestPartyRelationshipAdministrativePlanRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PartyRelationshipAdministrativePlan/{partyrelationshipadministrativeplanid}/Retrieve':
+      get:
+        tags:
+           - CR - PartyRelationshipAdministrativePlan
+        summary: ReCR Retrieve details about a party lifecycle administrative plan
+        description: ReCR Retrieve details about a party lifecycle administrative plan
+        operationId: PartyRelationshipAdministrativePlan/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/partyrelationshipadministrativeplanid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrievePartyRelationshipAdministrativePlanResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Qualification/{qualificationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Qualification
+        summary: ReBQ Retrieve details about a party qualification routine
+        description: ReBQ Retrieve details about a party qualification routine
+        operationId: Qualification/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/qualificationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveQualificationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Documentation/{documentationid}/Update':
+      put:
+        tags:
+           - BQ - Documentation
+        summary: UpBQ Update details about document handling
+        description: UpBQ Update details about document handling
+        operationId: Documentation/Update
+        parameters:
+           - $ref: '#/components/parameters/documentationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateDocumentationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Documentation/{documentationid}/Execute':
+      put:
+        tags:
+           - BQ - Documentation
+        summary: ExBQ Execute an automated action (e.g. input data about a document)
+        description: ExBQ Execute an automated action (e.g. input data about a document)
+        operationId: Documentation/Execute
+        parameters:
+           - $ref: '#/components/parameters/documentationid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteDocumentationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Documentation/{documentationid}/Request':
+      put:
+        tags:
+           - BQ - Documentation
+        summary: RqBQ Request manual intervention (e.g. handle a document exchange)
+        description: RqBQ Request manual intervention (e.g. handle a document exchange)
+        operationId: Documentation/Request
+        parameters:
+           - $ref: '#/components/parameters/documentationid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestDocumentationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Documentation/{documentationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Documentation
+        summary: >-
+          ReBQ Retrieve details about document processing for a party lifecycle
+          administration
+        description: >-
+          ReBQ Retrieve details about document processing for a party lifecycle
+          administration
+        operationId: Documentation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/documentationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveDocumentationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Precedents/{precedentsid}/Update':
+      put:
+        tags:
+           - BQ - Precedents
+        summary: UpBQ Update details about customer precedents
+        description: UpBQ Update details about customer precedents
+        operationId: Precedents/Update
+        parameters:
+           - $ref: '#/components/parameters/precedentsid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePrecedentsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Precedents/{precedentsid}/Retrieve':
+      get:
+        tags:
+           - BQ - Precedents
+        summary: ReBQ Retrieve details about customer precedent maintenance
+        description: ReBQ Retrieve details about customer precedent maintenance
+        operationId: Precedents/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/precedentsid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePrecedentsResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/IdentityProofing/{identityproofingid}/Retrieve':
+      get:
+        tags:
+           - BQ - IdentityProofing
+        summary: ReBQ Retrieve details about a party identity proofing routine
+        description: ReBQ Retrieve details about a party identity proofing routine
+        operationId: IdentityProofing/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/identityproofingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveIdentityProofingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiatePartyRelationshipAdministrativePlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+              description: "\r\n"
+     Involvedparty:
+        type: object
+        description: "\r\n - "
+        properties:
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyInvolvement:
+              $ref: '#/components/schemas/Partyrole'
+              description: ''
+     Party:
+        type: object
+        description: ' '
+        properties:
+           PartyName:
+              $ref: '#/components/schemas/Name'
+              description: >-
+                Name by which a party is known and which is usually used to
+                identify that party. (ISO20022)
+           PartyType:
+              enum:
+                   -  Person
+                   -  Organisation
+              type: string
+              description: ">-\r\n* `Person` \r\n* `Organisation` \r\n* "
+           PartyDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           PartyIdentification:
+              $ref: '#/components/schemas/Partyidentification'
+              description: ''
+           PartyLegalStructureType:
+              enum:
+                   -  Individual
+                   -  CommunityInterestCompany
+                   -  CoOperative
+                   -  Charity
+                   -  GeneralPartnership
+                   -  LimitedLiabilityPartnership
+                   -  ScottishLimitedPartnership
+                   -  LimitedPartnership
+                   -  PrivateLimitedCompany
+                   -  PublicLimitedCompany
+                   -  Sole(SoleTrader)
+              type: string
+              description: ">-\r\n* `Individual` \r\n* `CommunityInterestCompany` \r\n* `CoOperative` \r\n* `Charity` \r\n* `GeneralPartnership` \r\n* `LimitedLiabilityPartnership` \r\n* `ScottishLimitedPartnership` \r\n* `LimitedPartnership` \r\n* `PrivateLimitedCompany` \r\n* `PublicLimitedCompany` \r\n* `SoleSoleTrader` \r\n* "
+           Party:
+              type: string
+              description: >-
+                A party represents an autonomous entity in which a bank has a
+                business interest. It has a legal definition and identity. A
+                party is a Person, Organization, (a proposed definition for BIAN
+                BOM adapted from BIAN Party Working Group) 
+
+
+                 Entity involved in an activity. (ISO20022)
+              format: Class
+     Name:
+        type: object
+        description: >-
+          Name by which a party is known and which is usually used to identify
+          that party. (ISO20022)
+           
+        properties:
+           Name:
+              type: string
+              description: >-
+                A name is a word or phrase that constitutes the distinctive
+                designation of a person, place, thing or concept. (UN/CEFAT)
+              format: DataType
+     Datetime:
+        type: object
+        description: ' '
+        properties:
+           DateTimeContent:
+              type: string
+              description: ''
+              format: String
+           TimeZoneCode:
+              type: string
+              description: ''
+              format: String
+           DaylightSavingIndicator:
+              type: string
+              description: ''
+              format: String
+           Datetime:
+              type: string
+              description: >-
+                A date time identifies a date and time of day to various common
+                resolutions: year, month, week, day, hour, minute, second, and
+                fraction of second. (UN/CEFACT)
+
+
+                A particular point in the progression of time defined by a
+                mandatory date and a mandatory time component, expressed in
+                either UTC time format (YYYYMMDDThh:mm:ss.sssZ), local time
+                with UTC offset format (YYYYMMDDThh:mm:ss.sss/hh:mm), or
+                local time format (YYYYMMDDThh:mm:ss.sss). These
+                representations are defined in "XML Schema Part 2: Datatypes
+                Second Edition  W3C Recommendation 28 October 2004" which is
+                aligned with ISO 8601. (ISO20022)
+
+                Note on the time format:
+
+                1) beginning / end of calendar day
+
+                00:00:00  -  the beginning of a calendar day
+
+                24:00:00  -  the end of a calendar day
+
+                2) fractions of second in time format
+
+                Decimal fractions of seconds may be included. In this case, the
+                involved parties shall agree on the maximum number of digits
+                that are allowed.
+              format: DataType
+     Partyidentification:
+        type: object
+        description: ' '
+        properties:
+           PartyIdentificationType:
+              enum:
+                   -  Taxidentificationnumber
+                   -  Nationalregistrationnumber
+                   -  LEI(LegalEntityIdentifier)
+                   -  Alienregistrationnumber
+                   -  Passportnumber
+                   -  Corporateidentification
+                   -  Driverlicensenumber
+                   -  Socialsecuritynumber
+                   -  Identitycardnumber
+                   -  Concat
+              type: string
+              description: ">-\r\n* `Taxidentificationnumber` \r\n* `Nationalregistrationnumber` \r\n* `LEILegalEntityIdentifier` \r\n* `Alienregistrationnumber` \r\n* `Passportnumber` \r\n* `Corporateidentification` \r\n* `Driverlicensenumber` \r\n* `Socialsecuritynumber` \r\n* `Identitycardnumber` \r\n* `Concat` \r\n* "
+           PartyIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           Partyidentification:
+              type: string
+              description: ''
+              format: DataType
+     Identifier:
+        type: object
+        description: ' '
+        properties:
+           IdentifierValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           IdentifierIssuingAuthority:
+              $ref: '#/components/schemas/Involvedparty'
+              description: Entity that assigns and manages the identification.
+           IdentifierStartDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           IdentifierEndDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Partyrole:
+        type: object
+        description: ' '
+        properties:
+           PartyRoleType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           PartyRoleName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           PartyRoleValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           PartyInvolvementType:
+              enum:
+                   -  Agreementinvolvement
+                   -  Partyinvolvement
+                   -  Arrangementinvolvement
+                   -  Relationshipinvolvement
+                   -  Locationinvolvement
+                   -  Bankguaranteeinvolvement
+              type: string
+              description: ">-\r\n* `Agreementinvolvement` \r\n* `Partyinvolvement` \r\n* `Arrangementinvolvement` \r\n* `Relationshipinvolvement` \r\n* `Locationinvolvement` \r\n* `Bankguaranteeinvolvement` \r\n* "
+     Text:
+        type: object
+        description: ' '
+        properties:
+           Text:
+              type: string
+              description: >-
+                Text is a character string such as a finite set of characters
+                generally in the form of words of a language. (UN/CEFACT)
+              format: DataType
+     Datetimeperiod:
+        type: object
+        description: ' '
+        properties:
+           FromDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range starts. (ISO20022)
+           ToDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range ends. (ISO20022)
+           Datetimeperiod:
+              type: string
+              description: >-
+                Time span defined by a start date and time, and an end date and
+                time. (ISO20022)
+              format: DataType
+     Schedule:
+        type: object
+        description: "\r\n - "
+        properties:
+           ScheduleType:
+              type: string
+              description: ''
+              format: String
+     Task:
+        type: object
+        description: "\r\n - "
+        properties:
+           Task:
+              type: string
+              description: ''
+              format: DataType
+     Workproduct:
+        type: object
+        description: "\r\n - "
+        properties:
+           WorkProductType:
+              enum:
+                   -  Document
+                   -  WorkingPaper
+                   -  ActivityLog
+                   -  Form
+                   -  File
+                   -  MeetingSchedule
+                   -  MeetingMinute
+              type: string
+              description: ">-\r\n* `Document` \r\n* `WorkingPaper` \r\n* `ActivityLog` \r\n* `Form` \r\n* `File` \r\n* `MeetingSchedule` \r\n* `MeetingMinute` \r\n* "
+           WorkProductIdentifoication:
+              type: string
+              description: ''
+              format: String
+     Log:
+        type: object
+        description: "\r\n - "
+        properties:
+           LogType:
+              type: string
+              description: ''
+              format: String
+           LogPeriod:
+              type: string
+              description: ''
+              format: String
+           LogDate:
+              type: string
+              description: Key dates associated with the log (e.g. start time).
+              format: String
+           LogIdentification:
+              type: string
+              description: ''
+              format: String
+     Status:
+        type: object
+        description: ' Status |Status  (https://www.iso20022.org/standardsrepository/type/Status)|Standard|ISO20022 BM ()'
+        properties:
+           StatusReason:
+              $ref: '#/components/schemas/Text'
+              description: Specifies the reasons for the status.
+           StatusDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the status was assigned.
+           StatusValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: Period of time during which the status is valid.
+           StatusInvolvedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: >-
+                Party who plays a  specific role in the context of assigning a
+                status.
+     PartyRelationshipLifecyclePhase:
+        type: object
+        description: "\r\n - "
+        properties:
+           Description:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           IsCurrentPhase:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                Specifies whether the phase is the current phase of the party
+                relationship.
+           PhaseName:
+              $ref: '#/components/schemas/Name'
+              description: >-
+                The name of the phase of the relationship, such as prospect,
+                contracted, onboard, etc.
+           PhaseStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PhasePeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: >-
+                The period of time during which the phase was the current phase
+                of the party relationship.
+     InitiatePartyRelationshipAdministrativePlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     InitiatePartyRelationshipAdministrativePlan:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     UpdatePartyRelationshipAdministrativePlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+              description: "\r\n"
+     UpdatePartyRelationshipAdministrativePlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     UpdatePartyRelationshipAdministrativePlan:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     ControlPartyRelationshipAdministrativePlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+              description: "\r\n"
+     ControlPartyRelationshipAdministrativePlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     ControlPartyRelationshipAdministrativePlan:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     ExchangePartyRelationshipAdministrativePlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+              description: "\r\n"
+     ExchangePartyRelationshipAdministrativePlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     ExchangePartyRelationshipAdministrativePlan:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     ExecutePartyRelationshipAdministrativePlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+              description: "\r\n"
+     ExecutePartyRelationshipAdministrativePlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     ExecutePartyRelationshipAdministrativePlan:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     RequestPartyRelationshipAdministrativePlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+              description: "\r\n"
+     RequestPartyRelationshipAdministrativePlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     RequestPartyRelationshipAdministrativePlan:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     RetrievePartyRelationshipAdministrativePlanRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+              description: "\r\n"
+     RetrievePartyRelationshipAdministrativePlanResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     RetrievePartyRelationshipAdministrativePlan:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     RetrieveQualificationRequest:
+        type: object
+        description: ''
+        properties:
+           QualificationType:
+              enum:
+                   -  AssetValuation
+                   -  ProductMatching
+                   -  Authorization
+                   -  Authentication
+                   -  QualityAssurance
+                   -  Audit
+                   -  ComplianceCheck
+                   -  FundingCheck
+                   -  SuitabilityCheck
+                   -  PerformanceCheck
+                   -  ImpactAssessment
+                   -  RiskAssessment
+                   -  Rating
+                   -  UnderwritingAssessment
+                   -  Qualification
+                   -  Verification
+                   -  KYCAssessment
+                   -  PEPAssessment
+                   -  AMLAssessment
+              type: string
+              description: ">-\r\n* `AssetValuation` \r\n* `ProductMatching` \r\n* `Authorization` \r\n* `Authentication` \r\n* `QualityAssurance` \r\n* `Audit` \r\n* `ComplianceCheck` \r\n* `FundingCheck` \r\n* `SuitabilityCheck` \r\n* `PerformanceCheck` \r\n* `ImpactAssessment` \r\n* `RiskAssessment` \r\n* `Rating` \r\n* `UnderwritingAssessment` \r\n* `Qualification` \r\n* `Verification` \r\n* `KYCAssessment` \r\n* `PEPAssessment` \r\n* `AMLAssessment` \r\n* "
+           PublicDirectoryReference:
+              $ref: '#/components/schemas/Directory'
+              description: "\r\n"
+           SpecialistAgencyServiceReference:
+              $ref: '#/components/schemas/Service'
+              description: "\r\n"
+           QualificationTaskRecord:
+              $ref: '#/components/schemas/Task'
+              description: "\r\n"
+           QualificationTaskDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           SpecialistAgencyRegulatorServiceRequestResult:
+              $ref: '#/components/schemas/Instruction'
+              description: "\r\n"
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+           QualificationTaskWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           QualificationTaskResult:
+              $ref: '#/components/schemas/Assessment'
+              description: ''
+     Directory:
+        type: object
+        description: "\r\n - "
+        properties:
+           DirectoryVersion:
+              type: string
+              description: ''
+              format: Number
+           DirectoryConfiguration:
+              type: string
+              description: ''
+              format: String
+           DirectoryValidPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           DirectoryStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+     Service:
+        type: object
+        description: "\r\n - "
+        properties:
+           ServiceName:
+              $ref: '#/components/schemas/Name'
+              description: 'The name of service. '
+           ServiceDescription:
+              $ref: '#/components/schemas/Text'
+              description: A detailed explanation or commentary of service
+           ServiceType:
+              enum:
+                   -  ITService
+                   -  AdministrativeService
+                   -  SystemService
+                   -  FinancialService
+                   -  InformationService
+                   -  BusinessService
+              type: string
+              description: ">-\r\n* `ITService` \r\n* `AdministrativeService` \r\n* `SystemService` \r\n* `FinancialService` \r\n* `InformationService` \r\n* `BusinessService` \r\n* "
+           ServiceIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: The identifier of service.
+           ServiceLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: >-
+                A characteristic of service which refers to the lifecycle of
+                service (e.g., initiated, active, deactive, etc.) 
+           ServiceFeature:
+              $ref: '#/components/schemas/Feature'
+              description: >-
+                A characteristic of service which refers 1) mainly to the
+                function or condition of service. 2) to nonfunctional features
+                like quality and security
+     Feature:
+        type: object
+        description: >-
+          A characteristic of service which refers 1) mainly to the function or
+          condition of service. 2) to nonfunctional features like quality and
+          security 
+        properties:
+           FeatureType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           FeatureIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           FeatureName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           FeatureLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           FeatureDescription:
+              $ref: '#/components/schemas/Text'
+              description: ''
+     Instruction:
+        type: object
+        description: "\r\n - "
+        properties:
+           InstructionDate:
+              $ref: '#/components/schemas/Instructiondate'
+              description: ''
+           InstructionStatus:
+              $ref: '#/components/schemas/Instructionlifecyclestatus'
+              description: >-
+                A characteristic of instruction which refers to the
+                LifecycleStatus of instruction (e.g., requested, executed,
+                fulfilled, etc.); 
+           InstructionIdentifier:
+              $ref: '#/components/schemas/Instructionidentification'
+              description: >-
+                An identifier that allows to uniquely refer to an instance of an
+                Instruction.
+           InstructionType:
+              enum:
+                   -  PaymentInstruction
+                   -  DeliveryOrder
+                   -  InformationRequest
+                   -  ExchangeInstruction
+                   -  AllocationInstruction
+                   -  MaintenanceInstruction
+              type: string
+              description: ">-\r\n* `PaymentInstruction` \r\n* `DeliveryOrder` \r\n* `InformationRequest` \r\n* `ExchangeInstruction` \r\n* `AllocationInstruction` \r\n* `MaintenanceInstruction` \r\n* "
+           InstructionResult:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           InstructionDescription:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           InstructionLog:
+              $ref: '#/components/schemas/Log'
+              description: ''
+           InstructionPurpose:
+              $ref: '#/components/schemas/Text'
+              description: ''
+     Instructiondate:
+        type: object
+        description: ' '
+        properties:
+           InstructionDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           InstructionDateType:
+              enum:
+                   -  DueDate
+                   -  ExecutionDate
+                   -  FulfillmentDate
+              type: string
+              description: ">-\r\n* `DueDate` \r\n* `ExecutionDate` \r\n* `FulfillmentDate` \r\n* "
+     Date:
+        type: object
+        description: ' '
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     Instructionlifecyclestatus:
+        type: object
+        description: >-
+          A characteristic of instruction which refers to the LifecycleStatus of
+          instruction (e.g., requested, executed, fulfilled, etc.);  
+        properties:
+           InstructionLifecycleStatusType:
+              enum:
+                   -  Requested
+                   -  Prepared
+                   -  InProgress
+                   -  Fulfilled
+                   -  OnHold
+                   -  Failed
+              type: string
+              description: ">-\r\n* `Requested` \r\n* `Prepared` \r\n* `InProgress` \r\n* `Fulfilled` \r\n* `OnHold` \r\n* `Failed` \r\n* "
+           InstructionLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+     Instructionidentification:
+        type: object
+        description: >-
+          An identifier that allows to uniquely refer to an instance of an
+          Instruction.
+           
+        properties:
+           InstructionIdentifier:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           InstructionIdentifierType:
+              enum:
+                   -  OrderNumber
+                   -  InstructionNumber
+              type: string
+              description: ">-\r\n* `OrderNumber` \r\n* `InstructionNumber` \r\n* "
+     DocumentDirectoryEntry:
+        type: object
+        description: "\r\n - "
+        properties:
+           DocumentDirectoryEntryIdentification:
+              type: string
+              description: >-
+                Identification allowing the retrieval of a document from a
+                Document Directory
+              format: String
+     Assessment:
+        type: object
+        description: ' Assessment|Assessment (https://www.iso20022.org/standardsrepository/type/Assessment)|Standard|ISO20022 BM ()'
+        properties:
+           AssessmentType:
+              enum:
+                   -  AssetValuation
+                   -  ProductMatching
+                   -  Authorization
+                   -  Authentication
+                   -  QualityAssurance
+                   -  Audit
+                   -  ComplianceCheck
+                   -  FundingCheck
+                   -  SuitabilityCheck
+                   -  PerformanceCheck
+                   -  ImpactAssessment
+                   -  RiskAssessment
+                   -  Rating
+                   -  UnderwritingAssessment
+                   -  Qualification
+                   -  Verification
+                   -  KYCAssessment
+                   -  PEPAssessment
+                   -  AMLAssessment
+              type: string
+              description: ">-\r\n* `AssetValuation` \r\n* `ProductMatching` \r\n* `Authorization` \r\n* `Authentication` \r\n* `QualityAssurance` \r\n* `Audit` \r\n* `ComplianceCheck` \r\n* `FundingCheck` \r\n* `SuitabilityCheck` \r\n* `PerformanceCheck` \r\n* `ImpactAssessment` \r\n* `RiskAssessment` \r\n* `Rating` \r\n* `UnderwritingAssessment` \r\n* `Qualification` \r\n* `Verification` \r\n* `KYCAssessment` \r\n* `PEPAssessment` \r\n* `AMLAssessment` \r\n* "
+           AssessmentMethod:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           AssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: ''
+           AssessmentDescription:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           AssessmentModel:
+              $ref: '#/components/schemas/Model'
+              description: ''
+           AssessmentDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           AssessmentResult:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           AssessmentSupportingDocument:
+              $ref: '#/components/schemas/Document'
+              description: >-
+                Document that provides background or corroborating information
+                regarding an assessment(s).
+           AssessmentRepresentingDocument:
+              $ref: '#/components/schemas/Document'
+              description: Document that represents the result of an assessment(s).
+           AssessmentRequiredAdjustment:
+              $ref: '#/components/schemas/Text'
+              description: Change that the assessment reveals is needed.
+           AssessmentRequirement:
+              $ref: '#/components/schemas/Requirement'
+              description: ''
+           AssessmentExpiryDate:
+              $ref: '#/components/schemas/Date'
+              description: Date when the assessment expires. (ISO20022)
+           AssessmentStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+     Model:
+        type: object
+        description: ' '
+        properties:
+           ModelType:
+              type: string
+              description: 'The type or category of model  '
+              format: String
+           ModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           ModelVersion:
+              type: string
+              description: ''
+              format: String
+     Document:
+        type: object
+        description: >-
+          Document that provides background or corroborating information
+          regarding an assessment(s). 
+        properties:
+           DocumentIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: >-
+                An identifier that allows to uniquely refer to an instance of a
+                Document.
+           DocumentVersion:
+              type: string
+              description: ''
+              format: Number
+           DocumentType:
+              enum:
+                   -  Meteredserviceinvoice
+                   -  Commercialinvoice
+                   -  Creditnote
+                   -  Debitnote
+                   -  Hireinvoice
+                   -  Selfbilledinvoice
+                   -  Remittanceadvicemessage
+                   -  Relatedpaymentinstruction
+                   -  Commercialcontract
+                   -  Foreignexchangedealreference
+                   -  Statementofaccount
+                   -  Dispatchadvice
+                   -  Purchaseorder
+                   -  Billoflading
+                   -  Voucher
+                   -  Accountreceivableopenitem
+                   -  Cashierreceipt
+                   -  Customerreceipt
+                   -  Journal
+                   -  Salereceipt
+              type: string
+              description: ">-\r\n* `Meteredserviceinvoice` \r\n* `Commercialinvoice` \r\n* `Creditnote` \r\n* `Debitnote` \r\n* `Hireinvoice` \r\n* `Selfbilledinvoice` \r\n* `Remittanceadvicemessage` \r\n* `Relatedpaymentinstruction` \r\n* `Commercialcontract` \r\n* `Foreignexchangedealreference` \r\n* `Statementofaccount` \r\n* `Dispatchadvice` \r\n* `Purchaseorder` \r\n* `Billoflading` \r\n* `Voucher` \r\n* `Accountreceivableopenitem` \r\n* `Cashierreceipt` \r\n* `Customerreceipt` \r\n* `Journal` \r\n* `Salereceipt` \r\n* "
+           DocumentStatus:
+              $ref: '#/components/schemas/Status'
+              description: Status of the document (e.g. delivered, paid, etc.). ISO20022
+           DocumentDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           DocumentName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           DocumentDateTimeType:
+              enum:
+                   -  CreationDate
+                   -  CapturingDate
+                   -  VersionDate
+                   -  ValueDate
+                   -  IssueDate
+              type: string
+              description: ">-\r\n* `CreationDate` \r\n* `CapturingDate` \r\n* `VersionDate` \r\n* `ValueDate` \r\n* `IssueDate` \r\n* "
+           DocumentPurpose:
+              $ref: '#/components/schemas/Text'
+              description: Specifies the function of the document. (ISO20022)
+           DocumentFormat:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           DocumentSubject:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           DocumentDescription:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           DocumentValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           Document:
+              type: string
+              description: >-
+                Something tangible that records something, such as a recording
+                or a photograph, or a writing that can be used to furnish
+                evidence or information (FIBO)
+
+
+                Definition: A physical or digital representation of something
+                meaningful to the audience.
+
+
+                Comment: 
+
+                1.Technical: Manuals, instructions, tutorials, procedures,
+                specifications, etc., that accompany a piece of equipment or
+                software, and provide guidance for its proper use and
+                maintenance.
+
+                2.Trading: Preparation of a set of commercial and financial
+                documents that record or support a business transaction.
+                International trade documentations include air waybill, bill of
+                exchange, bill of lading, certificate of inspection, certificate
+                of insurance, certificate of origin, commercial invoice, and
+                consular invoice.
+
+
+
+                Read more:
+                http://www.businessdictionary.com/definition/documentation.html#ixzz3EQGRGC4W
+              format: Class
+     Requirement:
+        type: object
+        description: ' '
+        properties:
+           RequirementType:
+              type: string
+              description: ''
+              format: String
+     RetrieveQualificationResponse:
+        type: object
+        description: ''
+        properties:
+           QualificationType:
+              enum:
+                   -  AssetValuation
+                   -  ProductMatching
+                   -  Authorization
+                   -  Authentication
+                   -  QualityAssurance
+                   -  Audit
+                   -  ComplianceCheck
+                   -  FundingCheck
+                   -  SuitabilityCheck
+                   -  PerformanceCheck
+                   -  ImpactAssessment
+                   -  RiskAssessment
+                   -  Rating
+                   -  UnderwritingAssessment
+                   -  Qualification
+                   -  Verification
+                   -  KYCAssessment
+                   -  PEPAssessment
+                   -  AMLAssessment
+              type: string
+              description: ">-\r\n* `AssetValuation` \r\n* `ProductMatching` \r\n* `Authorization` \r\n* `Authentication` \r\n* `QualityAssurance` \r\n* `Audit` \r\n* `ComplianceCheck` \r\n* `FundingCheck` \r\n* `SuitabilityCheck` \r\n* `PerformanceCheck` \r\n* `ImpactAssessment` \r\n* `RiskAssessment` \r\n* `Rating` \r\n* `UnderwritingAssessment` \r\n* `Qualification` \r\n* `Verification` \r\n* `KYCAssessment` \r\n* `PEPAssessment` \r\n* `AMLAssessment` \r\n* "
+           PublicDirectoryReference:
+              $ref: '#/components/schemas/Directory'
+           SpecialistAgencyServiceReference:
+              $ref: '#/components/schemas/Service'
+           QualificationTaskRecord:
+              $ref: '#/components/schemas/Task'
+           QualificationTaskDescription:
+              $ref: '#/components/schemas/Text'
+           SpecialistAgencyRegulatorServiceRequestResult:
+              $ref: '#/components/schemas/Instruction'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+           QualificationTaskWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           QualificationTaskResult:
+              $ref: '#/components/schemas/Assessment'
+     RetrieveQualification:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     UpdateDocumentationRequest:
+        type: object
+        description: ''
+        properties:
+           PartyLifecycleRequiredDocumentation:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+           PartyLifecycleDocumentSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+     UpdateDocumentationResponse:
+        type: object
+        description: ''
+        properties:
+           PartyLifecycleRequiredDocumentation:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+           PartyLifecycleDocumentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     UpdateDocumentation:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     ExecuteDocumentationRequest:
+        type: object
+        description: ''
+        properties:
+           PartyLifecycleRequiredDocumentation:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+           PartyLifecycleDocumentSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+     ExecuteDocumentationResponse:
+        type: object
+        description: ''
+        properties:
+           PartyLifecycleRequiredDocumentation:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+           PartyLifecycleDocumentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     ExecuteDocumentation:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     RequestDocumentationRequest:
+        type: object
+        description: ''
+        properties:
+           PartyLifecycleRequiredDocumentation:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+           PartyLifecycleDocumentSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+     RequestDocumentationResponse:
+        type: object
+        description: ''
+        properties:
+           PartyLifecycleRequiredDocumentation:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+           PartyLifecycleDocumentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     RequestDocumentation:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     RetrieveDocumentationRequest:
+        type: object
+        description: ''
+        properties:
+           PartyLifecycleRequiredDocumentation:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+           PartyLifecycleDocumentSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+     RetrieveDocumentationResponse:
+        type: object
+        description: ''
+        properties:
+           PartyLifecycleRequiredDocumentation:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+           PartyLifecycleDocumentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+     RetrieveDocumentation:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     UpdatePrecedentsRequest:
+        type: object
+        description: ''
+        properties:
+           PrecedentType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerPrecedentReference:
+              $ref: '#/components/schemas/PartyPrecedent'
+              description: "\r\n"
+           CustomerPrecedentValue:
+              $ref: '#/components/schemas/Value'
+              description: "\r\n"
+           CustomerPrecedentValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     PartyPrecedent:
+        type: object
+        description: "\r\n - "
+        properties:
+           PrecedentType:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                e.g. residential status, marital status, military, in a disaster
+                location, etc.
+           PrecedentValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           PrecedentValueDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+     UpdatePrecedentsResponse:
+        type: object
+        description: ''
+        properties:
+           PrecedentType:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentReference:
+              $ref: '#/components/schemas/PartyPrecedent'
+           CustomerPrecedentValue:
+              $ref: '#/components/schemas/Value'
+           CustomerPrecedentValueDate:
+              $ref: '#/components/schemas/Date'
+     UpdatePrecedents:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     RetrievePrecedentsRequest:
+        type: object
+        description: ''
+        properties:
+           PrecedentType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CustomerPrecedentReference:
+              $ref: '#/components/schemas/PartyPrecedent'
+              description: "\r\n"
+           CustomerPrecedentValue:
+              $ref: '#/components/schemas/Value'
+              description: "\r\n"
+           CustomerPrecedentValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     RetrievePrecedentsResponse:
+        type: object
+        description: ''
+        properties:
+           PrecedentType:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentReference:
+              $ref: '#/components/schemas/PartyPrecedent'
+           CustomerPrecedentValue:
+              $ref: '#/components/schemas/Value'
+           CustomerPrecedentValueDate:
+              $ref: '#/components/schemas/Date'
+     RetrievePrecedents:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     RetrieveIdentityProofingRequest:
+        type: object
+        description: ''
+        properties:
+           IdentityProofingType:
+              enum:
+                   -  DocumentVerification
+              type: string
+              description: ">-\r\n* `DocumentVerification` \r\n* "
+           PublicDirectoryReference:
+              $ref: '#/components/schemas/Directory'
+              description: "\r\n"
+           SpecialistAgencyServiceReference:
+              $ref: '#/components/schemas/Service'
+              description: "\r\n"
+           IdentityProofingTaskRecord:
+              $ref: '#/components/schemas/Task'
+              description: "\r\n"
+           IdentityProofingTaskDescription:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           SpecialistAgencyServiceRequestResult:
+              $ref: '#/components/schemas/Instruction'
+              description: "\r\n"
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+              description: "\r\n"
+           IdentityProofingTaskWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+              description: "\r\n"
+           IdentityProofingTaskResult:
+              $ref: '#/components/schemas/Verification'
+              description: "\r\n"
+           IdentityProofingReference:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+     Verification:
+        type: object
+        description: "\r\n - "
+        properties:
+           VerificationType:
+              enum:
+                   -  DocumentVerification
+              type: string
+              description: ">-\r\n* `DocumentVerification` \r\n* "
+           VerificationEtity:
+              enum:
+                   -  Acquirer
+                   -  Agent
+                   -  Issuer
+                   -  Acceptor
+                   -  Othernational
+                   -  Otherprivate
+                   -  Terminal
+                   -  Cardapplication
+                   -  Acceptancedevice
+              type: string
+              description: ">-\r\n* `Acquirer` \r\n* `Agent` \r\n* `Issuer` \r\n* `Acceptor` \r\n* `Othernational` \r\n* `Otherprivate` \r\n* `Terminal` \r\n* `Cardapplication` \r\n* `Acceptancedevice` \r\n* "
+           VerificationResult:
+              enum:
+                   -  Technicalerror
+                   -  Successful
+                   -  Partialmatch
+                   -  Notperformed
+                   -  Missing
+                   -  Failed
+                   -  Furtheraction
+                   -  Othernational
+                   -  Otherprivate
+                   -  Notsupported
+              type: string
+              description: ">-\r\n* `Technicalerror` \r\n* `Successful` \r\n* `Partialmatch` \r\n* `Notperformed` \r\n* `Missing` \r\n* `Failed` \r\n* `Furtheraction` \r\n* `Othernational` \r\n* `Otherprivate` \r\n* `Notsupported` \r\n* "
+           VerificationDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time when the verification was performed. (ISO20022)
+           VerificationReason:
+              $ref: '#/components/schemas/Text'
+              description: Reason to perform the verification. (ISO20022)
+           VerificationValidityEndDate:
+              $ref: '#/components/schemas/Date'
+              description: >-
+                Contains end date of the verification that has been performed.
+                (ISO20022)
+           VerificationValidityEndTime:
+              $ref: '#/components/schemas/Time'
+              description: 'Contains end time of the verification that has been performed. '
+     Time:
+        type: object
+        description: 'Contains end time of the verification that has been performed.  '
+        properties:
+           Time:
+              type: string
+              description: >-
+                Time is a time of day to various common resolutions  hour,
+                minute, second and fractions thereof. (UN/CEFACT)
+
+
+                A particular point in the progression of time in a calendar day
+                expressed in either UTC time format (hh:mm:ss.sssZ), local time
+                with UTC offset format (hh:mm:ss.sss/hh:mm), or local time
+                format (hh:mm:ss.sss). These representations are defined in "XML
+                Schema Part 2: Datatypes Second Edition  W3C Recommendation 28
+                October 2004" which is aligned with ISO 8601. (ISO20022)
+
+                Note on the time format:
+
+                1) beginning / end of calendar day
+
+                00:00:00  -  the beginning of a calendar day
+
+                24:00:00  -  the end of a calendar day
+
+                2) fractions of second in time format
+
+                Decimal fractions of seconds may be included. In this case, the
+                involved parties shall agree on the maximum number of digits
+                that are allowed.
+              format: DataType
+     RetrieveIdentityProofingResponse:
+        type: object
+        description: ''
+        properties:
+           IdentityProofingType:
+              enum:
+                   -  DocumentVerification
+              type: string
+              description: ">-\r\n* `DocumentVerification` \r\n* "
+           PublicDirectoryReference:
+              $ref: '#/components/schemas/Directory'
+           SpecialistAgencyServiceReference:
+              $ref: '#/components/schemas/Service'
+           IdentityProofingTaskRecord:
+              $ref: '#/components/schemas/Task'
+           IdentityProofingTaskDescription:
+              $ref: '#/components/schemas/Text'
+           SpecialistAgencyServiceRequestResult:
+              $ref: '#/components/schemas/Instruction'
+           DocumentDirectoryEntryInstanceReference:
+              $ref: '#/components/schemas/DocumentDirectoryEntry'
+           IdentityProofingTaskWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           IdentityProofingTaskResult:
+              $ref: '#/components/schemas/Verification'
+           IdentityProofingReference:
+              $ref: '#/components/schemas/Identifier'
+     RetrieveIdentityProofing:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+           PartyRelationshipType:
+              enum:
+                   -  PartyIsParentOfParty
+                   -  PartyIsSubsidiaryOfParty
+                   -  PartyIsCertifiedByParty
+                   -  PartyIsMarriedToParty
+                   -  PartyActsOnBehalfOfParty
+                   -  PartyIsContactPointForParty
+                   -  PartyIsTrustedByParty
+              type: string
+              description: ">-\r\n* `PartyIsParentOfParty` \r\n* `PartyIsSubsidiaryOfParty` \r\n* `PartyIsCertifiedByParty` \r\n* `PartyIsMarriedToParty` \r\n* `PartyActsOnBehalfOfParty` \r\n* `PartyIsContactPointForParty` \r\n* `PartyIsTrustedByParty` \r\n* "
+           PartyLifecycleMaintenanceSchedule:
+              $ref: '#/components/schemas/Schedule'
+           PartyLifecycleMaintenanceTask:
+              $ref: '#/components/schemas/Task'
+           PartyLifecycleMaintenanceTaskType:
+              $ref: '#/components/schemas/Text'
+           PartyLifecycleMaintenanceWorkProducts:
+              $ref: '#/components/schemas/Workproduct'
+           PartyLifecycleMaintenanceTaskResult:
+              $ref: '#/components/schemas/Text'
+           CustomerPrecedentProfileUpdateLog:
+              $ref: '#/components/schemas/Log'
+           PartyRelationshipLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+           PartyRelationshipLifecyclePhase:
+              $ref: '#/components/schemas/PartyRelationshipLifecyclePhase'
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiatePartyRelationshipAdministrativePlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiatePartyRelationshipAdministrativePlanRequest
+        required: true
+     UpdatePartyRelationshipAdministrativePlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdatePartyRelationshipAdministrativePlanRequest
+        required: true
+     ControlPartyRelationshipAdministrativePlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ControlPartyRelationshipAdministrativePlanRequest
+        required: true
+     ExchangePartyRelationshipAdministrativePlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExchangePartyRelationshipAdministrativePlanRequest
+        required: true
+     ExecutePartyRelationshipAdministrativePlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecutePartyRelationshipAdministrativePlanRequest
+        required: true
+     RequestPartyRelationshipAdministrativePlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestPartyRelationshipAdministrativePlanRequest
+        required: true
+     RetrievePartyRelationshipAdministrativePlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrievePartyRelationshipAdministrativePlanRequest
+        required: true
+     RetrieveQualificationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveQualificationRequest'
+        required: true
+     UpdateDocumentationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateDocumentationRequest'
+        required: true
+     ExecuteDocumentationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteDocumentationRequest'
+        required: true
+     RequestDocumentationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestDocumentationRequest'
+        required: true
+     RetrieveDocumentationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveDocumentationRequest'
+        required: true
+     UpdatePrecedentsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePrecedentsRequest'
+        required: true
+     RetrievePrecedentsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePrecedentsRequest'
+        required: true
+     RetrieveIdentityProofingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveIdentityProofingRequest'
+        required: true
+  parameters:
+     partyrelationshipadministrativeplanid:
+        name: partyrelationshipadministrativeplanid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     qualificationid:
+        name: qualificationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     documentationid:
+        name: documentationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     precedentsid:
+        name: precedentsid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     identityproofingid:
+        name: identityproofingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiatePartyRelationshipAdministrativePlanResponse:
+        description: PartyRelationshipAdministrativePlanInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiatePartyRelationshipAdministrativePlanResponse
+     UpdatePartyRelationshipAdministrativePlanResponse:
+        description: PartyRelationshipAdministrativePlanUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdatePartyRelationshipAdministrativePlanResponse
+     ControlPartyRelationshipAdministrativePlanResponse:
+        description: PartyRelationshipAdministrativePlanControl
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ControlPartyRelationshipAdministrativePlanResponse
+     ExchangePartyRelationshipAdministrativePlanResponse:
+        description: PartyRelationshipAdministrativePlanExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExchangePartyRelationshipAdministrativePlanResponse
+     ExecutePartyRelationshipAdministrativePlanResponse:
+        description: PartyRelationshipAdministrativePlanExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecutePartyRelationshipAdministrativePlanResponse
+     RequestPartyRelationshipAdministrativePlanResponse:
+        description: PartyRelationshipAdministrativePlanRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestPartyRelationshipAdministrativePlanResponse
+     RetrievePartyRelationshipAdministrativePlanResponse:
+        description: PartyRelationshipAdministrativePlanRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrievePartyRelationshipAdministrativePlanResponse
+     RetrieveQualificationResponse:
+        description: QualificationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveQualificationResponse'
+     UpdateDocumentationResponse:
+        description: DocumentationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateDocumentationResponse'
+     ExecuteDocumentationResponse:
+        description: DocumentationExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteDocumentationResponse'
+     RequestDocumentationResponse:
+        description: DocumentationRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestDocumentationResponse'
+     RetrieveDocumentationResponse:
+        description: DocumentationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveDocumentationResponse'
+     UpdatePrecedentsResponse:
+        description: PrecedentsUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePrecedentsResponse'
+     RetrievePrecedentsResponse:
+        description: PrecedentsRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePrecedentsResponse'
+     RetrieveIdentityProofingResponse:
+        description: IdentityProofingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveIdentityProofingResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

@@ -1,0 +1,3517 @@
+openapi: 3.0.1
+info:
+  title: Card Case
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain handles
+    the processing of a customer card case, typically a disputed charge
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CardCase
+paths:
+   '/CardCaseProcedure/{cardcaseprocedureid}/Initiate':
+      post:
+        tags:
+           - CR - CardCaseProcedure
+        summary: InCR Initiate a card case procedure
+        description: InCR Initiate a card case procedure
+        operationId: CardCaseProcedure/Initiate
+        parameters:
+           - $ref: '#/components/parameters/cardcaseprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateCardCaseProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CardCaseProcedure/{cardcaseprocedureid}/Update':
+      put:
+        tags:
+           - CR - CardCaseProcedure
+        summary: UpCR Update details about a card case
+        description: UpCR Update details about a card case
+        operationId: CardCaseProcedure/Update
+        parameters:
+           - $ref: '#/components/parameters/cardcaseprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCardCaseProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CardCaseProcedure/{cardcaseprocedureid}/Retrieve':
+      get:
+        tags:
+           - CR - CardCaseProcedure
+        summary: ReCR Retrieve details about a card case
+        description: ReCR Retrieve details about a card case
+        operationId: CardCaseProcedure/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/cardcaseprocedureid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCardCaseProcedureResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Consolidation/{consolidationid}/Update':
+      put:
+        tags:
+           - BQ - Consolidation
+        summary: UpBQ Update details of the consolidation in a card case
+        description: UpBQ Update details of the consolidation in a card case
+        operationId: Consolidation/Update
+        parameters:
+           - $ref: '#/components/parameters/consolidationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateConsolidationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Consolidation/{consolidationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Consolidation
+        summary: ReBQ Retrieve details about the consolidation analysis of a card case
+        description: ReBQ Retrieve details about the consolidation analysis of a card case
+        operationId: Consolidation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/consolidationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveConsolidationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Chargeback/{chargebackid}/Update':
+      put:
+        tags:
+           - BQ - Chargeback
+        summary: UpBQ Update details of the chargeback in a card case
+        description: UpBQ Update details of the chargeback in a card case
+        operationId: Chargeback/Update
+        parameters:
+           - $ref: '#/components/parameters/chargebackid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateChargebackRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Chargeback/{chargebackid}/Retrieve':
+      get:
+        tags:
+           - BQ - Chargeback
+        summary: ReBQ Retrieve details about the chargeback for a card case
+        description: ReBQ Retrieve details about the chargeback for a card case
+        operationId: Chargeback/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/chargebackid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveChargebackResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Arbitration/{arbitrationid}/Update':
+      put:
+        tags:
+           - BQ - Arbitration
+        summary: UpBQ Update details of the arbitration request of a card case
+        description: UpBQ Update details of the arbitration request of a card case
+        operationId: Arbitration/Update
+        parameters:
+           - $ref: '#/components/parameters/arbitrationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateArbitrationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Arbitration/{arbitrationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Arbitration
+        summary: ReBQ Retrieve details about the arbitration request for a card case
+        description: ReBQ Retrieve details about the arbitration request for a card case
+        operationId: Arbitration/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/arbitrationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveArbitrationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Resolution/{resolutionid}/Update':
+      put:
+        tags:
+           - BQ - Resolution
+        summary: UpBQ Update details of the resolution of a card case
+        description: UpBQ Update details of the resolution of a card case
+        operationId: Resolution/Update
+        parameters:
+           - $ref: '#/components/parameters/resolutionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateResolutionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Resolution/{resolutionid}/Retrieve':
+      get:
+        tags:
+           - BQ - Resolution
+        summary: ReBQ Retrieve details about the resolution actions for a card case
+        description: ReBQ Retrieve details about the resolution actions for a card case
+        operationId: Resolution/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/resolutionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveResolutionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateCardCaseProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: The currency that the transaction is made in
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+              description: Significant dates and times associated with the transaction
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     Currencycode:
+        type: object
+        description: >-
+          The currency that the transaction is made in CurrencyCode|CurrencyCode
+          (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022
+          BM ()
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     Date:
+        type: object
+        description: >-
+          Significant dates and times associated with the transaction
+          ISODate|ISODate
+          (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022
+          BM ()
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     InitiateCardCaseProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     InitiateCardCaseProcedure:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     Amount:
+        type: object
+        description: >-
+          The amount corresponding to the type
+          CurrencyAndAmount|CurrencyAndAmount
+          (https://www.iso20022.org/standardsrepository/type/CurrencyAndAmount)|Standard|ISO20022 
+          ()
+        properties:
+           AmountValue:
+              $ref: '#/components/schemas/Value'
+           AmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DecimalPointPosition:
+              type: string
+              description: |
+                Decimal point position starts calulating from the right
+              format: String
+           AmountType:
+              enum:
+                   -  Principal
+                   -  Actual
+                   -  Estimated
+                   -  Maximum
+                   -  Default
+                   -  Replacement
+                   -  Incremental
+                   -  Decremental
+                   -  Reserved
+                   -  Available
+                   -  Used
+              type: string
+              description: ">-\r\n* `Principal` \r\n* `Actual` \r\n* `Estimated` \r\n* `Maximum` \r\n* `Default` \r\n* `Replacement` \r\n* `Incremental` \r\n* `Decremental` \r\n* `Reserved` \r\n* `Available` \r\n* `Used` \r\n* "
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     UpdateCardCaseProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: The currency that the transaction is made in
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+              description: Significant dates and times associated with the transaction
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     UpdateCardCaseProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     UpdateCardCaseProcedure:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     RetrieveCardCaseProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     RetrieveCardCaseProcedure:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     UpdateConsolidationRequest:
+        type: object
+        description: ''
+        properties:
+           ConsolidationCardTransactionRecordReference:
+              type: string
+              description: Reference to the card transaction for the consolidation
+              format: Object
+           ConsolidationTaskRecord:
+              type: string
+              description: The record of a specific verification task
+              format: String
+           ConsolidationInstruction:
+              type: string
+              description: >-
+                The instruction message to the merchant to provide card
+                transaction related paperwork, includes issued device details,
+                transaction identification information and the retrieval reason
+              format: String
+           CorrespondenceReference:
+              type: string
+              description: Reference to the document request messages sent to the merchant
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to documents obtained
+              format: Object
+           ConsolidationTaskWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           ConsolidationTaskResult:
+              type: string
+              description: The outcome of the consolidation workstep
+              format: String
+     UpdateConsolidationResponse:
+        type: object
+        description: ''
+        properties:
+           ConsolidationCardTransactionRecordReference:
+              type: string
+              description: Reference to the card transaction for the consolidation
+              format: Object
+           ConsolidationTaskRecord:
+              type: string
+              description: The record of a specific verification task
+              format: String
+           ConsolidationInstruction:
+              type: string
+              description: >-
+                The instruction message to the merchant to provide card
+                transaction related paperwork, includes issued device details,
+                transaction identification information and the retrieval reason
+              format: String
+           CorrespondenceReference:
+              type: string
+              description: Reference to the document request messages sent to the merchant
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to documents obtained
+              format: Object
+           ConsolidationTaskWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           ConsolidationTaskResult:
+              type: string
+              description: The outcome of the consolidation workstep
+              format: String
+     UpdateConsolidation:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     RetrieveConsolidationResponse:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+           ConsolidationCardTransactionRecordReference:
+              type: string
+              description: Reference to the card transaction for the consolidation
+              format: Object
+           ConsolidationTaskRecord:
+              type: string
+              description: The record of a specific verification task
+              format: String
+           ConsolidationInstruction:
+              type: string
+              description: >-
+                The instruction message to the merchant to provide card
+                transaction related paperwork, includes issued device details,
+                transaction identification information and the retrieval reason
+              format: String
+           CorrespondenceReference:
+              type: string
+              description: Reference to the document request messages sent to the merchant
+              format: Object
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to documents obtained
+              format: Object
+           ConsolidationTaskWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           ConsolidationTaskResult:
+              type: string
+              description: The outcome of the consolidation workstep
+              format: String
+     RetrieveConsolidation:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     UpdateChargebackRequest:
+        type: object
+        description: ''
+        properties:
+           ChargebackCardTransactionRecordReference:
+              type: string
+              description: Reference to the card transaction for the consolidation
+              format: Object
+           ChargebackInstruction:
+              type: string
+              description: >-
+                The instruction to book chargeback for the transaction  could
+                be partial chargeback
+              format: String
+     UpdateChargebackResponse:
+        type: object
+        description: ''
+        properties:
+           ChargebackCardTransactionRecordReference:
+              type: string
+              description: Reference to the card transaction for the consolidation
+              format: Object
+           ChargebackInstruction:
+              type: string
+              description: >-
+                The instruction to book chargeback for the transaction  could
+                be partial chargeback
+              format: String
+     UpdateChargeback:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     RetrieveChargebackResponse:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+           ChargebackCardTransactionRecordReference:
+              type: string
+              description: Reference to the card transaction for the consolidation
+              format: Object
+           ChargebackInstruction:
+              type: string
+              description: >-
+                The instruction to book chargeback for the transaction  could
+                be partial chargeback
+              format: String
+     RetrieveChargeback:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     UpdateArbitrationRequest:
+        type: object
+        description: ''
+        properties:
+           ArbitrationCardTransactionRecordReference:
+              type: string
+              description: Reference to the card transaction for the arbitration
+              format: Object
+           NetworkParticipantNetworkServiceRequestReference:
+              type: string
+              description: Reference to participant's use of a Network service
+              format: Object
+           NetworkParticipantNetworkServiceRequestRecord:
+              type: string
+              description: >-
+                The record for the network service delivery, includes charges,
+                service activity log and results etc.
+              format: String
+           NetworkParticipantServiceType:
+              type: string
+              description: >-
+                The requested service type (e.g. merchant alert, chargeback
+                arbitration, chargeback reduction, arbitration)
+              format: String
+           NetworkParticipantServiceDateTime:
+              $ref: '#/components/schemas/Date'
+              description: The time the service was requested
+           NetworkParticipantServiceResult:
+              type: string
+              description: The outcome of the arbitration service request
+              format: String
+     UpdateArbitrationResponse:
+        type: object
+        description: ''
+        properties:
+           ArbitrationCardTransactionRecordReference:
+              type: string
+              description: Reference to the card transaction for the arbitration
+              format: Object
+           NetworkParticipantNetworkServiceRequestReference:
+              type: string
+              description: Reference to participant's use of a Network service
+              format: Object
+           NetworkParticipantNetworkServiceRequestRecord:
+              type: string
+              description: >-
+                The record for the network service delivery, includes charges,
+                service activity log and results etc.
+              format: String
+           NetworkParticipantServiceType:
+              type: string
+              description: >-
+                The requested service type (e.g. merchant alert, chargeback
+                arbitration, chargeback reduction, arbitration)
+              format: String
+           NetworkParticipantServiceDateTime:
+              $ref: '#/components/schemas/Date'
+           NetworkParticipantServiceResult:
+              type: string
+              description: The outcome of the arbitration service request
+              format: String
+     UpdateArbitration:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     RetrieveArbitrationResponse:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+           ArbitrationCardTransactionRecordReference:
+              type: string
+              description: Reference to the card transaction for the arbitration
+              format: Object
+           NetworkParticipantNetworkServiceRequestReference:
+              type: string
+              description: Reference to participant's use of a Network service
+              format: Object
+           NetworkParticipantNetworkServiceRequestRecord:
+              type: string
+              description: >-
+                The record for the network service delivery, includes charges,
+                service activity log and results etc.
+              format: String
+           NetworkParticipantServiceType:
+              type: string
+              description: >-
+                The requested service type (e.g. merchant alert, chargeback
+                arbitration, chargeback reduction, arbitration)
+              format: String
+           NetworkParticipantServiceDateTime:
+              $ref: '#/components/schemas/Date'
+           NetworkParticipantServiceResult:
+              type: string
+              description: The outcome of the arbitration service request
+              format: String
+     RetrieveArbitration:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     UpdateResolutionRequest:
+        type: object
+        description: ''
+        properties:
+           ResolutionCardTransactionRecordReference:
+              type: string
+              description: Reference to the card transaction for the resolution
+              format: Object
+           ResolutionTaskRecord:
+              type: string
+              description: The record of a specific resolution task
+              format: String
+           CorrespondenceInstanceReference:
+              type: string
+              description: Reference to the correspondence generated and received
+              format: Object
+           CorrespondenceContent:
+              type: string
+              description: >-
+                Correspondence content  messages sent to and received from
+                involved parties
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: The document reference for associated documents
+              format: Object
+           DocumentContent:
+              type: string
+              description: >-
+                Document copy/content  legal or significant documents created &
+                referenced
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: Business unit responsible for the card case resolution actions
+              format: Object
+           PaymentOrderReference:
+              type: string
+              description: >-
+                Reference to the resolution payment order when financial
+                adjustments are required to resolve the card case
+              format: Object
+           ResolutionTaskWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           ResolutionTaskResult:
+              type: string
+              description: The outcome of the authentication workstep
+              format: String
+     UpdateResolutionResponse:
+        type: object
+        description: ''
+        properties:
+           ResolutionCardTransactionRecordReference:
+              type: string
+              description: Reference to the card transaction for the resolution
+              format: Object
+           ResolutionTaskRecord:
+              type: string
+              description: The record of a specific resolution task
+              format: String
+           CorrespondenceInstanceReference:
+              type: string
+              description: Reference to the correspondence generated and received
+              format: Object
+           CorrespondenceContent:
+              type: string
+              description: >-
+                Correspondence content  messages sent to and received from
+                involved parties
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: The document reference for associated documents
+              format: Object
+           DocumentContent:
+              type: string
+              description: >-
+                Document copy/content  legal or significant documents created &
+                referenced
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: Business unit responsible for the card case resolution actions
+              format: Object
+           PaymentOrderReference:
+              type: string
+              description: >-
+                Reference to the resolution payment order when financial
+                adjustments are required to resolve the card case
+              format: Object
+           ResolutionTaskWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           ResolutionTaskResult:
+              type: string
+              description: The outcome of the authentication workstep
+              format: String
+     UpdateResolution:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     RetrieveResolutionResponse:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+           ResolutionCardTransactionRecordReference:
+              type: string
+              description: Reference to the card transaction for the resolution
+              format: Object
+           ResolutionTaskRecord:
+              type: string
+              description: The record of a specific resolution task
+              format: String
+           CorrespondenceInstanceReference:
+              type: string
+              description: Reference to the correspondence generated and received
+              format: Object
+           CorrespondenceContent:
+              type: string
+              description: >-
+                Correspondence content  messages sent to and received from
+                involved parties
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: The document reference for associated documents
+              format: Object
+           DocumentContent:
+              type: string
+              description: >-
+                Document copy/content  legal or significant documents created &
+                referenced
+              format: String
+           PaymentOrderReference:
+              type: string
+              description: >-
+                Reference to the resolution payment order when financial
+                adjustments are required to resolve the card case
+              format: Object
+           ResolutionTaskWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           ResolutionTaskResult:
+              type: string
+              description: The outcome of the authentication workstep
+              format: String
+     RetrieveResolution:
+        type: object
+        description: ''
+        properties:
+           CardCaseType:
+              type: string
+              description: >-
+                The type of card dispute including any supporting narrative
+                (e.g. disputed charges, merchant fraud)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                card case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the card case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the card case was raised if appropriate
+              format: Object
+           CaseLocation:
+              type: string
+              description: >-
+                The physical address or electronic venue the card case was
+                initiated
+              format: String
+           Date:
+              type: string
+              description: The date and time the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The business unit where the customer case was reported
+              format: Object
+           CardTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more card transactions associated with the
+                case
+              format: Object
+           CardTransactionRecord:
+              type: string
+              description: >-
+                The card transaction for the customer case (can be multiple
+                transactions)
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: The account number associated with the card transaction
+              format: Object
+           CardHolderReference:
+              type: string
+              description: The identity of the account holder submitting the transaction
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: >-
+                Reference to the issued device submitted to authorize the
+                transaction (e.g. card number)
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: >-
+                Reference to the network the card transaction is handled by as
+                recorded with the transaction
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: >-
+                Refers to the card holder's issuing bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: >-
+                Refers to the merchant's acquiring bank as recorded with the
+                transaction
+              format: Object
+           CardTransactionType:
+              type: string
+              description: The type of transaction (purchase, cash advance, etc.)
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: >-
+                Type of amount (e.g. original amount, billing currency amount,
+                conversion rate, FX Markup)
+              format: String
+           CardTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           CardTransactionMerchantReference:
+              type: string
+              description: Refers to the merchant initiating settlement
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: Refers to the point of sale location
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: >-
+                Details of the transaction (e.g. purchased service/product,
+                purpose)
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: The applied currency conversion charge
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: The applied intercharge fee
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: >-
+                Details the reference, amount, timestamp of the transaction
+                authorization
+              format: String
+           CardCaseResolutionSchedule:
+              type: string
+              description: >-
+                The card case processing schedule including key tasks and dates
+                for resolution (target and actual dates/times )
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateCardCaseProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCardCaseProcedureRequest'
+        required: true
+     UpdateCardCaseProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCardCaseProcedureRequest'
+        required: true
+     RetrieveCardCaseProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateConsolidationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateConsolidationRequest'
+        required: true
+     RetrieveConsolidationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateChargebackRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateChargebackRequest'
+        required: true
+     RetrieveChargebackRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateArbitrationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateArbitrationRequest'
+        required: true
+     RetrieveArbitrationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateResolutionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateResolutionRequest'
+        required: true
+     RetrieveResolutionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     cardcaseprocedureid:
+        name: cardcaseprocedureid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     consolidationid:
+        name: consolidationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     chargebackid:
+        name: chargebackid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     arbitrationid:
+        name: arbitrationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     resolutionid:
+        name: resolutionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateCardCaseProcedureResponse:
+        description: CardCaseProcedureInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCardCaseProcedureResponse'
+     UpdateCardCaseProcedureResponse:
+        description: CardCaseProcedureUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCardCaseProcedureResponse'
+     RetrieveCardCaseProcedureResponse:
+        description: CardCaseProcedureRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCardCaseProcedureResponse'
+     UpdateConsolidationResponse:
+        description: ConsolidationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateConsolidationResponse'
+     RetrieveConsolidationResponse:
+        description: ConsolidationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveConsolidationResponse'
+     UpdateChargebackResponse:
+        description: ChargebackUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateChargebackResponse'
+     RetrieveChargebackResponse:
+        description: ChargebackRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveChargebackResponse'
+     UpdateArbitrationResponse:
+        description: ArbitrationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateArbitrationResponse'
+     RetrieveArbitrationResponse:
+        description: ArbitrationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveArbitrationResponse'
+     UpdateResolutionResponse:
+        description: ResolutionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateResolutionResponse'
+     RetrieveResolutionResponse:
+        description: ResolutionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveResolutionResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

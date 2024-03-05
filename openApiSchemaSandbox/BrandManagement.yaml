@@ -1,0 +1,1535 @@
+openapi: 3.0.1
+info:
+  title: Brand Management
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Respond to events that
+    potentially damage the brand or provide an opportunity to
+    strengthen/leverage brand awareness
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/BrandManagement
+paths:
+   '/BrandManagementPlan/{brandmanagementplanid}/Update':
+      put:
+        tags:
+           - CR - BrandManagementPlan
+        summary: UpCR Update aspects of eth brand management plan
+        description: UpCR Update aspects of eth brand management plan
+        operationId: BrandManagementPlan/Update
+        parameters:
+           - $ref: '#/components/parameters/brandmanagementplanid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateBrandManagementPlanRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BrandManagementPlan/{brandmanagementplanid}/Request':
+      put:
+        tags:
+           - CR - BrandManagementPlan
+        summary: >-
+          RqCR Request manual intervention with the brand management plan (e.g.
+          reassess brand value/significance)
+        description: >-
+          RqCR Request manual intervention with the brand management plan (e.g.
+          reassess brand value/significance)
+        operationId: BrandManagementPlan/Request
+        parameters:
+           - $ref: '#/components/parameters/brandmanagementplanid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestBrandManagementPlanRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BrandManagementPlan/{brandmanagementplanid}/Retrieve':
+      get:
+        tags:
+           - CR - BrandManagementPlan
+        summary: ReCR Retrieve details about brand management activity
+        description: ReCR Retrieve details about brand management activity
+        operationId: BrandManagementPlan/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/brandmanagementplanid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveBrandManagementPlanResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BrandAdvice/{brandadviceid}/Create':
+      post:
+        tags:
+           - BQ - BrandAdvice
+        summary: CrBQ Create a brand advice task
+        description: CrBQ Create a brand advice task
+        operationId: BrandAdvice/Create
+        parameters:
+           - $ref: '#/components/parameters/brandadviceid'
+        requestBody:
+          $ref: '#/components/requestBodies/CreateBrandAdviceRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BrandAdvice/{brandadviceid}/Update':
+      put:
+        tags:
+           - BQ - BrandAdvice
+        summary: UpBQ Update details of provided brand related advice
+        description: UpBQ Update details of provided brand related advice
+        operationId: BrandAdvice/Update
+        parameters:
+           - $ref: '#/components/parameters/brandadviceid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateBrandAdviceRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BrandAdvice/{brandadviceid}/Request':
+      put:
+        tags:
+           - BQ - BrandAdvice
+        summary: >-
+          RqBQ Request manual intervention for brand advice (e.g. request
+          specialist support)
+        description: >-
+          RqBQ Request manual intervention for brand advice (e.g. request
+          specialist support)
+        operationId: BrandAdvice/Request
+        parameters:
+           - $ref: '#/components/parameters/brandadviceid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestBrandAdviceRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BrandAdvice/{brandadviceid}/Retrieve':
+      get:
+        tags:
+           - BQ - BrandAdvice
+        summary: ReBQ Retrieve details about brand advice activity
+        description: ReBQ Retrieve details about brand advice activity
+        operationId: BrandAdvice/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/brandadviceid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveBrandAdviceResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Troubleshooting/{troubleshootingid}/Create':
+      post:
+        tags:
+           - BQ - Troubleshooting
+        summary: CrBQ Create a brand troubleshooting action
+        description: CrBQ Create a brand troubleshooting action
+        operationId: Troubleshooting/Create
+        parameters:
+           - $ref: '#/components/parameters/troubleshootingid'
+        requestBody:
+          $ref: '#/components/requestBodies/CreateTroubleshootingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Troubleshooting/{troubleshootingid}/Update':
+      put:
+        tags:
+           - BQ - Troubleshooting
+        summary: UpBQ Update details relating to brand troubleshooting activity
+        description: UpBQ Update details relating to brand troubleshooting activity
+        operationId: Troubleshooting/Update
+        parameters:
+           - $ref: '#/components/parameters/troubleshootingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateTroubleshootingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Troubleshooting/{troubleshootingid}/Request':
+      put:
+        tags:
+           - BQ - Troubleshooting
+        summary: RqBQ Request manual intervention in a troubleshooting action
+        description: RqBQ Request manual intervention in a troubleshooting action
+        operationId: Troubleshooting/Request
+        parameters:
+           - $ref: '#/components/parameters/troubleshootingid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestTroubleshootingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Troubleshooting/{troubleshootingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Troubleshooting
+        summary: ReBQ Retrieve details about brand troubleshooting activity
+        description: ReBQ Retrieve details about brand troubleshooting activity
+        operationId: Troubleshooting/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/troubleshootingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveTroubleshootingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     UpdateBrandManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     UpdateBrandManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     UpdateBrandManagementPlan:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     RequestBrandManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     RequestBrandManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     RequestBrandManagementPlan:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     RetrieveBrandManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     RetrieveBrandManagementPlan:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     CreateBrandAdviceRequest:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+           BrandAdviceWorkTaskType:
+              type: string
+              description: >-
+                The type of work task (e.g. assess brand exposure, incorporate
+                brand in design)
+              format: String
+           BrandAdviceWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: The datetime associated with the delivery of brand advice task
+     Date:
+        type: object
+        description: >-
+          The datetime associated with the delivery of brand advice task
+          ISODate|ISODate
+          (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022
+          BM ()
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     CreateBrandAdviceResponse:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+           BrandAdviceWorkTaskType:
+              type: string
+              description: >-
+                The type of work task (e.g. assess brand exposure, incorporate
+                brand in design)
+              format: String
+           BrandAdviceWorkTaskWorkProducts:
+              type: string
+              description: >-
+                File of consolidated notes, evaluations and recommendations for
+                the work task
+              format: String
+           BrandAdviceWorkTaskResult:
+              type: string
+              description: >-
+                Details of the outcome or result of the work task  capturing
+                any use of brand that might requires tracking
+              format: String
+           BrandAdviceWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     CreateBrandAdvice:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     UpdateBrandAdviceRequest:
+        type: object
+        description: ''
+        properties:
+           BrandAdviceWorkTaskType:
+              type: string
+              description: >-
+                The type of work task (e.g. assess brand exposure, incorporate
+                brand in design)
+              format: String
+           BrandAdviceWorkTaskWorkProducts:
+              type: string
+              description: >-
+                File of consolidated notes, evaluations and recommendations for
+                the work task
+              format: String
+           BrandAdviceWorkTaskResult:
+              type: string
+              description: >-
+                Details of the outcome or result of the work task  capturing
+                any use of brand that might requires tracking
+              format: String
+           BrandAdviceWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: The datetime associated with the delivery of brand advice task
+     UpdateBrandAdviceResponse:
+        type: object
+        description: ''
+        properties:
+           BrandAdviceWorkTaskType:
+              type: string
+              description: >-
+                The type of work task (e.g. assess brand exposure, incorporate
+                brand in design)
+              format: String
+           BrandAdviceWorkTaskWorkProducts:
+              type: string
+              description: >-
+                File of consolidated notes, evaluations and recommendations for
+                the work task
+              format: String
+           BrandAdviceWorkTaskResult:
+              type: string
+              description: >-
+                Details of the outcome or result of the work task  capturing
+                any use of brand that might requires tracking
+              format: String
+           BrandAdviceWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     UpdateBrandAdvice:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     RequestBrandAdviceRequest:
+        type: object
+        description: ''
+        properties:
+           BrandAdviceWorkTaskType:
+              type: string
+              description: >-
+                The type of work task (e.g. assess brand exposure, incorporate
+                brand in design)
+              format: String
+           BrandAdviceWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: The datetime associated with the delivery of brand advice task
+     RequestBrandAdviceResponse:
+        type: object
+        description: ''
+        properties:
+           BrandAdviceWorkTaskType:
+              type: string
+              description: >-
+                The type of work task (e.g. assess brand exposure, incorporate
+                brand in design)
+              format: String
+           BrandAdviceWorkTaskWorkProducts:
+              type: string
+              description: >-
+                File of consolidated notes, evaluations and recommendations for
+                the work task
+              format: String
+           BrandAdviceWorkTaskResult:
+              type: string
+              description: >-
+                Details of the outcome or result of the work task  capturing
+                any use of brand that might requires tracking
+              format: String
+           BrandAdviceWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     RequestBrandAdvice:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     RetrieveBrandAdviceResponse:
+        type: object
+        description: ''
+        properties:
+           BrandAdviceWorkTaskType:
+              type: string
+              description: >-
+                The type of work task (e.g. assess brand exposure, incorporate
+                brand in design)
+              format: String
+           BrandAdviceWorkTaskWorkProducts:
+              type: string
+              description: >-
+                File of consolidated notes, evaluations and recommendations for
+                the work task
+              format: String
+           BrandAdviceWorkTaskResult:
+              type: string
+              description: >-
+                Details of the outcome or result of the work task  capturing
+                any use of brand that might requires tracking
+              format: String
+           BrandAdviceWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     RetrieveBrandAdvice:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     CreateTroubleshootingRequest:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+           BrandImpactEventType:
+              type: string
+              description: >-
+                The type of event that threatens the brand (e.g. production
+                issue, legal issue, employee action, marketing conflict)
+              format: String
+           BrandImpactTroubleshootingTask:
+              type: string
+              description: The structured task/work plan followed to address the issue
+              format: String
+           BrandImpactEventDescription:
+              type: string
+              description: >-
+                Detailed description of the event and situation leading to the
+                brand exposure
+              format: String
+           BrandImpactEventResponseSchedule:
+              type: string
+              description: >-
+                Schedule of actions taken to mitigate the event (plan and
+                actual)
+              format: String
+           BrandImpactEventResponseAction:
+              type: string
+              description: >-
+                Actions taken to mitigate the event (e.g. press release, other
+                communications, corrective/compensatory actions
+              format: String
+           BrandImpactEventWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: Key dates associated with the troubleshooting activity
+     CreateTroubleshootingResponse:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+           BrandImpactEventType:
+              type: string
+              description: >-
+                The type of event that threatens the brand (e.g. production
+                issue, legal issue, employee action, marketing conflict)
+              format: String
+           BrandImpactTroubleshootingTask:
+              type: string
+              description: The structured task/work plan followed to address the issue
+              format: String
+           BrandImpactEventDescription:
+              type: string
+              description: >-
+                Detailed description of the event and situation leading to the
+                brand exposure
+              format: String
+           BrandImpactEventResponseSchedule:
+              type: string
+              description: >-
+                Schedule of actions taken to mitigate the event (plan and
+                actual)
+              format: String
+           BrandImpactEventResponseAction:
+              type: string
+              description: >-
+                Actions taken to mitigate the event (e.g. press release, other
+                communications, corrective/compensatory actions
+              format: String
+           BrandImpactEventWorkProducts:
+              type: string
+              description: >-
+                File of consolidated notes, assessments, interview notes etc.
+                and recommendations arising from the work
+              format: String
+           BrandImpactEventWorkTaskResult:
+              type: string
+              description: >-
+                Details of the outcome or result of the work task  assessing
+                any lasting impact and evaluating the effectiveness of any
+                mitigating actions
+              format: String
+           BrandImpactEventWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     CreateTroubleshooting:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     UpdateTroubleshootingRequest:
+        type: object
+        description: ''
+        properties:
+           BrandImpactEventType:
+              type: string
+              description: >-
+                The type of event that threatens the brand (e.g. production
+                issue, legal issue, employee action, marketing conflict)
+              format: String
+           BrandImpactTroubleshootingTask:
+              type: string
+              description: The structured task/work plan followed to address the issue
+              format: String
+           BrandImpactEventDescription:
+              type: string
+              description: >-
+                Detailed description of the event and situation leading to the
+                brand exposure
+              format: String
+           BrandImpactEventResponseSchedule:
+              type: string
+              description: >-
+                Schedule of actions taken to mitigate the event (plan and
+                actual)
+              format: String
+           BrandImpactEventResponseAction:
+              type: string
+              description: >-
+                Actions taken to mitigate the event (e.g. press release, other
+                communications, corrective/compensatory actions
+              format: String
+           BrandImpactEventWorkProducts:
+              type: string
+              description: >-
+                File of consolidated notes, assessments, interview notes etc.
+                and recommendations arising from the work
+              format: String
+           BrandImpactEventWorkTaskResult:
+              type: string
+              description: >-
+                Details of the outcome or result of the work task  assessing
+                any lasting impact and evaluating the effectiveness of any
+                mitigating actions
+              format: String
+           BrandImpactEventWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: Key dates associated with the troubleshooting activity
+     UpdateTroubleshootingResponse:
+        type: object
+        description: ''
+        properties:
+           BrandImpactEventType:
+              type: string
+              description: >-
+                The type of event that threatens the brand (e.g. production
+                issue, legal issue, employee action, marketing conflict)
+              format: String
+           BrandImpactTroubleshootingTask:
+              type: string
+              description: The structured task/work plan followed to address the issue
+              format: String
+           BrandImpactEventDescription:
+              type: string
+              description: >-
+                Detailed description of the event and situation leading to the
+                brand exposure
+              format: String
+           BrandImpactEventResponseSchedule:
+              type: string
+              description: >-
+                Schedule of actions taken to mitigate the event (plan and
+                actual)
+              format: String
+           BrandImpactEventResponseAction:
+              type: string
+              description: >-
+                Actions taken to mitigate the event (e.g. press release, other
+                communications, corrective/compensatory actions
+              format: String
+           BrandImpactEventWorkProducts:
+              type: string
+              description: >-
+                File of consolidated notes, assessments, interview notes etc.
+                and recommendations arising from the work
+              format: String
+           BrandImpactEventWorkTaskResult:
+              type: string
+              description: >-
+                Details of the outcome or result of the work task  assessing
+                any lasting impact and evaluating the effectiveness of any
+                mitigating actions
+              format: String
+           BrandImpactEventWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     UpdateTroubleshooting:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     RequestTroubleshootingRequest:
+        type: object
+        description: ''
+        properties:
+           BrandImpactEventType:
+              type: string
+              description: >-
+                The type of event that threatens the brand (e.g. production
+                issue, legal issue, employee action, marketing conflict)
+              format: String
+           BrandImpactTroubleshootingTask:
+              type: string
+              description: The structured task/work plan followed to address the issue
+              format: String
+           BrandImpactEventDescription:
+              type: string
+              description: >-
+                Detailed description of the event and situation leading to the
+                brand exposure
+              format: String
+           BrandImpactEventResponseSchedule:
+              type: string
+              description: >-
+                Schedule of actions taken to mitigate the event (plan and
+                actual)
+              format: String
+           BrandImpactEventResponseAction:
+              type: string
+              description: >-
+                Actions taken to mitigate the event (e.g. press release, other
+                communications, corrective/compensatory actions
+              format: String
+           BrandImpactEventWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: Key dates associated with the troubleshooting activity
+     RequestTroubleshootingResponse:
+        type: object
+        description: ''
+        properties:
+           BrandImpactEventType:
+              type: string
+              description: >-
+                The type of event that threatens the brand (e.g. production
+                issue, legal issue, employee action, marketing conflict)
+              format: String
+           BrandImpactTroubleshootingTask:
+              type: string
+              description: The structured task/work plan followed to address the issue
+              format: String
+           BrandImpactEventDescription:
+              type: string
+              description: >-
+                Detailed description of the event and situation leading to the
+                brand exposure
+              format: String
+           BrandImpactEventResponseSchedule:
+              type: string
+              description: >-
+                Schedule of actions taken to mitigate the event (plan and
+                actual)
+              format: String
+           BrandImpactEventResponseAction:
+              type: string
+              description: >-
+                Actions taken to mitigate the event (e.g. press release, other
+                communications, corrective/compensatory actions
+              format: String
+           BrandImpactEventWorkProducts:
+              type: string
+              description: >-
+                File of consolidated notes, assessments, interview notes etc.
+                and recommendations arising from the work
+              format: String
+           BrandImpactEventWorkTaskResult:
+              type: string
+              description: >-
+                Details of the outcome or result of the work task  assessing
+                any lasting impact and evaluating the effectiveness of any
+                mitigating actions
+              format: String
+           BrandImpactEventWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     RequestTroubleshooting:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     RetrieveTroubleshootingResponse:
+        type: object
+        description: ''
+        properties:
+           BrandImpactEventType:
+              type: string
+              description: >-
+                The type of event that threatens the brand (e.g. production
+                issue, legal issue, employee action, marketing conflict)
+              format: String
+           BrandImpactTroubleshootingTask:
+              type: string
+              description: The structured task/work plan followed to address the issue
+              format: String
+           BrandImpactEventDescription:
+              type: string
+              description: >-
+                Detailed description of the event and situation leading to the
+                brand exposure
+              format: String
+           BrandImpactEventResponseSchedule:
+              type: string
+              description: >-
+                Schedule of actions taken to mitigate the event (plan and
+                actual)
+              format: String
+           BrandImpactEventResponseAction:
+              type: string
+              description: >-
+                Actions taken to mitigate the event (e.g. press release, other
+                communications, corrective/compensatory actions
+              format: String
+           BrandImpactEventWorkProducts:
+              type: string
+              description: >-
+                File of consolidated notes, assessments, interview notes etc.
+                and recommendations arising from the work
+              format: String
+           BrandImpactEventWorkTaskResult:
+              type: string
+              description: >-
+                Details of the outcome or result of the work task  assessing
+                any lasting impact and evaluating the effectiveness of any
+                mitigating actions
+              format: String
+           BrandImpactEventWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     RetrieveTroubleshooting:
+        type: object
+        description: ''
+        properties:
+           BrandDefinition:
+              type: string
+              description: >-
+                Definition of the brand, including how it is to be represented
+                in different media and contexts
+              format: String
+           BrandValueAssessment:
+              type: string
+              description: >-
+                An analysis of the brand value based on comparative market
+                research
+              format: String
+           BrandUsage:
+              type: string
+              description: >-
+                An inventory of situations where the brand is incorporated or
+                exposed in business development activity  these situations may
+                require ongoing exposure monitoring or assessment
+              format: String
+           BrandDevelopmentSchedule:
+              type: string
+              description: >-
+                Schedule of any brand development related activities, includes
+                usage and exposure tracking and impact analysis activities
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     UpdateBrandManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateBrandManagementPlanRequest'
+        required: true
+     RequestBrandManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestBrandManagementPlanRequest'
+        required: true
+     RetrieveBrandManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     CreateBrandAdviceRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateBrandAdviceRequest'
+        required: true
+     UpdateBrandAdviceRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateBrandAdviceRequest'
+        required: true
+     RequestBrandAdviceRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestBrandAdviceRequest'
+        required: true
+     RetrieveBrandAdviceRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     CreateTroubleshootingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateTroubleshootingRequest'
+        required: true
+     UpdateTroubleshootingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTroubleshootingRequest'
+        required: true
+     RequestTroubleshootingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestTroubleshootingRequest'
+        required: true
+     RetrieveTroubleshootingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     brandmanagementplanid:
+        name: brandmanagementplanid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     brandadviceid:
+        name: brandadviceid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     troubleshootingid:
+        name: troubleshootingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     UpdateBrandManagementPlanResponse:
+        description: BrandManagementPlanUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateBrandManagementPlanResponse'
+     RequestBrandManagementPlanResponse:
+        description: BrandManagementPlanRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestBrandManagementPlanResponse'
+     RetrieveBrandManagementPlanResponse:
+        description: BrandManagementPlanRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveBrandManagementPlanResponse'
+     CreateBrandAdviceResponse:
+        description: BrandAdviceCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateBrandAdviceResponse'
+     UpdateBrandAdviceResponse:
+        description: BrandAdviceUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateBrandAdviceResponse'
+     RequestBrandAdviceResponse:
+        description: BrandAdviceRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestBrandAdviceResponse'
+     RetrieveBrandAdviceResponse:
+        description: BrandAdviceRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveBrandAdviceResponse'
+     CreateTroubleshootingResponse:
+        description: TroubleshootingCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateTroubleshootingResponse'
+     UpdateTroubleshootingResponse:
+        description: TroubleshootingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTroubleshootingResponse'
+     RequestTroubleshootingResponse:
+        description: TroubleshootingRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestTroubleshootingResponse'
+     RetrieveTroubleshootingResponse:
+        description: TroubleshootingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveTroubleshootingResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

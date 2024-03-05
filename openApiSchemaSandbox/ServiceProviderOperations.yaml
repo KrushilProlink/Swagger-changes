@@ -1,0 +1,409 @@
+openapi: 3.0.1
+info:
+  title: Service Provider Operations
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This Service Domain handles
+    the range of operational actions used in production interactions with an
+    external service provider.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/ServiceProviderOperations
+paths:
+   '/ServiceProviderRegistrationOperatingSession/{serviceproviderregistrationoperatingsessionid}/Retrieve':
+      get:
+        tags:
+           - CR - ServiceProviderRegistrationOperatingSession
+        summary: Retrieve Service Provider Registration Operating Session
+        description: Retrieve Service Provider Registration Operating Session
+        operationId: ServiceProviderRegistrationOperatingSession/Retrieve
+        parameters:
+           - $ref: >-
+              #/components/parameters/serviceproviderregistrationoperatingsessionid
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveServiceProviderRegistrationOperatingSessionResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     RetrieveServiceProviderRegistrationOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           ServiceProviderRegistrationReference:
+              $ref: '#/components/schemas/ServiceProviderRegistration'
+              description: "\r\n"
+           ServiceProviderRegistrationOperatingSessionReference:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           ServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           TPPReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+     ServiceProviderRegistration:
+        type: object
+        description: "\r\n - "
+        properties:
+           Identification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           Method:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           Status:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           Datetime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           InvolvedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: ''
+           ValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+     Identifier:
+        type: object
+        description: ' '
+        properties:
+           IdentifierValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           IdentifierIssuingAuthority:
+              $ref: '#/components/schemas/Involvedparty'
+              description: Entity that assigns and manages the identification.
+           Identifier:
+              type: string
+              description: >-
+                An identifier is a character string used to uniquely identify
+                one instance of an object within an identification scheme that
+                is managed by an agency. (UN/CEFAT)
+              format: DataType
+           IdentifierStartDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           IdentifierEndDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Involvedparty:
+        type: object
+        description: 'Entity that assigns and manages the identification. '
+        properties:
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyInvolvement:
+              $ref: '#/components/schemas/Partyrole'
+              description: ''
+     Party:
+        type: object
+        description: ' '
+        properties:
+           PartyName:
+              $ref: '#/components/schemas/Name'
+              description: >-
+                Name by which a party is known and which is usually used to
+                identify that party. (ISO20022)
+           PartyType:
+              enum:
+                   -  Person
+                   -  Organisation
+              type: string
+              description: ">-\r\n* `Person` \r\n* `Organisation` \r\n* "
+           PartyDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           PartyIdentification:
+              $ref: '#/components/schemas/Partyidentification'
+              description: ''
+           PartyLegalStructureType:
+              enum:
+                   -  Individual
+                   -  CommunityInterestCompany
+                   -  CoOperative
+                   -  Charity
+                   -  GeneralPartnership
+                   -  LimitedLiabilityPartnership
+                   -  ScottishLimitedPartnership
+                   -  LimitedPartnership
+                   -  PrivateLimitedCompany
+                   -  PublicLimitedCompany
+                   -  Sole(SoleTrader)
+              type: string
+              description: ">-\r\n* `Individual` \r\n* `CommunityInterestCompany` \r\n* `CoOperative` \r\n* `Charity` \r\n* `GeneralPartnership` \r\n* `LimitedLiabilityPartnership` \r\n* `ScottishLimitedPartnership` \r\n* `LimitedPartnership` \r\n* `PrivateLimitedCompany` \r\n* `PublicLimitedCompany` \r\n* `SoleSoleTrader` \r\n* "
+     Name:
+        type: object
+        description: >-
+          Name by which a party is known and which is usually used to identify
+          that party. (ISO20022)
+           
+        properties:
+           Name:
+              type: string
+              description: >-
+                A name is a word or phrase that constitutes the distinctive
+                designation of a person, place, thing or concept. (UN/CEFAT)
+              format: DataType
+     Datetime:
+        type: object
+        description: ' '
+        properties:
+           DateTimeContent:
+              type: string
+              description: ''
+              format: String
+           TimeZoneCode:
+              type: string
+              description: ''
+              format: String
+           DaylightSavingIndicator:
+              type: string
+              description: ''
+              format: String
+           Datetime:
+              type: string
+              description: >-
+                A date time identifies a date and time of day to various common
+                resolutions: year, month, week, day, hour, minute, second, and
+                fraction of second. (UN/CEFACT)
+
+
+                A particular point in the progression of time defined by a
+                mandatory date and a mandatory time component, expressed in
+                either UTC time format (YYYYMMDDThh:mm:ss.sssZ), local time
+                with UTC offset format (YYYYMMDDThh:mm:ss.sss/hh:mm), or
+                local time format (YYYYMMDDThh:mm:ss.sss). These
+                representations are defined in "XML Schema Part 2: Datatypes
+                Second Edition  W3C Recommendation 28 October 2004" which is
+                aligned with ISO 8601. (ISO20022)
+
+                Note on the time format:
+
+                1) beginning / end of calendar day
+
+                00:00:00  -  the beginning of a calendar day
+
+                24:00:00  -  the end of a calendar day
+
+                2) fractions of second in time format
+
+                Decimal fractions of seconds may be included. In this case, the
+                involved parties shall agree on the maximum number of digits
+                that are allowed.
+              format: DataType
+     Partyidentification:
+        type: object
+        description: ' '
+        properties:
+           PartyIdentificationType:
+              enum:
+                   -  Taxidentificationnumber
+                   -  Nationalregistrationnumber
+                   -  LEI(LegalEntityIdentifier)
+                   -  Alienregistrationnumber
+                   -  Passportnumber
+                   -  Corporateidentification
+                   -  Driverlicensenumber
+                   -  Socialsecuritynumber
+                   -  Identitycardnumber
+                   -  Concat
+              type: string
+              description: ">-\r\n* `Taxidentificationnumber` \r\n* `Nationalregistrationnumber` \r\n* `LEILegalEntityIdentifier` \r\n* `Alienregistrationnumber` \r\n* `Passportnumber` \r\n* `Corporateidentification` \r\n* `Driverlicensenumber` \r\n* `Socialsecuritynumber` \r\n* `Identitycardnumber` \r\n* `Concat` \r\n* "
+           PartyIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           Partyidentification:
+              type: string
+              description: ''
+              format: DataType
+     Partyrole:
+        type: object
+        description: ' '
+        properties:
+           PartyRoleType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           PartyRoleName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           PartyRoleValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           PartyInvolvementType:
+              enum:
+                   -  Agreementinvolvement
+                   -  Partyinvolvement
+                   -  Arrangementinvolvement
+                   -  Relationshipinvolvement
+                   -  Locationinvolvement
+                   -  Bankguaranteeinvolvement
+              type: string
+              description: ">-\r\n* `Agreementinvolvement` \r\n* `Partyinvolvement` \r\n* `Arrangementinvolvement` \r\n* `Relationshipinvolvement` \r\n* `Locationinvolvement` \r\n* `Bankguaranteeinvolvement` \r\n* "
+     Text:
+        type: object
+        description: ' '
+        properties:
+           Text:
+              type: string
+              description: >-
+                Text is a character string such as a finite set of characters
+                generally in the form of words of a language. (UN/CEFACT)
+              format: DataType
+     Datetimeperiod:
+        type: object
+        description: ' '
+        properties:
+           FromDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range starts. (ISO20022)
+           ToDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range ends. (ISO20022)
+           Datetimeperiod:
+              type: string
+              description: >-
+                Time span defined by a start date and time, and an end date and
+                time. (ISO20022)
+              format: DataType
+     Status:
+        type: object
+        description: ' '
+        properties:
+           StatusReason:
+              $ref: '#/components/schemas/Text'
+              description: Specifies the reasons for the status.
+           StatusDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the status was assigned.
+           StatusValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: Period of time during which the status is valid.
+           StatusInvolvedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: >-
+                Party who plays a  specific role in the context of assigning a
+                status.
+     RetrieveServiceProviderRegistrationOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           ServiceProviderRegistrationReference:
+              $ref: '#/components/schemas/ServiceProviderRegistration'
+           ServiceProviderRegistrationOperatingSessionReference:
+              $ref: '#/components/schemas/Identifier'
+           ServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           TPPReference:
+              $ref: '#/components/schemas/Involvedparty'
+     RetrieveServiceProviderRegistrationOperatingSession:
+        type: object
+        description: ''
+        properties:
+           ServiceProviderRegistrationReference:
+              $ref: '#/components/schemas/ServiceProviderRegistration'
+           ServiceProviderRegistrationOperatingSessionReference:
+              $ref: '#/components/schemas/Identifier'
+           ServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           TPPReference:
+              $ref: '#/components/schemas/Involvedparty'
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     RetrieveServiceProviderRegistrationOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveServiceProviderRegistrationOperatingSessionRequest
+        required: true
+  parameters:
+     serviceproviderregistrationoperatingsessionid:
+        name: serviceproviderregistrationoperatingsessionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     RetrieveServiceProviderRegistrationOperatingSessionResponse:
+        description: ServiceProviderRegistrationOperatingSessionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveServiceProviderRegistrationOperatingSessionResponse
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

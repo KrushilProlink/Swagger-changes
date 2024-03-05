@@ -1,0 +1,1501 @@
+openapi: 3.0.1
+info:
+  title: Position Management
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | The Service Domain tracks the
+    bank's consolidated financial positions for major customers and complex
+    market conditions
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/PositionManagement
+paths:
+   '/FinancialPositionState/{financialpositionstateid}/Initiate':
+      post:
+        tags:
+           - CR - FinancialPositionState
+        summary: InCR Initialize a monitored financial position
+        description: InCR Initialize a monitored financial position
+        operationId: FinancialPositionState/Initiate
+        parameters:
+           - $ref: '#/components/parameters/financialpositionstateid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateFinancialPositionStateRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FinancialPositionState/{financialpositionstateid}/Update':
+      put:
+        tags:
+           - CR - FinancialPositionState
+        summary: UpCR Update the settings and notification arrangements for a position
+        description: UpCR Update the settings and notification arrangements for a position
+        operationId: FinancialPositionState/Update
+        parameters:
+           - $ref: '#/components/parameters/financialpositionstateid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateFinancialPositionStateRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FinancialPositionState/{financialpositionstateid}/Request':
+      put:
+        tags:
+           - CR - FinancialPositionState
+        summary: ReCR Get details and the current value of a monitored position
+        description: ReCR Get details and the current value of a monitored position
+        operationId: FinancialPositionState/Request
+        parameters:
+           - $ref: '#/components/parameters/financialpositionstateid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestFinancialPositionStateRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TrialTransaction/{trialtransactionid}/Initiate':
+      post:
+        tags:
+           - BQ - TrialTransaction
+        summary: InBQ Initiate the evaluation impact of a trial transaction
+        description: InBQ Initiate the evaluation impact of a trial transaction
+        operationId: TrialTransaction/Initiate
+        parameters:
+           - $ref: '#/components/parameters/trialtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateTrialTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TrialTransaction/{trialtransactionid}/Update':
+      put:
+        tags:
+           - BQ - TrialTransaction
+        summary: UpBQ Update details of a trial transaction
+        description: UpBQ Update details of a trial transaction
+        operationId: TrialTransaction/Update
+        parameters:
+           - $ref: '#/components/parameters/trialtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateTrialTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TrialTransaction/{trialtransactionid}/Retrieve':
+      get:
+        tags:
+           - BQ - TrialTransaction
+        summary: >-
+          ReBQ Retrieve details about a trial transaction and its position
+          impact
+        description: >-
+          ReBQ Retrieve details about a trial transaction and its position
+          impact
+        operationId: TrialTransaction/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/trialtransactionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveTrialTransactionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TransactionApplication/{transactionapplicationid}/Initiate':
+      post:
+        tags:
+           - BQ - TransactionApplication
+        summary: InBQ Initiate the registering of a transaction against the position
+        description: InBQ Initiate the registering of a transaction against the position
+        operationId: TransactionApplication/Initiate
+        parameters:
+           - $ref: '#/components/parameters/transactionapplicationid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateTransactionApplicationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TransactionApplication/{transactionapplicationid}/Update':
+      put:
+        tags:
+           - BQ - TransactionApplication
+        summary: UpBQ Update details of a registered transaction
+        description: UpBQ Update details of a registered transaction
+        operationId: TransactionApplication/Update
+        parameters:
+           - $ref: '#/components/parameters/transactionapplicationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateTransactionApplicationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TransactionApplication/{transactionapplicationid}/Retrieve':
+      get:
+        tags:
+           - BQ - TransactionApplication
+        summary: >-
+          ReBQ Retrieve details about a registered transaction and its position
+          impact
+        description: >-
+          ReBQ Retrieve details about a registered transaction and its position
+          impact
+        operationId: TransactionApplication/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/transactionapplicationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveTransactionApplicationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateFinancialPositionStateRequest:
+        type: object
+        description: ''
+        properties:
+           rwc:672722a35aef735a5c5a72e951974b36238479:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238480:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238481:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238482:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238483:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238484:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238486:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238487:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238488:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238489:
+              type: string
+              description: "\r\n"
+              format: ''
+     InitiateFinancialPositionStateResponse:
+        type: object
+        description: ''
+        properties:
+           rwc:672722a35aef735a5c5a72e951974b36238485:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238490:
+              type: string
+              description: "\r\n"
+              format: ''
+     InitiateFinancialPositionState:
+        type: object
+        description: ''
+        properties:
+           PositionType:
+              type: string
+              description: >-
+                The type of position being monitored (e.g. consolidated customer
+                exposure, geographic/sector exposure)
+              format: String
+           PositionCustomerReference:
+              type: string
+              description: >-
+                The customer or customer type associated with the position if
+                applicable
+              format: Object
+           PositionSector:
+              type: string
+              description: The sector or segment associated with the position if applicable
+              format: String
+           PositionProductType:
+              type: string
+              description: >-
+                The product type or specific product associated with the
+                position if applicable
+              format: String
+           PositionDefinition:
+              type: string
+              description: >-
+                Description of the specification and purpose position monitoring
+                (e.g. realtime limit, trend)
+              format: String
+           PositionThresholdsLimits:
+              type: string
+              description: Thresholds limits associated with the position
+              format: String
+           PositionValue:
+              type: string
+              description: >-
+                The current, historical and if applicable projected values of
+                the monitored position
+              format: String
+           PositionNotificationArrangementReference:
+              type: string
+              description: >-
+                Reference to a notification source requesting updates on
+                position changes
+              format: Object
+           PositionNotificationArrangementRecord:
+              type: string
+              description: The details maintained for the notification service
+              format: String
+           PositionNotificationBusinessUnitReference:
+              type: string
+              description: Reference to the notified party
+              format: Object
+           PositionNotificationDetails:
+              type: string
+              description: Details of the requirements/schedule for position notification
+              format: String
+           PositionNotificationRecord:
+              type: string
+              description: The position notification record generated as required
+              format: String
+     UpdateFinancialPositionStateRequest:
+        type: object
+        description: ''
+        properties:
+           rwc:672722a35aef735a5c5a72e951974b36238479:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238480:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238481:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238482:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238483:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238484:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238486:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238487:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238488:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238489:
+              type: string
+              description: "\r\n"
+              format: ''
+     UpdateFinancialPositionStateResponse:
+        type: object
+        description: ''
+        properties:
+           rwc:672722a35aef735a5c5a72e951974b36238479:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238480:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238481:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238482:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238483:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238484:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238486:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238487:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238488:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238489:
+              type: string
+              description: "\r\n"
+              format: ''
+     UpdateFinancialPositionState:
+        type: object
+        description: ''
+        properties:
+           PositionType:
+              type: string
+              description: >-
+                The type of position being monitored (e.g. consolidated customer
+                exposure, geographic/sector exposure)
+              format: String
+           PositionCustomerReference:
+              type: string
+              description: >-
+                The customer or customer type associated with the position if
+                applicable
+              format: Object
+           PositionSector:
+              type: string
+              description: The sector or segment associated with the position if applicable
+              format: String
+           PositionProductType:
+              type: string
+              description: >-
+                The product type or specific product associated with the
+                position if applicable
+              format: String
+           PositionDefinition:
+              type: string
+              description: >-
+                Description of the specification and purpose position monitoring
+                (e.g. realtime limit, trend)
+              format: String
+           PositionThresholdsLimits:
+              type: string
+              description: Thresholds limits associated with the position
+              format: String
+           PositionValue:
+              type: string
+              description: >-
+                The current, historical and if applicable projected values of
+                the monitored position
+              format: String
+           PositionNotificationArrangementReference:
+              type: string
+              description: >-
+                Reference to a notification source requesting updates on
+                position changes
+              format: Object
+           PositionNotificationArrangementRecord:
+              type: string
+              description: The details maintained for the notification service
+              format: String
+           PositionNotificationBusinessUnitReference:
+              type: string
+              description: Reference to the notified party
+              format: Object
+           PositionNotificationDetails:
+              type: string
+              description: Details of the requirements/schedule for position notification
+              format: String
+           PositionNotificationRecord:
+              type: string
+              description: The position notification record generated as required
+              format: String
+     RequestFinancialPositionStateResponse:
+        type: object
+        description: ''
+        properties:
+           rwc:672722a35aef735a5c5a72e951974b36238479:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238480:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238481:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238482:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238483:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238484:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238485:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238486:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238487:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238488:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238489:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238490:
+              type: string
+              description: "\r\n"
+              format: ''
+     RequestFinancialPositionState:
+        type: object
+        description: ''
+        properties:
+           PositionType:
+              type: string
+              description: >-
+                The type of position being monitored (e.g. consolidated customer
+                exposure, geographic/sector exposure)
+              format: String
+           PositionCustomerReference:
+              type: string
+              description: >-
+                The customer or customer type associated with the position if
+                applicable
+              format: Object
+           PositionSector:
+              type: string
+              description: The sector or segment associated with the position if applicable
+              format: String
+           PositionProductType:
+              type: string
+              description: >-
+                The product type or specific product associated with the
+                position if applicable
+              format: String
+           PositionDefinition:
+              type: string
+              description: >-
+                Description of the specification and purpose position monitoring
+                (e.g. realtime limit, trend)
+              format: String
+           PositionThresholdsLimits:
+              type: string
+              description: Thresholds limits associated with the position
+              format: String
+           PositionValue:
+              type: string
+              description: >-
+                The current, historical and if applicable projected values of
+                the monitored position
+              format: String
+           PositionNotificationArrangementReference:
+              type: string
+              description: >-
+                Reference to a notification source requesting updates on
+                position changes
+              format: Object
+           PositionNotificationArrangementRecord:
+              type: string
+              description: The details maintained for the notification service
+              format: String
+           PositionNotificationBusinessUnitReference:
+              type: string
+              description: Reference to the notified party
+              format: Object
+           PositionNotificationDetails:
+              type: string
+              description: Details of the requirements/schedule for position notification
+              format: String
+           PositionNotificationRecord:
+              type: string
+              description: The position notification record generated as required
+              format: String
+     InitiateTrialTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           TrialTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TrialTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           TrialTransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TrialTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           TrialTransactionDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           TrialTransactionBookingEntity:
+              type: string
+              description: "\r\n"
+              format: String
+     Amount:
+        type: object
+        description: ' CurrencyAndAmount|CurrencyAndAmount (https://www.iso20022.org/standardsrepository/type/CurrencyAndAmount)|Standard|ISO20022  ()'
+        properties:
+           AmountValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           AmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           DecimalPointPosition:
+              type: string
+              description: |
+                Decimal point position starts calulating from the right
+              format: String
+           AmountType:
+              enum:
+                   -  Principal
+                   -  Actual
+                   -  Estimated
+                   -  Maximum
+                   -  Default
+                   -  Replacement
+                   -  Incremental
+                   -  Decremental
+                   -  Reserved
+                   -  Available
+                   -  Used
+              type: string
+              description: ">-\r\n* `Principal` \r\n* `Actual` \r\n* `Estimated` \r\n* `Maximum` \r\n* `Default` \r\n* `Replacement` \r\n* `Incremental` \r\n* `Decremental` \r\n* `Reserved` \r\n* `Available` \r\n* `Used` \r\n* "
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Currencycode:
+        type: object
+        description: ' '
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     InitiateTrialTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           TrailTransactionPositionImpactAssessment:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateTrialTransaction:
+        type: object
+        description: ''
+        properties:
+           PositionType:
+              type: string
+              description: >-
+                The type of position being monitored (e.g. consolidated customer
+                exposure, geographic/sector exposure)
+              format: String
+           PositionCustomerReference:
+              type: string
+              description: >-
+                The customer or customer type associated with the position if
+                applicable
+              format: Object
+           PositionSector:
+              type: string
+              description: The sector or segment associated with the position if applicable
+              format: String
+           PositionProductType:
+              type: string
+              description: >-
+                The product type or specific product associated with the
+                position if applicable
+              format: String
+           PositionDefinition:
+              type: string
+              description: >-
+                Description of the specification and purpose position monitoring
+                (e.g. realtime limit, trend)
+              format: String
+           PositionThresholdsLimits:
+              type: string
+              description: Thresholds limits associated with the position
+              format: String
+           PositionValue:
+              type: string
+              description: >-
+                The current, historical and if applicable projected values of
+                the monitored position
+              format: String
+           PositionNotificationArrangementReference:
+              type: string
+              description: >-
+                Reference to a notification source requesting updates on
+                position changes
+              format: Object
+           PositionNotificationArrangementRecord:
+              type: string
+              description: The details maintained for the notification service
+              format: String
+           PositionNotificationBusinessUnitReference:
+              type: string
+              description: Reference to the notified party
+              format: Object
+           PositionNotificationDetails:
+              type: string
+              description: Details of the requirements/schedule for position notification
+              format: String
+           PositionNotificationRecord:
+              type: string
+              description: The position notification record generated as required
+              format: String
+     UpdateTrialTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           TrialTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TrialTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           TrialTransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TrialTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           TrialTransactionDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           TrialTransactionBookingEntity:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateTrialTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           TrialTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TrialTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           TrialTransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TrialTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           TrialTransactionDate:
+              $ref: '#/components/schemas/Date'
+           TrialTransactionBookingEntity:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateTrialTransaction:
+        type: object
+        description: ''
+        properties:
+           PositionType:
+              type: string
+              description: >-
+                The type of position being monitored (e.g. consolidated customer
+                exposure, geographic/sector exposure)
+              format: String
+           PositionCustomerReference:
+              type: string
+              description: >-
+                The customer or customer type associated with the position if
+                applicable
+              format: Object
+           PositionSector:
+              type: string
+              description: The sector or segment associated with the position if applicable
+              format: String
+           PositionProductType:
+              type: string
+              description: >-
+                The product type or specific product associated with the
+                position if applicable
+              format: String
+           PositionDefinition:
+              type: string
+              description: >-
+                Description of the specification and purpose position monitoring
+                (e.g. realtime limit, trend)
+              format: String
+           PositionThresholdsLimits:
+              type: string
+              description: Thresholds limits associated with the position
+              format: String
+           PositionValue:
+              type: string
+              description: >-
+                The current, historical and if applicable projected values of
+                the monitored position
+              format: String
+           PositionNotificationArrangementReference:
+              type: string
+              description: >-
+                Reference to a notification source requesting updates on
+                position changes
+              format: Object
+           PositionNotificationArrangementRecord:
+              type: string
+              description: The details maintained for the notification service
+              format: String
+           PositionNotificationBusinessUnitReference:
+              type: string
+              description: Reference to the notified party
+              format: Object
+           PositionNotificationDetails:
+              type: string
+              description: Details of the requirements/schedule for position notification
+              format: String
+           PositionNotificationRecord:
+              type: string
+              description: The position notification record generated as required
+              format: String
+     RetrieveTrialTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           TrialTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TrialTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           TrialTransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TrialTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           TrialTransactionDate:
+              $ref: '#/components/schemas/Date'
+           TrialTransactionBookingEntity:
+              type: string
+              description: "\r\n"
+              format: String
+           TrailTransactionPositionImpactAssessment:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveTrialTransaction:
+        type: object
+        description: ''
+        properties:
+           PositionType:
+              type: string
+              description: >-
+                The type of position being monitored (e.g. consolidated customer
+                exposure, geographic/sector exposure)
+              format: String
+           PositionCustomerReference:
+              type: string
+              description: >-
+                The customer or customer type associated with the position if
+                applicable
+              format: Object
+           PositionSector:
+              type: string
+              description: The sector or segment associated with the position if applicable
+              format: String
+           PositionProductType:
+              type: string
+              description: >-
+                The product type or specific product associated with the
+                position if applicable
+              format: String
+           PositionDefinition:
+              type: string
+              description: >-
+                Description of the specification and purpose position monitoring
+                (e.g. realtime limit, trend)
+              format: String
+           PositionThresholdsLimits:
+              type: string
+              description: Thresholds limits associated with the position
+              format: String
+           PositionValue:
+              type: string
+              description: >-
+                The current, historical and if applicable projected values of
+                the monitored position
+              format: String
+           PositionNotificationArrangementReference:
+              type: string
+              description: >-
+                Reference to a notification source requesting updates on
+                position changes
+              format: Object
+           PositionNotificationArrangementRecord:
+              type: string
+              description: The details maintained for the notification service
+              format: String
+           PositionNotificationBusinessUnitReference:
+              type: string
+              description: Reference to the notified party
+              format: Object
+           PositionNotificationDetails:
+              type: string
+              description: Details of the requirements/schedule for position notification
+              format: String
+           PositionNotificationRecord:
+              type: string
+              description: The position notification record generated as required
+              format: String
+     InitiateTransactionApplicationRequest:
+        type: object
+        description: ''
+        properties:
+           TransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           TransactionDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           TransactionBookingEntity:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateTransactionApplicationResponse:
+        type: object
+        description: ''
+        properties:
+           TransactionPositionImpactAssessment:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateTransactionApplication:
+        type: object
+        description: ''
+        properties:
+           PositionType:
+              type: string
+              description: >-
+                The type of position being monitored (e.g. consolidated customer
+                exposure, geographic/sector exposure)
+              format: String
+           PositionCustomerReference:
+              type: string
+              description: >-
+                The customer or customer type associated with the position if
+                applicable
+              format: Object
+           PositionSector:
+              type: string
+              description: The sector or segment associated with the position if applicable
+              format: String
+           PositionProductType:
+              type: string
+              description: >-
+                The product type or specific product associated with the
+                position if applicable
+              format: String
+           PositionDefinition:
+              type: string
+              description: >-
+                Description of the specification and purpose position monitoring
+                (e.g. realtime limit, trend)
+              format: String
+           PositionThresholdsLimits:
+              type: string
+              description: Thresholds limits associated with the position
+              format: String
+           PositionValue:
+              type: string
+              description: >-
+                The current, historical and if applicable projected values of
+                the monitored position
+              format: String
+           PositionNotificationArrangementReference:
+              type: string
+              description: >-
+                Reference to a notification source requesting updates on
+                position changes
+              format: Object
+           PositionNotificationArrangementRecord:
+              type: string
+              description: The details maintained for the notification service
+              format: String
+           PositionNotificationBusinessUnitReference:
+              type: string
+              description: Reference to the notified party
+              format: Object
+           PositionNotificationDetails:
+              type: string
+              description: Details of the requirements/schedule for position notification
+              format: String
+           PositionNotificationRecord:
+              type: string
+              description: The position notification record generated as required
+              format: String
+     UpdateTransactionApplicationRequest:
+        type: object
+        description: ''
+        properties:
+           TransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           TransactionDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           TransactionBookingEntity:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateTransactionApplicationResponse:
+        type: object
+        description: ''
+        properties:
+           TransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           TransactionDate:
+              $ref: '#/components/schemas/Date'
+           TransactionBookingEntity:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateTransactionApplication:
+        type: object
+        description: ''
+        properties:
+           PositionType:
+              type: string
+              description: >-
+                The type of position being monitored (e.g. consolidated customer
+                exposure, geographic/sector exposure)
+              format: String
+           PositionCustomerReference:
+              type: string
+              description: >-
+                The customer or customer type associated with the position if
+                applicable
+              format: Object
+           PositionSector:
+              type: string
+              description: The sector or segment associated with the position if applicable
+              format: String
+           PositionProductType:
+              type: string
+              description: >-
+                The product type or specific product associated with the
+                position if applicable
+              format: String
+           PositionDefinition:
+              type: string
+              description: >-
+                Description of the specification and purpose position monitoring
+                (e.g. realtime limit, trend)
+              format: String
+           PositionThresholdsLimits:
+              type: string
+              description: Thresholds limits associated with the position
+              format: String
+           PositionValue:
+              type: string
+              description: >-
+                The current, historical and if applicable projected values of
+                the monitored position
+              format: String
+           PositionNotificationArrangementReference:
+              type: string
+              description: >-
+                Reference to a notification source requesting updates on
+                position changes
+              format: Object
+           PositionNotificationArrangementRecord:
+              type: string
+              description: The details maintained for the notification service
+              format: String
+           PositionNotificationBusinessUnitReference:
+              type: string
+              description: Reference to the notified party
+              format: Object
+           PositionNotificationDetails:
+              type: string
+              description: Details of the requirements/schedule for position notification
+              format: String
+           PositionNotificationRecord:
+              type: string
+              description: The position notification record generated as required
+              format: String
+     RetrieveTransactionApplicationResponse:
+        type: object
+        description: ''
+        properties:
+           TransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           TransactionDate:
+              $ref: '#/components/schemas/Date'
+           TransactionBookingEntity:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionPositionImpactAssessment:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveTransactionApplication:
+        type: object
+        description: ''
+        properties:
+           PositionType:
+              type: string
+              description: >-
+                The type of position being monitored (e.g. consolidated customer
+                exposure, geographic/sector exposure)
+              format: String
+           PositionCustomerReference:
+              type: string
+              description: >-
+                The customer or customer type associated with the position if
+                applicable
+              format: Object
+           PositionSector:
+              type: string
+              description: The sector or segment associated with the position if applicable
+              format: String
+           PositionProductType:
+              type: string
+              description: >-
+                The product type or specific product associated with the
+                position if applicable
+              format: String
+           PositionDefinition:
+              type: string
+              description: >-
+                Description of the specification and purpose position monitoring
+                (e.g. realtime limit, trend)
+              format: String
+           PositionThresholdsLimits:
+              type: string
+              description: Thresholds limits associated with the position
+              format: String
+           PositionValue:
+              type: string
+              description: >-
+                The current, historical and if applicable projected values of
+                the monitored position
+              format: String
+           PositionNotificationArrangementReference:
+              type: string
+              description: >-
+                Reference to a notification source requesting updates on
+                position changes
+              format: Object
+           PositionNotificationArrangementRecord:
+              type: string
+              description: The details maintained for the notification service
+              format: String
+           PositionNotificationBusinessUnitReference:
+              type: string
+              description: Reference to the notified party
+              format: Object
+           PositionNotificationDetails:
+              type: string
+              description: Details of the requirements/schedule for position notification
+              format: String
+           PositionNotificationRecord:
+              type: string
+              description: The position notification record generated as required
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateFinancialPositionStateRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateFinancialPositionStateRequest'
+        required: true
+     UpdateFinancialPositionStateRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFinancialPositionStateRequest'
+        required: true
+     RequestFinancialPositionStateRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateTrialTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateTrialTransactionRequest'
+        required: true
+     UpdateTrialTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTrialTransactionRequest'
+        required: true
+     RetrieveTrialTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateTransactionApplicationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateTransactionApplicationRequest'
+        required: true
+     UpdateTransactionApplicationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTransactionApplicationRequest'
+        required: true
+     RetrieveTransactionApplicationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     financialpositionstateid:
+        name: financialpositionstateid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     trialtransactionid:
+        name: trialtransactionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     transactionapplicationid:
+        name: transactionapplicationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateFinancialPositionStateResponse:
+        description: FinancialPositionStateInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateFinancialPositionStateResponse'
+     UpdateFinancialPositionStateResponse:
+        description: FinancialPositionStateUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFinancialPositionStateResponse'
+     RequestFinancialPositionStateResponse:
+        description: FinancialPositionStateRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestFinancialPositionStateResponse'
+     InitiateTrialTransactionResponse:
+        description: TrialTransactionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateTrialTransactionResponse'
+     UpdateTrialTransactionResponse:
+        description: TrialTransactionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTrialTransactionResponse'
+     RetrieveTrialTransactionResponse:
+        description: TrialTransactionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveTrialTransactionResponse'
+     InitiateTransactionApplicationResponse:
+        description: TransactionApplicationInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateTransactionApplicationResponse'
+     UpdateTransactionApplicationResponse:
+        description: TransactionApplicationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTransactionApplicationResponse'
+     RetrieveTransactionApplicationResponse:
+        description: TransactionApplicationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveTransactionApplicationResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

@@ -1,0 +1,3852 @@
+openapi: 3.0.1
+info:
+  title: Merchant Acquiring Facility
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain
+    orchestrates the activities related to Merchant fulfillment, Merchant
+    Account maintenance, Merchant transactional activities and settlement,
+    including the billing of merchant fees and charges.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/MerchantAcquiringFacility
+paths:
+   '/MerchantAcquiringFacility/{merchantacquiringfacilityid}/Initiate':
+      post:
+        tags:
+           - CR - MerchantAcquiringFacility
+        summary: InCR Initiate a new merchant acquiring facility
+        description: InCR Initiate a new merchant acquiring facility
+        operationId: MerchantAcquiringFacility/Initiate
+        parameters:
+           - $ref: '#/components/parameters/merchantacquiringfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateMerchantAcquiringFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/MerchantAcquiringFacility/{merchantacquiringfacilityid}/Update':
+      put:
+        tags:
+           - CR - MerchantAcquiringFacility
+        summary: UpCR Update details of the merchant acquiring facility
+        description: UpCR Update details of the merchant acquiring facility
+        operationId: MerchantAcquiringFacility/Update
+        parameters:
+           - $ref: '#/components/parameters/merchantacquiringfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateMerchantAcquiringFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/MerchantAcquiringFacility/{merchantacquiringfacilityid}/Retrieve':
+      get:
+        tags:
+           - CR - MerchantAcquiringFacility
+        summary: ReCR Retrieve details about a merchant facility
+        description: ReCR Retrieve details about a merchant facility
+        operationId: MerchantAcquiringFacility/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/merchantacquiringfacilityid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveMerchantAcquiringFacilityResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/MerchantAccount/{merchantaccountid}/Retrieve':
+      get:
+        tags:
+           - BQ - MerchantAccount
+        summary: ReBQ Retrieve accounting details for the merchant account
+        description: ReBQ Retrieve accounting details for the merchant account
+        operationId: MerchantAccount/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/merchantaccountid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveMerchantAccountResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Clearing/{clearingid}/Update':
+      put:
+        tags:
+           - BQ - Clearing
+        summary: UpBQ Update a clearing transaction booked against the account
+        description: UpBQ Update a clearing transaction booked against the account
+        operationId: Clearing/Update
+        parameters:
+           - $ref: '#/components/parameters/clearingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateClearingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Clearing/{clearingid}/Execute':
+      put:
+        tags:
+           - BQ - Clearing
+        summary: ExBQ Execute a clearing transaction against the account
+        description: ExBQ Execute a clearing transaction against the account
+        operationId: Clearing/Execute
+        parameters:
+           - $ref: '#/components/parameters/clearingid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteClearingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Clearing/{clearingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Clearing
+        summary: ReBQ Retrieve details about a clearing transaction
+        description: ReBQ Retrieve details about a clearing transaction
+        operationId: Clearing/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/clearingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveClearingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Chargeback/{chargebackid}/Update':
+      put:
+        tags:
+           - BQ - Chargeback
+        summary: UpBQ Update a chargeback transaction booked against the account
+        description: UpBQ Update a chargeback transaction booked against the account
+        operationId: Chargeback/Update
+        parameters:
+           - $ref: '#/components/parameters/chargebackid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateChargebackRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Chargeback/{chargebackid}/Execute':
+      put:
+        tags:
+           - BQ - Chargeback
+        summary: ExBQ Execute a chargeback transaction against the account
+        description: ExBQ Execute a chargeback transaction against the account
+        operationId: Chargeback/Execute
+        parameters:
+           - $ref: '#/components/parameters/chargebackid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteChargebackRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Chargeback/{chargebackid}/Retrieve':
+      get:
+        tags:
+           - BQ - Chargeback
+        summary: ReBQ Retrieve details about a chargeback transaction
+        description: ReBQ Retrieve details about a chargeback transaction
+        operationId: Chargeback/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/chargebackid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveChargebackResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Settlement/{settlementid}/Update':
+      put:
+        tags:
+           - BQ - Settlement
+        summary: UpBQ Update a settlement transaction booked against the account
+        description: UpBQ Update a settlement transaction booked against the account
+        operationId: Settlement/Update
+        parameters:
+           - $ref: '#/components/parameters/settlementid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateSettlementRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Settlement/{settlementid}/Execute':
+      put:
+        tags:
+           - BQ - Settlement
+        summary: ExBQ Execute a settlement transaction against the account
+        description: ExBQ Execute a settlement transaction against the account
+        operationId: Settlement/Execute
+        parameters:
+           - $ref: '#/components/parameters/settlementid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteSettlementRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Settlement/{settlementid}/Retrieve':
+      get:
+        tags:
+           - BQ - Settlement
+        summary: ReBQ Retrieve details about a settlement transaction
+        description: ReBQ Retrieve details about a settlement transaction
+        operationId: Settlement/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/settlementid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveSettlementResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ServiceFees/{servicefeesid}/Update':
+      put:
+        tags:
+           - BQ - ServiceFees
+        summary: UpBQ Update a fee or penalty transaction booked against the account
+        description: UpBQ Update a fee or penalty transaction booked against the account
+        operationId: ServiceFees/Update
+        parameters:
+           - $ref: '#/components/parameters/servicefeesid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateServiceFeesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ServiceFees/{servicefeesid}/Execute':
+      put:
+        tags:
+           - BQ - ServiceFees
+        summary: Execute Apply Service Fee
+        description: Execute Apply Service Fee
+        operationId: ServiceFees/Execute
+        parameters:
+           - $ref: '#/components/parameters/servicefeesid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteServiceFeesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ServiceFees/{servicefeesid}/Retrieve':
+      get:
+        tags:
+           - BQ - ServiceFees
+        summary: ReBQ Retrieve details about a fee or penalty charge
+        description: ReBQ Retrieve details about a fee or penalty charge
+        operationId: ServiceFees/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/servicefeesid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveServiceFeesResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateMerchantAcquiringFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+              description: "\r\n"
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+     Involvedparty:
+        type: object
+        description: "\r\n - "
+        properties:
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyInvolvement:
+              $ref: '#/components/schemas/Partyrole'
+              description: ''
+     Party:
+        type: object
+        description: ' '
+        properties:
+           PartyName:
+              $ref: '#/components/schemas/Name'
+              description: >-
+                Name by which a party is known and which is usually used to
+                identify that party. (ISO20022)
+           PartyType:
+              enum:
+                   -  Person
+                   -  Organisation
+              type: string
+              description: ">-\r\n* `Person` \r\n* `Organisation` \r\n* "
+           PartyDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           PartyIdentification:
+              $ref: '#/components/schemas/Partyidentification'
+              description: ''
+           PartyLegalStructureType:
+              enum:
+                   -  Individual
+                   -  CommunityInterestCompany
+                   -  CoOperative
+                   -  Charity
+                   -  GeneralPartnership
+                   -  LimitedLiabilityPartnership
+                   -  ScottishLimitedPartnership
+                   -  LimitedPartnership
+                   -  PrivateLimitedCompany
+                   -  PublicLimitedCompany
+                   -  Sole(SoleTrader)
+              type: string
+              description: ">-\r\n* `Individual` \r\n* `CommunityInterestCompany` \r\n* `CoOperative` \r\n* `Charity` \r\n* `GeneralPartnership` \r\n* `LimitedLiabilityPartnership` \r\n* `ScottishLimitedPartnership` \r\n* `LimitedPartnership` \r\n* `PrivateLimitedCompany` \r\n* `PublicLimitedCompany` \r\n* `SoleSoleTrader` \r\n* "
+     Name:
+        type: object
+        description: >-
+          Name by which a party is known and which is usually used to identify
+          that party. (ISO20022)
+           
+        properties:
+           Name:
+              type: string
+              description: >-
+                A name is a word or phrase that constitutes the distinctive
+                designation of a person, place, thing or concept. (UN/CEFAT)
+              format: DataType
+     Datetime:
+        type: object
+        description: ' '
+        properties:
+           DateTimeContent:
+              type: string
+              description: ''
+              format: String
+           TimeZoneCode:
+              type: string
+              description: ''
+              format: String
+           DaylightSavingIndicator:
+              type: string
+              description: ''
+              format: String
+           Datetime:
+              type: string
+              description: >-
+                A date time identifies a date and time of day to various common
+                resolutions: year, month, week, day, hour, minute, second, and
+                fraction of second. (UN/CEFACT)
+
+
+                A particular point in the progression of time defined by a
+                mandatory date and a mandatory time component, expressed in
+                either UTC time format (YYYYMMDDThh:mm:ss.sssZ), local time
+                with UTC offset format (YYYYMMDDThh:mm:ss.sss/hh:mm), or
+                local time format (YYYYMMDDThh:mm:ss.sss). These
+                representations are defined in "XML Schema Part 2: Datatypes
+                Second Edition  W3C Recommendation 28 October 2004" which is
+                aligned with ISO 8601. (ISO20022)
+
+                Note on the time format:
+
+                1) beginning / end of calendar day
+
+                00:00:00  -  the beginning of a calendar day
+
+                24:00:00  -  the end of a calendar day
+
+                2) fractions of second in time format
+
+                Decimal fractions of seconds may be included. In this case, the
+                involved parties shall agree on the maximum number of digits
+                that are allowed.
+              format: DataType
+     Partyidentification:
+        type: object
+        description: ' '
+        properties:
+           PartyIdentificationType:
+              enum:
+                   -  Taxidentificationnumber
+                   -  Nationalregistrationnumber
+                   -  LEI(LegalEntityIdentifier)
+                   -  Alienregistrationnumber
+                   -  Passportnumber
+                   -  Corporateidentification
+                   -  Driverlicensenumber
+                   -  Socialsecuritynumber
+                   -  Identitycardnumber
+                   -  Concat
+              type: string
+              description: ">-\r\n* `Taxidentificationnumber` \r\n* `Nationalregistrationnumber` \r\n* `LEILegalEntityIdentifier` \r\n* `Alienregistrationnumber` \r\n* `Passportnumber` \r\n* `Corporateidentification` \r\n* `Driverlicensenumber` \r\n* `Socialsecuritynumber` \r\n* `Identitycardnumber` \r\n* `Concat` \r\n* "
+           PartyIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           Partyidentification:
+              type: string
+              description: ''
+              format: DataType
+     Identifier:
+        type: object
+        description: ' '
+        properties:
+           IdentifierValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           IdentifierIssuingAuthority:
+              $ref: '#/components/schemas/Involvedparty'
+              description: Entity that assigns and manages the identification.
+           IdentifierStartDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           IdentifierEndDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           Identifier:
+              type: string
+              description: >-
+                An identifier is a character string used to uniquely identify
+                one instance of an object within an identification scheme that
+                is managed by an agency. (UN/CEFAT)
+              format: DataType
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Partyrole:
+        type: object
+        description: ' '
+        properties:
+           PartyRoleType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           PartyRoleName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           PartyRoleValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           PartyInvolvementType:
+              enum:
+                   -  Agreementinvolvement
+                   -  Partyinvolvement
+                   -  Arrangementinvolvement
+                   -  Relationshipinvolvement
+                   -  Locationinvolvement
+                   -  Bankguaranteeinvolvement
+              type: string
+              description: ">-\r\n* `Agreementinvolvement` \r\n* `Partyinvolvement` \r\n* `Arrangementinvolvement` \r\n* `Relationshipinvolvement` \r\n* `Locationinvolvement` \r\n* `Bankguaranteeinvolvement` \r\n* "
+     Text:
+        type: object
+        description: ' '
+        properties:
+           Text:
+              type: string
+              description: >-
+                Text is a character string such as a finite set of characters
+                generally in the form of words of a language. (UN/CEFACT)
+              format: DataType
+     Datetimeperiod:
+        type: object
+        description: ' '
+        properties:
+           FromDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range starts. (ISO20022)
+           ToDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range ends. (ISO20022)
+           Datetimeperiod:
+              type: string
+              description: >-
+                Time span defined by a start date and time, and an end date and
+                time. (ISO20022)
+              format: DataType
+     Branch:
+        type: object
+        description: "\r\n - "
+        properties:
+           BranchIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: >-
+                Unique and unambiguous identification of a branch of a financial
+                institution (ISO20022)
+           BranchLegalEntityIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: >-
+                Legal entity identification for the branch of the financial
+                institution. (ISO20022)
+           BranchAddress:
+              $ref: '#/components/schemas/Address'
+              description: ''
+           BranchName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+     Address:
+        type: object
+        description: ' '
+        properties:
+           AddressType:
+              enum:
+                   -  PostalAddress
+                   -  GeolocationAddress
+                   -  LatitudeAddress
+                   -  LongitudeAddress
+                   -  ElectronicAddress
+              type: string
+              description: ">-\r\n* `PostalAddress` \r\n* `GeolocationAddress` \r\n* `LatitudeAddress` \r\n* `LongitudeAddress` \r\n* `ElectronicAddress` \r\n* "
+           LocationReference:
+              $ref: '#/components/schemas/Location'
+              description: ''
+           Address:
+              type: string
+              description: >-
+                A specific designation or description of a location, typically
+                used for specifying the location or destination of something or
+                someone
+              format: Class
+     Location:
+        type: object
+        description: ' '
+        properties:
+           LocationDescription:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                A description of the property, particularly if it has landmark
+                characteristics.
+           LocationDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: >-
+                Key dates associated with the directory entry (e.g. open date,
+                refresh date).
+           LocationStatus:
+              $ref: '#/components/schemas/Status'
+              description: >-
+                The tracked status (e.g. under construction or repair,
+                inhabited, vacant).
+           LocationType:
+              enum:
+                   -  Continent
+                   -  Country
+                   -  State
+                   -  District
+                   -  Province
+                   -  Town
+                   -  City
+                   -  Region
+              type: string
+              description: ">-\r\n* `Continent` \r\n* `Country` \r\n* `State` \r\n* `District` \r\n* `Province` \r\n* `Town` \r\n* `City` \r\n* `Region` \r\n* "
+           LocationZoningType:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                The planning or zoning status (e.g. residential, commercial,
+                industrial).
+           LocationNeighborhoodType:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                The general purpose and neighborhood of the property  (e.g.
+                residential, industrial, commercial).
+           LocationConstructionType:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                The construction approach for a property at the location (e.g.
+                era and architecture as might be used in valuation).
+           LocationOccupancyType:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                The type of occupancy (e.g. residency, business, retail,
+                entertainment).
+           LocationValue:
+              $ref: '#/components/schemas/Value'
+              description: >-
+                The estimated (book) value of the property at the location 
+                rental and purchase as appropriate.
+           LocationCapacity:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                An indication of the size or scale of the property where
+                appropriate (e.g. 4 bedroom, 600 seat auditorium, 40 cover
+                restaurant).
+           LocationIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           LocationAddress:
+              $ref: '#/components/schemas/Address'
+              description: ''
+           LocationName:
+              $ref: '#/components/schemas/Name'
+              description: Name (label) of the location. (ISO20022)
+           LocationTimeZone:
+              $ref: '#/components/schemas/Text'
+              description: Local time zone.
+           Location:
+              type: string
+              description: >-
+                The definition of an addressable space/position both in real and
+                virtual environments with associated uses and entitlements
+              format: Class
+     Status:
+        type: object
+        description: >-
+          The tracked status (e.g. under construction or repair, inhabited,
+          vacant). 
+        properties:
+           StatusReason:
+              $ref: '#/components/schemas/Text'
+              description: Specifies the reasons for the status.
+           StatusDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the status was assigned.
+           StatusValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: Period of time during which the status is valid.
+           StatusInvolvedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: >-
+                Party who plays a  specific role in the context of assigning a
+                status.
+           Status:
+              type: string
+              description: >-
+                A characteristic that describe the object by referring to a
+                state transition in its lifecycle.
+              format: DataType
+     Currencycode:
+        type: object
+        description: ' CurrencyCode|CurrencyCode (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022 BM ()'
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     InitiateMerchantAcquiringFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+     MerchantAgreement:
+        type: object
+        description: "\r\n - "
+        properties:
+           MerchantAgreement:
+              type: string
+              description: >-
+                An agreement between Acquiring Bank and Merchant for handling
+                the Merchant Account and the specific terms and conditions for
+                the merchant. 
+
+
+                A written contract between a merchant and an acquirer to honor
+                or accept credit cards, or to transmit or process for payment
+                credit card payments, for the purchase of goods or services or a
+                charitable contribution. (Law and Legal Definition)
+
+              format: Class
+     InitiateMerchantAcquiringFacility:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     UpdateMerchantAcquiringFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+              description: "\r\n"
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+              description: "\r\n"
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateMerchantAcquiringFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateMerchantAcquiringFacility:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     RetrieveMerchantAcquiringFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveMerchantAcquiringFacility:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     RetrieveMerchantAccountResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+     Amount:
+        type: object
+        description: ' CurrencyAndAmount|CurrencyAndAmount (https://www.iso20022.org/standardsrepository/type/CurrencyAndAmount)|Standard|ISO20022  ()'
+        properties:
+           AmountValue:
+              $ref: '#/components/schemas/Value'
+           AmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DecimalPointPosition:
+              type: string
+              description: |
+                Decimal point position starts calulating from the right
+              format: String
+           AmountType:
+              enum:
+                   -  Principal
+                   -  Actual
+                   -  Estimated
+                   -  Maximum
+                   -  Default
+                   -  Replacement
+                   -  Incremental
+                   -  Decremental
+                   -  Reserved
+                   -  Available
+                   -  Used
+              type: string
+              description: ">-\r\n* `Principal` \r\n* `Actual` \r\n* `Estimated` \r\n* `Maximum` \r\n* `Default` \r\n* `Replacement` \r\n* `Incremental` \r\n* `Decremental` \r\n* `Reserved` \r\n* `Available` \r\n* `Used` \r\n* "
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     RetrieveMerchantAccount:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     UpdateClearingRequest:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardHolderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           CardTransactionAmountType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           CardTransactionFXConversionCharge:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateClearingResponse:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardHolderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateClearing:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     ExecuteClearingRequest:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           CardTransactionRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardHolderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           CardTransactionAmountType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           CardTransactionFXConversionCharge:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteClearingResponse:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+     ExecuteClearing:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     RetrieveClearingResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardHolderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveClearing:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     UpdateChargebackRequest:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChargebackInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardHolderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           CardTransactionAmountType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           CardTransactionFXConversionCharge:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateChargebackResponse:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChargebackInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardHolderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateChargeback:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     ExecuteChargebackRequest:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           CardTransactionRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChargebackInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardHolderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           CardTransactionAmountType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           CardTransactionFXConversionCharge:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteChargebackResponse:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+     ExecuteChargeback:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     RetrieveChargebackResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChargebackInstruction:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardHolderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuedDeviceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionNetworkReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionIssuingBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionMerchantAcquiringBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CardTransactionAmountType:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionMerchantReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionLocationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardTransactionDateTime:
+              $ref: '#/components/schemas/Date'
+           CardTransactionFXConversionCharge:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionInterchargeFee:
+              type: string
+              description: "\r\n"
+              format: String
+           CardTransactionAuthorizationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveChargeback:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     UpdateSettlementRequest:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ParticipantMerchantAcquirerBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardFinancialSettlementServicePaymentAdviceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ParticipantPaymentTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           ParticipantAcquirerBankSettlementAccountStatement:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSettlementResponse:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ParticipantMerchantAcquirerBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardFinancialSettlementServicePaymentAdviceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ParticipantPaymentTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           ParticipantAcquirerBankSettlementAccountStatement:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSettlement:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     ExecuteSettlementRequest:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           ParticipantMerchantAcquirerBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardFinancialSettlementServicePaymentAdviceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ParticipantPaymentTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           ParticipantAcquirerBankSettlementAccountStatement:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteSettlementResponse:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteSettlement:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     RetrieveSettlementResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ParticipantMerchantAcquirerBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ParticipantIssuerBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CardFinancialSettlementServicePaymentAdviceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ParticipantPaymentTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           ParticipantAcquirerBankSettlementAccountStatement:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveSettlement:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     UpdateServiceFeesRequest:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+           rwc:672722a35aef735a5c5a72e951974b36238464:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238465:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238466:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238467:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238468:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238469:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238470:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238471:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238472:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238473:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238474:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238475:
+              type: string
+              description: "\r\n"
+              format: ''
+     UpdateServiceFeesResponse:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+           rwc:672722a35aef735a5c5a72e951974b36238464:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238465:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238466:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238467:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238468:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238469:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238470:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238471:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238472:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238473:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238474:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238475:
+              type: string
+              description: "\r\n"
+              format: ''
+     UpdateServiceFees:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     ExecuteServiceFeesRequest:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           rwc:672722a35aef735a5c5a72e951974b36238464:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238465:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238467:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238468:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238469:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238470:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238472:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238473:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238474:
+              type: string
+              description: "\r\n"
+              format: ''
+     ExecuteServiceFeesResponse:
+        type: object
+        description: ''
+        properties:
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+           rwc:672722a35aef735a5c5a72e951974b36238464:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238466:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238467:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238468:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238470:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238471:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238472:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238474:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238475:
+              type: string
+              description: "\r\n"
+              format: ''
+     ExecuteServiceFees:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     RetrieveServiceFeesResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAccountPostingTransaction:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           MerchantAcquiringAccountPostingAmount:
+              $ref: '#/components/schemas/Amount'
+           MerchantAcquiringAccountPostingValueDate:
+              $ref: '#/components/schemas/Date'
+           MerchantAcquiringAccountPostingResult:
+              type: string
+              description: "\r\n"
+              format: String
+           rwc:672722a35aef735a5c5a72e951974b36238464:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238465:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238466:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238467:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238468:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238469:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238470:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238471:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238472:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238473:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238474:
+              type: string
+              description: "\r\n"
+              format: ''
+           rwc:672722a35aef735a5c5a72e951974b36238475:
+              type: string
+              description: "\r\n"
+              format: ''
+     RetrieveServiceFees:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              $ref: '#/components/schemas/MerchantAgreement'
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           PartyReference:
+              $ref: '#/components/schemas/Involvedparty'
+           BankBranchLocationReference:
+              $ref: '#/components/schemas/Branch'
+           AccountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TaxReference:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityOperationalTerms:
+              type: string
+              description: Operational terms governing the merchant facility
+              format: String
+           MerchantAcquiringFacilityPositionLimits:
+              type: string
+              description: >-
+                Merchant acquiring facility limits (e.g. spend limits and credit
+                limits for the merchant facility)
+              format: String
+           MerchantPositionLimitType:
+              type: string
+              description: >-
+                The type of position maintained for the account (e.g.
+                transaction credit/debit, netting, position)
+              format: String
+           MerchantPositionLimitSettings:
+              type: string
+              description: The position definition, associated limit settings and rules
+              format: String
+           MerchantPositionLimitValue:
+              type: string
+              description: The savings calculated position
+              format: String
+           MerchantAcquiringFacilityProductID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductName:
+              $ref: '#/components/schemas/Name'
+           MerchantAcquiringFacilityProductMarketingStateID:
+              $ref: '#/components/schemas/Identifier'
+           MerchantAcquiringFacilityProductType:
+              enum:
+                   -  Businesscurrentaccount
+                   -  Commercialcreditcard
+                   -  Other
+                   -  Personalcurrentaccount
+                   -  Smeloan
+              type: string
+              description: ">-\r\n* `Businesscurrentaccount` \r\n* `Commercialcreditcard` \r\n* `Other` \r\n* `Personalcurrentaccount` \r\n* `Smeloan` \r\n* "
+           MerchantAcquiringFacilitySecondaryProductID:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateMerchantAcquiringFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateMerchantAcquiringFacilityRequest'
+        required: true
+     UpdateMerchantAcquiringFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateMerchantAcquiringFacilityRequest'
+        required: true
+     RetrieveMerchantAcquiringFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveMerchantAccountRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateClearingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateClearingRequest'
+        required: true
+     ExecuteClearingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteClearingRequest'
+        required: true
+     RetrieveClearingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateChargebackRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateChargebackRequest'
+        required: true
+     ExecuteChargebackRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteChargebackRequest'
+        required: true
+     RetrieveChargebackRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateSettlementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSettlementRequest'
+        required: true
+     ExecuteSettlementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteSettlementRequest'
+        required: true
+     RetrieveSettlementRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateServiceFeesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateServiceFeesRequest'
+        required: true
+     ExecuteServiceFeesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteServiceFeesRequest'
+        required: true
+     RetrieveServiceFeesRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     merchantacquiringfacilityid:
+        name: merchantacquiringfacilityid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     merchantaccountid:
+        name: merchantaccountid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     clearingid:
+        name: clearingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     chargebackid:
+        name: chargebackid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     settlementid:
+        name: settlementid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     servicefeesid:
+        name: servicefeesid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateMerchantAcquiringFacilityResponse:
+        description: MerchantAcquiringFacilityInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateMerchantAcquiringFacilityResponse'
+     UpdateMerchantAcquiringFacilityResponse:
+        description: MerchantAcquiringFacilityUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateMerchantAcquiringFacilityResponse'
+     RetrieveMerchantAcquiringFacilityResponse:
+        description: MerchantAcquiringFacilityRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveMerchantAcquiringFacilityResponse'
+     RetrieveMerchantAccountResponse:
+        description: MerchantAccountRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveMerchantAccountResponse'
+     UpdateClearingResponse:
+        description: ClearingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateClearingResponse'
+     ExecuteClearingResponse:
+        description: ClearingExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteClearingResponse'
+     RetrieveClearingResponse:
+        description: ClearingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveClearingResponse'
+     UpdateChargebackResponse:
+        description: ChargebackUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateChargebackResponse'
+     ExecuteChargebackResponse:
+        description: ChargebackExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteChargebackResponse'
+     RetrieveChargebackResponse:
+        description: ChargebackRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveChargebackResponse'
+     UpdateSettlementResponse:
+        description: SettlementUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSettlementResponse'
+     ExecuteSettlementResponse:
+        description: SettlementExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteSettlementResponse'
+     RetrieveSettlementResponse:
+        description: SettlementRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveSettlementResponse'
+     UpdateServiceFeesResponse:
+        description: ServiceFeesUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateServiceFeesResponse'
+     ExecuteServiceFeesResponse:
+        description: ServiceFeesExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteServiceFeesResponse'
+     RetrieveServiceFeesResponse:
+        description: ServiceFeesRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveServiceFeesResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

@@ -1,0 +1,1347 @@
+openapi: 3.0.1
+info:
+  title: eBranch Management
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Oversee the configuration and
+    operation of the ebranch channel facilities
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/eBranchManagement
+paths:
+   '/eBranchChannelManagementPlan/{ebranchchannelmanagementplanid}/Create':
+      post:
+        tags:
+           - CR - eBranchChannelManagementPlan
+        summary: CrCR Create the management plan for the eBranch channel
+        description: CrCR Create the management plan for the eBranch channel
+        operationId: eBranchChannelManagementPlan/Create
+        parameters:
+           - $ref: '#/components/parameters/ebranchchannelmanagementplanid'
+        requestBody:
+          $ref: '#/components/requestBodies/CreateeBranchChannelManagementPlanRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/eBranchChannelManagementPlan/{ebranchchannelmanagementplanid}/Retrieve':
+      get:
+        tags:
+           - CR - eBranchChannelManagementPlan
+        summary: ReCR Retrieve details about the eBranch channel management plan
+        description: ReCR Retrieve details about the eBranch channel management plan
+        operationId: eBranchChannelManagementPlan/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/ebranchchannelmanagementplanid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveeBranchChannelManagementPlanResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CapacityPlanning/{capacityplanningid}/Update':
+      put:
+        tags:
+           - BQ - CapacityPlanning
+        summary: UpBQ Update details of the capacity management plan for the channel
+        description: UpBQ Update details of the capacity management plan for the channel
+        operationId: CapacityPlanning/Update
+        parameters:
+           - $ref: '#/components/parameters/capacityplanningid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCapacityPlanningRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CapacityPlanning/{capacityplanningid}/Request':
+      put:
+        tags:
+           - BQ - CapacityPlanning
+        summary: RqBQ Request manual intervention in the capacity plan
+        description: RqBQ Request manual intervention in the capacity plan
+        operationId: CapacityPlanning/Request
+        parameters:
+           - $ref: '#/components/parameters/capacityplanningid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestCapacityPlanningRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CapacityPlanning/{capacityplanningid}/Retrieve':
+      get:
+        tags:
+           - BQ - CapacityPlanning
+        summary: ReBQ Retrieve details about the channel capacity plan
+        description: ReBQ Retrieve details about the channel capacity plan
+        operationId: CapacityPlanning/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/capacityplanningid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCapacityPlanningResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/MaintenanceAndUpgrades/{maintenanceandupgradesid}/Create':
+      post:
+        tags:
+           - BQ - MaintenanceAndUpgrades
+        summary: CrBQ Create a maintenance or upgrade task plan item for the channel
+        description: CrBQ Create a maintenance or upgrade task plan item for the channel
+        operationId: MaintenanceAndUpgrades/Create
+        parameters:
+           - $ref: '#/components/parameters/maintenanceandupgradesid'
+        requestBody:
+          $ref: '#/components/requestBodies/CreateMaintenanceAndUpgradesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/MaintenanceAndUpgrades/{maintenanceandupgradesid}/Update':
+      put:
+        tags:
+           - BQ - MaintenanceAndUpgrades
+        summary: UpBQ Update details of a maintenance or upgrade management plan item
+        description: UpBQ Update details of a maintenance or upgrade management plan item
+        operationId: MaintenanceAndUpgrades/Update
+        parameters:
+           - $ref: '#/components/parameters/maintenanceandupgradesid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateMaintenanceAndUpgradesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/MaintenanceAndUpgrades/{maintenanceandupgradesid}/Request':
+      put:
+        tags:
+           - BQ - MaintenanceAndUpgrades
+        summary: RqBQ Request manual intervention to a maintenance or upgrade action
+        description: RqBQ Request manual intervention to a maintenance or upgrade action
+        operationId: MaintenanceAndUpgrades/Request
+        parameters:
+           - $ref: '#/components/parameters/maintenanceandupgradesid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestMaintenanceAndUpgradesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/MaintenanceAndUpgrades/{maintenanceandupgradesid}/Retrieve':
+      get:
+        tags:
+           - BQ - MaintenanceAndUpgrades
+        summary: ReBQ Retrieve details about a maintenance or upgrade management plan
+        description: ReBQ Retrieve details about a maintenance or upgrade management plan
+        operationId: MaintenanceAndUpgrades/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/maintenanceandupgradesid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveMaintenanceAndUpgradesResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Troubleshooting/{troubleshootingid}/Update':
+      put:
+        tags:
+           - BQ - Troubleshooting
+        summary: >-
+          UpBQ Update details of a production issue, root cause or remedial
+          action recommendation
+        description: >-
+          UpBQ Update details of a production issue, root cause or remedial
+          action recommendation
+        operationId: Troubleshooting/Update
+        parameters:
+           - $ref: '#/components/parameters/troubleshootingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateTroubleshootingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Troubleshooting/{troubleshootingid}/Request':
+      put:
+        tags:
+           - BQ - Troubleshooting
+        summary: RqBQ Request manual intervention in troubleshooting tasks
+        description: RqBQ Request manual intervention in troubleshooting tasks
+        operationId: Troubleshooting/Request
+        parameters:
+           - $ref: '#/components/parameters/troubleshootingid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestTroubleshootingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Troubleshooting/{troubleshootingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Troubleshooting
+        summary: >-
+          ReBQ Retrieve details about troubleshooting tasks, root cause and
+          proposed remedial actions
+        description: >-
+          ReBQ Retrieve details about troubleshooting tasks, root cause and
+          proposed remedial actions
+        operationId: Troubleshooting/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/troubleshootingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveTroubleshootingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     CreateeBranchChannelManagementPlanRequest:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     CreateeBranchChannelManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     CreateeBranchChannelManagementPlan:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     RetrieveeBranchChannelManagementPlanResponse:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveeBranchChannelManagementPlan:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     UpdateCapacityPlanningRequest:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelPlatformUtilization:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelLoadingProjections:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCapacityPlanningResponse:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelPlatformUtilization:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelLoadingProjections:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCapacityPlanning:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     RequestCapacityPlanningRequest:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelPlatformUtilization:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelLoadingProjections:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestCapacityPlanningResponse:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelPlatformUtilization:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelLoadingProjections:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestCapacityPlanning:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     RetrieveCapacityPlanningResponse:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelPlatformUtilization:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelLoadingProjections:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCapacityPlanning:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     CreateMaintenanceAndUpgradesRequest:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     CreateMaintenanceAndUpgradesResponse:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     CreateMaintenanceAndUpgrades:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     UpdateMaintenanceAndUpgradesRequest:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelMaintenanceandUpgradeSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     UpdateMaintenanceAndUpgradesResponse:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelMaintenanceandUpgradeSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     UpdateMaintenanceAndUpgrades:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     RequestMaintenanceAndUpgradesRequest:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelMaintenanceandUpgradeSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     RequestMaintenanceAndUpgradesResponse:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelMaintenanceandUpgradeSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     RequestMaintenanceAndUpgrades:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     RetrieveMaintenanceAndUpgradesResponse:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelMaintenanceandUpgradeSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelMaintenanceandUpgradeWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     RetrieveMaintenanceAndUpgrades:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     UpdateTroubleshootingRequest:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelProductionIssueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateTroubleshootingResponse:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelProductionIssueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateTroubleshooting:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     RequestTroubleshootingRequest:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelProductionIssueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestTroubleshootingResponse:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelProductionIssueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestTroubleshooting:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     RetrieveTroubleshootingResponse:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelProductionIssueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           eBranchChannelIssueAnalysisAndRecommendedResponse:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveTroubleshooting:
+        type: object
+        description: ''
+        properties:
+           eBranchChannelManagementPlanPeriod:
+              type: string
+              description: The time period addressed by the management plan
+              format: String
+           eBranchChannelUsagePoliciesAndGuidelines:
+              type: string
+              description: The channel policies and guidelines for service users
+              format: String
+           eBranchChannelServiceOperatingParameters:
+              type: string
+              description: >-
+                The default channel service configuration (Note this can be
+                updated during operations with service calls to the channel
+                operations service domain)
+              format: String
+           eBranchChannelServicePerformanceGoals:
+              type: string
+              description: >-
+                The target and actual service performance goals that are tracked
+                by channel management
+              format: String
+           eBranchChannelServiceSchedule:
+              type: string
+              description: >-
+                The target and actual channel service schedule  recording
+                planned and actual service availability and outages (includes
+                any partial service access constraints or restrictions for a
+                24/7 service)
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     CreateeBranchChannelManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateeBranchChannelManagementPlanRequest'
+        required: true
+     RetrieveeBranchChannelManagementPlanRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateCapacityPlanningRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCapacityPlanningRequest'
+        required: true
+     RequestCapacityPlanningRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCapacityPlanningRequest'
+        required: true
+     RetrieveCapacityPlanningRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     CreateMaintenanceAndUpgradesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateMaintenanceAndUpgradesRequest'
+        required: true
+     UpdateMaintenanceAndUpgradesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateMaintenanceAndUpgradesRequest'
+        required: true
+     RequestMaintenanceAndUpgradesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestMaintenanceAndUpgradesRequest'
+        required: true
+     RetrieveMaintenanceAndUpgradesRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateTroubleshootingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTroubleshootingRequest'
+        required: true
+     RequestTroubleshootingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestTroubleshootingRequest'
+        required: true
+     RetrieveTroubleshootingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     ebranchchannelmanagementplanid:
+        name: ebranchchannelmanagementplanid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     capacityplanningid:
+        name: capacityplanningid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     maintenanceandupgradesid:
+        name: maintenanceandupgradesid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     troubleshootingid:
+        name: troubleshootingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     CreateeBranchChannelManagementPlanResponse:
+        description: eBranchChannelManagementPlanCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateeBranchChannelManagementPlanResponse'
+     RetrieveeBranchChannelManagementPlanResponse:
+        description: eBranchChannelManagementPlanRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveeBranchChannelManagementPlanResponse
+     UpdateCapacityPlanningResponse:
+        description: CapacityPlanningUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCapacityPlanningResponse'
+     RequestCapacityPlanningResponse:
+        description: CapacityPlanningRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCapacityPlanningResponse'
+     RetrieveCapacityPlanningResponse:
+        description: CapacityPlanningRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCapacityPlanningResponse'
+     CreateMaintenanceAndUpgradesResponse:
+        description: MaintenanceAndUpgradesCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateMaintenanceAndUpgradesResponse'
+     UpdateMaintenanceAndUpgradesResponse:
+        description: MaintenanceAndUpgradesUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateMaintenanceAndUpgradesResponse'
+     RequestMaintenanceAndUpgradesResponse:
+        description: MaintenanceAndUpgradesRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestMaintenanceAndUpgradesResponse'
+     RetrieveMaintenanceAndUpgradesResponse:
+        description: MaintenanceAndUpgradesRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveMaintenanceAndUpgradesResponse'
+     UpdateTroubleshootingResponse:
+        description: TroubleshootingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTroubleshootingResponse'
+     RequestTroubleshootingResponse:
+        description: TroubleshootingRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestTroubleshootingResponse'
+     RetrieveTroubleshootingResponse:
+        description: TroubleshootingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveTroubleshootingResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

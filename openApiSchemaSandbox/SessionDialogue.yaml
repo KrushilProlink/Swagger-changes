@@ -1,0 +1,5071 @@
+openapi: 3.0.1
+info:
+  title: Session Dialogue
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain
+    handles/structures the customer narrative during an interactive session. It
+    consolidates and presents pertinent customer information and provides
+    servicing guidelines with standard dialogue/scripting as appropriate. It can
+    include the capability to provoke questions to capture key relationship and
+    sales triggers. It also ensures the correct sequencing, dialogue content and
+    actions are performed/initiated during the customer interaction. It may
+    further leverage the session by passing on customer notifications, status
+    updates and triggering sales/marketing efforts.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/SessionDialogue
+paths:
+   '/CustomerContactSessionProcedure/{customercontactsessionprocedureid}/Initiate':
+      post:
+        tags:
+           - CR - CustomerContactSessionProcedure
+        summary: InCR Initiate a customer dialogue
+        description: InCR Initiate a customer dialogue
+        operationId: CustomerContactSessionProcedure/Initiate
+        parameters:
+           - $ref: '#/components/parameters/customercontactsessionprocedureid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/InitiateCustomerContactSessionProcedureRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerContactSessionProcedure/{customercontactsessionprocedureid}/Update':
+      put:
+        tags:
+           - CR - CustomerContactSessionProcedure
+        summary: UpCR Update details of a customer dialogue
+        description: UpCR Update details of a customer dialogue
+        operationId: CustomerContactSessionProcedure/Update
+        parameters:
+           - $ref: '#/components/parameters/customercontactsessionprocedureid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateCustomerContactSessionProcedureRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerContactSessionProcedure/{customercontactsessionprocedureid}/Execute':
+      put:
+        tags:
+           - CR - CustomerContactSessionProcedure
+        summary: ExCR Execute an automated task (e.g. self service offer process)
+        description: ExCR Execute an automated task (e.g. self service offer process)
+        operationId: CustomerContactSessionProcedure/Execute
+        parameters:
+           - $ref: '#/components/parameters/customercontactsessionprocedureid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExecuteCustomerContactSessionProcedureRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerContactSessionProcedure/{customercontactsessionprocedureid}/Request':
+      put:
+        tags:
+           - CR - CustomerContactSessionProcedure
+        summary: RqCR Request manual intervention (e.g. request servicing support)
+        description: RqCR Request manual intervention (e.g. request servicing support)
+        operationId: CustomerContactSessionProcedure/Request
+        parameters:
+           - $ref: '#/components/parameters/customercontactsessionprocedureid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestCustomerContactSessionProcedureRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerContactSessionProcedure/{customercontactsessionprocedureid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerContactSessionProcedure
+        summary: ReCR Retrieve details about a customer dialogue
+        description: ReCR Retrieve details about a customer dialogue
+        operationId: CustomerContactSessionProcedure/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customercontactsessionprocedureid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveCustomerContactSessionProcedureResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Query/{queryid}/Initiate':
+      post:
+        tags:
+           - BQ - Query
+        summary: InBQ Initiate customer query handling
+        description: InBQ Initiate customer query handling
+        operationId: Query/Initiate
+        parameters:
+           - $ref: '#/components/parameters/queryid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateQueryRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Query/{queryid}/Update':
+      put:
+        tags:
+           - BQ - Query
+        summary: UpBQ Update details for query handling
+        description: UpBQ Update details for query handling
+        operationId: Query/Update
+        parameters:
+           - $ref: '#/components/parameters/queryid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateQueryRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Query/{queryid}/Retrieve':
+      get:
+        tags:
+           - BQ - Query
+        summary: ReBQ Retrieve details about query handling
+        description: ReBQ Retrieve details about query handling
+        operationId: Query/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/queryid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveQueryResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Authentication/{authenticationid}/Update':
+      put:
+        tags:
+           - BQ - Authentication
+        summary: UpBQ Update details for authentication processing
+        description: UpBQ Update details for authentication processing
+        operationId: Authentication/Update
+        parameters:
+           - $ref: '#/components/parameters/authenticationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateAuthenticationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Authentication/{authenticationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Authentication
+        summary: ReBQ Retrieve details about authentication processing
+        description: ReBQ Retrieve details about authentication processing
+        operationId: Authentication/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/authenticationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAuthenticationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Sales/{salesid}/Initiate':
+      post:
+        tags:
+           - BQ - Sales
+        summary: InBQ Initiate customer sales handling
+        description: InBQ Initiate customer sales handling
+        operationId: Sales/Initiate
+        parameters:
+           - $ref: '#/components/parameters/salesid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateSalesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Sales/{salesid}/Update':
+      put:
+        tags:
+           - BQ - Sales
+        summary: UpBQ Update details for sales handling
+        description: UpBQ Update details for sales handling
+        operationId: Sales/Update
+        parameters:
+           - $ref: '#/components/parameters/salesid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateSalesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Sales/{salesid}/Retrieve':
+      get:
+        tags:
+           - BQ - Sales
+        summary: ReBQ Retrieve details about sales handling
+        description: ReBQ Retrieve details about sales handling
+        operationId: Sales/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/salesid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveSalesResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Offer/{offerid}/Initiate':
+      post:
+        tags:
+           - BQ - Offer
+        summary: InBQ Initiate customer offer handling
+        description: InBQ Initiate customer offer handling
+        operationId: Offer/Initiate
+        parameters:
+           - $ref: '#/components/parameters/offerid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateOfferRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Offer/{offerid}/Update':
+      put:
+        tags:
+           - BQ - Offer
+        summary: UpBQ Update details for offer handling
+        description: UpBQ Update details for offer handling
+        operationId: Offer/Update
+        parameters:
+           - $ref: '#/components/parameters/offerid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateOfferRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Offer/{offerid}/Retrieve':
+      get:
+        tags:
+           - BQ - Offer
+        summary: ReBQ Retrieve details about offer handling
+        description: ReBQ Retrieve details about offer handling
+        operationId: Offer/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/offerid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveOfferResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductorService/{productorserviceid}/Initiate':
+      post:
+        tags:
+           - BQ - ProductorService
+        summary: InBQ Initiate customer product/service handling
+        description: InBQ Initiate customer product/service handling
+        operationId: ProductorService/Initiate
+        parameters:
+           - $ref: '#/components/parameters/productorserviceid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateProductorServiceRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductorService/{productorserviceid}/Update':
+      put:
+        tags:
+           - BQ - ProductorService
+        summary: UpBQ Update details for product/service handling
+        description: UpBQ Update details for product/service handling
+        operationId: ProductorService/Update
+        parameters:
+           - $ref: '#/components/parameters/productorserviceid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateProductorServiceRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductorService/{productorserviceid}/Retrieve':
+      get:
+        tags:
+           - BQ - ProductorService
+        summary: ReBQ Retrieve details about product/service handling
+        description: ReBQ Retrieve details about product/service handling
+        operationId: ProductorService/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/productorserviceid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveProductorServiceResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Case/{caseid}/Initiate':
+      post:
+        tags:
+           - BQ - Case
+        summary: InBQ Initiate customer case handling
+        description: InBQ Initiate customer case handling
+        operationId: Case/Initiate
+        parameters:
+           - $ref: '#/components/parameters/caseid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateCaseRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Case/{caseid}/Update':
+      put:
+        tags:
+           - BQ - Case
+        summary: UpBQ Update details for case handling
+        description: UpBQ Update details for case handling
+        operationId: Case/Update
+        parameters:
+           - $ref: '#/components/parameters/caseid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCaseRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Case/{caseid}/Retrieve':
+      get:
+        tags:
+           - BQ - Case
+        summary: ReBQ Retrieve details about case handling
+        description: ReBQ Retrieve details about case handling
+        operationId: Case/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/caseid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCaseResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Order/{orderid}/Initiate':
+      post:
+        tags:
+           - BQ - Order
+        summary: InBQ Initiate customer order handling
+        description: InBQ Initiate customer order handling
+        operationId: Order/Initiate
+        parameters:
+           - $ref: '#/components/parameters/orderid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateOrderRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Order/{orderid}/Update':
+      put:
+        tags:
+           - BQ - Order
+        summary: UpBQ Update details for order handling
+        description: UpBQ Update details for order handling
+        operationId: Order/Update
+        parameters:
+           - $ref: '#/components/parameters/orderid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateOrderRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Order/{orderid}/Retrieve':
+      get:
+        tags:
+           - BQ - Order
+        summary: ReBQ Retrieve details about order handling
+        description: ReBQ Retrieve details about order handling
+        operationId: Order/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/orderid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveOrderResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Intelligence/{intelligenceid}/Initiate':
+      post:
+        tags:
+           - BQ - Intelligence
+        summary: InBQ Initiate customer insight capture
+        description: InBQ Initiate customer insight capture
+        operationId: Intelligence/Initiate
+        parameters:
+           - $ref: '#/components/parameters/intelligenceid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateIntelligenceRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Intelligence/{intelligenceid}/Update':
+      put:
+        tags:
+           - BQ - Intelligence
+        summary: UpBQ Update details for customer insight capture
+        description: UpBQ Update details for customer insight capture
+        operationId: Intelligence/Update
+        parameters:
+           - $ref: '#/components/parameters/intelligenceid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateIntelligenceRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Intelligence/{intelligenceid}/Retrieve':
+      get:
+        tags:
+           - BQ - Intelligence
+        summary: ReBQ Retrieve details about customer insight capture
+        description: ReBQ Retrieve details about customer insight capture
+        operationId: Intelligence/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/intelligenceid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveIntelligenceResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/History/{historyid}/Update':
+      put:
+        tags:
+           - BQ - History
+        summary: UpBQ Update details for customer history recording
+        description: UpBQ Update details for customer history recording
+        operationId: History/Update
+        parameters:
+           - $ref: '#/components/parameters/historyid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateHistoryRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/History/{historyid}/Retrieve':
+      get:
+        tags:
+           - BQ - History
+        summary: ReBQ Retrieve details about customer history recording
+        description: ReBQ Retrieve details about customer history recording
+        operationId: History/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/historyid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveHistoryResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateCustomerContactSessionProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCustomerContactSessionProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCustomerContactSessionProcedure:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     UpdateCustomerContactSessionProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCustomerContactSessionProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCustomerContactSessionProcedure:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     ExecuteCustomerContactSessionProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteCustomerContactSessionProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteCustomerContactSessionProcedure:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     RequestCustomerContactSessionProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestCustomerContactSessionProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestCustomerContactSessionProcedure:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     RetrieveCustomerContactSessionProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCustomerContactSessionProcedure:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     InitiateQueryRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           QueryType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateQueryResponse:
+        type: object
+        description: ''
+        properties:
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           QueryTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateQuery:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     UpdateQueryRequest:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           QueryType:
+              type: string
+              description: "\r\n"
+              format: String
+           QueryTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateQueryResponse:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           QueryType:
+              type: string
+              description: "\r\n"
+              format: String
+           QueryTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateQuery:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     RetrieveQueryResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           QueryType:
+              type: string
+              description: "\r\n"
+              format: String
+           QueryTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveQuery:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     UpdateAuthenticationRequest:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           RequiredAuthenticationLevel:
+              type: string
+              description: "\r\n"
+              format: String
+           AuthenticationTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateAuthenticationResponse:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           RequiredAuthenticationLevel:
+              type: string
+              description: "\r\n"
+              format: String
+           AuthenticationTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateAuthentication:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     RetrieveAuthenticationResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           RequiredAuthenticationLevel:
+              type: string
+              description: "\r\n"
+              format: String
+           AuthenticationTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveAuthentication:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     InitiateSalesRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceProperties:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateSalesResponse:
+        type: object
+        description: ''
+        properties:
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           SalesTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateSales:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     UpdateSalesRequest:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceProperties:
+              type: string
+              description: "\r\n"
+              format: String
+           SalesTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSalesResponse:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceProperties:
+              type: string
+              description: "\r\n"
+              format: String
+           SalesTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSales:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     RetrieveSalesResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceProperties:
+              type: string
+              description: "\r\n"
+              format: String
+           SalesTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveSales:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     InitiateOfferRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateOfferResponse:
+        type: object
+        description: ''
+        properties:
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           OfferTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateOffer:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     UpdateOfferRequest:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           OfferTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateOfferResponse:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           OfferTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateOffer:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     RetrieveOfferResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           OfferTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveOffer:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     InitiateProductorServiceRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     InitiateProductorServiceResponse:
+        type: object
+        description: ''
+        properties:
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateProductorService:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     UpdateProductorServiceRequest:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateProductorServiceResponse:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateProductorService:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     RetrieveProductorServiceResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveProductorService:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     InitiateCaseRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCaseResponse:
+        type: object
+        description: ''
+        properties:
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCase:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     UpdateCaseRequest:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCaseResponse:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCase:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     RetrieveCaseResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCase:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     InitiateOrderRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateOrderResponse:
+        type: object
+        description: ''
+        properties:
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderTaskWorkResult:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateOrder:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     UpdateOrderRequest:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderTaskWorkResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateOrderResponse:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderTaskWorkResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateOrder:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     RetrieveOrderResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderType:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderTaskRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           OrderTaskWorkResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveOrder:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     InitiateIntelligenceRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           BQIntelligenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerInsightType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateIntelligenceResponse:
+        type: object
+        description: ''
+        properties:
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           BQIntelligenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerInsightType:
+              type: string
+              description: "\r\n"
+              format: String
+           InsightTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateIntelligence:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     UpdateIntelligenceRequest:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           BQIntelligenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerInsightType:
+              type: string
+              description: "\r\n"
+              format: String
+           InsightTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateIntelligenceResponse:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           BQIntelligenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerInsightType:
+              type: string
+              description: "\r\n"
+              format: String
+           InsightTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateIntelligence:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     RetrieveIntelligenceResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           BQIntelligenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerInsightType:
+              type: string
+              description: "\r\n"
+              format: String
+           InsightTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveIntelligence:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     UpdateHistoryRequest:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           HistoryTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateHistoryResponse:
+        type: object
+        description: ''
+        properties:
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLog:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           HistoryTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateHistory:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     RetrieveHistoryResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionMechanism:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueType:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: "\r\n"
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SessionDialogueResult:
+              type: string
+              description: "\r\n"
+              format: String
+           HistoryTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveHistory:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer (can be extracted from Contact Record
+                or provided by customer)
+              format: Object
+           EmployeeReference:
+              type: string
+              description: Reference to the servicing agent
+              format: Object
+           ServicingPositionReference:
+              type: string
+              description: >-
+                Reference to the servicing location/desk for assisted customer
+                exchanges
+              format: Object
+           SessionMechanism:
+              type: string
+              description: >-
+                The type of channel device involved in the session exchange
+                (e.g. web, phone, chat, video, VOIP, face to face at a branch 
+                note there can be concurrent sessions within a single customer
+                contact)
+              format: String
+           SessionStartEndTime:
+              type: string
+              description: The start and duration of the dialogue
+              format: String
+           SessionDialogueRecord:
+              type: string
+              description: >-
+                The session dialogue log of actions is returned to SDContact
+                Handler and added to the contact record
+              format: String
+           SessionDialogueType:
+              type: string
+              description: >-
+                The general type of customer exchange (e.g. verified customer,
+                anonymous contact, topic  used to structure/script dialogue)
+              format: String
+           SessionDialogueScript:
+              type: string
+              description: >-
+                In cases a prompt or script can provided to structure the
+                interaction for selfservice and assisted interactions
+              format: String
+           SessionDialogueLogReference:
+              type: string
+              description: Reference to a dialogue log that is built up
+              format: Object
+           SessionDialogueLog:
+              type: string
+              description: >-
+                The dialogue log, used for training and root cause analysis
+                etc.  (e.g. clickstream, video/audio recording)
+              format: String
+           SessionDialogueResult:
+              type: string
+              description: >-
+                The outcome of the dialogue (e.g. customer satisfied, onward
+                routing, hangup)
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateCustomerContactSessionProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateCustomerContactSessionProcedureRequest
+        required: true
+     UpdateCustomerContactSessionProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCustomerContactSessionProcedureRequest
+        required: true
+     ExecuteCustomerContactSessionProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteCustomerContactSessionProcedureRequest
+        required: true
+     RequestCustomerContactSessionProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestCustomerContactSessionProcedureRequest
+        required: true
+     RetrieveCustomerContactSessionProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateQueryRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateQueryRequest'
+        required: true
+     UpdateQueryRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateQueryRequest'
+        required: true
+     RetrieveQueryRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateAuthenticationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAuthenticationRequest'
+        required: true
+     RetrieveAuthenticationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateSalesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateSalesRequest'
+        required: true
+     UpdateSalesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSalesRequest'
+        required: true
+     RetrieveSalesRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateOfferRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOfferRequest'
+        required: true
+     UpdateOfferRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateOfferRequest'
+        required: true
+     RetrieveOfferRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateProductorServiceRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateProductorServiceRequest'
+        required: true
+     UpdateProductorServiceRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProductorServiceRequest'
+        required: true
+     RetrieveProductorServiceRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateCaseRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCaseRequest'
+        required: true
+     UpdateCaseRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCaseRequest'
+        required: true
+     RetrieveCaseRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateOrderRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOrderRequest'
+        required: true
+     UpdateOrderRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateOrderRequest'
+        required: true
+     RetrieveOrderRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateIntelligenceRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateIntelligenceRequest'
+        required: true
+     UpdateIntelligenceRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateIntelligenceRequest'
+        required: true
+     RetrieveIntelligenceRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateHistoryRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateHistoryRequest'
+        required: true
+     RetrieveHistoryRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     customercontactsessionprocedureid:
+        name: customercontactsessionprocedureid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     queryid:
+        name: queryid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     authenticationid:
+        name: authenticationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     salesid:
+        name: salesid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     offerid:
+        name: offerid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     productorserviceid:
+        name: productorserviceid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     caseid:
+        name: caseid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     orderid:
+        name: orderid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     intelligenceid:
+        name: intelligenceid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     historyid:
+        name: historyid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateCustomerContactSessionProcedureResponse:
+        description: CustomerContactSessionProcedureInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateCustomerContactSessionProcedureResponse
+     UpdateCustomerContactSessionProcedureResponse:
+        description: CustomerContactSessionProcedureUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCustomerContactSessionProcedureResponse
+     ExecuteCustomerContactSessionProcedureResponse:
+        description: CustomerContactSessionProcedureExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteCustomerContactSessionProcedureResponse
+     RequestCustomerContactSessionProcedureResponse:
+        description: CustomerContactSessionProcedureRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestCustomerContactSessionProcedureResponse
+     RetrieveCustomerContactSessionProcedureResponse:
+        description: CustomerContactSessionProcedureRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveCustomerContactSessionProcedureResponse
+     InitiateQueryResponse:
+        description: QueryInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateQueryResponse'
+     UpdateQueryResponse:
+        description: QueryUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateQueryResponse'
+     RetrieveQueryResponse:
+        description: QueryRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveQueryResponse'
+     UpdateAuthenticationResponse:
+        description: AuthenticationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAuthenticationResponse'
+     RetrieveAuthenticationResponse:
+        description: AuthenticationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAuthenticationResponse'
+     InitiateSalesResponse:
+        description: SalesInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateSalesResponse'
+     UpdateSalesResponse:
+        description: SalesUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSalesResponse'
+     RetrieveSalesResponse:
+        description: SalesRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveSalesResponse'
+     InitiateOfferResponse:
+        description: OfferInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOfferResponse'
+     UpdateOfferResponse:
+        description: OfferUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateOfferResponse'
+     RetrieveOfferResponse:
+        description: OfferRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveOfferResponse'
+     InitiateProductorServiceResponse:
+        description: ProductorServiceInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateProductorServiceResponse'
+     UpdateProductorServiceResponse:
+        description: ProductorServiceUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProductorServiceResponse'
+     RetrieveProductorServiceResponse:
+        description: ProductorServiceRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveProductorServiceResponse'
+     InitiateCaseResponse:
+        description: CaseInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCaseResponse'
+     UpdateCaseResponse:
+        description: CaseUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCaseResponse'
+     RetrieveCaseResponse:
+        description: CaseRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCaseResponse'
+     InitiateOrderResponse:
+        description: OrderInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOrderResponse'
+     UpdateOrderResponse:
+        description: OrderUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateOrderResponse'
+     RetrieveOrderResponse:
+        description: OrderRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveOrderResponse'
+     InitiateIntelligenceResponse:
+        description: IntelligenceInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateIntelligenceResponse'
+     UpdateIntelligenceResponse:
+        description: IntelligenceUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateIntelligenceResponse'
+     RetrieveIntelligenceResponse:
+        description: IntelligenceRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveIntelligenceResponse'
+     UpdateHistoryResponse:
+        description: HistoryUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateHistoryResponse'
+     RetrieveHistoryResponse:
+        description: HistoryRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveHistoryResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

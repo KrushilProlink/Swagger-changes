@@ -1,0 +1,2044 @@
+openapi: 3.0.1
+info:
+  title: Credit Card Position Keeping
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Maintain a log of credit card
+    bookings and authorizations for operational and management information,
+    tracking and reconciliation purposes.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CreditCardPositionKeeping
+paths:
+   '/CreditCardPositionLog/{creditcardpositionlogid}/Capture':
+      put:
+        tags:
+           - CR - CreditCardPositionLog
+        summary: Capture Credit Card Position Log
+        description: Capture Credit Card Position Log
+        operationId: CreditCardPositionLog/Capture
+        parameters:
+           - $ref: '#/components/parameters/creditcardpositionlogid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureCreditCardPositionLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CreditCardPositionLog/{creditcardpositionlogid}/Control':
+      put:
+        tags:
+           - CR - CreditCardPositionLog
+        summary: Control Credit Card Position Log
+        description: Control Credit Card Position Log
+        operationId: CreditCardPositionLog/Control
+        parameters:
+           - $ref: '#/components/parameters/creditcardpositionlogid'
+        requestBody:
+          $ref: '#/components/requestBodies/ControlCreditCardPositionLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CreditCardPositionLog/{creditcardpositionlogid}/Initiate':
+      post:
+        tags:
+           - CR - CreditCardPositionLog
+        summary: Initiate Credit Card Position Log
+        description: Initiate Credit Card Position Log
+        operationId: CreditCardPositionLog/Initiate
+        parameters:
+           - $ref: '#/components/parameters/creditcardpositionlogid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateCreditCardPositionLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CreditCardPositionLog/{creditcardpositionlogid}/Notify':
+      get:
+        tags:
+           - CR - CreditCardPositionLog
+        summary: Notify Credit Card Position Log
+        description: Notify Credit Card Position Log
+        operationId: CreditCardPositionLog/Notify
+        parameters:
+           - $ref: '#/components/parameters/creditcardpositionlogid'
+        responses:
+          '200':
+            $ref: '#/components/responses/NotifyCreditCardPositionLogResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CreditCardPositionLog/{creditcardpositionlogid}/Retrieve':
+      get:
+        tags:
+           - CR - CreditCardPositionLog
+        summary: Retrieve Credit Card Position Log
+        description: Retrieve Credit Card Position Log
+        operationId: CreditCardPositionLog/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/creditcardpositionlogid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCreditCardPositionLogResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CreditCardPositionLog/{creditcardpositionlogid}/Update':
+      put:
+        tags:
+           - CR - CreditCardPositionLog
+        summary: Update Credit Card Position Log
+        description: Update Credit Card Position Log
+        operationId: CreditCardPositionLog/Update
+        parameters:
+           - $ref: '#/components/parameters/creditcardpositionlogid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCreditCardPositionLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CardTransactionEvent/{cardtransactioneventid}/Capture':
+      put:
+        tags:
+           - BQ - CardTransactionEvent
+        summary: Capture Card Transaction Event
+        description: Capture Card Transaction Event
+        operationId: CardTransactionEvent/Capture
+        parameters:
+           - $ref: '#/components/parameters/cardtransactioneventid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureCardTransactionEventRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CardTransactionEvent/{cardtransactioneventid}/Notify':
+      get:
+        tags:
+           - BQ - CardTransactionEvent
+        summary: Notify Card Transaction Event
+        description: Notify Card Transaction Event
+        operationId: CardTransactionEvent/Notify
+        parameters:
+           - $ref: '#/components/parameters/cardtransactioneventid'
+        responses:
+          '200':
+            $ref: '#/components/responses/NotifyCardTransactionEventResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CardTransactionEvent/{cardtransactioneventid}/Retrieve':
+      get:
+        tags:
+           - BQ - CardTransactionEvent
+        summary: Retrieve Card Transaction Event
+        description: Retrieve Card Transaction Event
+        operationId: CardTransactionEvent/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/cardtransactioneventid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCardTransactionEventResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CardTransactionEvent/{cardtransactioneventid}/Update':
+      put:
+        tags:
+           - BQ - CardTransactionEvent
+        summary: Update Card Transaction Event
+        description: Update Card Transaction Event
+        operationId: CardTransactionEvent/Update
+        parameters:
+           - $ref: '#/components/parameters/cardtransactioneventid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCardTransactionEventRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     CaptureCreditCardPositionLogRequest:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+              description: "\r\n"
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+              description: "\r\n"
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+              description: ''
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+              description: "\r\n"
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+              description: ''
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+     Text:
+        type: object
+        description: "\r\n - "
+        properties:
+           Text:
+              type: string
+              description: >-
+                Text is a character string such as a finite set of characters
+                generally in the form of words of a language. (UN/CEFACT)
+              format: DataType
+     Service:
+        type: object
+        description: "\r\n - "
+        properties:
+           ServiceName:
+              $ref: '#/components/schemas/Name'
+              description: 'The name of service. '
+           ServiceDescription:
+              $ref: '#/components/schemas/Text'
+              description: A detailed explanation or commentary of service
+           ServiceType:
+              enum:
+                   -  ITService
+                   -  AdministrativeService
+                   -  SystemService
+                   -  FinancialService
+                   -  InformationService
+                   -  BusinessService
+              type: string
+              description: ">-\r\n* `ITService` \r\n* `AdministrativeService` \r\n* `SystemService` \r\n* `FinancialService` \r\n* `InformationService` \r\n* `BusinessService` \r\n* "
+           ServiceIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: The identifier of service.
+           ServiceLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: >-
+                A characteristic of service which refers to the lifecycle of
+                service (e.g., initiated, active, deactive, etc.) 
+           ServiceFeature:
+              $ref: '#/components/schemas/Feature'
+              description: >-
+                A characteristic of service which refers 1) mainly to the
+                function or condition of service. 2) to nonfunctional features
+                like quality and security
+     Name:
+        type: object
+        description: 'The name of service.  '
+        properties:
+           Name:
+              type: string
+              description: >-
+                A name is a word or phrase that constitutes the distinctive
+                designation of a person, place, thing or concept. (UN/CEFAT)
+              format: DataType
+     Identifier:
+        type: object
+        description: 'The identifier of service. '
+        properties:
+           IdentifierValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           IdentifierIssuingAuthority:
+              $ref: '#/components/schemas/Involvedparty'
+              description: Entity that assigns and manages the identification.
+           Identifier:
+              type: string
+              description: >-
+                An identifier is a character string used to uniquely identify
+                one instance of an object within an identification scheme that
+                is managed by an agency. (UN/CEFAT)
+              format: DataType
+           IdentifierStartDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           IdentifierEndDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Involvedparty:
+        type: object
+        description: 'Entity that assigns and manages the identification. '
+        properties:
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyInvolvement:
+              $ref: '#/components/schemas/Partyrole'
+              description: ''
+     Party:
+        type: object
+        description: ' '
+        properties:
+           PartyName:
+              $ref: '#/components/schemas/Name'
+              description: >-
+                Name by which a party is known and which is usually used to
+                identify that party. (ISO20022)
+           PartyType:
+              enum:
+                   -  Person
+                   -  Organisation
+              type: string
+              description: ">-\r\n* `Person` \r\n* `Organisation` \r\n* "
+           PartyDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           PartyIdentification:
+              $ref: '#/components/schemas/Partyidentification'
+              description: ''
+           PartyLegalStructureType:
+              enum:
+                   -  Individual
+                   -  CommunityInterestCompany
+                   -  CoOperative
+                   -  Charity
+                   -  GeneralPartnership
+                   -  LimitedLiabilityPartnership
+                   -  ScottishLimitedPartnership
+                   -  LimitedPartnership
+                   -  PrivateLimitedCompany
+                   -  PublicLimitedCompany
+                   -  Sole(SoleTrader)
+              type: string
+              description: ">-\r\n* `Individual` \r\n* `CommunityInterestCompany` \r\n* `CoOperative` \r\n* `Charity` \r\n* `GeneralPartnership` \r\n* `LimitedLiabilityPartnership` \r\n* `ScottishLimitedPartnership` \r\n* `LimitedPartnership` \r\n* `PrivateLimitedCompany` \r\n* `PublicLimitedCompany` \r\n* `SoleSoleTrader` \r\n* "
+     Datetime:
+        type: object
+        description: ' '
+        properties:
+           DateTimeContent:
+              type: string
+              description: ''
+              format: String
+           TimeZoneCode:
+              type: string
+              description: ''
+              format: String
+           DaylightSavingIndicator:
+              type: string
+              description: ''
+              format: String
+           Datetime:
+              type: string
+              description: >-
+                A date time identifies a date and time of day to various common
+                resolutions: year, month, week, day, hour, minute, second, and
+                fraction of second. (UN/CEFACT)
+
+
+                A particular point in the progression of time defined by a
+                mandatory date and a mandatory time component, expressed in
+                either UTC time format (YYYYMMDDThh:mm:ss.sssZ), local time
+                with UTC offset format (YYYYMMDDThh:mm:ss.sss/hh:mm), or
+                local time format (YYYYMMDDThh:mm:ss.sss). These
+                representations are defined in "XML Schema Part 2: Datatypes
+                Second Edition  W3C Recommendation 28 October 2004" which is
+                aligned with ISO 8601. (ISO20022)
+
+                Note on the time format:
+
+                1) beginning / end of calendar day
+
+                00:00:00  -  the beginning of a calendar day
+
+                24:00:00  -  the end of a calendar day
+
+                2) fractions of second in time format
+
+                Decimal fractions of seconds may be included. In this case, the
+                involved parties shall agree on the maximum number of digits
+                that are allowed.
+              format: DataType
+     Partyidentification:
+        type: object
+        description: ' '
+        properties:
+           PartyIdentificationType:
+              enum:
+                   -  Taxidentificationnumber
+                   -  Nationalregistrationnumber
+                   -  LEI(LegalEntityIdentifier)
+                   -  Alienregistrationnumber
+                   -  Passportnumber
+                   -  Corporateidentification
+                   -  Driverlicensenumber
+                   -  Socialsecuritynumber
+                   -  Identitycardnumber
+                   -  Concat
+              type: string
+              description: ">-\r\n* `Taxidentificationnumber` \r\n* `Nationalregistrationnumber` \r\n* `LEILegalEntityIdentifier` \r\n* `Alienregistrationnumber` \r\n* `Passportnumber` \r\n* `Corporateidentification` \r\n* `Driverlicensenumber` \r\n* `Socialsecuritynumber` \r\n* `Identitycardnumber` \r\n* `Concat` \r\n* "
+           PartyIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           Partyidentification:
+              type: string
+              description: ''
+              format: DataType
+     Partyrole:
+        type: object
+        description: ' '
+        properties:
+           PartyRoleType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           PartyRoleName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           PartyRoleValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           PartyInvolvementType:
+              enum:
+                   -  Agreementinvolvement
+                   -  Partyinvolvement
+                   -  Arrangementinvolvement
+                   -  Relationshipinvolvement
+                   -  Locationinvolvement
+                   -  Bankguaranteeinvolvement
+              type: string
+              description: ">-\r\n* `Agreementinvolvement` \r\n* `Partyinvolvement` \r\n* `Arrangementinvolvement` \r\n* `Relationshipinvolvement` \r\n* `Locationinvolvement` \r\n* `Bankguaranteeinvolvement` \r\n* "
+     Datetimeperiod:
+        type: object
+        description: ' '
+        properties:
+           FromDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range starts. (ISO20022)
+           ToDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range ends. (ISO20022)
+           Datetimeperiod:
+              type: string
+              description: >-
+                Time span defined by a start date and time, and an end date and
+                time. (ISO20022)
+              format: DataType
+     Status:
+        type: object
+        description: >-
+          A characteristic of service which refers to the lifecycle of service
+          (e.g., initiated, active, deactive, etc.)  
+        properties:
+           StatusReason:
+              $ref: '#/components/schemas/Text'
+              description: Specifies the reasons for the status.
+           StatusDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the status was assigned.
+           StatusValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: Period of time during which the status is valid.
+           StatusInvolvedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: >-
+                Party who plays a  specific role in the context of assigning a
+                status.
+           Status:
+              type: string
+              description: >-
+                A characteristic that describe the object by referring to a
+                state transition in its lifecycle.
+              format: DataType
+     Feature:
+        type: object
+        description: >-
+          A characteristic of service which refers 1) mainly to the function or
+          condition of service. 2) to nonfunctional features like quality and
+          security 
+        properties:
+           FeatureType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           FeatureIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           FeatureName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           FeatureLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           FeatureDescription:
+              $ref: '#/components/schemas/Text'
+              description: ''
+     Schedule:
+        type: object
+        description: "\r\n - "
+        properties:
+           ScheduleType:
+              type: string
+              description: ''
+              format: String
+     Log:
+        type: object
+        description: "\r\n - "
+        properties:
+           LogType:
+              type: string
+              description: ''
+              format: String
+           LogPeriod:
+              type: string
+              description: ''
+              format: String
+           LogDate:
+              type: string
+              description: Key dates associated with the log (e.g. start time).
+              format: String
+           LogIdentification:
+              type: string
+              description: ''
+              format: String
+     BusinessUnit:
+        type: object
+        description: "\r\n - "
+        properties:
+           BusinessFunction:
+              type: string
+              description: ''
+              format: String
+           Goal:
+              type: string
+              description: ''
+              format: String
+     Position:
+        type: object
+        description: ' Position |Position  (https://www.iso20022.org/standardsrepository/type/Position)|Standard|ISO20022 BM ()'
+        properties:
+           PositionValue:
+              type: string
+              description: ''
+              format: String
+           PositionQuantity:
+              type: string
+              description: ''
+              format: String
+           PositionDate:
+              type: string
+              description: The date on which the state of something is calculated
+              format: String
+           PositionAmount:
+              type: string
+              description: ''
+              format: String
+     PositionType:
+        type: object
+        description: "\r\n - "
+        properties:
+           PositionType:
+              type: string
+              description: 'A classification of the position. '
+              format: Class
+     LimitArrangement:
+        type: object
+        description: ' Limit|Limit (https://www.iso20022.org/standardsrepository/type/Limit)|Standard|ISO20022 (https://www.iso20022.org/)'
+        properties:
+           LimitType:
+              enum:
+                   -  Multilateral
+                   -  Bilateral
+                   -  Netbilateral
+                   -  Indirectbilateral
+                   -  Global
+                   -  Mandatorybilateral
+                   -  Discretionarybilateral
+                   -  Directdebit
+                   -  Singlecustomerdirectdebit
+                   -  Autocollateralisation
+                   -  Unsecuredcredit
+                   -  Externalguarantee
+              type: string
+              description: ">-\r\n* `Multilateral` \r\n* `Bilateral` \r\n* `Netbilateral` \r\n* `Indirectbilateral` \r\n* `Global` \r\n* `Mandatorybilateral` \r\n* `Discretionarybilateral` \r\n* `Directdebit` \r\n* `Singlecustomerdirectdebit` \r\n* `Autocollateralisation` \r\n* `Unsecuredcredit` \r\n* `Externalguarantee` \r\n* "
+           LimitCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: Currency unit used to specify the limit amount. (ISO20022)
+           LimitValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: Period at which the limit is effective. (ISO20022)
+           LimitAmount:
+              $ref: '#/components/schemas/Amount'
+              description: >-
+                Amount of money of the limit, expressed in a currency.
+                (ISO20022)
+           LimitStatus:
+              $ref: '#/components/schemas/Limitstatus'
+              description: Current status of the limit.
+           LimitRate:
+              $ref: '#/components/schemas/Rate'
+              description: >-
+                Specifies that the limit is a percentage of a related amount.
+                (ISO20022)
+           LimitFrequency:
+              $ref: '#/components/schemas/Frequency'
+              description: >-
+                Specifies the periodicity linked to a limit for example the
+                periodicity can indicate that the limit can be reached daily or
+                monthly. (ISO20022)
+           LimitIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: Identification of the default limit.
+           LimitStartDatetime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the limit becomes effective. (ISO20022)
+           LimitCreditDebitIndicator:
+              enum:
+                   -  Debit
+                   -  Credit
+              type: string
+              description: ">-\r\n* `Debit` \r\n* `Credit` \r\n* "
+           LimitAmountType:
+              enum:
+                   -  Principal
+                   -  Actual
+                   -  Estimated
+                   -  Maximum
+                   -  Default
+                   -  Replacement
+                   -  Incremental
+                   -  Decremental
+                   -  Reserved
+                   -  Available
+                   -  Used
+              type: string
+              description: ">-\r\n* `Principal` \r\n* `Actual` \r\n* `Estimated` \r\n* `Maximum` \r\n* `Default` \r\n* `Replacement` \r\n* `Incremental` \r\n* `Decremental` \r\n* `Reserved` \r\n* `Available` \r\n* `Used` \r\n* "
+     Currencycode:
+        type: object
+        description: 'Currency unit used to specify the limit amount. (ISO20022) '
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     Amount:
+        type: object
+        description: 'Amount of money of the limit, expressed in a currency. (ISO20022) '
+        properties:
+           AmountValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           AmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           DecimalPointPosition:
+              type: string
+              description: |
+                Decimal point position starts calulating from the right
+              format: String
+           AmountType:
+              enum:
+                   -  Principal
+                   -  Actual
+                   -  Estimated
+                   -  Maximum
+                   -  Default
+                   -  Replacement
+                   -  Incremental
+                   -  Decremental
+                   -  Reserved
+                   -  Available
+                   -  Used
+              type: string
+              description: ">-\r\n* `Principal` \r\n* `Actual` \r\n* `Estimated` \r\n* `Maximum` \r\n* `Default` \r\n* `Replacement` \r\n* `Incremental` \r\n* `Decremental` \r\n* `Reserved` \r\n* `Available` \r\n* `Used` \r\n* "
+     Limitstatus:
+        type: object
+        description: 'Current status of the limit. '
+        properties:
+           LimitStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           LimitStatusType:
+              enum:
+                   -  Enabled
+                   -  Disabled
+                   -  Deleted
+                   -  Requested
+              type: string
+              description: ">-\r\n* `Enabled` \r\n* `Disabled` \r\n* `Deleted` \r\n* `Requested` \r\n* "
+     Rate:
+        type: object
+        description: >-
+          Specifies that the limit is a percentage of a related amount.
+          (ISO20022) 
+        properties:
+           RateValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           RateUnit:
+              $ref: '#/components/schemas/Text'
+              description: >-
+                The unit of measure like Percentage or BPS
+
+
+                Basis points (BPS) refers to a common unit of measure for
+                interest rates and other percentages in finance.
+           RatePeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           RateCapitalUnit:
+              $ref: '#/components/schemas/Text'
+              description: ''
+     Frequency:
+        type: object
+        description: >-
+          Specifies the periodicity linked to a limit for example the
+          periodicity can indicate that the limit can be reached daily or
+          monthly. (ISO20022) 
+        properties:
+           FrequencyCode:
+              enum:
+                   -  Annual
+                   -  Monthly
+                   -  Quarterly
+                   -  Semiannual
+                   -  Weekly
+                   -  Daily
+                   -  Adhoc
+                   -  Intraday
+                   -  Overnight
+                   -  Tendays
+                   -  Fortnightly
+                   -  Triggeredbymovement
+                   -  Never
+                   -  Rate
+                   -  Oncreditevent
+                   -  Upfront
+                   -  Onexpiry
+                   -  Hourly
+              type: string
+              description: ">-\r\n* `Annual` \r\n* `Monthly` \r\n* `Quarterly` \r\n* `Semiannual` \r\n* `Weekly` \r\n* `Daily` \r\n* `Adhoc` \r\n* `Intraday` \r\n* `Overnight` \r\n* `Tendays` \r\n* `Fortnightly` \r\n* `Triggeredbymovement` \r\n* `Never` \r\n* `Rate` \r\n* `Oncreditevent` \r\n* `Upfront` \r\n* `Onexpiry` \r\n* `Hourly` \r\n* "
+           FrequencyName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           FrequencyDefinition:
+              $ref: '#/components/schemas/Text'
+              description: ''
+     CaptureCreditCardPositionLogResponse:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     CaptureCreditCardPositionLog:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     ControlCreditCardPositionLogRequest:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+              description: "\r\n"
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+              description: "\r\n"
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+              description: ''
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+              description: "\r\n"
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+              description: ''
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+     ControlCreditCardPositionLogResponse:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     ControlCreditCardPositionLog:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     InitiateCreditCardPositionLogRequest:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+              description: "\r\n"
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+              description: "\r\n"
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+              description: ''
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+              description: "\r\n"
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+              description: ''
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+     InitiateCreditCardPositionLogResponse:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     InitiateCreditCardPositionLog:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     NotifyCreditCardPositionLogRequest:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+              description: "\r\n"
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+              description: "\r\n"
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+              description: ''
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+              description: "\r\n"
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+              description: ''
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+     NotifyCreditCardPositionLogResponse:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     NotifyCreditCardPositionLog:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     RetrieveCreditCardPositionLogRequest:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+              description: "\r\n"
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+              description: "\r\n"
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+              description: ''
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+              description: "\r\n"
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+              description: ''
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+     RetrieveCreditCardPositionLogResponse:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     RetrieveCreditCardPositionLog:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     UpdateCreditCardPositionLogRequest:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+              description: "\r\n"
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+              description: "\r\n"
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+              description: ''
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+              description: "\r\n"
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+              description: ''
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+     UpdateCreditCardPositionLogResponse:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     UpdateCreditCardPositionLog:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     CaptureCardTransactionEventRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           Postconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CardTransactionEventReference:
+              $ref: '#/components/schemas/Event'
+              description: "\r\n"
+           CardTransactionEventType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     Condition:
+        type: object
+        description: "\r\n - "
+        properties:
+           Condition:
+              type: string
+              description: >-
+                Condition is a premise upon which the fulfillment of an
+                agreement depends 
+
+
+                General and special arrangements, provisions, requirements,
+                rules, specifications, and standards that form an integral part
+                of an agreement or contract.
+
+
+                Read more:
+                http://www.businessdictionary.com/definition/termsandconditions.html
+
+              format: Class
+     BusinessService:
+        type: object
+        description: "\r\n - "
+        properties:
+           BusinessServiceType:
+              enum:
+                   -  Businessservicetypevalues
+              type: string
+              description: ">-\r\n* `Businessservicetypevalues` \r\n* "
+     Event:
+        type: object
+        description: "\r\n - "
+        properties:
+           EventType:
+              type: string
+              description: ''
+              format: String
+           EventDateTime:
+              type: string
+              description: ''
+              format: String
+           EventDescription:
+              type: string
+              description: ''
+              format: String
+           EventSource:
+              type: string
+              description: ''
+              format: String
+           EventLocation:
+              type: string
+              description: ''
+              format: String
+           EventAction:
+              type: string
+              description: ''
+              format: String
+           EventStatus:
+              type: string
+              description: ''
+              format: String
+           EventValue:
+              type: string
+              description: ''
+              format: String
+           EventValidityPeriod:
+              type: string
+              description: ''
+              format: String
+           EventIdentification:
+              type: string
+              description: ''
+              format: String
+     CaptureCardTransactionEventResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           Postconditions:
+              $ref: '#/components/schemas/Condition'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+           CardTransactionEventReference:
+              $ref: '#/components/schemas/Event'
+           CardTransactionEventType:
+              $ref: '#/components/schemas/Text'
+     CaptureCardTransactionEvent:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     NotifyCardTransactionEventRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           Postconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CardTransactionEventReference:
+              $ref: '#/components/schemas/Event'
+              description: "\r\n"
+           CardTransactionEventType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     NotifyCardTransactionEventResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           Postconditions:
+              $ref: '#/components/schemas/Condition'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+           CardTransactionEventReference:
+              $ref: '#/components/schemas/Event'
+           CardTransactionEventType:
+              $ref: '#/components/schemas/Text'
+     NotifyCardTransactionEvent:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     RetrieveCardTransactionEventRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           Postconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CardTransactionEventReference:
+              $ref: '#/components/schemas/Event'
+              description: "\r\n"
+           CardTransactionEventType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     RetrieveCardTransactionEventResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           Postconditions:
+              $ref: '#/components/schemas/Condition'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+           CardTransactionEventReference:
+              $ref: '#/components/schemas/Event'
+           CardTransactionEventType:
+              $ref: '#/components/schemas/Text'
+     RetrieveCardTransactionEvent:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     UpdateCardTransactionEventRequest:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           Postconditions:
+              $ref: '#/components/schemas/Condition'
+              description: "\r\n"
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           CardTransactionEventReference:
+              $ref: '#/components/schemas/Event'
+              description: "\r\n"
+           CardTransactionEventType:
+              $ref: '#/components/schemas/Text'
+              description: "\r\n"
+     UpdateCardTransactionEventResponse:
+        type: object
+        description: ''
+        properties:
+           Preconditions:
+              $ref: '#/components/schemas/Condition'
+           Schedule:
+              $ref: '#/components/schemas/Schedule'
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           Postconditions:
+              $ref: '#/components/schemas/Condition'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+           CardTransactionEventReference:
+              $ref: '#/components/schemas/Event'
+           CardTransactionEventType:
+              $ref: '#/components/schemas/Text'
+     UpdateCardTransactionEvent:
+        type: object
+        description: ''
+        properties:
+           CreditCardPositionLogParameterType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSelectedOption:
+              $ref: '#/components/schemas/Service'
+           CreditCardPositionLogType:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogSchedule:
+              $ref: '#/components/schemas/Schedule'
+           CreditCardPositionLogUsageLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogUpdateLog:
+              $ref: '#/components/schemas/Log'
+           CreditCardPositionLogAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogBusinessUnitReference:
+              $ref: '#/components/schemas/BusinessUnit'
+           CreditCardPositionLogCustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CreditCardPositionLogServiceConfiguration:
+              $ref: '#/components/schemas/Text'
+           CreditCardPositionLogPosition:
+              $ref: '#/components/schemas/Position'
+           CreditCardPositionLogPositionType:
+              $ref: '#/components/schemas/PositionType'
+           CreditCardPositionLogPositionLimitTime:
+              $ref: '#/components/schemas/LimitArrangement'
+           CreditCardPositionLogReference:
+              $ref: '#/components/schemas/Log'
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     CaptureCreditCardPositionLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureCreditCardPositionLogRequest'
+        required: true
+     ControlCreditCardPositionLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlCreditCardPositionLogRequest'
+        required: true
+     InitiateCreditCardPositionLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCreditCardPositionLogRequest'
+        required: true
+     NotifyCreditCardPositionLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/NotifyCreditCardPositionLogRequest'
+        required: true
+     RetrieveCreditCardPositionLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCreditCardPositionLogRequest'
+        required: true
+     UpdateCreditCardPositionLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCreditCardPositionLogRequest'
+        required: true
+     CaptureCardTransactionEventRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureCardTransactionEventRequest'
+        required: true
+     NotifyCardTransactionEventRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/NotifyCardTransactionEventRequest'
+        required: true
+     RetrieveCardTransactionEventRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCardTransactionEventRequest'
+        required: true
+     UpdateCardTransactionEventRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCardTransactionEventRequest'
+        required: true
+  parameters:
+     creditcardpositionlogid:
+        name: creditcardpositionlogid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     cardtransactioneventid:
+        name: cardtransactioneventid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     CaptureCreditCardPositionLogResponse:
+        description: CreditCardPositionLogCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureCreditCardPositionLogResponse'
+     ControlCreditCardPositionLogResponse:
+        description: CreditCardPositionLogControl
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlCreditCardPositionLogResponse'
+     InitiateCreditCardPositionLogResponse:
+        description: CreditCardPositionLogInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCreditCardPositionLogResponse'
+     NotifyCreditCardPositionLogResponse:
+        description: CreditCardPositionLogNotify
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/NotifyCreditCardPositionLogResponse'
+     RetrieveCreditCardPositionLogResponse:
+        description: CreditCardPositionLogRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCreditCardPositionLogResponse'
+     UpdateCreditCardPositionLogResponse:
+        description: CreditCardPositionLogUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCreditCardPositionLogResponse'
+     CaptureCardTransactionEventResponse:
+        description: CardTransactionEventCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureCardTransactionEventResponse'
+     NotifyCardTransactionEventResponse:
+        description: CardTransactionEventNotify
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/NotifyCardTransactionEventResponse'
+     RetrieveCardTransactionEventResponse:
+        description: CardTransactionEventRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCardTransactionEventResponse'
+     UpdateCardTransactionEventResponse:
+        description: CardTransactionEventUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCardTransactionEventResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

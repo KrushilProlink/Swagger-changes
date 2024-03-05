@@ -1,0 +1,2771 @@
+openapi: 3.0.1
+info:
+  title: Branch Currency Management
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Track cash inventory, project
+    demand and ensure all cash is accounted for within the branch
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/BranchCurrencyManagement
+paths:
+   '/BranchCashAllocation/{branchcashallocationid}/Capture':
+      put:
+        tags:
+           - CR - BranchCashAllocation
+        summary: >-
+          CaCR Capture Branch Cash Allocation activity or event related
+          information
+        description: >-
+          CaCR Capture Branch Cash Allocation activity or event related
+          information
+        operationId: BranchCashAllocation/Capture
+        parameters:
+           - $ref: '#/components/parameters/branchcashallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureBranchCashAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BranchCashAllocation/{branchcashallocationid}/Control':
+      put:
+        tags:
+           - CR - BranchCashAllocation
+        summary: CoCR Control the processing of Branch Cash Allocation
+        description: CoCR Control the processing of Branch Cash Allocation
+        operationId: BranchCashAllocation/Control
+        parameters:
+           - $ref: '#/components/parameters/branchcashallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/ControlBranchCashAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BranchCashAllocation/{branchcashallocationid}/Exchange':
+      put:
+        tags:
+           - CR - BranchCashAllocation
+        summary: EcCR Accept, verify, etc. aspects of Branch Cash Allocation processing
+        description: EcCR Accept, verify, etc. aspects of Branch Cash Allocation processing
+        operationId: BranchCashAllocation/Exchange
+        parameters:
+           - $ref: '#/components/parameters/branchcashallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeBranchCashAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BranchCashAllocation/{branchcashallocationid}/Initiate':
+      post:
+        tags:
+           - CR - BranchCashAllocation
+        summary: InCR Instantiate a new Branch Cash Allocation
+        description: InCR Instantiate a new Branch Cash Allocation
+        operationId: BranchCashAllocation/Initiate
+        parameters:
+           - $ref: '#/components/parameters/branchcashallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateBranchCashAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BranchCashAllocation/{branchcashallocationid}/Retrieve':
+      get:
+        tags:
+           - CR - BranchCashAllocation
+        summary: ReCR Retrieve details about any aspect of Branch Cash Allocation
+        description: ReCR Retrieve details about any aspect of Branch Cash Allocation
+        operationId: BranchCashAllocation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/branchcashallocationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveBranchCashAllocationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BranchCashAllocation/{branchcashallocationid}/Update':
+      put:
+        tags:
+           - CR - BranchCashAllocation
+        summary: UpCR Update details relating to Branch Cash Allocation
+        description: UpCR Update details relating to Branch Cash Allocation
+        operationId: BranchCashAllocation/Update
+        parameters:
+           - $ref: '#/components/parameters/branchcashallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateBranchCashAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InventoryAllocation/{inventoryallocationid}/Capture':
+      put:
+        tags:
+           - BQ - InventoryAllocation
+        summary: >-
+          CaBQ Capture Inventory Allocation activity or event related
+          information
+        description: >-
+          CaBQ Capture Inventory Allocation activity or event related
+          information
+        operationId: InventoryAllocation/Capture
+        parameters:
+           - $ref: '#/components/parameters/inventoryallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureInventoryAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InventoryAllocation/{inventoryallocationid}/Control':
+      put:
+        tags:
+           - BQ - InventoryAllocation
+        summary: CoBQ Control the processing of Inventory Allocation
+        description: CoBQ Control the processing of Inventory Allocation
+        operationId: InventoryAllocation/Control
+        parameters:
+           - $ref: '#/components/parameters/inventoryallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/ControlInventoryAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InventoryAllocation/{inventoryallocationid}/Exchange':
+      put:
+        tags:
+           - BQ - InventoryAllocation
+        summary: EcBQ Accept, verify, etc. aspects of Inventory Allocation processing
+        description: EcBQ Accept, verify, etc. aspects of Inventory Allocation processing
+        operationId: InventoryAllocation/Exchange
+        parameters:
+           - $ref: '#/components/parameters/inventoryallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeInventoryAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InventoryAllocation/{inventoryallocationid}/Initiate':
+      post:
+        tags:
+           - BQ - InventoryAllocation
+        summary: InBQ Instantiate a new Inventory Allocation
+        description: InBQ Instantiate a new Inventory Allocation
+        operationId: InventoryAllocation/Initiate
+        parameters:
+           - $ref: '#/components/parameters/inventoryallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateInventoryAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InventoryAllocation/{inventoryallocationid}/Retrieve':
+      get:
+        tags:
+           - BQ - InventoryAllocation
+        summary: ReBQ Retrieve details about any aspect of Inventory Allocation
+        description: ReBQ Retrieve details about any aspect of Inventory Allocation
+        operationId: InventoryAllocation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/inventoryallocationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveInventoryAllocationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/InventoryAllocation/{inventoryallocationid}/Update':
+      put:
+        tags:
+           - BQ - InventoryAllocation
+        summary: UpBQ Update details relating to Inventory Allocation
+        description: UpBQ Update details relating to Inventory Allocation
+        operationId: InventoryAllocation/Update
+        parameters:
+           - $ref: '#/components/parameters/inventoryallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateInventoryAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     CaptureBranchCashAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: The curreny which is arranged/used for Branch Cash Allocation
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+     Currencycode:
+        type: object
+        description: >-
+          The curreny which is arranged/used for Branch Cash Allocation
+          CurrencyCode|CurrencyCode
+          (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022
+          BM ()
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     CaptureBranchCashAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+     CaptureBranchCashAllocation:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationInstance:
+              type: string
+              description: Reference to Branch Cash Allocation Instance
+              format: String
+     ControlBranchCashAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: The curreny which is arranged/used for Branch Cash Allocation
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+     ControlBranchCashAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+     ControlBranchCashAllocation:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationInstance:
+              type: string
+              description: Reference to Branch Cash Allocation Instance
+              format: String
+     ExchangeBranchCashAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: The curreny which is arranged/used for Branch Cash Allocation
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+     ExchangeBranchCashAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+     ExchangeBranchCashAllocation:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationInstance:
+              type: string
+              description: Reference to Branch Cash Allocation Instance
+              format: String
+     InitiateBranchCashAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: The curreny which is arranged/used for Branch Cash Allocation
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+     InitiateBranchCashAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+     InitiateBranchCashAllocation:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationInstance:
+              type: string
+              description: Reference to Branch Cash Allocation Instance
+              format: String
+     RetrieveBranchCashAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+     RetrieveBranchCashAllocation:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationInstance:
+              type: string
+              description: Reference to Branch Cash Allocation Instance
+              format: String
+     UpdateBranchCashAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: The curreny which is arranged/used for Branch Cash Allocation
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+     UpdateBranchCashAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+     UpdateBranchCashAllocation:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationInstance:
+              type: string
+              description: Reference to Branch Cash Allocation Instance
+              format: String
+     CaptureInventoryAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           InventoryAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           InventoryAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryAllocation:
+              $ref: '#/components/schemas/BusinessService'
+              description: The Branch Cash Allocation specific  Business Service
+           CashInventoryAllocationServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryAllocationServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryAllocationServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryAllocationServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryAllocationServiceName:
+              type: string
+              description: ''
+              format: String
+     BusinessService:
+        type: object
+        description: The Branch Cash Allocation specific  Business Service - 
+        properties:
+           BusinessServiceType:
+              enum:
+                   -  Businessservicetypevalues
+              type: string
+              description: ">-\r\n* `Businessservicetypevalues` \r\n* "
+     CaptureInventoryAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           InventoryAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           InventoryAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryAllocation:
+              $ref: '#/components/schemas/BusinessService'
+           CashInventoryAllocationServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryAllocationServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryAllocationServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryAllocationServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryAllocationServiceName:
+              type: string
+              description: ''
+              format: String
+     CaptureInventoryAllocation:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationInstance:
+              type: string
+              description: Reference to Branch Cash Allocation Instance
+              format: String
+     ControlInventoryAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           InventoryAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           InventoryAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryAllocation:
+              $ref: '#/components/schemas/BusinessService'
+              description: The Branch Cash Allocation specific  Business Service
+           CashInventoryAllocationServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryAllocationServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryAllocationServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryAllocationServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryAllocationServiceName:
+              type: string
+              description: ''
+              format: String
+     ControlInventoryAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           InventoryAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           InventoryAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryAllocation:
+              $ref: '#/components/schemas/BusinessService'
+           CashInventoryAllocationServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryAllocationServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryAllocationServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryAllocationServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryAllocationServiceName:
+              type: string
+              description: ''
+              format: String
+     ControlInventoryAllocation:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationInstance:
+              type: string
+              description: Reference to Branch Cash Allocation Instance
+              format: String
+     ExchangeInventoryAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           InventoryAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           InventoryAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryAllocation:
+              $ref: '#/components/schemas/BusinessService'
+              description: The Branch Cash Allocation specific  Business Service
+           CashInventoryAllocationServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryAllocationServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryAllocationServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryAllocationServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryAllocationServiceName:
+              type: string
+              description: ''
+              format: String
+     ExchangeInventoryAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           InventoryAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           InventoryAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryAllocation:
+              $ref: '#/components/schemas/BusinessService'
+           CashInventoryAllocationServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryAllocationServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryAllocationServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryAllocationServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryAllocationServiceName:
+              type: string
+              description: ''
+              format: String
+     ExchangeInventoryAllocation:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationInstance:
+              type: string
+              description: Reference to Branch Cash Allocation Instance
+              format: String
+     InitiateInventoryAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           InventoryAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           InventoryAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryAllocation:
+              $ref: '#/components/schemas/BusinessService'
+              description: The Branch Cash Allocation specific  Business Service
+           CashInventoryAllocationServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryAllocationServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryAllocationServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryAllocationServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryAllocationServiceName:
+              type: string
+              description: ''
+              format: String
+     InitiateInventoryAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           InventoryAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           InventoryAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryAllocation:
+              $ref: '#/components/schemas/BusinessService'
+           CashInventoryAllocationServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryAllocationServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryAllocationServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryAllocationServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryAllocationServiceName:
+              type: string
+              description: ''
+              format: String
+     InitiateInventoryAllocation:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationInstance:
+              type: string
+              description: Reference to Branch Cash Allocation Instance
+              format: String
+     RetrieveInventoryAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           InventoryAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           InventoryAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryAllocation:
+              $ref: '#/components/schemas/BusinessService'
+           CashInventoryAllocationServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryAllocationServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryAllocationServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryAllocationServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryAllocationServiceName:
+              type: string
+              description: ''
+              format: String
+     RetrieveInventoryAllocation:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationInstance:
+              type: string
+              description: Reference to Branch Cash Allocation Instance
+              format: String
+     UpdateInventoryAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           InventoryAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           InventoryAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryAllocation:
+              $ref: '#/components/schemas/BusinessService'
+              description: The Branch Cash Allocation specific  Business Service
+           CashInventoryAllocationServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryAllocationServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryAllocationServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryAllocationServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryAllocationServiceName:
+              type: string
+              description: ''
+              format: String
+     UpdateInventoryAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           InventoryAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           InventoryAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryAllocation:
+              $ref: '#/components/schemas/BusinessService'
+           CashInventoryAllocationServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryAllocationServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryAllocationServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryAllocationServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryAllocationServiceName:
+              type: string
+              description: ''
+              format: String
+     UpdateInventoryAllocation:
+        type: object
+        description: ''
+        properties:
+           BranchCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Branch Cash Allocation
+              format: String
+           BranchCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           BranchCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Branch Cash Allocation
+              format: String
+           BranchCashAllocationDescription:
+              type: string
+              description: Documentation of Branch Cash Allocation
+              format: String
+           BranchCashAllocationRequest:
+              type: string
+              description: Request to allocate BranchCash
+              format: String
+           BranchCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate BranchCash
+              format: String
+           BranchCashAllocationStatus:
+              type: string
+              description: The status of Branch Cash Allocation
+              format: String
+           BranchCashAllocationReference:
+              type: string
+              description: Reference to the party who is involved in Branch Cash Allocation
+              format: Object
+           BranchCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           BranchCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Branch Cash Allocation
+              format: String
+           BranchCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Branch Cash
+                Allocation in case of legal dispute.
+              format: String
+           BranchCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           BranchCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Branch Cash Allocation
+              format: String
+           BranchCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Branch Cash
+                Allocation
+              format: Object
+           BranchCashAllocationInstance:
+              type: string
+              description: Reference to Branch Cash Allocation Instance
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     CaptureBranchCashAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureBranchCashAllocationRequest'
+        required: true
+     ControlBranchCashAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlBranchCashAllocationRequest'
+        required: true
+     ExchangeBranchCashAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeBranchCashAllocationRequest'
+        required: true
+     InitiateBranchCashAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateBranchCashAllocationRequest'
+        required: true
+     RetrieveBranchCashAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateBranchCashAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateBranchCashAllocationRequest'
+        required: true
+     CaptureInventoryAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureInventoryAllocationRequest'
+        required: true
+     ControlInventoryAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlInventoryAllocationRequest'
+        required: true
+     ExchangeInventoryAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeInventoryAllocationRequest'
+        required: true
+     InitiateInventoryAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateInventoryAllocationRequest'
+        required: true
+     RetrieveInventoryAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateInventoryAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInventoryAllocationRequest'
+        required: true
+  parameters:
+     branchcashallocationid:
+        name: branchcashallocationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     inventoryallocationid:
+        name: inventoryallocationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     CaptureBranchCashAllocationResponse:
+        description: BranchCashAllocationCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureBranchCashAllocationResponse'
+     ControlBranchCashAllocationResponse:
+        description: BranchCashAllocationControl
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlBranchCashAllocationResponse'
+     ExchangeBranchCashAllocationResponse:
+        description: BranchCashAllocationExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeBranchCashAllocationResponse'
+     InitiateBranchCashAllocationResponse:
+        description: BranchCashAllocationInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateBranchCashAllocationResponse'
+     RetrieveBranchCashAllocationResponse:
+        description: BranchCashAllocationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveBranchCashAllocationResponse'
+     UpdateBranchCashAllocationResponse:
+        description: BranchCashAllocationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateBranchCashAllocationResponse'
+     CaptureInventoryAllocationResponse:
+        description: InventoryAllocationCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureInventoryAllocationResponse'
+     ControlInventoryAllocationResponse:
+        description: InventoryAllocationControl
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlInventoryAllocationResponse'
+     ExchangeInventoryAllocationResponse:
+        description: InventoryAllocationExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeInventoryAllocationResponse'
+     InitiateInventoryAllocationResponse:
+        description: InventoryAllocationInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateInventoryAllocationResponse'
+     RetrieveInventoryAllocationResponse:
+        description: InventoryAllocationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveInventoryAllocationResponse'
+     UpdateInventoryAllocationResponse:
+        description: InventoryAllocationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInventoryAllocationResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

@@ -1,0 +1,1515 @@
+openapi: 3.0.1
+info:
+  title: Customer Agreement
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain maintains
+    the master customer agreement/legal contract. Note that a customer can be a
+    complex corporate entity with many subsidiaries operating in different
+    geopolitical areas. The customer agreement is linked to as many Sales
+    Product Agreements as needed for all inforce products
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CustomerAgreement
+paths:
+   '/CustomerAgreement/{customeragreementid}/Evaluate':
+      post:
+        tags:
+           - CR - CustomerAgreement
+        summary: EvCR Establish a customer master agreement (evaluate applicable rules)
+        description: EvCR Establish a customer master agreement (evaluate applicable rules)
+        operationId: CustomerAgreement/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/customeragreementid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateCustomerAgreementRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerAgreement/{customeragreementid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerAgreement
+        summary: ReCR Retrieve details about a customer master agreement
+        description: ReCR Retrieve details about a customer master agreement
+        operationId: CustomerAgreement/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customeragreementid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCustomerAgreementResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/LegalTerms/{legaltermsid}/Evaluate':
+      post:
+        tags:
+           - BQ - LegalTerms
+        summary: EvBQ Establish the legal terms for a customer master agreement
+        description: EvBQ Establish the legal terms for a customer master agreement
+        operationId: LegalTerms/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/legaltermsid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateLegalTermsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/LegalTerms/{legaltermsid}/Update':
+      put:
+        tags:
+           - BQ - LegalTerms
+        summary: UpBQ Update the legal terms for a customer master agreement
+        description: UpBQ Update the legal terms for a customer master agreement
+        operationId: LegalTerms/Update
+        parameters:
+           - $ref: '#/components/parameters/legaltermsid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateLegalTermsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/LegalTerms/{legaltermsid}/Retrieve':
+      get:
+        tags:
+           - BQ - LegalTerms
+        summary: ReBQ Retrieve details about the legal terms of an agreement
+        description: ReBQ Retrieve details about the legal terms of an agreement
+        operationId: LegalTerms/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/legaltermsid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveLegalTermsResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RegulatoryTerms/{regulatorytermsid}/Evaluate':
+      post:
+        tags:
+           - BQ - RegulatoryTerms
+        summary: EvBQ Establish the regulatory terms for a customer master agreement
+        description: EvBQ Establish the regulatory terms for a customer master agreement
+        operationId: RegulatoryTerms/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/regulatorytermsid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateRegulatoryTermsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RegulatoryTerms/{regulatorytermsid}/Update':
+      put:
+        tags:
+           - BQ - RegulatoryTerms
+        summary: UpBQ Update the regulatory terms for a customer master agreement
+        description: UpBQ Update the regulatory terms for a customer master agreement
+        operationId: RegulatoryTerms/Update
+        parameters:
+           - $ref: '#/components/parameters/regulatorytermsid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateRegulatoryTermsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RegulatoryTerms/{regulatorytermsid}/Retrieve':
+      get:
+        tags:
+           - BQ - RegulatoryTerms
+        summary: ReBQ Retrieve details about the regulatory terms of an agreement
+        description: ReBQ Retrieve details about the regulatory terms of an agreement
+        operationId: RegulatoryTerms/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/regulatorytermsid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveRegulatoryTermsResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PolicyTerms/{policytermsid}/Evaluate':
+      post:
+        tags:
+           - BQ - PolicyTerms
+        summary: >-
+          EvBQ Establish the corporate policy terms for a customer master
+          agreement
+        description: >-
+          EvBQ Establish the corporate policy terms for a customer master
+          agreement
+        operationId: PolicyTerms/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/policytermsid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluatePolicyTermsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PolicyTerms/{policytermsid}/Update':
+      put:
+        tags:
+           - BQ - PolicyTerms
+        summary: UpBQ Update the corporate policy terms for a customer master agreement
+        description: UpBQ Update the corporate policy terms for a customer master agreement
+        operationId: PolicyTerms/Update
+        parameters:
+           - $ref: '#/components/parameters/policytermsid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePolicyTermsRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PolicyTerms/{policytermsid}/Retrieve':
+      get:
+        tags:
+           - BQ - PolicyTerms
+        summary: ReBQ Retrieve details about the corporate policy terms of an agreement
+        description: ReBQ Retrieve details about the corporate policy terms of an agreement
+        operationId: PolicyTerms/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/policytermsid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePolicyTermsResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateCustomerAgreementRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     EvaluateCustomerAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     EvaluateCustomerAgreement:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of customer agreement (e.g. individual, corporate)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: >-
+                Reference to product specific T&Cs maintained elsewhere but
+                subordinate to this agreement
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained elsewhere for
+                the customer
+              format: Object
+     RetrieveCustomerAgreementResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveCustomerAgreement:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of customer agreement (e.g. individual, corporate)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: >-
+                Reference to product specific T&Cs maintained elsewhere but
+                subordinate to this agreement
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained elsewhere for
+                the customer
+              format: Object
+     EvaluateLegalTermsRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableLawReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     EvaluateLegalTermsResponse:
+        type: object
+        description: ''
+        properties:
+           ApplicableLawInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateLegalTerms:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of customer agreement (e.g. individual, corporate)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: >-
+                Reference to product specific T&Cs maintained elsewhere but
+                subordinate to this agreement
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained elsewhere for
+                the customer
+              format: Object
+     UpdateLegalTermsRequest:
+        type: object
+        description: ''
+        properties:
+           Jurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableLawReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateLegalTermsResponse:
+        type: object
+        description: ''
+        properties:
+           Jurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableLawReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateLegalTerms:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of customer agreement (e.g. individual, corporate)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: >-
+                Reference to product specific T&Cs maintained elsewhere but
+                subordinate to this agreement
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained elsewhere for
+                the customer
+              format: Object
+     RetrieveLegalTermsResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableLawReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableLawInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveLegalTerms:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of customer agreement (e.g. individual, corporate)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: >-
+                Reference to product specific T&Cs maintained elsewhere but
+                subordinate to this agreement
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained elsewhere for
+                the customer
+              format: Object
+     EvaluateRegulatoryTermsRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAuthority:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     EvaluateRegulatoryTermsResponse:
+        type: object
+        description: ''
+        properties:
+           ApplicableRegulationInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateRegulatoryTerms:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of customer agreement (e.g. individual, corporate)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: >-
+                Reference to product specific T&Cs maintained elsewhere but
+                subordinate to this agreement
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained elsewhere for
+                the customer
+              format: Object
+     UpdateRegulatoryTermsRequest:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthority:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateRegulatoryTermsResponse:
+        type: object
+        description: ''
+        properties:
+           RegulatoryAuthority:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateRegulatoryTerms:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of customer agreement (e.g. individual, corporate)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: >-
+                Reference to product specific T&Cs maintained elsewhere but
+                subordinate to this agreement
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained elsewhere for
+                the customer
+              format: Object
+     RetrieveRegulatoryTermsResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           RegulatoryAuthority:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableRegulationInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveRegulatoryTerms:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of customer agreement (e.g. individual, corporate)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: >-
+                Reference to product specific T&Cs maintained elsewhere but
+                subordinate to this agreement
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained elsewhere for
+                the customer
+              format: Object
+     EvaluatePolicyTermsRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankPolicyRuleType:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableBankPolicyRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     EvaluatePolicyTermsResponse:
+        type: object
+        description: ''
+        properties:
+           ApplicableBankPolicyRuleInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluatePolicyTerms:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of customer agreement (e.g. individual, corporate)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: >-
+                Reference to product specific T&Cs maintained elsewhere but
+                subordinate to this agreement
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained elsewhere for
+                the customer
+              format: Object
+     UpdatePolicyTermsRequest:
+        type: object
+        description: ''
+        properties:
+           BankPolicyRuleType:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableBankPolicyRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdatePolicyTermsResponse:
+        type: object
+        description: ''
+        properties:
+           BankPolicyRuleType:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableBankPolicyRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdatePolicyTerms:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of customer agreement (e.g. individual, corporate)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: >-
+                Reference to product specific T&Cs maintained elsewhere but
+                subordinate to this agreement
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained elsewhere for
+                the customer
+              format: Object
+     RetrievePolicyTermsResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AgreementType:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           BankPolicyRuleType:
+              type: string
+              description: "\r\n"
+              format: String
+           ApplicableBankPolicyRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableBankPolicyRuleInterpretation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrievePolicyTerms:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+           LegalEntityReference:
+              type: string
+              description: >-
+                Reference to the legal entity that is the subject of the
+                agreement
+              format: Object
+           AgreementType:
+              type: string
+              description: The type of customer agreement (e.g. individual, corporate)
+              format: String
+           AgreementJurisdiction:
+              type: string
+              description: >-
+                The contractual jurisdiction or coverage of the agreement (e.g.
+                "governed by State")
+              format: String
+           AgreementValidFromToDate:
+              $ref: '#/components/schemas/Date'
+           AgreementSignatoriesResponsibleParties:
+              type: string
+              description: Reference to signatories
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to any associated documents
+              format: Object
+           SalesProductAgreementReference:
+              type: string
+              description: >-
+                Reference to product specific T&Cs maintained elsewhere but
+                subordinate to this agreement
+              format: Object
+           PartyLifecycleManagementReference:
+              type: string
+              description: >-
+                Reference to KYC/Regulatory assessments maintained elsewhere for
+                the customer
+              format: Object
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateCustomerAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateCustomerAgreementRequest'
+        required: true
+     RetrieveCustomerAgreementRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     EvaluateLegalTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateLegalTermsRequest'
+        required: true
+     UpdateLegalTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateLegalTermsRequest'
+        required: true
+     RetrieveLegalTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     EvaluateRegulatoryTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateRegulatoryTermsRequest'
+        required: true
+     UpdateRegulatoryTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRegulatoryTermsRequest'
+        required: true
+     RetrieveRegulatoryTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     EvaluatePolicyTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluatePolicyTermsRequest'
+        required: true
+     UpdatePolicyTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePolicyTermsRequest'
+        required: true
+     RetrievePolicyTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     customeragreementid:
+        name: customeragreementid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     legaltermsid:
+        name: legaltermsid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     regulatorytermsid:
+        name: regulatorytermsid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     policytermsid:
+        name: policytermsid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateCustomerAgreementResponse:
+        description: CustomerAgreementEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateCustomerAgreementResponse'
+     RetrieveCustomerAgreementResponse:
+        description: CustomerAgreementRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCustomerAgreementResponse'
+     EvaluateLegalTermsResponse:
+        description: LegalTermsEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateLegalTermsResponse'
+     UpdateLegalTermsResponse:
+        description: LegalTermsUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateLegalTermsResponse'
+     RetrieveLegalTermsResponse:
+        description: LegalTermsRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveLegalTermsResponse'
+     EvaluateRegulatoryTermsResponse:
+        description: RegulatoryTermsEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateRegulatoryTermsResponse'
+     UpdateRegulatoryTermsResponse:
+        description: RegulatoryTermsUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRegulatoryTermsResponse'
+     RetrieveRegulatoryTermsResponse:
+        description: RegulatoryTermsRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveRegulatoryTermsResponse'
+     EvaluatePolicyTermsResponse:
+        description: PolicyTermsEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluatePolicyTermsResponse'
+     UpdatePolicyTermsResponse:
+        description: PolicyTermsUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePolicyTermsResponse'
+     RetrievePolicyTermsResponse:
+        description: PolicyTermsRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePolicyTermsResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

@@ -1,0 +1,3590 @@
+openapi: 3.0.1
+info:
+  title: Direct Debit
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Fulfils a direct debit
+    agreement.  Handles the creditor side of direct debits.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/DirectDebit
+paths:
+   '/DirectDebitFacility/{directdebitfacilityid}/Control':
+      put:
+        tags:
+           - CR - DirectDebitFacility
+        summary: CoCR Control the processing of Direct Debit Facility
+        description: CoCR Control the processing of Direct Debit Facility
+        operationId: DirectDebitFacility/Control
+        parameters:
+           - $ref: '#/components/parameters/directdebitfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/ControlDirectDebitFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/DirectDebitFacility/{directdebitfacilityid}/Exchange':
+      put:
+        tags:
+           - CR - DirectDebitFacility
+        summary: EcCR Accept, verify, etc. aspects of Direct Debit Facility processing
+        description: EcCR Accept, verify, etc. aspects of Direct Debit Facility processing
+        operationId: DirectDebitFacility/Exchange
+        parameters:
+           - $ref: '#/components/parameters/directdebitfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeDirectDebitFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/DirectDebitFacility/{directdebitfacilityid}/Execute':
+      put:
+        tags:
+           - CR - DirectDebitFacility
+        summary: ExCR Execute an available automated action for Direct Debit Facility
+        description: ExCR Execute an available automated action for Direct Debit Facility
+        operationId: DirectDebitFacility/Execute
+        parameters:
+           - $ref: '#/components/parameters/directdebitfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteDirectDebitFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/DirectDebitFacility/{directdebitfacilityid}/Initiate':
+      post:
+        tags:
+           - CR - DirectDebitFacility
+        summary: InCR Instantiate a new Direct Debit Facility
+        description: InCR Instantiate a new Direct Debit Facility
+        operationId: DirectDebitFacility/Initiate
+        parameters:
+           - $ref: '#/components/parameters/directdebitfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateDirectDebitFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/DirectDebitFacility/{directdebitfacilityid}/Retrieve':
+      get:
+        tags:
+           - CR - DirectDebitFacility
+        summary: ReCR Retrieve details about any aspect of Direct Debit Facility
+        description: ReCR Retrieve details about any aspect of Direct Debit Facility
+        operationId: DirectDebitFacility/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/directdebitfacilityid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveDirectDebitFacilityResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/DirectDebitFacility/{directdebitfacilityid}/Request':
+      put:
+        tags:
+           - CR - DirectDebitFacility
+        summary: >-
+          RqCR Request manual intervention or a decision with respect to Direct
+          Debit Facility
+        description: >-
+          RqCR Request manual intervention or a decision with respect to Direct
+          Debit Facility
+        operationId: DirectDebitFacility/Request
+        parameters:
+           - $ref: '#/components/parameters/directdebitfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestDirectDebitFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/DirectDebitFacility/{directdebitfacilityid}/Update':
+      put:
+        tags:
+           - CR - DirectDebitFacility
+        summary: UpCR Update details relating to Direct Debit Facility
+        description: UpCR Update details relating to Direct Debit Facility
+        operationId: DirectDebitFacility/Update
+        parameters:
+           - $ref: '#/components/parameters/directdebitfacilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateDirectDebitFacilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentTracking/{paymenttrackingid}/Control':
+      put:
+        tags:
+           - BQ - PaymentTracking
+        summary: CoBQ Control the processing of Payment Tracking
+        description: CoBQ Control the processing of Payment Tracking
+        operationId: PaymentTracking/Control
+        parameters:
+           - $ref: '#/components/parameters/paymenttrackingid'
+        requestBody:
+          $ref: '#/components/requestBodies/ControlPaymentTrackingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FundsAvailableCheck/{fundsavailablecheckid}/Execute':
+      put:
+        tags:
+           - BQ - FundsAvailableCheck
+        summary: EcBQ Accept, verify, etc. aspects of Funds Available Check processing
+        description: EcBQ Accept, verify, etc. aspects of Funds Available Check processing
+        operationId: FundsAvailableCheck/Execute
+        parameters:
+           - $ref: '#/components/parameters/fundsavailablecheckid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteFundsAvailableCheckRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentInitiation/{paymentinitiationid}/Execute':
+      put:
+        tags:
+           - BQ - PaymentInitiation
+        summary: EcBQ Accept, verify, etc. aspects of Payment Initiation processing
+        description: EcBQ Accept, verify, etc. aspects of Payment Initiation processing
+        operationId: PaymentInitiation/Execute
+        parameters:
+           - $ref: '#/components/parameters/paymentinitiationid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecutePaymentInitiationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/VerifyMandate/{verifymandateid}/Execute':
+      put:
+        tags:
+           - BQ - VerifyMandate
+        summary: EcBQ Accept, verify, etc. aspects of Verify Mandate processing
+        description: EcBQ Accept, verify, etc. aspects of Verify Mandate processing
+        operationId: VerifyMandate/Execute
+        parameters:
+           - $ref: '#/components/parameters/verifymandateid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteVerifyMandateRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentTracking/{paymenttrackingid}/Execute':
+      put:
+        tags:
+           - BQ - PaymentTracking
+        summary: ExBQ Execute an available automated action for Payment Tracking
+        description: ExBQ Execute an available automated action for Payment Tracking
+        operationId: PaymentTracking/Execute
+        parameters:
+           - $ref: '#/components/parameters/paymenttrackingid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecutePaymentTrackingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentTracking/{paymenttrackingid}/Initiate':
+      post:
+        tags:
+           - BQ - PaymentTracking
+        summary: InBQ Instantiate a new Payment Tracking
+        description: InBQ Instantiate a new Payment Tracking
+        operationId: PaymentTracking/Initiate
+        parameters:
+           - $ref: '#/components/parameters/paymenttrackingid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiatePaymentTrackingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Reporting/{reportingid}/Initiate':
+      post:
+        tags:
+           - BQ - Reporting
+        summary: InBQ Instantiate a new Reporting
+        description: InBQ Instantiate a new Reporting
+        operationId: Reporting/Initiate
+        parameters:
+           - $ref: '#/components/parameters/reportingid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateReportingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FundsAvailableCheck/{fundsavailablecheckid}/Retrieve':
+      get:
+        tags:
+           - BQ - FundsAvailableCheck
+        summary: ReBQ Retrieve details about any aspect of Funds Available Check
+        description: ReBQ Retrieve details about any aspect of Funds Available Check
+        operationId: FundsAvailableCheck/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/fundsavailablecheckid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveFundsAvailableCheckResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentInitiation/{paymentinitiationid}/Retrieve':
+      get:
+        tags:
+           - BQ - PaymentInitiation
+        summary: ReBQ Retrieve details about any aspect of Payment Initiation
+        description: ReBQ Retrieve details about any aspect of Payment Initiation
+        operationId: PaymentInitiation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/paymentinitiationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePaymentInitiationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentTracking/{paymenttrackingid}/Retrieve':
+      get:
+        tags:
+           - BQ - PaymentTracking
+        summary: ReBQ Retrieve details about any aspect of Payment Tracking
+        description: ReBQ Retrieve details about any aspect of Payment Tracking
+        operationId: PaymentTracking/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/paymenttrackingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePaymentTrackingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Reporting/{reportingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Reporting
+        summary: ReBQ Retrieve details about any aspect of Reporting
+        description: ReBQ Retrieve details about any aspect of Reporting
+        operationId: Reporting/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/reportingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveReportingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/VerifyMandate/{verifymandateid}/Retrieve':
+      get:
+        tags:
+           - BQ - VerifyMandate
+        summary: ReBQ Retrieve details about any aspect of Verify Mandate
+        description: ReBQ Retrieve details about any aspect of Verify Mandate
+        operationId: VerifyMandate/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/verifymandateid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveVerifyMandateResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FundsAvailableCheck/{fundsavailablecheckid}/Request':
+      put:
+        tags:
+           - BQ - FundsAvailableCheck
+        summary: >-
+          RqBQ Request manual intervention or a decision with respect to Funds
+          Available Check
+        description: >-
+          RqBQ Request manual intervention or a decision with respect to Funds
+          Available Check
+        operationId: FundsAvailableCheck/Request
+        parameters:
+           - $ref: '#/components/parameters/fundsavailablecheckid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestFundsAvailableCheckRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     ControlDirectDebitFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     Currencycode:
+        type: object
+        description: ' CurrencyCode|CurrencyCode (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022 BM ()'
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     ControlDirectDebitFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     ControlDirectDebitFacility:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     ExchangeDirectDebitFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     ExchangeDirectDebitFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     ExchangeDirectDebitFacility:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     ExecuteDirectDebitFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     ExecuteDirectDebitFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteDirectDebitFacility:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     InitiateDirectDebitFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     InitiateDirectDebitFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateDirectDebitFacility:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     RetrieveDirectDebitFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveDirectDebitFacility:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     RequestDirectDebitFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestDirectDebitFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestDirectDebitFacility:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     UpdateDirectDebitFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateDirectDebitFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilitySchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateDirectDebitFacility:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     ControlPaymentTrackingRequest:
+        type: object
+        description: ''
+        properties:
+           PaymentTrackingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitPaymentTracking:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentTrackingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     BusinessService:
+        type: object
+        description: "\r\n - "
+        properties:
+           BusinessServiceType:
+              enum:
+                   -  Businessservicetypevalues
+              type: string
+              description: ">-\r\n* `Businessservicetypevalues` \r\n* "
+     ControlPaymentTrackingResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentTrackingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitPaymentTracking:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentTrackingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ControlPaymentTracking:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     ExecuteFundsAvailableCheckRequest:
+        type: object
+        description: ''
+        properties:
+           FundsAvailableCheckPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteFundsAvailableCheckResponse:
+        type: object
+        description: ''
+        properties:
+           FundsAvailableCheckPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteFundsAvailableCheck:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     ExecutePaymentInitiationRequest:
+        type: object
+        description: ''
+        properties:
+           PaymentInitiationPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitPaymentInitiation:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentInitiationPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationDirectDebitPaymentInitiationServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationDirectDebitPaymentInitiationServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationDirectDebitPaymentInitiationServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationDirectDebitPaymentInitiationServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationDirectDebitPaymentInitiationServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecutePaymentInitiationResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentInitiationPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitPaymentInitiation:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentInitiationPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationDirectDebitPaymentInitiationServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationDirectDebitPaymentInitiationServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationDirectDebitPaymentInitiationServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationDirectDebitPaymentInitiationServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationDirectDebitPaymentInitiationServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecutePaymentInitiation:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     ExecuteVerifyMandateRequest:
+        type: object
+        description: ''
+        properties:
+           VerifyMandatePreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitMandateCheck:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           VerifyMandatePostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateDirectDebitMandateCheckServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateDirectDebitMandateCheckServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateDirectDebitMandateCheckServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateDirectDebitMandateCheckServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateDirectDebitMandateCheckServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteVerifyMandateResponse:
+        type: object
+        description: ''
+        properties:
+           VerifyMandatePreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitMandateCheck:
+              $ref: '#/components/schemas/BusinessService'
+           VerifyMandatePostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateDirectDebitMandateCheckServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateDirectDebitMandateCheckServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateDirectDebitMandateCheckServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateDirectDebitMandateCheckServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateDirectDebitMandateCheckServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteVerifyMandate:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     ExecutePaymentTrackingRequest:
+        type: object
+        description: ''
+        properties:
+           PaymentTrackingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitPaymentTracking:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentTrackingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecutePaymentTrackingResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentTrackingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitPaymentTracking:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentTrackingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecutePaymentTracking:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     InitiatePaymentTrackingRequest:
+        type: object
+        description: ''
+        properties:
+           PaymentTrackingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitPaymentTracking:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           PaymentTrackingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiatePaymentTrackingResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentTrackingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitPaymentTracking:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentTrackingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiatePaymentTracking:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     InitiateReportingRequest:
+        type: object
+        description: ''
+        properties:
+           ReportingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           ReportingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateReportingResponse:
+        type: object
+        description: ''
+        properties:
+           ReportingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           ReportingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateReporting:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     RetrieveFundsAvailableCheckResponse:
+        type: object
+        description: ''
+        properties:
+           FundsAvailableCheckPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveFundsAvailableCheck:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     RetrievePaymentInitiationResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentInitiationPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitPaymentInitiation:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentInitiationPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationDirectDebitPaymentInitiationServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationDirectDebitPaymentInitiationServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationDirectDebitPaymentInitiationServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationDirectDebitPaymentInitiationServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentInitiationDirectDebitPaymentInitiationServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrievePaymentInitiation:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     RetrievePaymentTrackingResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentTrackingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitPaymentTracking:
+              $ref: '#/components/schemas/BusinessService'
+           PaymentTrackingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentTrackingDirectDebitPaymentTrackingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrievePaymentTracking:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     RetrieveReportingResponse:
+        type: object
+        description: ''
+        properties:
+           ReportingPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           ReportingPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportingServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveReporting:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     RetrieveVerifyMandateResponse:
+        type: object
+        description: ''
+        properties:
+           VerifyMandatePreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DirectDebitMandateCheck:
+              $ref: '#/components/schemas/BusinessService'
+           VerifyMandatePostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateDirectDebitMandateCheckServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateDirectDebitMandateCheckServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateDirectDebitMandateCheckServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateDirectDebitMandateCheckServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           VerifyMandateDirectDebitMandateCheckServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveVerifyMandate:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     RequestFundsAvailableCheckRequest:
+        type: object
+        description: ''
+        properties:
+           FundsAvailableCheckPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestFundsAvailableCheckResponse:
+        type: object
+        description: ''
+        properties:
+           FundsAvailableCheckPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFeatureSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           FundsAvailableCheckFundsAvailableCheckServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestFundsAvailableCheck:
+        type: object
+        description: ''
+        properties:
+           DirectDebitFacilityParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between arrangements
+                according to the type of business services within Direct Debit
+                Arrangement
+              format: String
+           DirectDebitFacilitySelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Direct
+                Debit Arrangement
+              format: String
+           DirectDebitFacilityType:
+              type: string
+              description: The type of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityReference:
+              type: string
+              description: Reference to Direct Debit Arrangement
+              format: Object
+           DirectDebitFacilitySchedule:
+              type: string
+              description: Timetable to fulfill Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityStatus:
+              type: string
+              description: The status of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DirectDebitFacilityRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined in Direct Debit
+                Arrangement
+              format: Object
+           DirectDebitFacilityRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Direct Debit
+                Arrangement in case of legal dispute.
+              format: String
+           DirectDebitFacilityBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement
+                in the context of Direct Debit Arrangement, are entered.
+              format: String
+           DirectDebitFacilityAccountType:
+              type: string
+              description: The type of account which is linked to Direct Debit Arrangement
+              format: String
+           DirectDebitFacilityAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Direct Debit
+                Arrangement
+              format: Object
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     ControlDirectDebitFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlDirectDebitFacilityRequest'
+        required: true
+     ExchangeDirectDebitFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeDirectDebitFacilityRequest'
+        required: true
+     ExecuteDirectDebitFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteDirectDebitFacilityRequest'
+        required: true
+     InitiateDirectDebitFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateDirectDebitFacilityRequest'
+        required: true
+     RetrieveDirectDebitFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RequestDirectDebitFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestDirectDebitFacilityRequest'
+        required: true
+     UpdateDirectDebitFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateDirectDebitFacilityRequest'
+        required: true
+     ControlPaymentTrackingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlPaymentTrackingRequest'
+        required: true
+     ExecuteFundsAvailableCheckRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteFundsAvailableCheckRequest'
+        required: true
+     ExecutePaymentInitiationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePaymentInitiationRequest'
+        required: true
+     ExecuteVerifyMandateRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteVerifyMandateRequest'
+        required: true
+     ExecutePaymentTrackingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePaymentTrackingRequest'
+        required: true
+     InitiatePaymentTrackingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiatePaymentTrackingRequest'
+        required: true
+     InitiateReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateReportingRequest'
+        required: true
+     RetrieveFundsAvailableCheckRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrievePaymentInitiationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrievePaymentTrackingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveVerifyMandateRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RequestFundsAvailableCheckRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestFundsAvailableCheckRequest'
+        required: true
+  parameters:
+     directdebitfacilityid:
+        name: directdebitfacilityid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     paymenttrackingid:
+        name: paymenttrackingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     fundsavailablecheckid:
+        name: fundsavailablecheckid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     paymentinitiationid:
+        name: paymentinitiationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     verifymandateid:
+        name: verifymandateid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     reportingid:
+        name: reportingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     ControlDirectDebitFacilityResponse:
+        description: DirectDebitFacilityControl
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlDirectDebitFacilityResponse'
+     ExchangeDirectDebitFacilityResponse:
+        description: DirectDebitFacilityExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeDirectDebitFacilityResponse'
+     ExecuteDirectDebitFacilityResponse:
+        description: DirectDebitFacilityExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteDirectDebitFacilityResponse'
+     InitiateDirectDebitFacilityResponse:
+        description: DirectDebitFacilityInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateDirectDebitFacilityResponse'
+     RetrieveDirectDebitFacilityResponse:
+        description: DirectDebitFacilityRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveDirectDebitFacilityResponse'
+     RequestDirectDebitFacilityResponse:
+        description: DirectDebitFacilityRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestDirectDebitFacilityResponse'
+     UpdateDirectDebitFacilityResponse:
+        description: DirectDebitFacilityUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateDirectDebitFacilityResponse'
+     ControlPaymentTrackingResponse:
+        description: PaymentTrackingControl
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlPaymentTrackingResponse'
+     ExecuteFundsAvailableCheckResponse:
+        description: FundsAvailableCheckExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteFundsAvailableCheckResponse'
+     ExecutePaymentInitiationResponse:
+        description: PaymentInitiationExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePaymentInitiationResponse'
+     ExecuteVerifyMandateResponse:
+        description: VerifyMandateExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteVerifyMandateResponse'
+     ExecutePaymentTrackingResponse:
+        description: PaymentTrackingExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePaymentTrackingResponse'
+     InitiatePaymentTrackingResponse:
+        description: PaymentTrackingInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiatePaymentTrackingResponse'
+     InitiateReportingResponse:
+        description: ReportingInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateReportingResponse'
+     RetrieveFundsAvailableCheckResponse:
+        description: FundsAvailableCheckRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveFundsAvailableCheckResponse'
+     RetrievePaymentInitiationResponse:
+        description: PaymentInitiationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePaymentInitiationResponse'
+     RetrievePaymentTrackingResponse:
+        description: PaymentTrackingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePaymentTrackingResponse'
+     RetrieveReportingResponse:
+        description: ReportingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveReportingResponse'
+     RetrieveVerifyMandateResponse:
+        description: VerifyMandateRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveVerifyMandateResponse'
+     RequestFundsAvailableCheckResponse:
+        description: FundsAvailableCheckRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestFundsAvailableCheckResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

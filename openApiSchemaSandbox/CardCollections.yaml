@@ -1,0 +1,2236 @@
+openapi: 3.0.1
+info:
+  title: Card Collections
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain
+    administers the recovery of outstanding amounts from cancelled card accounts
+    through internal or external collection agencies.  This may involve
+    negotiating payment terms and/or interest writedowns.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CardCollections
+paths:
+   '/CardCollectionsProcedure/{cardcollectionsprocedureid}/Initiate':
+      post:
+        tags:
+           - CR - CardCollectionsProcedure
+        summary: InCR Initiate card collections processing
+        description: InCR Initiate card collections processing
+        operationId: CardCollectionsProcedure/Initiate
+        parameters:
+           - $ref: '#/components/parameters/cardcollectionsprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateCardCollectionsProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CardCollectionsProcedure/{cardcollectionsprocedureid}/Update':
+      put:
+        tags:
+           - CR - CardCollectionsProcedure
+        summary: UpCR Update details of card collections processing
+        description: UpCR Update details of card collections processing
+        operationId: CardCollectionsProcedure/Update
+        parameters:
+           - $ref: '#/components/parameters/cardcollectionsprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCardCollectionsProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CardCollectionsProcedure/{cardcollectionsprocedureid}/Retrieve':
+      get:
+        tags:
+           - CR - CardCollectionsProcedure
+        summary: ReCR Retrieve details about a card collections procedure
+        description: ReCR Retrieve details about a card collections procedure
+        operationId: CardCollectionsProcedure/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/cardcollectionsprocedureid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCardCollectionsProcedureResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Assignment/{assignmentid}/Retrieve':
+      get:
+        tags:
+           - BQ - Assignment
+        summary: ReBQ Retrieve details about a card collections assignment
+        description: ReBQ Retrieve details about a card collections assignment
+        operationId: Assignment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/assignmentid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAssignmentResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PaymentTerms/{paymenttermsid}/Retrieve':
+      get:
+        tags:
+           - BQ - PaymentTerms
+        summary: >-
+          ReBQ Retrieve details about the payment terms for a card collections
+          procedure
+        description: >-
+          ReBQ Retrieve details about the payment terms for a card collections
+          procedure
+        operationId: PaymentTerms/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/paymenttermsid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePaymentTermsResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Payment/{paymentid}/Initiate':
+      post:
+        tags:
+           - BQ - Payment
+        summary: InBQ Initiate payment processing against the card collections account
+        description: InBQ Initiate payment processing against the card collections account
+        operationId: Payment/Initiate
+        parameters:
+           - $ref: '#/components/parameters/paymentid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiatePaymentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Payment/{paymentid}/Update':
+      put:
+        tags:
+           - BQ - Payment
+        summary: UpBQ Update a payment transaction
+        description: UpBQ Update a payment transaction
+        operationId: Payment/Update
+        parameters:
+           - $ref: '#/components/parameters/paymentid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePaymentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Payment/{paymentid}/Retrieve':
+      get:
+        tags:
+           - BQ - Payment
+        summary: >-
+          ReBQ Retrieve details about a payment made against the delinquent
+          account
+        description: >-
+          ReBQ Retrieve details about a payment made against the delinquent
+          account
+        operationId: Payment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/paymentid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePaymentResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Resolution/{resolutionid}/Update':
+      put:
+        tags:
+           - BQ - Resolution
+        summary: UpBQ Update a resolution plan
+        description: UpBQ Update a resolution plan
+        operationId: Resolution/Update
+        parameters:
+           - $ref: '#/components/parameters/resolutionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateResolutionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Resolution/{resolutionid}/Retrieve':
+      get:
+        tags:
+           - BQ - Resolution
+        summary: ReBQ Retrieve details about a card collections resolution plan
+        description: ReBQ Retrieve details about a card collections resolution plan
+        operationId: Resolution/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/resolutionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveResolutionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateCardCollectionsProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     InitiateCardCollectionsProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     InitiateCardCollectionsProcedure:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     UpdateCardCollectionsProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     UpdateCardCollectionsProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     UpdateCardCollectionsProcedure:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     RetrieveCardCollectionsProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     RetrieveCardCollectionsProcedure:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     RetrieveAssignmentResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+           CustomerCreditRatingAssessmentInstanceReference:
+              type: string
+              description: Reference to the bank's credit assessment for the customer
+              format: Object
+           CollectionAgencyReference:
+              type: string
+              description: Reference to an established external collections service agency
+              format: Object
+           CollectionAgencyAgreement:
+              type: string
+              description: >-
+                The terms and conditions governing the use of the collections
+                agency
+              format: String
+           CardCollectionsAssignmentDecision:
+              type: string
+              description: Details of the assignment decision
+              format: String
+           CardCollectionsAssignmentWorkProduct:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the task
+              format: String
+     RetrieveAssignment:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     RetrievePaymentTermsResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+           CardCollectionsPaymentTermsContactRecord:
+              type: string
+              description: Reference to a contact established with the customer
+              format: String
+           ContactMessage:
+              type: string
+              description: Content of the reminder message
+              format: String
+           ContactDate:
+              $ref: '#/components/schemas/Date'
+           ContactResult:
+              type: string
+              description: Any response arising from the contact
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: The document reference for associated documents
+              format: Object
+           DocumentContent:
+              type: string
+              description: Document copy/content  legal documents created & referenced
+              format: String
+           CorrespondenceInstanceReference:
+              type: string
+              description: Reference to the correspondence generated and received
+              format: Object
+           CorrespondenceContent:
+              type: string
+              description: >-
+                Correspondence content  repayment negotiation/payment request
+                messages sent to involved parties
+              format: String
+           CardCollectionsPaymentTermsRenegotiationDecision:
+              type: string
+              description: >-
+                The payment terms renegotiation decision, includes renegotiated
+                terms and repayment schedule
+              format: String
+           CardCollectionsPaymentTermsWorkProduct:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the task
+              format: String
+     Date:
+        type: object
+        description: >-
+          The date and time of the contact ISODate|ISODate
+          (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022
+          BM ()
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     RetrievePaymentTerms:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     InitiatePaymentRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+           CardCollectionsPaymentNotificationRecord:
+              type: string
+              description: >-
+                Processing record received for payments made against the
+                collections account
+              format: String
+     InitiatePaymentResponse:
+        type: object
+        description: ''
+        properties:
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     InitiatePayment:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     UpdatePaymentRequest:
+        type: object
+        description: ''
+        properties:
+           PaymentTransactionReference:
+              type: string
+              description: Reference to the received payment
+              format: Object
+           CardCollectionsPaymentNotificationRecord:
+              type: string
+              description: >-
+                Processing record received for payments made against the
+                collections account
+              format: String
+     UpdatePaymentResponse:
+        type: object
+        description: ''
+        properties:
+           PaymentTransactionReference:
+              type: string
+              description: Reference to the received payment
+              format: Object
+           CardCollectionsPaymentNotificationRecord:
+              type: string
+              description: >-
+                Processing record received for payments made against the
+                collections account
+              format: String
+     UpdatePayment:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     RetrievePaymentResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+           CardCollectionsPaymentNotificationRecord:
+              type: string
+              description: >-
+                Processing record received for payments made against the
+                collections account
+              format: String
+     RetrievePayment:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     UpdateResolutionRequest:
+        type: object
+        description: ''
+        properties:
+           CardCollectionsResolutionDecision:
+              type: string
+              description: Details of the resolution decision
+              format: String
+           CardCollectionsResolutionWorkProduct:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the task
+              format: String
+     UpdateResolutionResponse:
+        type: object
+        description: ''
+        properties:
+           CardCollectionsResolutionDecision:
+              type: string
+              description: Details of the resolution decision
+              format: String
+           CardCollectionsResolutionWorkProduct:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the task
+              format: String
+     UpdateResolution:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     RetrieveResolutionResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+           CardCollectionsResolutionDecision:
+              type: string
+              description: Details of the resolution decision
+              format: String
+           CardCollectionsResolutionWorkProduct:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the task
+              format: String
+     RetrieveResolution:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated product instance in collections
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: The type of product
+              format: String
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           CardType:
+              type: string
+              description: The type of card
+              format: String
+           CardAccountStatus:
+              type: string
+              description: >-
+                The status of the account (e.g. active, cancelled, blocked,
+                closed,...)
+              format: String
+           CardAccountLimits:
+              type: string
+              description: >-
+                Card account limits (e.g. spend limits and credit limits for
+                different access types, e.g. POS/ATM)
+              format: String
+           ConfigurationOptions:
+              type: string
+              description: >-
+                A wide range of processing options and rules that apply,
+                including the applicable delinquency penalties…
+              format: String
+           TaxReference:
+              type: string
+              description: >-
+                Reference identifier linking the account to appropriate tax
+                handling
+              format: Object
+           BillingTransactions:
+              type: string
+              description: Customer billing transactions (and associated payments)
+              format: String
+           BillingTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           PaymentTransactions:
+              type: string
+              description: >-
+                Payments deposited to the account  card account payment
+                transaction history as required
+              format: String
+           PaymentTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           ProductTransactions:
+              type: string
+              description: >-
+                Product execution transactions  account card use transaction
+                history as required
+              format: String
+           ProductTransactionReference:
+              type: string
+              description: Reference to individual transactions
+              format: Object
+           Statements:
+              type: string
+              description: >-
+                Statements issued for the account  statement history as
+                required
+              format: String
+           StatementsReference:
+              type: string
+              description: Reference to individual statements
+              format: Object
+           CardCollectionsProcessingSchedule:
+              type: string
+              description: >-
+                The processing schedule for resolution of the collections
+                process and final decision
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateCardCollectionsProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCardCollectionsProcedureRequest'
+        required: true
+     UpdateCardCollectionsProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCardCollectionsProcedureRequest'
+        required: true
+     RetrieveCardCollectionsProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveAssignmentRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrievePaymentTermsRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiatePaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiatePaymentRequest'
+        required: true
+     UpdatePaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePaymentRequest'
+        required: true
+     RetrievePaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateResolutionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateResolutionRequest'
+        required: true
+     RetrieveResolutionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     cardcollectionsprocedureid:
+        name: cardcollectionsprocedureid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     assignmentid:
+        name: assignmentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     paymenttermsid:
+        name: paymenttermsid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     paymentid:
+        name: paymentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     resolutionid:
+        name: resolutionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateCardCollectionsProcedureResponse:
+        description: CardCollectionsProcedureInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCardCollectionsProcedureResponse'
+     UpdateCardCollectionsProcedureResponse:
+        description: CardCollectionsProcedureUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCardCollectionsProcedureResponse'
+     RetrieveCardCollectionsProcedureResponse:
+        description: CardCollectionsProcedureRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCardCollectionsProcedureResponse'
+     RetrieveAssignmentResponse:
+        description: AssignmentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAssignmentResponse'
+     RetrievePaymentTermsResponse:
+        description: PaymentTermsRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePaymentTermsResponse'
+     InitiatePaymentResponse:
+        description: PaymentInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiatePaymentResponse'
+     UpdatePaymentResponse:
+        description: PaymentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePaymentResponse'
+     RetrievePaymentResponse:
+        description: PaymentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePaymentResponse'
+     UpdateResolutionResponse:
+        description: ResolutionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateResolutionResponse'
+     RetrieveResolutionResponse:
+        description: ResolutionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveResolutionResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

@@ -1,0 +1,454 @@
+openapi: 3.0.1
+info:
+  title: Guideline Compliance
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain develops
+    and applies a portfolio of guideline compliance tests to confirm adherence
+    to bank and regulator imposed internal procedures. Tests may be made on
+    complete transaction data or a meaningful samples as appropriate to mitigate
+    exposure to noncompliant behaviors. Compliance checks may be in response to
+    a schedule, a specific request as part of normal processing or may be
+    initiated randomly as an oversight activity
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/GuidelineCompliance
+paths:
+   '/GuidelineComplianceAssessment/{guidelinecomplianceassessmentid}/Evaluate':
+      post:
+        tags:
+           - CR - GuidelineComplianceAssessment
+        summary: EvCR Start a guideline compliance evaluation assessment
+        description: EvCR Start a guideline compliance evaluation assessment
+        operationId: GuidelineComplianceAssessment/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/guidelinecomplianceassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/EvaluateGuidelineComplianceAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/GuidelineComplianceAssessment/{guidelinecomplianceassessmentid}/Update':
+      put:
+        tags:
+           - CR - GuidelineComplianceAssessment
+        summary: >-
+          UpCR Update submitted details or content for an ongoing guideline
+          compliance assessment
+        description: >-
+          UpCR Update submitted details or content for an ongoing guideline
+          compliance assessment
+        operationId: GuidelineComplianceAssessment/Update
+        parameters:
+           - $ref: '#/components/parameters/guidelinecomplianceassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateGuidelineComplianceAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/GuidelineComplianceAssessment/{guidelinecomplianceassessmentid}/Retrieve':
+      get:
+        tags:
+           - CR - GuidelineComplianceAssessment
+        summary: >-
+          ReCR Retrieve details and content from an active guideline compliance
+          assessment
+        description: >-
+          ReCR Retrieve details and content from an active guideline compliance
+          assessment
+        operationId: GuidelineComplianceAssessment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/guidelinecomplianceassessmentid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveGuidelineComplianceAssessmentResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateGuidelineComplianceAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           GuidelineComplianceAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           GuidelineComplianceAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateGuidelineComplianceAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           GuidelineComplianceAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           GuidelineComplianceAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateGuidelineComplianceAssessment:
+        type: object
+        description: ''
+        properties:
+           GuidelineComplianceAssessmentType:
+              type: string
+              description: >-
+                The type and makeup of guideline compliance tests referenced in
+                the assessment
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: >-
+                The business function or unit assessed for compliance if
+                appropriate
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: The associated product/service being assessed if appropriate
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer assessed if appropriate
+              format: Object
+           DocumentReference:
+              type: string
+              description: >-
+                Reference to any documentation classified/archived as
+                appropriate
+              format: Object
+           GuidelineComplianceAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the assessment
+              format: String
+           GuidelineComplianceAssessmentResult:
+              type: string
+              description: Outcome/result of the assessment, can include remedial actions
+              format: String
+     UpdateGuidelineComplianceAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           GuidelineComplianceAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           GuidelineComplianceAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateGuidelineComplianceAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           GuidelineComplianceAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           GuidelineComplianceAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateGuidelineComplianceAssessment:
+        type: object
+        description: ''
+        properties:
+           GuidelineComplianceAssessmentType:
+              type: string
+              description: >-
+                The type and makeup of guideline compliance tests referenced in
+                the assessment
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: >-
+                The business function or unit assessed for compliance if
+                appropriate
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: The associated product/service being assessed if appropriate
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer assessed if appropriate
+              format: Object
+           DocumentReference:
+              type: string
+              description: >-
+                Reference to any documentation classified/archived as
+                appropriate
+              format: Object
+           GuidelineComplianceAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the assessment
+              format: String
+           GuidelineComplianceAssessmentResult:
+              type: string
+              description: Outcome/result of the assessment, can include remedial actions
+              format: String
+     RetrieveGuidelineComplianceAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           GuidelineComplianceAssessmentType:
+              type: string
+              description: "\r\n"
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           GuidelineComplianceAssessmentWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           GuidelineComplianceAssessmentResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveGuidelineComplianceAssessment:
+        type: object
+        description: ''
+        properties:
+           GuidelineComplianceAssessmentType:
+              type: string
+              description: >-
+                The type and makeup of guideline compliance tests referenced in
+                the assessment
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: >-
+                The business function or unit assessed for compliance if
+                appropriate
+              format: Object
+           ProductandServiceReference:
+              type: string
+              description: The associated product/service being assessed if appropriate
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the customer assessed if appropriate
+              format: Object
+           DocumentReference:
+              type: string
+              description: >-
+                Reference to any documentation classified/archived as
+                appropriate
+              format: Object
+           GuidelineComplianceAssessmentWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the assessment
+              format: String
+           GuidelineComplianceAssessmentResult:
+              type: string
+              description: Outcome/result of the assessment, can include remedial actions
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateGuidelineComplianceAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateGuidelineComplianceAssessmentRequest
+        required: true
+     UpdateGuidelineComplianceAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateGuidelineComplianceAssessmentRequest'
+        required: true
+     RetrieveGuidelineComplianceAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     guidelinecomplianceassessmentid:
+        name: guidelinecomplianceassessmentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateGuidelineComplianceAssessmentResponse:
+        description: GuidelineComplianceAssessmentEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateGuidelineComplianceAssessmentResponse
+     UpdateGuidelineComplianceAssessmentResponse:
+        description: GuidelineComplianceAssessmentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateGuidelineComplianceAssessmentResponse'
+     RetrieveGuidelineComplianceAssessmentResponse:
+        description: GuidelineComplianceAssessmentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveGuidelineComplianceAssessmentResponse
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

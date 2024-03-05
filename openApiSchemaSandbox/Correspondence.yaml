@@ -1,0 +1,2325 @@
+openapi: 3.0.1
+info:
+  title: Correspondence
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain
+    orchestrates the production of preformatted correspondence and batches of
+    correspondence (e.g. mail shots).
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/Correspondence
+paths:
+   '/CorrespondenceOperatingSession/{correspondenceoperatingsessionid}/Initiate':
+      post:
+        tags:
+           - CR - CorrespondenceOperatingSession
+        summary: InCR Initiate the correspondence operational facility
+        description: InCR Initiate the correspondence operational facility
+        operationId: CorrespondenceOperatingSession/Initiate
+        parameters:
+           - $ref: '#/components/parameters/correspondenceoperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/InitiateCorrespondenceOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CorrespondenceOperatingSession/{correspondenceoperatingsessionid}/Update':
+      put:
+        tags:
+           - CR - CorrespondenceOperatingSession
+        summary: >-
+          UpCR Update settings and details of the operating session (e.g. change
+          priorities)
+        description: >-
+          UpCR Update settings and details of the operating session (e.g. change
+          priorities)
+        operationId: CorrespondenceOperatingSession/Update
+        parameters:
+           - $ref: '#/components/parameters/correspondenceoperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateCorrespondenceOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CorrespondenceOperatingSession/{correspondenceoperatingsessionid}/Execute':
+      put:
+        tags:
+           - CR - CorrespondenceOperatingSession
+        summary: ExCR Execute an automated task (e.g. statistical analysis)
+        description: ExCR Execute an automated task (e.g. statistical analysis)
+        operationId: CorrespondenceOperatingSession/Execute
+        parameters:
+           - $ref: '#/components/parameters/correspondenceoperatingsessionid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExecuteCorrespondenceOperatingSessionRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CorrespondenceOperatingSession/{correspondenceoperatingsessionid}/Retrieve':
+      get:
+        tags:
+           - CR - CorrespondenceOperatingSession
+        summary: ReCR Retrieve details about the correspondence session
+        description: ReCR Retrieve details about the correspondence session
+        operationId: CorrespondenceOperatingSession/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/correspondenceoperatingsessionid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveCorrespondenceOperatingSessionResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Outbound/{outboundid}/Initiate':
+      post:
+        tags:
+           - BQ - Outbound
+        summary: InBQ Initiate processing an outbound correspondence item
+        description: InBQ Initiate processing an outbound correspondence item
+        operationId: Outbound/Initiate
+        parameters:
+           - $ref: '#/components/parameters/outboundid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateOutboundRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Outbound/{outboundid}/Update':
+      put:
+        tags:
+           - BQ - Outbound
+        summary: UpBQ Update details of an outbound correspondence item
+        description: UpBQ Update details of an outbound correspondence item
+        operationId: Outbound/Update
+        parameters:
+           - $ref: '#/components/parameters/outboundid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateOutboundRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Outbound/{outboundid}/Retrieve':
+      get:
+        tags:
+           - BQ - Outbound
+        summary: ReBQ Retrieve details about an outbound correspondence item
+        description: ReBQ Retrieve details about an outbound correspondence item
+        operationId: Outbound/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/outboundid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveOutboundResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/OutboundWithResponse/{outboundwithresponseid}/Initiate':
+      post:
+        tags:
+           - BQ - OutboundWithResponse
+        summary: InBQ Initiate processing outbound correspondence with tracked response
+        description: InBQ Initiate processing outbound correspondence with tracked response
+        operationId: OutboundWithResponse/Initiate
+        parameters:
+           - $ref: '#/components/parameters/outboundwithresponseid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateOutboundWithResponseRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/OutboundWithResponse/{outboundwithresponseid}/Update':
+      put:
+        tags:
+           - BQ - OutboundWithResponse
+        summary: >-
+          UpBQ Update details of an outbound correspondence with tracked
+          response
+        description: >-
+          UpBQ Update details of an outbound correspondence with tracked
+          response
+        operationId: OutboundWithResponse/Update
+        parameters:
+           - $ref: '#/components/parameters/outboundwithresponseid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateOutboundWithResponseRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/OutboundWithResponse/{outboundwithresponseid}/Retrieve':
+      get:
+        tags:
+           - BQ - OutboundWithResponse
+        summary: >-
+          ReBQ Retrieve details about an outbound correspondence with tracked
+          response
+        description: >-
+          ReBQ Retrieve details about an outbound correspondence with tracked
+          response
+        operationId: OutboundWithResponse/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/outboundwithresponseid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveOutboundWithResponseResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Inbound/{inboundid}/Initiate':
+      post:
+        tags:
+           - BQ - Inbound
+        summary: InBQ Initiate processing of an inbound correspondence item
+        description: InBQ Initiate processing of an inbound correspondence item
+        operationId: Inbound/Initiate
+        parameters:
+           - $ref: '#/components/parameters/inboundid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateInboundRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Inbound/{inboundid}/Update':
+      put:
+        tags:
+           - BQ - Inbound
+        summary: UpBQ Update details of an inbound correspondence item
+        description: UpBQ Update details of an inbound correspondence item
+        operationId: Inbound/Update
+        parameters:
+           - $ref: '#/components/parameters/inboundid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateInboundRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Inbound/{inboundid}/Retrieve':
+      get:
+        tags:
+           - BQ - Inbound
+        summary: ReBQ Retrieve details about an inbound correspondence item
+        description: ReBQ Retrieve details about an inbound correspondence item
+        operationId: Inbound/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/inboundid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveInboundResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BlockMailing/{blockmailingid}/Initiate':
+      post:
+        tags:
+           - BQ - BlockMailing
+        summary: InBQ Initiate processing an outbound correspondence block
+        description: InBQ Initiate processing an outbound correspondence block
+        operationId: BlockMailing/Initiate
+        parameters:
+           - $ref: '#/components/parameters/blockmailingid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateBlockMailingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BlockMailing/{blockmailingid}/Update':
+      put:
+        tags:
+           - BQ - BlockMailing
+        summary: UpBQ Update details of an outbound correspondence block
+        description: UpBQ Update details of an outbound correspondence block
+        operationId: BlockMailing/Update
+        parameters:
+           - $ref: '#/components/parameters/blockmailingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateBlockMailingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BlockMailing/{blockmailingid}/Retrieve':
+      get:
+        tags:
+           - BQ - BlockMailing
+        summary: ReBQ Retrieve details about an outbound correspondence block
+        description: ReBQ Retrieve details about an outbound correspondence block
+        operationId: BlockMailing/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/blockmailingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveBlockMailingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateCorrespondenceOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCorrespondenceOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     InitiateCorrespondenceOperatingSession:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     UpdateCorrespondenceOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     UpdateCorrespondenceOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     UpdateCorrespondenceOperatingSession:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     ExecuteCorrespondenceOperatingSessionRequest:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteCorrespondenceOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     ExecuteCorrespondenceOperatingSession:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveCorrespondenceOperatingSessionResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+           CorrespondenceSourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceTemplateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceTemplateRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceMediaChannel:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceTypePreference:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCorrespondenceOperatingSession:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     InitiateOutboundRequest:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceSourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceTemplateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceTemplateRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceMediaChannel:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceTypePreference:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateOutboundResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateOutbound:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     UpdateOutboundRequest:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceSourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceTemplateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceTemplateRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceMediaChannel:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceTypePreference:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateOutboundResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceSourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceTemplateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceTemplateRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceMediaChannel:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceTypePreference:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateOutbound:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveOutboundResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceSourceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceTemplateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceTemplateRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceMediaChannel:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceTypePreference:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveOutbound:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     InitiateOutboundWithResponseRequest:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceTemplateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceTemplateRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceMediaChannel:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceTypePreference:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           ResponseDueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           ResponseCorrespondenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ResponseCorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateOutboundWithResponseResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateOutboundWithResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     UpdateOutboundWithResponseRequest:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceTemplateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceTemplateRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceMediaChannel:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceTypePreference:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           ResponseDueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           ResponseCorrespondenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ResponseCorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateOutboundWithResponseResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceTemplateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceTemplateRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceMediaChannel:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceTypePreference:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           ResponseDueDate:
+              $ref: '#/components/schemas/Date'
+           ResponseCorrespondenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ResponseCorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateOutboundWithResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveOutboundWithResponseResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceTemplateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceTemplateRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceMediaChannel:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceTypePreference:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           ResponseDueDate:
+              $ref: '#/components/schemas/Date'
+           ResponseCorrespondenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ResponseCorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveOutboundWithResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     InitiateInboundRequest:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InboundCorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceType(e.g.unsolicitedmessage_productservicerelated_complaint):
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InboundCorrespondenceEmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateInboundResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateInbound:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     UpdateInboundRequest:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InboundCorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceType(e.g.unsolicitedmessage_productservicerelated_complaint):
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InboundCorrespondenceEmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateInboundResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InboundCorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceType(e.g.unsolicitedmessage_productservicerelated_complaint):
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InboundCorrespondenceEmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateInbound:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveInboundResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InboundCorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceType(e.g.unsolicitedmessage_productservicerelated_complaint):
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           InboundCorrespondenceCustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InboundCorrespondenceEmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveInbound:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     InitiateBlockMailingRequest:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceTemplateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceTemplateRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceMediaChannel:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceTypePreference:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           BlockmailingRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateBlockMailingResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           BlockmailingRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateBlockMailing:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     UpdateBlockMailingRequest:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceTemplateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceTemplateRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceMediaChannel:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceTypePreference:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           BlockmailingRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateBlockMailingResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceTemplateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceTemplateRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceMediaChannel:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceTypePreference:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           BlockmailingRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateBlockMailing:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveBlockMailingResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceType:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceTemplateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceTemplateRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceMediaChannel:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceAddressee:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ChannelAccessPreferenceProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelAccessChannelDeviceTypePreference:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           BlockmailingRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveBlockMailing:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceServiceSessionStatistics:
+              type: string
+              description: >-
+                Service activity statistics that are maintained during the
+                session
+              format: String
+           CorrespondenceServiceSessionReportType:
+              type: string
+              description: >-
+                Session reports that can be accessed during the session (e.g.
+                realtime status, session statistics)
+              format: String
+           CorrespondenceServiceSessionReport:
+              type: string
+              description: The session activity report
+              format: String
+           CorrespondenceServiceSessionDate:
+              $ref: '#/components/schemas/Date'
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateCorrespondenceOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateCorrespondenceOperatingSessionRequest
+        required: true
+     UpdateCorrespondenceOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCorrespondenceOperatingSessionRequest'
+        required: true
+     ExecuteCorrespondenceOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteCorrespondenceOperatingSessionRequest
+        required: true
+     RetrieveCorrespondenceOperatingSessionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateOutboundRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOutboundRequest'
+        required: true
+     UpdateOutboundRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateOutboundRequest'
+        required: true
+     RetrieveOutboundRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateOutboundWithResponseRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOutboundWithResponseRequest'
+        required: true
+     UpdateOutboundWithResponseRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateOutboundWithResponseRequest'
+        required: true
+     RetrieveOutboundWithResponseRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateInboundRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateInboundRequest'
+        required: true
+     UpdateInboundRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInboundRequest'
+        required: true
+     RetrieveInboundRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateBlockMailingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateBlockMailingRequest'
+        required: true
+     UpdateBlockMailingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateBlockMailingRequest'
+        required: true
+     RetrieveBlockMailingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     correspondenceoperatingsessionid:
+        name: correspondenceoperatingsessionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     outboundid:
+        name: outboundid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     outboundwithresponseid:
+        name: outboundwithresponseid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     inboundid:
+        name: inboundid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     blockmailingid:
+        name: blockmailingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateCorrespondenceOperatingSessionResponse:
+        description: CorrespondenceOperatingSessionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateCorrespondenceOperatingSessionResponse
+     UpdateCorrespondenceOperatingSessionResponse:
+        description: CorrespondenceOperatingSessionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateCorrespondenceOperatingSessionResponse
+     ExecuteCorrespondenceOperatingSessionResponse:
+        description: CorrespondenceOperatingSessionExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteCorrespondenceOperatingSessionResponse
+     RetrieveCorrespondenceOperatingSessionResponse:
+        description: CorrespondenceOperatingSessionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveCorrespondenceOperatingSessionResponse
+     InitiateOutboundResponse:
+        description: OutboundInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOutboundResponse'
+     UpdateOutboundResponse:
+        description: OutboundUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateOutboundResponse'
+     RetrieveOutboundResponse:
+        description: OutboundRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveOutboundResponse'
+     InitiateOutboundWithResponseResponse:
+        description: OutboundWithResponseInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOutboundWithResponseResponse'
+     UpdateOutboundWithResponseResponse:
+        description: OutboundWithResponseUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateOutboundWithResponseResponse'
+     RetrieveOutboundWithResponseResponse:
+        description: OutboundWithResponseRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveOutboundWithResponseResponse'
+     InitiateInboundResponse:
+        description: InboundInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateInboundResponse'
+     UpdateInboundResponse:
+        description: InboundUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateInboundResponse'
+     RetrieveInboundResponse:
+        description: InboundRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveInboundResponse'
+     InitiateBlockMailingResponse:
+        description: BlockMailingInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateBlockMailingResponse'
+     UpdateBlockMailingResponse:
+        description: BlockMailingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateBlockMailingResponse'
+     RetrieveBlockMailingResponse:
+        description: BlockMailingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveBlockMailingResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

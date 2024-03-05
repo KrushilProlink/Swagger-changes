@@ -1,0 +1,2550 @@
+openapi: 3.0.1
+info:
+  title: Customer Campaign Execution
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Execute a customer campaign
+    (version) and track and respond to impact
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CustomerCampaignExecution
+paths:
+   '/CustomerCampaignProcedure/{customercampaignprocedureid}/Initiate':
+      post:
+        tags:
+           - CR - CustomerCampaignProcedure
+        summary: InCR Initiate customer campaign processing
+        description: InCR Initiate customer campaign processing
+        operationId: CustomerCampaignProcedure/Initiate
+        parameters:
+           - $ref: '#/components/parameters/customercampaignprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateCustomerCampaignProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerCampaignProcedure/{customercampaignprocedureid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerCampaignProcedure
+        summary: ReCR Retrieve details about an active customer campaign
+        description: ReCR Retrieve details about an active customer campaign
+        operationId: CustomerCampaignProcedure/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customercampaignprocedureid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCustomerCampaignProcedureResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CandidateSelection/{candidateselectionid}/Update':
+      put:
+        tags:
+           - BQ - CandidateSelection
+        summary: UpBQ Update a campaign candidate list
+        description: UpBQ Update a campaign candidate list
+        operationId: CandidateSelection/Update
+        parameters:
+           - $ref: '#/components/parameters/candidateselectionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCandidateSelectionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CandidateSelection/{candidateselectionid}/Retrieve':
+      get:
+        tags:
+           - BQ - CandidateSelection
+        summary: ReBQ Retrieve details about a campaign candidate list
+        description: ReBQ Retrieve details about a campaign candidate list
+        operationId: CandidateSelection/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/candidateselectionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCandidateSelectionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Execution/{executionid}/Initiate':
+      post:
+        tags:
+           - BQ - Execution
+        summary: InBQ Initiate a campaign execution task
+        description: InBQ Initiate a campaign execution task
+        operationId: Execution/Initiate
+        parameters:
+           - $ref: '#/components/parameters/executionid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateExecutionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Execution/{executionid}/Update':
+      put:
+        tags:
+           - BQ - Execution
+        summary: UpBQ Update details of a campaign execution task
+        description: UpBQ Update details of a campaign execution task
+        operationId: Execution/Update
+        parameters:
+           - $ref: '#/components/parameters/executionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateExecutionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Execution/{executionid}/Request':
+      put:
+        tags:
+           - BQ - Execution
+        summary: RqBQ Request manual intervention in a campaign execution task
+        description: RqBQ Request manual intervention in a campaign execution task
+        operationId: Execution/Request
+        parameters:
+           - $ref: '#/components/parameters/executionid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestExecutionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Execution/{executionid}/Retrieve':
+      get:
+        tags:
+           - BQ - Execution
+        summary: ReBQ Retrieve details about a campaign execution task
+        description: ReBQ Retrieve details about a campaign execution task
+        operationId: Execution/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/executionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveExecutionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/AnalysisFeedback/{analysisfeedbackid}/Initiate':
+      post:
+        tags:
+           - BQ - AnalysisFeedback
+        summary: InBQ Initiate campaign execution analysis
+        description: InBQ Initiate campaign execution analysis
+        operationId: AnalysisFeedback/Initiate
+        parameters:
+           - $ref: '#/components/parameters/analysisfeedbackid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateAnalysisFeedbackRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/AnalysisFeedback/{analysisfeedbackid}/Update':
+      put:
+        tags:
+           - BQ - AnalysisFeedback
+        summary: >-
+          UpBQ Update details of campaign execution activity/performance
+          analysis
+        description: >-
+          UpBQ Update details of campaign execution activity/performance
+          analysis
+        operationId: AnalysisFeedback/Update
+        parameters:
+           - $ref: '#/components/parameters/analysisfeedbackid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateAnalysisFeedbackRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/AnalysisFeedback/{analysisfeedbackid}/Request':
+      put:
+        tags:
+           - BQ - AnalysisFeedback
+        summary: ReBQ Request manual intervention in campaign analysis
+        description: ReBQ Request manual intervention in campaign analysis
+        operationId: AnalysisFeedback/Request
+        parameters:
+           - $ref: '#/components/parameters/analysisfeedbackid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestAnalysisFeedbackRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/AnalysisFeedback/{analysisfeedbackid}/Retrieve':
+      get:
+        tags:
+           - BQ - AnalysisFeedback
+        summary: ReBQ Retrieve details about customer campaign analysis activity
+        description: ReBQ Retrieve details about customer campaign analysis activity
+        operationId: AnalysisFeedback/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/analysisfeedbackid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAnalysisFeedbackResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateCustomerCampaignProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCustomerCampaignProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     InitiateCustomerCampaignProcedure:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: >-
+                The type or category of customer campaign (e.g. crosssell,
+                upsell, retention)
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: >-
+                A description of the campaign that clarifies the intended
+                context/use of the campaign, the mechanisms employed and the
+                intended/anticipated response/impact
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit responsible for the campaign
+                execution
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: >-
+                Details of the deployment setup/configuration of the campaign
+                for reference
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: The customer campaign version number used in the event
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: >-
+                The campaign processing schedule, covering candidate selection,
+                execution, flowup and analysis activities. Note this can be an
+                ongoing campaign where worksteps continue in parallel
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: >-
+                Inventory record of any consumables that are to be used in the
+                execution of the campaign (e.g. brochures)
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: >-
+                The type of consumable item associated with the campaign (e.g.
+                gift, brochure)
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: The tracked inventory of the consumable item
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the campaign process (e.g. initiation
+                date, version revision date, completion date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: >-
+                The result/impact of the overall customer campaign event (that
+                can include multiple identified leads/opportunities)
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: >-
+                A description of leads and opportunities generated by the
+                customer campaign
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to the lead/opportunity as handled by the
+                Lead/Opportunity Management Service Domain
+              format: Object
+     RetrieveCustomerCampaignProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveCustomerCampaignProcedure:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: >-
+                The type or category of customer campaign (e.g. crosssell,
+                upsell, retention)
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: >-
+                A description of the campaign that clarifies the intended
+                context/use of the campaign, the mechanisms employed and the
+                intended/anticipated response/impact
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit responsible for the campaign
+                execution
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: >-
+                Details of the deployment setup/configuration of the campaign
+                for reference
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: The customer campaign version number used in the event
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: >-
+                The campaign processing schedule, covering candidate selection,
+                execution, flowup and analysis activities. Note this can be an
+                ongoing campaign where worksteps continue in parallel
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: >-
+                Inventory record of any consumables that are to be used in the
+                execution of the campaign (e.g. brochures)
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: >-
+                The type of consumable item associated with the campaign (e.g.
+                gift, brochure)
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: The tracked inventory of the consumable item
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the campaign process (e.g. initiation
+                date, version revision date, completion date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: >-
+                The result/impact of the overall customer campaign event (that
+                can include multiple identified leads/opportunities)
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: >-
+                A description of leads and opportunities generated by the
+                customer campaign
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to the lead/opportunity as handled by the
+                Lead/Opportunity Management Service Domain
+              format: Object
+     UpdateCandidateSelectionRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSelectionCriteria:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignCandidateEmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignCandidateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateCandidateSelectionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSelectionCriteria:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignCandidateEmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignCandidateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateCandidateSelection:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: >-
+                The type or category of customer campaign (e.g. crosssell,
+                upsell, retention)
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: >-
+                A description of the campaign that clarifies the intended
+                context/use of the campaign, the mechanisms employed and the
+                intended/anticipated response/impact
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit responsible for the campaign
+                execution
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: >-
+                Details of the deployment setup/configuration of the campaign
+                for reference
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: The customer campaign version number used in the event
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: >-
+                The campaign processing schedule, covering candidate selection,
+                execution, flowup and analysis activities. Note this can be an
+                ongoing campaign where worksteps continue in parallel
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: >-
+                Inventory record of any consumables that are to be used in the
+                execution of the campaign (e.g. brochures)
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: >-
+                The type of consumable item associated with the campaign (e.g.
+                gift, brochure)
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: The tracked inventory of the consumable item
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the campaign process (e.g. initiation
+                date, version revision date, completion date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: >-
+                The result/impact of the overall customer campaign event (that
+                can include multiple identified leads/opportunities)
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: >-
+                A description of leads and opportunities generated by the
+                customer campaign
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to the lead/opportunity as handled by the
+                Lead/Opportunity Management Service Domain
+              format: Object
+     RetrieveCandidateSelectionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSelectionCriteria:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignCandidateEmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignCandidateReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveCandidateSelection:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: >-
+                The type or category of customer campaign (e.g. crosssell,
+                upsell, retention)
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: >-
+                A description of the campaign that clarifies the intended
+                context/use of the campaign, the mechanisms employed and the
+                intended/anticipated response/impact
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit responsible for the campaign
+                execution
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: >-
+                Details of the deployment setup/configuration of the campaign
+                for reference
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: The customer campaign version number used in the event
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: >-
+                The campaign processing schedule, covering candidate selection,
+                execution, flowup and analysis activities. Note this can be an
+                ongoing campaign where worksteps continue in parallel
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: >-
+                Inventory record of any consumables that are to be used in the
+                execution of the campaign (e.g. brochures)
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: >-
+                The type of consumable item associated with the campaign (e.g.
+                gift, brochure)
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: The tracked inventory of the consumable item
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the campaign process (e.g. initiation
+                date, version revision date, completion date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: >-
+                The result/impact of the overall customer campaign event (that
+                can include multiple identified leads/opportunities)
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: >-
+                A description of leads and opportunities generated by the
+                customer campaign
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to the lead/opportunity as handled by the
+                Lead/Opportunity Management Service Domain
+              format: Object
+     InitiateExecutionRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     InitiateExecutionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     InitiateExecution:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: >-
+                The type or category of customer campaign (e.g. crosssell,
+                upsell, retention)
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: >-
+                A description of the campaign that clarifies the intended
+                context/use of the campaign, the mechanisms employed and the
+                intended/anticipated response/impact
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit responsible for the campaign
+                execution
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: >-
+                Details of the deployment setup/configuration of the campaign
+                for reference
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: The customer campaign version number used in the event
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: >-
+                The campaign processing schedule, covering candidate selection,
+                execution, flowup and analysis activities. Note this can be an
+                ongoing campaign where worksteps continue in parallel
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: >-
+                Inventory record of any consumables that are to be used in the
+                execution of the campaign (e.g. brochures)
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: >-
+                The type of consumable item associated with the campaign (e.g.
+                gift, brochure)
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: The tracked inventory of the consumable item
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the campaign process (e.g. initiation
+                date, version revision date, completion date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: >-
+                The result/impact of the overall customer campaign event (that
+                can include multiple identified leads/opportunities)
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: >-
+                A description of leads and opportunities generated by the
+                customer campaign
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to the lead/opportunity as handled by the
+                Lead/Opportunity Management Service Domain
+              format: Object
+     UpdateExecutionRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     UpdateExecutionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     UpdateExecution:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: >-
+                The type or category of customer campaign (e.g. crosssell,
+                upsell, retention)
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: >-
+                A description of the campaign that clarifies the intended
+                context/use of the campaign, the mechanisms employed and the
+                intended/anticipated response/impact
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit responsible for the campaign
+                execution
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: >-
+                Details of the deployment setup/configuration of the campaign
+                for reference
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: The customer campaign version number used in the event
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: >-
+                The campaign processing schedule, covering candidate selection,
+                execution, flowup and analysis activities. Note this can be an
+                ongoing campaign where worksteps continue in parallel
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: >-
+                Inventory record of any consumables that are to be used in the
+                execution of the campaign (e.g. brochures)
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: >-
+                The type of consumable item associated with the campaign (e.g.
+                gift, brochure)
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: The tracked inventory of the consumable item
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the campaign process (e.g. initiation
+                date, version revision date, completion date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: >-
+                The result/impact of the overall customer campaign event (that
+                can include multiple identified leads/opportunities)
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: >-
+                A description of leads and opportunities generated by the
+                customer campaign
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to the lead/opportunity as handled by the
+                Lead/Opportunity Management Service Domain
+              format: Object
+     RequestExecutionRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignProcedureWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     RequestExecutionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignProcedureWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     RequestExecution:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: >-
+                The type or category of customer campaign (e.g. crosssell,
+                upsell, retention)
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: >-
+                A description of the campaign that clarifies the intended
+                context/use of the campaign, the mechanisms employed and the
+                intended/anticipated response/impact
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit responsible for the campaign
+                execution
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: >-
+                Details of the deployment setup/configuration of the campaign
+                for reference
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: The customer campaign version number used in the event
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: >-
+                The campaign processing schedule, covering candidate selection,
+                execution, flowup and analysis activities. Note this can be an
+                ongoing campaign where worksteps continue in parallel
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: >-
+                Inventory record of any consumables that are to be used in the
+                execution of the campaign (e.g. brochures)
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: >-
+                The type of consumable item associated with the campaign (e.g.
+                gift, brochure)
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: The tracked inventory of the consumable item
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the campaign process (e.g. initiation
+                date, version revision date, completion date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: >-
+                The result/impact of the overall customer campaign event (that
+                can include multiple identified leads/opportunities)
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: >-
+                A description of leads and opportunities generated by the
+                customer campaign
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to the lead/opportunity as handled by the
+                Lead/Opportunity Management Service Domain
+              format: Object
+     RetrieveExecutionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureWorkTaskType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureWorkTaskDateTime:
+              $ref: '#/components/schemas/Date'
+     RetrieveExecution:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: >-
+                The type or category of customer campaign (e.g. crosssell,
+                upsell, retention)
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: >-
+                A description of the campaign that clarifies the intended
+                context/use of the campaign, the mechanisms employed and the
+                intended/anticipated response/impact
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit responsible for the campaign
+                execution
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: >-
+                Details of the deployment setup/configuration of the campaign
+                for reference
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: The customer campaign version number used in the event
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: >-
+                The campaign processing schedule, covering candidate selection,
+                execution, flowup and analysis activities. Note this can be an
+                ongoing campaign where worksteps continue in parallel
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: >-
+                Inventory record of any consumables that are to be used in the
+                execution of the campaign (e.g. brochures)
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: >-
+                The type of consumable item associated with the campaign (e.g.
+                gift, brochure)
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: The tracked inventory of the consumable item
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the campaign process (e.g. initiation
+                date, version revision date, completion date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: >-
+                The result/impact of the overall customer campaign event (that
+                can include multiple identified leads/opportunities)
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: >-
+                A description of leads and opportunities generated by the
+                customer campaign
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to the lead/opportunity as handled by the
+                Lead/Opportunity Management Service Domain
+              format: Object
+     InitiateAnalysisFeedbackRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureAnalysisFeedbackResult:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateAnalysisFeedbackResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureAnalysisFeedbackResult:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateAnalysisFeedback:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: >-
+                The type or category of customer campaign (e.g. crosssell,
+                upsell, retention)
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: >-
+                A description of the campaign that clarifies the intended
+                context/use of the campaign, the mechanisms employed and the
+                intended/anticipated response/impact
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit responsible for the campaign
+                execution
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: >-
+                Details of the deployment setup/configuration of the campaign
+                for reference
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: The customer campaign version number used in the event
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: >-
+                The campaign processing schedule, covering candidate selection,
+                execution, flowup and analysis activities. Note this can be an
+                ongoing campaign where worksteps continue in parallel
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: >-
+                Inventory record of any consumables that are to be used in the
+                execution of the campaign (e.g. brochures)
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: >-
+                The type of consumable item associated with the campaign (e.g.
+                gift, brochure)
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: The tracked inventory of the consumable item
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the campaign process (e.g. initiation
+                date, version revision date, completion date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: >-
+                The result/impact of the overall customer campaign event (that
+                can include multiple identified leads/opportunities)
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: >-
+                A description of leads and opportunities generated by the
+                customer campaign
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to the lead/opportunity as handled by the
+                Lead/Opportunity Management Service Domain
+              format: Object
+     UpdateAnalysisFeedbackRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureAnalysisFeedbackResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateAnalysisFeedbackResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureAnalysisFeedbackResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateAnalysisFeedback:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: >-
+                The type or category of customer campaign (e.g. crosssell,
+                upsell, retention)
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: >-
+                A description of the campaign that clarifies the intended
+                context/use of the campaign, the mechanisms employed and the
+                intended/anticipated response/impact
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit responsible for the campaign
+                execution
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: >-
+                Details of the deployment setup/configuration of the campaign
+                for reference
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: The customer campaign version number used in the event
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: >-
+                The campaign processing schedule, covering candidate selection,
+                execution, flowup and analysis activities. Note this can be an
+                ongoing campaign where worksteps continue in parallel
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: >-
+                Inventory record of any consumables that are to be used in the
+                execution of the campaign (e.g. brochures)
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: >-
+                The type of consumable item associated with the campaign (e.g.
+                gift, brochure)
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: The tracked inventory of the consumable item
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the campaign process (e.g. initiation
+                date, version revision date, completion date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: >-
+                The result/impact of the overall customer campaign event (that
+                can include multiple identified leads/opportunities)
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: >-
+                A description of leads and opportunities generated by the
+                customer campaign
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to the lead/opportunity as handled by the
+                Lead/Opportunity Management Service Domain
+              format: Object
+     RequestAnalysisFeedbackRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignProcedureAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureAnalysisFeedbackResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestAnalysisFeedbackResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignProcedureAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureAnalysisFeedbackResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestAnalysisFeedback:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: >-
+                The type or category of customer campaign (e.g. crosssell,
+                upsell, retention)
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: >-
+                A description of the campaign that clarifies the intended
+                context/use of the campaign, the mechanisms employed and the
+                intended/anticipated response/impact
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit responsible for the campaign
+                execution
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: >-
+                Details of the deployment setup/configuration of the campaign
+                for reference
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: The customer campaign version number used in the event
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: >-
+                The campaign processing schedule, covering candidate selection,
+                execution, flowup and analysis activities. Note this can be an
+                ongoing campaign where worksteps continue in parallel
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: >-
+                Inventory record of any consumables that are to be used in the
+                execution of the campaign (e.g. brochures)
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: >-
+                The type of consumable item associated with the campaign (e.g.
+                gift, brochure)
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: The tracked inventory of the consumable item
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the campaign process (e.g. initiation
+                date, version revision date, completion date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: >-
+                The result/impact of the overall customer campaign event (that
+                can include multiple identified leads/opportunities)
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: >-
+                A description of leads and opportunities generated by the
+                customer campaign
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to the lead/opportunity as handled by the
+                Lead/Opportunity Management Service Domain
+              format: Object
+     RetrieveAnalysisFeedbackResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCampaignProcedureAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCampaignProcedureAnalysisFeedbackResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveAnalysisFeedback:
+        type: object
+        description: ''
+        properties:
+           CustomerCampaignType:
+              type: string
+              description: >-
+                The type or category of customer campaign (e.g. crosssell,
+                upsell, retention)
+              format: String
+           CustomerCampaignDescription:
+              type: string
+              description: >-
+                A description of the campaign that clarifies the intended
+                context/use of the campaign, the mechanisms employed and the
+                intended/anticipated response/impact
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                Reference to the business unit responsible for the campaign
+                execution
+              format: Object
+           CustomerCampaignProcedureSetup:
+              type: string
+              description: >-
+                Details of the deployment setup/configuration of the campaign
+                for reference
+              format: String
+           CustomerCampaignProcedureVersionNumber:
+              type: string
+              description: The customer campaign version number used in the event
+              format: String
+           CustomerCampaignSchedule:
+              type: string
+              description: >-
+                The campaign processing schedule, covering candidate selection,
+                execution, flowup and analysis activities. Note this can be an
+                ongoing campaign where worksteps continue in parallel
+              format: String
+           CustomerCampaignConsumablesInventory:
+              type: string
+              description: >-
+                Inventory record of any consumables that are to be used in the
+                execution of the campaign (e.g. brochures)
+              format: String
+           CustomerCampaignConsumableType:
+              type: string
+              description: >-
+                The type of consumable item associated with the campaign (e.g.
+                gift, brochure)
+              format: String
+           CustomerCampaignConsumableHolding:
+              type: string
+              description: The tracked inventory of the consumable item
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates associated with the campaign process (e.g. initiation
+                date, version revision date, completion date)
+              format: String
+           Date:
+              type: string
+              description: Value of the date type
+              format: String
+           CustomerCampaignProcedureResult:
+              type: string
+              description: >-
+                The result/impact of the overall customer campaign event (that
+                can include multiple identified leads/opportunities)
+              format: String
+           CustomerCampaignProcedureLeadandOpportunityDescription:
+              type: string
+              description: >-
+                A description of leads and opportunities generated by the
+                customer campaign
+              format: String
+           LeadandOpportunityProcedureInstanceReference:
+              type: string
+              description: >-
+                Reference to the lead/opportunity as handled by the
+                Lead/Opportunity Management Service Domain
+              format: Object
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateCustomerCampaignProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCustomerCampaignProcedureRequest'
+        required: true
+     RetrieveCustomerCampaignProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateCandidateSelectionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCandidateSelectionRequest'
+        required: true
+     RetrieveCandidateSelectionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateExecutionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateExecutionRequest'
+        required: true
+     UpdateExecutionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateExecutionRequest'
+        required: true
+     RequestExecutionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestExecutionRequest'
+        required: true
+     RetrieveExecutionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateAnalysisFeedbackRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateAnalysisFeedbackRequest'
+        required: true
+     UpdateAnalysisFeedbackRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAnalysisFeedbackRequest'
+        required: true
+     RequestAnalysisFeedbackRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestAnalysisFeedbackRequest'
+        required: true
+     RetrieveAnalysisFeedbackRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     customercampaignprocedureid:
+        name: customercampaignprocedureid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     candidateselectionid:
+        name: candidateselectionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     executionid:
+        name: executionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     analysisfeedbackid:
+        name: analysisfeedbackid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateCustomerCampaignProcedureResponse:
+        description: CustomerCampaignProcedureInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCustomerCampaignProcedureResponse'
+     RetrieveCustomerCampaignProcedureResponse:
+        description: CustomerCampaignProcedureRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCustomerCampaignProcedureResponse'
+     UpdateCandidateSelectionResponse:
+        description: CandidateSelectionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCandidateSelectionResponse'
+     RetrieveCandidateSelectionResponse:
+        description: CandidateSelectionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCandidateSelectionResponse'
+     InitiateExecutionResponse:
+        description: ExecutionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateExecutionResponse'
+     UpdateExecutionResponse:
+        description: ExecutionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateExecutionResponse'
+     RequestExecutionResponse:
+        description: ExecutionRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestExecutionResponse'
+     RetrieveExecutionResponse:
+        description: ExecutionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveExecutionResponse'
+     InitiateAnalysisFeedbackResponse:
+        description: AnalysisFeedbackInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateAnalysisFeedbackResponse'
+     UpdateAnalysisFeedbackResponse:
+        description: AnalysisFeedbackUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAnalysisFeedbackResponse'
+     RequestAnalysisFeedbackResponse:
+        description: AnalysisFeedbackRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestAnalysisFeedbackResponse'
+     RetrieveAnalysisFeedbackResponse:
+        description: AnalysisFeedbackRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAnalysisFeedbackResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

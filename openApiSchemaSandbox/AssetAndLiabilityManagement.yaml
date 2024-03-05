@@ -1,0 +1,1293 @@
+openapi: 3.0.1
+info:
+  title: Asset And Liability Management
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | The unit overseeing the 
+    banks asset & liability policies and position
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/AssetAndLiabilityManagement
+paths:
+   '/AssetAndLiabilityPortfolioStrategy/{assetandliabilityportfoliostrategyid}/Update':
+      put:
+        tags:
+           - CR - AssetAndLiabilityPortfolioStrategy
+        summary: UpCR Update aspects of the bank's asset and liability policies
+        description: UpCR Update aspects of the bank's asset and liability policies
+        operationId: AssetAndLiabilityPortfolioStrategy/Update
+        parameters:
+           - $ref: '#/components/parameters/assetandliabilityportfoliostrategyid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateAssetAndLiabilityPortfolioStrategyRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/AssetAndLiabilityPortfolioStrategy/{assetandliabilityportfoliostrategyid}/Request':
+      put:
+        tags:
+           - CR - AssetAndLiabilityPortfolioStrategy
+        summary: RqCR Request manual intervention in the policies
+        description: RqCR Request manual intervention in the policies
+        operationId: AssetAndLiabilityPortfolioStrategy/Request
+        parameters:
+           - $ref: '#/components/parameters/assetandliabilityportfoliostrategyid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestAssetAndLiabilityPortfolioStrategyRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/AssetAndLiabilityPortfolioStrategy/{assetandliabilityportfoliostrategyid}/Retrieve':
+      get:
+        tags:
+           - CR - AssetAndLiabilityPortfolioStrategy
+        summary: ReCR Retrieve details about the bank's asset and liability policies
+        description: ReCR Retrieve details about the bank's asset and liability policies
+        operationId: AssetAndLiabilityPortfolioStrategy/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/assetandliabilityportfoliostrategyid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveAssetAndLiabilityPortfolioStrategyResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TransactionAlignment/{transactionalignmentid}/Create':
+      post:
+        tags:
+           - BQ - TransactionAlignment
+        summary: CrBQ Create a proposed transaction submission under the policy
+        description: CrBQ Create a proposed transaction submission under the policy
+        operationId: TransactionAlignment/Create
+        parameters:
+           - $ref: '#/components/parameters/transactionalignmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/CreateTransactionAlignmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TransactionAlignment/{transactionalignmentid}/Request':
+      put:
+        tags:
+           - BQ - TransactionAlignment
+        summary: RqBQ Request manual intervention during an assessment
+        description: RqBQ Request manual intervention during an assessment
+        operationId: TransactionAlignment/Request
+        parameters:
+           - $ref: '#/components/parameters/transactionalignmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestTransactionAlignmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TransactionAlignment/{transactionalignmentid}/Retrieve':
+      get:
+        tags:
+           - BQ - TransactionAlignment
+        summary: ReBQ Retrieve details about a transaction alignment assessment
+        description: ReBQ Retrieve details about a transaction alignment assessment
+        operationId: TransactionAlignment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/transactionalignmentid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveTransactionAlignmentResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     UpdateAssetAndLiabilityPortfolioStrategyRequest:
+        type: object
+        description: ''
+        properties:
+           AssetAndLiabilityBalanceSheet:
+              type: string
+              description: The consolidated book of the bank's loans and deposits
+              format: String
+           AssetAndLiabilityMaturityLadder:
+              type: string
+              description: >-
+                An analysis of expected cash flows related to the book of
+                business (used for long and short term liquidity management)
+              format: String
+           AssetAndLiabilityCapitalAllocation:
+              type: string
+              description: >-
+                An analysis of available bank capital covering the required
+                allocations
+              format: String
+           AssetAndLiabilityPolicyGoalRecord:
+              type: string
+              description: >-
+                The policy formulation and assessment of the bank's book of
+                business for a specific perspective/policy type
+              format: String
+           AssetAndLiabilityPolicyType:
+              type: string
+              description: >-
+                The type of policy or goal applied to the book of business (e.g.
+                Credit, Segment, Geopolitical, Instrument, Currency) can be
+                referred to as a dimension of the book of business
+              format: String
+           AssetAndLiabilityPolicyTypeDefinition:
+              type: string
+              description: >-
+                A definition of how the policy type is defined and goals and
+                assessments applied
+              format: String
+           AssetAndLiabilityPolicyTypeGoals:
+              type: string
+              description: >-
+                Defines the target thresholds for the bank's asset and liability
+                position for the specific dimension. These can be adjusted to
+                influence transaction activity to remain within the bank's
+                intended asset and liability risk profile
+              format: String
+           AssetAndLiabilityPolicyTypePosition:
+              type: string
+              description: >-
+                A consolidated assessment of the bank's current and projected
+                position for the policy type dimension
+              format: String
+           AssetAndLiabilityPolicyTypeSensitivityAssessment:
+              type: string
+              description: >-
+                A range of sensitivity assessments that project the bank's
+                position for different market scenarios
+              format: String
+     UpdateAssetAndLiabilityPortfolioStrategyResponse:
+        type: object
+        description: ''
+        properties:
+           AssetAndLiabilityBalanceSheet:
+              type: string
+              description: The consolidated book of the bank's loans and deposits
+              format: String
+           AssetAndLiabilityMaturityLadder:
+              type: string
+              description: >-
+                An analysis of expected cash flows related to the book of
+                business (used for long and short term liquidity management)
+              format: String
+           AssetAndLiabilityCapitalAllocation:
+              type: string
+              description: >-
+                An analysis of available bank capital covering the required
+                allocations
+              format: String
+           AssetAndLiabilityPolicyGoalRecord:
+              type: string
+              description: >-
+                The policy formulation and assessment of the bank's book of
+                business for a specific perspective/policy type
+              format: String
+           AssetAndLiabilityPolicyType:
+              type: string
+              description: >-
+                The type of policy or goal applied to the book of business (e.g.
+                Credit, Segment, Geopolitical, Instrument, Currency) can be
+                referred to as a dimension of the book of business
+              format: String
+           AssetAndLiabilityPolicyTypeDefinition:
+              type: string
+              description: >-
+                A definition of how the policy type is defined and goals and
+                assessments applied
+              format: String
+           AssetAndLiabilityPolicyTypeGoals:
+              type: string
+              description: >-
+                Defines the target thresholds for the bank's asset and liability
+                position for the specific dimension. These can be adjusted to
+                influence transaction activity to remain within the bank's
+                intended asset and liability risk profile
+              format: String
+           AssetAndLiabilityPolicyTypePosition:
+              type: string
+              description: >-
+                A consolidated assessment of the bank's current and projected
+                position for the policy type dimension
+              format: String
+           AssetAndLiabilityPolicyTypeSensitivityAssessment:
+              type: string
+              description: >-
+                A range of sensitivity assessments that project the bank's
+                position for different market scenarios
+              format: String
+     UpdateAssetAndLiabilityPortfolioStrategy:
+        type: object
+        description: ''
+        properties:
+           AssetAndLiabilityBalanceSheet:
+              type: string
+              description: The consolidated book of the bank's loans and deposits
+              format: String
+           AssetAndLiabilityMaturityLadder:
+              type: string
+              description: >-
+                An analysis of expected cash flows related to the book of
+                business (used for long and short term liquidity management)
+              format: String
+           AssetAndLiabilityCapitalAllocation:
+              type: string
+              description: >-
+                An analysis of available bank capital covering the required
+                allocations
+              format: String
+           AssetAndLiabilityPolicyGoalRecord:
+              type: string
+              description: >-
+                The policy formulation and assessment of the bank's book of
+                business for a specific perspective/policy type
+              format: String
+           AssetAndLiabilityPolicyType:
+              type: string
+              description: >-
+                The type of policy or goal applied to the book of business (e.g.
+                Credit, Segment, Geopolitical, Instrument, Currency) can be
+                referred to as a dimension of the book of business
+              format: String
+           AssetAndLiabilityPolicyTypeDefinition:
+              type: string
+              description: >-
+                A definition of how the policy type is defined and goals and
+                assessments applied
+              format: String
+           AssetAndLiabilityPolicyTypeGoals:
+              type: string
+              description: >-
+                Defines the target thresholds for the bank's asset and liability
+                position for the specific dimension. These can be adjusted to
+                influence transaction activity to remain within the bank's
+                intended asset and liability risk profile
+              format: String
+           AssetAndLiabilityPolicyTypePosition:
+              type: string
+              description: >-
+                A consolidated assessment of the bank's current and projected
+                position for the policy type dimension
+              format: String
+           AssetAndLiabilityPolicyTypeSensitivityAssessment:
+              type: string
+              description: >-
+                A range of sensitivity assessments that project the bank's
+                position for different market scenarios
+              format: String
+     RequestAssetAndLiabilityPortfolioStrategyRequest:
+        type: object
+        description: ''
+        properties:
+           AssetAndLiabilityBalanceSheet:
+              type: string
+              description: The consolidated book of the bank's loans and deposits
+              format: String
+           AssetAndLiabilityMaturityLadder:
+              type: string
+              description: >-
+                An analysis of expected cash flows related to the book of
+                business (used for long and short term liquidity management)
+              format: String
+           AssetAndLiabilityCapitalAllocation:
+              type: string
+              description: >-
+                An analysis of available bank capital covering the required
+                allocations
+              format: String
+           AssetAndLiabilityPolicyGoalRecord:
+              type: string
+              description: >-
+                The policy formulation and assessment of the bank's book of
+                business for a specific perspective/policy type
+              format: String
+           AssetAndLiabilityPolicyType:
+              type: string
+              description: >-
+                The type of policy or goal applied to the book of business (e.g.
+                Credit, Segment, Geopolitical, Instrument, Currency) can be
+                referred to as a dimension of the book of business
+              format: String
+           AssetAndLiabilityPolicyTypeDefinition:
+              type: string
+              description: >-
+                A definition of how the policy type is defined and goals and
+                assessments applied
+              format: String
+           AssetAndLiabilityPolicyTypeGoals:
+              type: string
+              description: >-
+                Defines the target thresholds for the bank's asset and liability
+                position for the specific dimension. These can be adjusted to
+                influence transaction activity to remain within the bank's
+                intended asset and liability risk profile
+              format: String
+           AssetAndLiabilityPolicyTypePosition:
+              type: string
+              description: >-
+                A consolidated assessment of the bank's current and projected
+                position for the policy type dimension
+              format: String
+           AssetAndLiabilityPolicyTypeSensitivityAssessment:
+              type: string
+              description: >-
+                A range of sensitivity assessments that project the bank's
+                position for different market scenarios
+              format: String
+     RequestAssetAndLiabilityPortfolioStrategyResponse:
+        type: object
+        description: ''
+        properties:
+           AssetAndLiabilityPolicyGoalRecord:
+              type: string
+              description: >-
+                The policy formulation and assessment of the bank's book of
+                business for a specific perspective/policy type
+              format: String
+           AssetAndLiabilityPolicyType:
+              type: string
+              description: >-
+                The type of policy or goal applied to the book of business (e.g.
+                Credit, Segment, Geopolitical, Instrument, Currency) can be
+                referred to as a dimension of the book of business
+              format: String
+           AssetAndLiabilityPolicyTypeDefinition:
+              type: string
+              description: >-
+                A definition of how the policy type is defined and goals and
+                assessments applied
+              format: String
+           AssetAndLiabilityPolicyTypeGoals:
+              type: string
+              description: >-
+                Defines the target thresholds for the bank's asset and liability
+                position for the specific dimension. These can be adjusted to
+                influence transaction activity to remain within the bank's
+                intended asset and liability risk profile
+              format: String
+           AssetAndLiabilityPolicyTypePosition:
+              type: string
+              description: >-
+                A consolidated assessment of the bank's current and projected
+                position for the policy type dimension
+              format: String
+           AssetAndLiabilityPolicyTypeSensitivityAssessment:
+              type: string
+              description: >-
+                A range of sensitivity assessments that project the bank's
+                position for different market scenarios
+              format: String
+     RequestAssetAndLiabilityPortfolioStrategy:
+        type: object
+        description: ''
+        properties:
+           AssetAndLiabilityBalanceSheet:
+              type: string
+              description: The consolidated book of the bank's loans and deposits
+              format: String
+           AssetAndLiabilityMaturityLadder:
+              type: string
+              description: >-
+                An analysis of expected cash flows related to the book of
+                business (used for long and short term liquidity management)
+              format: String
+           AssetAndLiabilityCapitalAllocation:
+              type: string
+              description: >-
+                An analysis of available bank capital covering the required
+                allocations
+              format: String
+           AssetAndLiabilityPolicyGoalRecord:
+              type: string
+              description: >-
+                The policy formulation and assessment of the bank's book of
+                business for a specific perspective/policy type
+              format: String
+           AssetAndLiabilityPolicyType:
+              type: string
+              description: >-
+                The type of policy or goal applied to the book of business (e.g.
+                Credit, Segment, Geopolitical, Instrument, Currency) can be
+                referred to as a dimension of the book of business
+              format: String
+           AssetAndLiabilityPolicyTypeDefinition:
+              type: string
+              description: >-
+                A definition of how the policy type is defined and goals and
+                assessments applied
+              format: String
+           AssetAndLiabilityPolicyTypeGoals:
+              type: string
+              description: >-
+                Defines the target thresholds for the bank's asset and liability
+                position for the specific dimension. These can be adjusted to
+                influence transaction activity to remain within the bank's
+                intended asset and liability risk profile
+              format: String
+           AssetAndLiabilityPolicyTypePosition:
+              type: string
+              description: >-
+                A consolidated assessment of the bank's current and projected
+                position for the policy type dimension
+              format: String
+           AssetAndLiabilityPolicyTypeSensitivityAssessment:
+              type: string
+              description: >-
+                A range of sensitivity assessments that project the bank's
+                position for different market scenarios
+              format: String
+     RetrieveAssetAndLiabilityPortfolioStrategyResponse:
+        type: object
+        description: ''
+        properties:
+           AssetAndLiabilityBalanceSheet:
+              type: string
+              description: The consolidated book of the bank's loans and deposits
+              format: String
+           AssetAndLiabilityMaturityLadder:
+              type: string
+              description: >-
+                An analysis of expected cash flows related to the book of
+                business (used for long and short term liquidity management)
+              format: String
+           AssetAndLiabilityCapitalAllocation:
+              type: string
+              description: >-
+                An analysis of available bank capital covering the required
+                allocations
+              format: String
+           AssetAndLiabilityPolicyGoalRecord:
+              type: string
+              description: >-
+                The policy formulation and assessment of the bank's book of
+                business for a specific perspective/policy type
+              format: String
+           AssetAndLiabilityPolicyType:
+              type: string
+              description: >-
+                The type of policy or goal applied to the book of business (e.g.
+                Credit, Segment, Geopolitical, Instrument, Currency) can be
+                referred to as a dimension of the book of business
+              format: String
+           AssetAndLiabilityPolicyTypeDefinition:
+              type: string
+              description: >-
+                A definition of how the policy type is defined and goals and
+                assessments applied
+              format: String
+           AssetAndLiabilityPolicyTypeGoals:
+              type: string
+              description: >-
+                Defines the target thresholds for the bank's asset and liability
+                position for the specific dimension. These can be adjusted to
+                influence transaction activity to remain within the bank's
+                intended asset and liability risk profile
+              format: String
+           AssetAndLiabilityPolicyTypePosition:
+              type: string
+              description: >-
+                A consolidated assessment of the bank's current and projected
+                position for the policy type dimension
+              format: String
+           AssetAndLiabilityPolicyTypeSensitivityAssessment:
+              type: string
+              description: >-
+                A range of sensitivity assessments that project the bank's
+                position for different market scenarios
+              format: String
+     RetrieveAssetAndLiabilityPortfolioStrategy:
+        type: object
+        description: ''
+        properties:
+           AssetAndLiabilityBalanceSheet:
+              type: string
+              description: The consolidated book of the bank's loans and deposits
+              format: String
+           AssetAndLiabilityMaturityLadder:
+              type: string
+              description: >-
+                An analysis of expected cash flows related to the book of
+                business (used for long and short term liquidity management)
+              format: String
+           AssetAndLiabilityCapitalAllocation:
+              type: string
+              description: >-
+                An analysis of available bank capital covering the required
+                allocations
+              format: String
+           AssetAndLiabilityPolicyGoalRecord:
+              type: string
+              description: >-
+                The policy formulation and assessment of the bank's book of
+                business for a specific perspective/policy type
+              format: String
+           AssetAndLiabilityPolicyType:
+              type: string
+              description: >-
+                The type of policy or goal applied to the book of business (e.g.
+                Credit, Segment, Geopolitical, Instrument, Currency) can be
+                referred to as a dimension of the book of business
+              format: String
+           AssetAndLiabilityPolicyTypeDefinition:
+              type: string
+              description: >-
+                A definition of how the policy type is defined and goals and
+                assessments applied
+              format: String
+           AssetAndLiabilityPolicyTypeGoals:
+              type: string
+              description: >-
+                Defines the target thresholds for the bank's asset and liability
+                position for the specific dimension. These can be adjusted to
+                influence transaction activity to remain within the bank's
+                intended asset and liability risk profile
+              format: String
+           AssetAndLiabilityPolicyTypePosition:
+              type: string
+              description: >-
+                A consolidated assessment of the bank's current and projected
+                position for the policy type dimension
+              format: String
+           AssetAndLiabilityPolicyTypeSensitivityAssessment:
+              type: string
+              description: >-
+                A range of sensitivity assessments that project the bank's
+                position for different market scenarios
+              format: String
+     CreateTransactionAlignmentRequest:
+        type: object
+        description: ''
+        properties:
+           AssetAndLiabilityPolicyType:
+              type: string
+              description: >-
+                The type of policy or goal applied to the book of business (e.g.
+                Credit, Segment, Geopolitical, Instrument, Currency) can be
+                referred to as a dimension of the book of business
+              format: String
+           AssetAndLiabilityPolicyTypeDefinition:
+              type: string
+              description: >-
+                A definition of how the policy type is defined and goals and
+                assessments applied
+              format: String
+           AssetAndLiabilityPolicyTypeGoals:
+              type: string
+              description: >-
+                Defines the target thresholds for the bank's asset and liability
+                position for the specific dimension. These can be adjusted to
+                influence transaction activity to remain within the bank's
+                intended asset and liability risk profile
+              format: String
+           AssetAndLiabilityPolicyTypePosition:
+              type: string
+              description: >-
+                A consolidated assessment of the bank's current and projected
+                position for the policy type dimension
+              format: String
+           AssetAndLiabilityPolicyTypeSensitivityAssessment:
+              type: string
+              description: >-
+                A range of sensitivity assessments that project the bank's
+                position for different market scenarios
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: Business unit responsible for proposing the major transaction
+              format: Object
+           ProposedTransactionOriginatorReference:
+              type: string
+              description: Identifies the source or originator of the transaction
+              format: Object
+           ProposedTransactionType:
+              type: string
+              description: >-
+                The type of financial transaction (e.g. project finance,
+                acquisition)
+              format: String
+           ProposedTransactionDescription:
+              type: string
+              description: >-
+                Any necessary details describing the purpose or reference
+                properties of the transaction
+              format: String
+           ProposedTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+              description: >-
+                The overall volume or value of the transaction included
+                projected cash flows over the intended duration
+           ProposedTransactionRiskAssessment:
+              type: string
+              description: >-
+                An analysis of the financial risks associated with the
+                transaction (e.g. market scenario based impact on P&L)
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated documents
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: Reference to the correspondence generated for the transaction
+              format: Object
+           DateType:
+              type: string
+              description: >-
+                Key dates and times associated with the financial transaction
+                (e.g. proposal, decision by/expiry)
+              format: String
+     Amount:
+        type: object
+        description: >-
+          The overall volume or value of the transaction included projected cash
+          flows over the intended duration CurrencyAndAmount|CurrencyAndAmount
+          (https://www.iso20022.org/standardsrepository/type/CurrencyAndAmount)|Standard|ISO20022 
+          ()
+        properties:
+           AmountValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           AmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           DecimalPointPosition:
+              type: string
+              description: |
+                Decimal point position starts calulating from the right
+              format: String
+           AmountType:
+              enum:
+                   -  Principal
+                   -  Actual
+                   -  Estimated
+                   -  Maximum
+                   -  Default
+                   -  Replacement
+                   -  Incremental
+                   -  Decremental
+                   -  Reserved
+                   -  Available
+                   -  Used
+              type: string
+              description: ">-\r\n* `Principal` \r\n* `Actual` \r\n* `Estimated` \r\n* `Maximum` \r\n* `Default` \r\n* `Replacement` \r\n* `Incremental` \r\n* `Decremental` \r\n* `Reserved` \r\n* `Available` \r\n* `Used` \r\n* "
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Currencycode:
+        type: object
+        description: ' '
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     CreateTransactionAlignmentResponse:
+        type: object
+        description: ''
+        properties:
+           AssetAndLiabilityPolicyType:
+              type: string
+              description: >-
+                The type of policy or goal applied to the book of business (e.g.
+                Credit, Segment, Geopolitical, Instrument, Currency) can be
+                referred to as a dimension of the book of business
+              format: String
+           AssetAndLiabilityPolicyTypeDefinition:
+              type: string
+              description: >-
+                A definition of how the policy type is defined and goals and
+                assessments applied
+              format: String
+           AssetAndLiabilityPolicyTypeGoals:
+              type: string
+              description: >-
+                Defines the target thresholds for the bank's asset and liability
+                position for the specific dimension. These can be adjusted to
+                influence transaction activity to remain within the bank's
+                intended asset and liability risk profile
+              format: String
+           AssetAndLiabilityPolicyTypePosition:
+              type: string
+              description: >-
+                A consolidated assessment of the bank's current and projected
+                position for the policy type dimension
+              format: String
+           AssetAndLiabilityPolicyTypeSensitivityAssessment:
+              type: string
+              description: >-
+                A range of sensitivity assessments that project the bank's
+                position for different market scenarios
+              format: String
+           DateType:
+              type: string
+              description: >-
+                Key dates and times associated with the financial transaction
+                (e.g. proposal, decision by/expiry)
+              format: String
+           AssetAndLiabilityAlignmentAssessment:
+              type: string
+              description: >-
+                The decision as to whether the transaction is approved within
+                policy including any required changes as may be needed to comply
+              format: String
+     CreateTransactionAlignment:
+        type: object
+        description: ''
+        properties:
+           AssetAndLiabilityBalanceSheet:
+              type: string
+              description: The consolidated book of the bank's loans and deposits
+              format: String
+           AssetAndLiabilityMaturityLadder:
+              type: string
+              description: >-
+                An analysis of expected cash flows related to the book of
+                business (used for long and short term liquidity management)
+              format: String
+           AssetAndLiabilityCapitalAllocation:
+              type: string
+              description: >-
+                An analysis of available bank capital covering the required
+                allocations
+              format: String
+           AssetAndLiabilityPolicyGoalRecord:
+              type: string
+              description: >-
+                The policy formulation and assessment of the bank's book of
+                business for a specific perspective/policy type
+              format: String
+           AssetAndLiabilityPolicyType:
+              type: string
+              description: >-
+                The type of policy or goal applied to the book of business (e.g.
+                Credit, Segment, Geopolitical, Instrument, Currency) can be
+                referred to as a dimension of the book of business
+              format: String
+           AssetAndLiabilityPolicyTypeDefinition:
+              type: string
+              description: >-
+                A definition of how the policy type is defined and goals and
+                assessments applied
+              format: String
+           AssetAndLiabilityPolicyTypeGoals:
+              type: string
+              description: >-
+                Defines the target thresholds for the bank's asset and liability
+                position for the specific dimension. These can be adjusted to
+                influence transaction activity to remain within the bank's
+                intended asset and liability risk profile
+              format: String
+           AssetAndLiabilityPolicyTypePosition:
+              type: string
+              description: >-
+                A consolidated assessment of the bank's current and projected
+                position for the policy type dimension
+              format: String
+           AssetAndLiabilityPolicyTypeSensitivityAssessment:
+              type: string
+              description: >-
+                A range of sensitivity assessments that project the bank's
+                position for different market scenarios
+              format: String
+     RequestTransactionAlignmentRequest:
+        type: object
+        description: ''
+        properties:
+           BusinessUnitReference:
+              type: string
+              description: Business unit responsible for proposing the major transaction
+              format: Object
+           ProposedTransactionOriginatorReference:
+              type: string
+              description: Identifies the source or originator of the transaction
+              format: Object
+           ProposedTransactionType:
+              type: string
+              description: >-
+                The type of financial transaction (e.g. project finance,
+                acquisition)
+              format: String
+           ProposedTransactionDescription:
+              type: string
+              description: >-
+                Any necessary details describing the purpose or reference
+                properties of the transaction
+              format: String
+           ProposedTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+              description: >-
+                The overall volume or value of the transaction included
+                projected cash flows over the intended duration
+           ProposedTransactionRiskAssessment:
+              type: string
+              description: >-
+                An analysis of the financial risks associated with the
+                transaction (e.g. market scenario based impact on P&L)
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated documents
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: Reference to the correspondence generated for the transaction
+              format: Object
+           DateType:
+              type: string
+              description: >-
+                Key dates and times associated with the financial transaction
+                (e.g. proposal, decision by/expiry)
+              format: String
+     RequestTransactionAlignmentResponse:
+        type: object
+        description: ''
+        properties:
+           DateType:
+              type: string
+              description: >-
+                Key dates and times associated with the financial transaction
+                (e.g. proposal, decision by/expiry)
+              format: String
+           AssetAndLiabilityAlignmentAssessment:
+              type: string
+              description: >-
+                The decision as to whether the transaction is approved within
+                policy including any required changes as may be needed to comply
+              format: String
+     RequestTransactionAlignment:
+        type: object
+        description: ''
+        properties:
+           AssetAndLiabilityBalanceSheet:
+              type: string
+              description: The consolidated book of the bank's loans and deposits
+              format: String
+           AssetAndLiabilityMaturityLadder:
+              type: string
+              description: >-
+                An analysis of expected cash flows related to the book of
+                business (used for long and short term liquidity management)
+              format: String
+           AssetAndLiabilityCapitalAllocation:
+              type: string
+              description: >-
+                An analysis of available bank capital covering the required
+                allocations
+              format: String
+           AssetAndLiabilityPolicyGoalRecord:
+              type: string
+              description: >-
+                The policy formulation and assessment of the bank's book of
+                business for a specific perspective/policy type
+              format: String
+           AssetAndLiabilityPolicyType:
+              type: string
+              description: >-
+                The type of policy or goal applied to the book of business (e.g.
+                Credit, Segment, Geopolitical, Instrument, Currency) can be
+                referred to as a dimension of the book of business
+              format: String
+           AssetAndLiabilityPolicyTypeDefinition:
+              type: string
+              description: >-
+                A definition of how the policy type is defined and goals and
+                assessments applied
+              format: String
+           AssetAndLiabilityPolicyTypeGoals:
+              type: string
+              description: >-
+                Defines the target thresholds for the bank's asset and liability
+                position for the specific dimension. These can be adjusted to
+                influence transaction activity to remain within the bank's
+                intended asset and liability risk profile
+              format: String
+           AssetAndLiabilityPolicyTypePosition:
+              type: string
+              description: >-
+                A consolidated assessment of the bank's current and projected
+                position for the policy type dimension
+              format: String
+           AssetAndLiabilityPolicyTypeSensitivityAssessment:
+              type: string
+              description: >-
+                A range of sensitivity assessments that project the bank's
+                position for different market scenarios
+              format: String
+     RetrieveTransactionAlignmentResponse:
+        type: object
+        description: ''
+        properties:
+           AssetAndLiabilityPolicyType:
+              type: string
+              description: >-
+                The type of policy or goal applied to the book of business (e.g.
+                Credit, Segment, Geopolitical, Instrument, Currency) can be
+                referred to as a dimension of the book of business
+              format: String
+           AssetAndLiabilityPolicyTypeDefinition:
+              type: string
+              description: >-
+                A definition of how the policy type is defined and goals and
+                assessments applied
+              format: String
+           AssetAndLiabilityPolicyTypeGoals:
+              type: string
+              description: >-
+                Defines the target thresholds for the bank's asset and liability
+                position for the specific dimension. These can be adjusted to
+                influence transaction activity to remain within the bank's
+                intended asset and liability risk profile
+              format: String
+           AssetAndLiabilityPolicyTypePosition:
+              type: string
+              description: >-
+                A consolidated assessment of the bank's current and projected
+                position for the policy type dimension
+              format: String
+           AssetAndLiabilityPolicyTypeSensitivityAssessment:
+              type: string
+              description: >-
+                A range of sensitivity assessments that project the bank's
+                position for different market scenarios
+              format: String
+           BusinessUnitReference:
+              type: string
+              description: Business unit responsible for proposing the major transaction
+              format: Object
+           ProposedTransactionOriginatorReference:
+              type: string
+              description: Identifies the source or originator of the transaction
+              format: Object
+           ProposedTransactionType:
+              type: string
+              description: >-
+                The type of financial transaction (e.g. project finance,
+                acquisition)
+              format: String
+           ProposedTransactionDescription:
+              type: string
+              description: >-
+                Any necessary details describing the purpose or reference
+                properties of the transaction
+              format: String
+           ProposedTransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           ProposedTransactionRiskAssessment:
+              type: string
+              description: >-
+                An analysis of the financial risks associated with the
+                transaction (e.g. market scenario based impact on P&L)
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated documents
+              format: Object
+           CorrespondenceInstanceReference:
+              type: string
+              description: Reference to the correspondence generated for the transaction
+              format: Object
+           DateType:
+              type: string
+              description: >-
+                Key dates and times associated with the financial transaction
+                (e.g. proposal, decision by/expiry)
+              format: String
+           AssetAndLiabilityAlignmentAssessment:
+              type: string
+              description: >-
+                The decision as to whether the transaction is approved within
+                policy including any required changes as may be needed to comply
+              format: String
+     RetrieveTransactionAlignment:
+        type: object
+        description: ''
+        properties:
+           AssetAndLiabilityBalanceSheet:
+              type: string
+              description: The consolidated book of the bank's loans and deposits
+              format: String
+           AssetAndLiabilityMaturityLadder:
+              type: string
+              description: >-
+                An analysis of expected cash flows related to the book of
+                business (used for long and short term liquidity management)
+              format: String
+           AssetAndLiabilityCapitalAllocation:
+              type: string
+              description: >-
+                An analysis of available bank capital covering the required
+                allocations
+              format: String
+           AssetAndLiabilityPolicyGoalRecord:
+              type: string
+              description: >-
+                The policy formulation and assessment of the bank's book of
+                business for a specific perspective/policy type
+              format: String
+           AssetAndLiabilityPolicyType:
+              type: string
+              description: >-
+                The type of policy or goal applied to the book of business (e.g.
+                Credit, Segment, Geopolitical, Instrument, Currency) can be
+                referred to as a dimension of the book of business
+              format: String
+           AssetAndLiabilityPolicyTypeDefinition:
+              type: string
+              description: >-
+                A definition of how the policy type is defined and goals and
+                assessments applied
+              format: String
+           AssetAndLiabilityPolicyTypeGoals:
+              type: string
+              description: >-
+                Defines the target thresholds for the bank's asset and liability
+                position for the specific dimension. These can be adjusted to
+                influence transaction activity to remain within the bank's
+                intended asset and liability risk profile
+              format: String
+           AssetAndLiabilityPolicyTypePosition:
+              type: string
+              description: >-
+                A consolidated assessment of the bank's current and projected
+                position for the policy type dimension
+              format: String
+           AssetAndLiabilityPolicyTypeSensitivityAssessment:
+              type: string
+              description: >-
+                A range of sensitivity assessments that project the bank's
+                position for different market scenarios
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     UpdateAssetAndLiabilityPortfolioStrategyRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateAssetAndLiabilityPortfolioStrategyRequest
+        required: true
+     RequestAssetAndLiabilityPortfolioStrategyRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestAssetAndLiabilityPortfolioStrategyRequest
+        required: true
+     RetrieveAssetAndLiabilityPortfolioStrategyRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     CreateTransactionAlignmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateTransactionAlignmentRequest'
+        required: true
+     RequestTransactionAlignmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestTransactionAlignmentRequest'
+        required: true
+     RetrieveTransactionAlignmentRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     assetandliabilityportfoliostrategyid:
+        name: assetandliabilityportfoliostrategyid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     transactionalignmentid:
+        name: transactionalignmentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     UpdateAssetAndLiabilityPortfolioStrategyResponse:
+        description: AssetAndLiabilityPortfolioStrategyUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateAssetAndLiabilityPortfolioStrategyResponse
+     RequestAssetAndLiabilityPortfolioStrategyResponse:
+        description: AssetAndLiabilityPortfolioStrategyRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestAssetAndLiabilityPortfolioStrategyResponse
+     RetrieveAssetAndLiabilityPortfolioStrategyResponse:
+        description: AssetAndLiabilityPortfolioStrategyRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveAssetAndLiabilityPortfolioStrategyResponse
+     CreateTransactionAlignmentResponse:
+        description: TransactionAlignmentCreate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CreateTransactionAlignmentResponse'
+     RequestTransactionAlignmentResponse:
+        description: TransactionAlignmentRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestTransactionAlignmentResponse'
+     RetrieveTransactionAlignmentResponse:
+        description: TransactionAlignmentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveTransactionAlignmentResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

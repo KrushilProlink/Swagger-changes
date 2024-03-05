@@ -1,0 +1,960 @@
+openapi: 3.0.1
+info:
+  title: Party Routing Profile
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain maintains
+    a small profile of key indicators for a customer that is referenced during
+    customer interactions to facilitate routing, servicing and product/service
+    fulfillment decisions. This can include status (such as account in arrears),
+    ratings (such as high value customer) and alerts (such possible fraud
+    activity detected)
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/PartyRoutingProfile
+paths:
+   '/PartyState/{partystateid}/Initiate':
+      post:
+        tags:
+           - CR - PartyState
+        summary: InCR Initiate profile state monitoring for a party
+        description: InCR Initiate profile state monitoring for a party
+        operationId: PartyState/Initiate
+        parameters:
+           - $ref: '#/components/parameters/partystateid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiatePartyStateRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PartyState/{partystateid}/Update':
+      put:
+        tags:
+           - CR - PartyState
+        summary: UpCR Update monitoring for a party
+        description: UpCR Update monitoring for a party
+        operationId: PartyState/Update
+        parameters:
+           - $ref: '#/components/parameters/partystateid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdatePartyStateRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PartyState/{partystateid}/Execute':
+      put:
+        tags:
+           - CR - PartyState
+        summary: ExCR Execute an automated action for a monitored party (e.g. refresh)
+        description: ExCR Execute an automated action for a monitored party (e.g. refresh)
+        operationId: PartyState/Execute
+        parameters:
+           - $ref: '#/components/parameters/partystateid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecutePartyStateRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PartyState/{partystateid}/Request':
+      put:
+        tags:
+           - CR - PartyState
+        summary: >-
+          RqCR Request manual intervention for a monitored party (e.g. review
+          settings)
+        description: >-
+          RqCR Request manual intervention for a monitored party (e.g. review
+          settings)
+        operationId: PartyState/Request
+        parameters:
+           - $ref: '#/components/parameters/partystateid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestPartyStateRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PartyState/{partystateid}/Retrieve':
+      get:
+        tags:
+           - CR - PartyState
+        summary: ReCR Retrieve details about the monitored party state
+        description: ReCR Retrieve details about the monitored party state
+        operationId: PartyState/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/partystateid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePartyStateResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Status/{statusid}/Update':
+      put:
+        tags:
+           - BQ - Status
+        summary: UpBQ Update status measures for a monitored party
+        description: UpBQ Update status measures for a monitored party
+        operationId: Status/Update
+        parameters:
+           - $ref: '#/components/parameters/statusid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateStatusRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Status/{statusid}/Capture':
+      put:
+        tags:
+           - BQ - Status
+        summary: CaBQ Capture status measures for a monitored party
+        description: CaBQ Capture status measures for a monitored party
+        operationId: Status/Capture
+        parameters:
+           - $ref: '#/components/parameters/statusid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureStatusRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Status/{statusid}/Retrieve':
+      get:
+        tags:
+           - BQ - Status
+        summary: ReBQ Retrieve details about status measures for a party
+        description: ReBQ Retrieve details about status measures for a party
+        operationId: Status/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/statusid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveStatusResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Rating/{ratingid}/Update':
+      put:
+        tags:
+           - BQ - Rating
+        summary: UpBQ Update rating measures for a monitored party
+        description: UpBQ Update rating measures for a monitored party
+        operationId: Rating/Update
+        parameters:
+           - $ref: '#/components/parameters/ratingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateRatingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Rating/{ratingid}/Capture':
+      put:
+        tags:
+           - BQ - Rating
+        summary: CaBQ Capture rating measures for a monitored party
+        description: CaBQ Capture rating measures for a monitored party
+        operationId: Rating/Capture
+        parameters:
+           - $ref: '#/components/parameters/ratingid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureRatingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Rating/{ratingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Rating
+        summary: ReBQ Retrieve details about rating measures for a party
+        description: ReBQ Retrieve details about rating measures for a party
+        operationId: Rating/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/ratingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveRatingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Alert/{alertid}/Update':
+      put:
+        tags:
+           - BQ - Alert
+        summary: UpBQ Update alerts for a monitored party
+        description: UpBQ Update alerts for a monitored party
+        operationId: Alert/Update
+        parameters:
+           - $ref: '#/components/parameters/alertid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateAlertRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Alert/{alertid}/Capture':
+      put:
+        tags:
+           - BQ - Alert
+        summary: CaBQ Capture alerts for a monitored party
+        description: CaBQ Capture alerts for a monitored party
+        operationId: Alert/Capture
+        parameters:
+           - $ref: '#/components/parameters/alertid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureAlertRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Alert/{alertid}/Retrieve':
+      get:
+        tags:
+           - BQ - Alert
+        summary: ReBQ Retrieve details about alerts for a party
+        description: ReBQ Retrieve details about alerts for a party
+        operationId: Alert/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/alertid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAlertResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiatePartyStateRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdatePartyStateRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdatePartyStateResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdatePartyState:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer for the profile
+              format: Object
+     ExecutePartyStateRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestPartyStateRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrievePartyStateResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrievePartyState:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer for the profile
+              format: Object
+     UpdateStatusRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipStatusType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipStatusNarrative:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipStatusValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     UpdateStatusResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipStatusType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipStatusNarrative:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipStatusValidFromToDate:
+              $ref: '#/components/schemas/Date'
+     UpdateStatus:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer for the profile
+              format: Object
+     CaptureStatusRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipStatusType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipStatusNarrative:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipStatusValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     CaptureStatusResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipStatusValidFromToDate:
+              $ref: '#/components/schemas/Date'
+     CaptureStatus:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer for the profile
+              format: Object
+     RetrieveStatusResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipStatusType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipStatusNarrative:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipStatusValidFromToDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveStatus:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer for the profile
+              format: Object
+     UpdateRatingRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipRatingType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipRatingNarrative:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipRatingValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     UpdateRatingResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipRatingType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipRatingNarrative:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipRatingValidFromToDate:
+              $ref: '#/components/schemas/Date'
+     UpdateRating:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer for the profile
+              format: Object
+     CaptureRatingRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipRatingType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipRatingNarrative:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipRatingValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     CaptureRatingResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipRatingValidFromToDate:
+              $ref: '#/components/schemas/Date'
+     CaptureRating:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer for the profile
+              format: Object
+     RetrieveRatingResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipRatingType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipRatingNarrative:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipRatingValidFromToDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveRating:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer for the profile
+              format: Object
+     UpdateAlertRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipAlertType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipAlertNarrative:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipAlertValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     UpdateAlertResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipAlertType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipAlertNarrative:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipAlertValidFromToDate:
+              $ref: '#/components/schemas/Date'
+     UpdateAlert:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer for the profile
+              format: Object
+     CaptureAlertRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipAlertType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipAlertNarrative:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipAlertValidFromToDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     CaptureAlertResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipAlertValidFromToDate:
+              $ref: '#/components/schemas/Date'
+     CaptureAlert:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer for the profile
+              format: Object
+     RetrieveAlertResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipAlertType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipAlertNarrative:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipAlertValidFromToDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveAlert:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: Reference to the customer for the profile
+              format: Object
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiatePartyStateRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiatePartyStateRequest'
+        required: true
+     UpdatePartyStateRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePartyStateRequest'
+        required: true
+     ExecutePartyStateRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePartyStateRequest'
+        required: true
+     RequestPartyStateRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPartyStateRequest'
+        required: true
+     RetrievePartyStateRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateStatusRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateStatusRequest'
+        required: true
+     CaptureStatusRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureStatusRequest'
+        required: true
+     RetrieveStatusRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateRatingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRatingRequest'
+        required: true
+     CaptureRatingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureRatingRequest'
+        required: true
+     RetrieveRatingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateAlertRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAlertRequest'
+        required: true
+     CaptureAlertRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureAlertRequest'
+        required: true
+     RetrieveAlertRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     partystateid:
+        name: partystateid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     statusid:
+        name: statusid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     ratingid:
+        name: ratingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     alertid:
+        name: alertid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiatePartyStateResponse:
+        description: PartyStateInitiate
+        content:
+          'application/json:':
+            schema:
+              type: string
+     UpdatePartyStateResponse:
+        description: PartyStateUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdatePartyStateResponse'
+     ExecutePartyStateResponse:
+        description: PartyStateExecute
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RequestPartyStateResponse:
+        description: PartyStateRequest
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrievePartyStateResponse:
+        description: PartyStateRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePartyStateResponse'
+     UpdateStatusResponse:
+        description: StatusUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateStatusResponse'
+     CaptureStatusResponse:
+        description: StatusCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureStatusResponse'
+     RetrieveStatusResponse:
+        description: StatusRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveStatusResponse'
+     UpdateRatingResponse:
+        description: RatingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRatingResponse'
+     CaptureRatingResponse:
+        description: RatingCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureRatingResponse'
+     RetrieveRatingResponse:
+        description: RatingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveRatingResponse'
+     UpdateAlertResponse:
+        description: AlertUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAlertResponse'
+     CaptureAlertResponse:
+        description: AlertCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureAlertResponse'
+     RetrieveAlertResponse:
+        description: AlertRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAlertResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

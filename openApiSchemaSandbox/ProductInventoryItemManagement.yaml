@@ -1,0 +1,1224 @@
+openapi: 3.0.1
+info:
+  title: Product Inventory Item Management
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Maintain and distribute
+    product inventory
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/ProductInventoryItemManagement
+paths:
+   '/ProductInventoryAllocation/{productinventoryallocationid}/Update':
+      put:
+        tags:
+           - CR - ProductInventoryAllocation
+        summary: UpCR Update details of the product inventory distribution service
+        description: UpCR Update details of the product inventory distribution service
+        operationId: ProductInventoryAllocation/Update
+        parameters:
+           - $ref: '#/components/parameters/productinventoryallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateProductInventoryAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductInventoryAllocation/{productinventoryallocationid}/Request':
+      put:
+        tags:
+           - CR - ProductInventoryAllocation
+        summary: >-
+          RqCR Request manual intervention with the inventory distribution
+          service
+        description: >-
+          RqCR Request manual intervention with the inventory distribution
+          service
+        operationId: ProductInventoryAllocation/Request
+        parameters:
+           - $ref: '#/components/parameters/productinventoryallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestProductInventoryAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductInventoryAllocation/{productinventoryallocationid}/Retrieve':
+      get:
+        tags:
+           - CR - ProductInventoryAllocation
+        summary: ReCR Retrieve details about the product inventory distribution
+        description: ReCR Retrieve details about the product inventory distribution
+        operationId: ProductInventoryAllocation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/productinventoryallocationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveProductInventoryAllocationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Assignment/{assignmentid}/Provide':
+      post:
+        tags:
+           - BQ - Assignment
+        summary: PrBQ Obtain the provision of product inventory
+        description: PrBQ Obtain the provision of product inventory
+        operationId: Assignment/Provide
+        parameters:
+           - $ref: '#/components/parameters/assignmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/ProvideAssignmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Assignment/{assignmentid}/Update':
+      put:
+        tags:
+           - BQ - Assignment
+        summary: UpBQ Update details of a scheduled item assignment
+        description: UpBQ Update details of a scheduled item assignment
+        operationId: Assignment/Update
+        parameters:
+           - $ref: '#/components/parameters/assignmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateAssignmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Assignment/{assignmentid}/Request':
+      put:
+        tags:
+           - BQ - Assignment
+        summary: >-
+          RqBQ Request manual intervention with a product inventory item
+          assignment
+        description: >-
+          RqBQ Request manual intervention with a product inventory item
+          assignment
+        operationId: Assignment/Request
+        parameters:
+           - $ref: '#/components/parameters/assignmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestAssignmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Assignment/{assignmentid}/Retrieve':
+      get:
+        tags:
+           - BQ - Assignment
+        summary: ReBQ Retrieve details about a product inventory item's distribution
+        description: ReBQ Retrieve details about a product inventory item's distribution
+        operationId: Assignment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/assignmentid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAssignmentResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     UpdateProductInventoryAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateProductInventoryAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateProductInventoryAllocation:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: >-
+                Maintains the distribution schedule for all managed product
+                inventory items. This includes all past distribution records and
+                future scheduled deliveries
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: The collection of product inventory items
+              format: String
+           ProductandServiceType:
+              type: string
+              description: >-
+                The type or category of product or service for which inventory
+                items are held (e.g. specialized consumer loan, relocation
+                services)
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: Reference to a specific type of product inventory item
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: Details about a product inventory type holding
+              format: String
+           ProductInventoryItemDescription:
+              type: string
+              description: >-
+                Description of the inventory item used for selection/reference
+                purposes
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: >-
+                Details as to the supplier details for obtaining additional
+                items when required (includes ordering details, volumes and
+                frequency, pricing, delivery timelines etc.)
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: >-
+                Details the locations where the inventory item is distributed to
+                and the minimum and maximum holding amounts and inventory
+                renewal cycles (used to trigger/schedule renewal deliveries)
+              format: String
+           ProductInventoryHolding:
+              type: string
+              description: >-
+                The current and projected holding and holding targets/limits by
+                location  taking into account scheduled distribution plans
+              format: String
+     RequestProductInventoryAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestProductInventoryAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestProductInventoryAllocation:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: >-
+                Maintains the distribution schedule for all managed product
+                inventory items. This includes all past distribution records and
+                future scheduled deliveries
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: The collection of product inventory items
+              format: String
+           ProductandServiceType:
+              type: string
+              description: >-
+                The type or category of product or service for which inventory
+                items are held (e.g. specialized consumer loan, relocation
+                services)
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: Reference to a specific type of product inventory item
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: Details about a product inventory type holding
+              format: String
+           ProductInventoryItemDescription:
+              type: string
+              description: >-
+                Description of the inventory item used for selection/reference
+                purposes
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: >-
+                Details as to the supplier details for obtaining additional
+                items when required (includes ordering details, volumes and
+                frequency, pricing, delivery timelines etc.)
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: >-
+                Details the locations where the inventory item is distributed to
+                and the minimum and maximum holding amounts and inventory
+                renewal cycles (used to trigger/schedule renewal deliveries)
+              format: String
+           ProductInventoryHolding:
+              type: string
+              description: >-
+                The current and projected holding and holding targets/limits by
+                location  taking into account scheduled distribution plans
+              format: String
+     RetrieveProductInventoryAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveProductInventoryAllocation:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: >-
+                Maintains the distribution schedule for all managed product
+                inventory items. This includes all past distribution records and
+                future scheduled deliveries
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: The collection of product inventory items
+              format: String
+           ProductandServiceType:
+              type: string
+              description: >-
+                The type or category of product or service for which inventory
+                items are held (e.g. specialized consumer loan, relocation
+                services)
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: Reference to a specific type of product inventory item
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: Details about a product inventory type holding
+              format: String
+           ProductInventoryItemDescription:
+              type: string
+              description: >-
+                Description of the inventory item used for selection/reference
+                purposes
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: >-
+                Details as to the supplier details for obtaining additional
+                items when required (includes ordering details, volumes and
+                frequency, pricing, delivery timelines etc.)
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: >-
+                Details the locations where the inventory item is distributed to
+                and the minimum and maximum holding amounts and inventory
+                renewal cycles (used to trigger/schedule renewal deliveries)
+              format: String
+           ProductInventoryHolding:
+              type: string
+              description: >-
+                The current and projected holding and holding targets/limits by
+                location  taking into account scheduled distribution plans
+              format: String
+     ProvideAssignmentRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentRequestType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     ProvideAssignmentResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentRequestType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentDeliveryRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentCosts:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     ProvideAssignment:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: >-
+                Maintains the distribution schedule for all managed product
+                inventory items. This includes all past distribution records and
+                future scheduled deliveries
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: The collection of product inventory items
+              format: String
+           ProductandServiceType:
+              type: string
+              description: >-
+                The type or category of product or service for which inventory
+                items are held (e.g. specialized consumer loan, relocation
+                services)
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: Reference to a specific type of product inventory item
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: Details about a product inventory type holding
+              format: String
+           ProductInventoryItemDescription:
+              type: string
+              description: >-
+                Description of the inventory item used for selection/reference
+                purposes
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: >-
+                Details as to the supplier details for obtaining additional
+                items when required (includes ordering details, volumes and
+                frequency, pricing, delivery timelines etc.)
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: >-
+                Details the locations where the inventory item is distributed to
+                and the minimum and maximum holding amounts and inventory
+                renewal cycles (used to trigger/schedule renewal deliveries)
+              format: String
+           ProductInventoryHolding:
+              type: string
+              description: >-
+                The current and projected holding and holding targets/limits by
+                location  taking into account scheduled distribution plans
+              format: String
+     UpdateAssignmentRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAssignmentRequestType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentDeliveryRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentCosts:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateAssignmentResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAssignmentRequestType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentDeliveryRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentCosts:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateAssignment:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: >-
+                Maintains the distribution schedule for all managed product
+                inventory items. This includes all past distribution records and
+                future scheduled deliveries
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: The collection of product inventory items
+              format: String
+           ProductandServiceType:
+              type: string
+              description: >-
+                The type or category of product or service for which inventory
+                items are held (e.g. specialized consumer loan, relocation
+                services)
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: Reference to a specific type of product inventory item
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: Details about a product inventory type holding
+              format: String
+           ProductInventoryItemDescription:
+              type: string
+              description: >-
+                Description of the inventory item used for selection/reference
+                purposes
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: >-
+                Details as to the supplier details for obtaining additional
+                items when required (includes ordering details, volumes and
+                frequency, pricing, delivery timelines etc.)
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: >-
+                Details the locations where the inventory item is distributed to
+                and the minimum and maximum holding amounts and inventory
+                renewal cycles (used to trigger/schedule renewal deliveries)
+              format: String
+           ProductInventoryHolding:
+              type: string
+              description: >-
+                The current and projected holding and holding targets/limits by
+                location  taking into account scheduled distribution plans
+              format: String
+     RequestAssignmentRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentRequestType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentDeliveryRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestAssignmentResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentRequestType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentDeliveryRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentCosts:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestAssignment:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: >-
+                Maintains the distribution schedule for all managed product
+                inventory items. This includes all past distribution records and
+                future scheduled deliveries
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: The collection of product inventory items
+              format: String
+           ProductandServiceType:
+              type: string
+              description: >-
+                The type or category of product or service for which inventory
+                items are held (e.g. specialized consumer loan, relocation
+                services)
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: Reference to a specific type of product inventory item
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: Details about a product inventory type holding
+              format: String
+           ProductInventoryItemDescription:
+              type: string
+              description: >-
+                Description of the inventory item used for selection/reference
+                purposes
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: >-
+                Details as to the supplier details for obtaining additional
+                items when required (includes ordering details, volumes and
+                frequency, pricing, delivery timelines etc.)
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: >-
+                Details the locations where the inventory item is distributed to
+                and the minimum and maximum holding amounts and inventory
+                renewal cycles (used to trigger/schedule renewal deliveries)
+              format: String
+           ProductInventoryHolding:
+              type: string
+              description: >-
+                The current and projected holding and holding targets/limits by
+                location  taking into account scheduled distribution plans
+              format: String
+     RetrieveAssignmentResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentRequestType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentDeliveryRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInventoryAssignmentCosts:
+              type: string
+              description: "\r\n"
+              format: String
+           DateType:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveAssignment:
+        type: object
+        description: ''
+        properties:
+           ProductInventoryAllocationServiceSchedule:
+              type: string
+              description: >-
+                Maintains the distribution schedule for all managed product
+                inventory items. This includes all past distribution records and
+                future scheduled deliveries
+              format: String
+           ProductInventoryHoldings:
+              type: string
+              description: The collection of product inventory items
+              format: String
+           ProductandServiceType:
+              type: string
+              description: >-
+                The type or category of product or service for which inventory
+                items are held (e.g. specialized consumer loan, relocation
+                services)
+              format: String
+           ProductInventoryItemType:
+              type: string
+              description: Reference to a specific type of product inventory item
+              format: String
+           ProductInventoryItemRecord:
+              type: string
+              description: Details about a product inventory type holding
+              format: String
+           ProductInventoryItemDescription:
+              type: string
+              description: >-
+                Description of the inventory item used for selection/reference
+                purposes
+              format: String
+           ProductInventoryItemSupplierDetails:
+              type: string
+              description: >-
+                Details as to the supplier details for obtaining additional
+                items when required (includes ordering details, volumes and
+                frequency, pricing, delivery timelines etc.)
+              format: String
+           ProductInventoryUsedLocations:
+              type: string
+              description: >-
+                Details the locations where the inventory item is distributed to
+                and the minimum and maximum holding amounts and inventory
+                renewal cycles (used to trigger/schedule renewal deliveries)
+              format: String
+           ProductInventoryHolding:
+              type: string
+              description: >-
+                The current and projected holding and holding targets/limits by
+                location  taking into account scheduled distribution plans
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     UpdateProductInventoryAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProductInventoryAllocationRequest'
+        required: true
+     RequestProductInventoryAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestProductInventoryAllocationRequest'
+        required: true
+     RetrieveProductInventoryAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     ProvideAssignmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ProvideAssignmentRequest'
+        required: true
+     UpdateAssignmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAssignmentRequest'
+        required: true
+     RequestAssignmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestAssignmentRequest'
+        required: true
+     RetrieveAssignmentRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     productinventoryallocationid:
+        name: productinventoryallocationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     assignmentid:
+        name: assignmentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     UpdateProductInventoryAllocationResponse:
+        description: ProductInventoryAllocationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProductInventoryAllocationResponse'
+     RequestProductInventoryAllocationResponse:
+        description: ProductInventoryAllocationRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestProductInventoryAllocationResponse'
+     RetrieveProductInventoryAllocationResponse:
+        description: ProductInventoryAllocationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveProductInventoryAllocationResponse'
+     ProvideAssignmentResponse:
+        description: AssignmentProvide
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ProvideAssignmentResponse'
+     UpdateAssignmentResponse:
+        description: AssignmentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAssignmentResponse'
+     RequestAssignmentResponse:
+        description: AssignmentRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestAssignmentResponse'
+     RetrieveAssignmentResponse:
+        description: AssignmentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAssignmentResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

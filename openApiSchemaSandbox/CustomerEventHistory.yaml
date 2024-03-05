@@ -1,0 +1,1816 @@
+openapi: 3.0.1
+info:
+  title: Customer Event History
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain captures,
+    classifies and stores relationship, servicing and product fulfillment
+    related customer events. In addition to servicing and product transaction
+    details, the log can capture life/relationship events that are revealed
+    during customer exchanges
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CustomerEventHistory
+paths:
+   '/CustomerEventLog/{customereventlogid}/Initiate':
+      post:
+        tags:
+           - CR - CustomerEventLog
+        summary: InCR Initiate customer event history tracking for a customer
+        description: InCR Initiate customer event history tracking for a customer
+        operationId: CustomerEventLog/Initiate
+        parameters:
+           - $ref: '#/components/parameters/customereventlogid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateCustomerEventLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerEventLog/{customereventlogid}/Update':
+      put:
+        tags:
+           - CR - CustomerEventLog
+        summary: UpCR Update details about the log
+        description: UpCR Update details about the log
+        operationId: CustomerEventLog/Update
+        parameters:
+           - $ref: '#/components/parameters/customereventlogid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCustomerEventLogRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerEventLog/{customereventlogid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerEventLog
+        summary: ReCR Retrieve details about the customer event log
+        description: ReCR Retrieve details about the customer event log
+        operationId: CustomerEventLog/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customereventlogid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCustomerEventLogResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Relationship/{relationshipid}/Update':
+      put:
+        tags:
+           - BQ - Relationship
+        summary: UpBQ Update captured relationship management event details
+        description: UpBQ Update captured relationship management event details
+        operationId: Relationship/Update
+        parameters:
+           - $ref: '#/components/parameters/relationshipid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateRelationshipRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Relationship/{relationshipid}/Capture':
+      put:
+        tags:
+           - BQ - Relationship
+        summary: CaBQ Capture relationship management event details
+        description: CaBQ Capture relationship management event details
+        operationId: Relationship/Capture
+        parameters:
+           - $ref: '#/components/parameters/relationshipid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureRelationshipRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Relationship/{relationshipid}/Retrieve':
+      get:
+        tags:
+           - BQ - Relationship
+        summary: ReBQ Retrieve relationship management event details
+        description: ReBQ Retrieve relationship management event details
+        operationId: Relationship/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/relationshipid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveRelationshipResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Sales/{salesid}/Update':
+      put:
+        tags:
+           - BQ - Sales
+        summary: UpBQ Update captured sales event details
+        description: UpBQ Update captured sales event details
+        operationId: Sales/Update
+        parameters:
+           - $ref: '#/components/parameters/salesid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateSalesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Sales/{salesid}/Capture':
+      put:
+        tags:
+           - BQ - Sales
+        summary: CaBQ Capture sales event details
+        description: CaBQ Capture sales event details
+        operationId: Sales/Capture
+        parameters:
+           - $ref: '#/components/parameters/salesid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureSalesRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Sales/{salesid}/Retrieve':
+      get:
+        tags:
+           - BQ - Sales
+        summary: ReBQ Retrieve sales event details
+        description: ReBQ Retrieve sales event details
+        operationId: Sales/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/salesid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveSalesResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Servicing/{servicingid}/Update':
+      put:
+        tags:
+           - BQ - Servicing
+        summary: UpBQ Update captured servicing event details
+        description: UpBQ Update captured servicing event details
+        operationId: Servicing/Update
+        parameters:
+           - $ref: '#/components/parameters/servicingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateServicingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Servicing/{servicingid}/Capture':
+      put:
+        tags:
+           - BQ - Servicing
+        summary: CaBQ Capture servicing event details
+        description: CaBQ Capture servicing event details
+        operationId: Servicing/Capture
+        parameters:
+           - $ref: '#/components/parameters/servicingid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureServicingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Servicing/{servicingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Servicing
+        summary: ReBQ Retrieve servicing event details
+        description: ReBQ Retrieve servicing event details
+        operationId: Servicing/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/servicingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveServicingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductProcessing/{productprocessingid}/Update':
+      put:
+        tags:
+           - BQ - ProductProcessing
+        summary: UpBQ Update captured product processing event details
+        description: UpBQ Update captured product processing event details
+        operationId: ProductProcessing/Update
+        parameters:
+           - $ref: '#/components/parameters/productprocessingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateProductProcessingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductProcessing/{productprocessingid}/Capture':
+      put:
+        tags:
+           - BQ - ProductProcessing
+        summary: CaBQ Capture product processing event details
+        description: CaBQ Capture product processing event details
+        operationId: ProductProcessing/Capture
+        parameters:
+           - $ref: '#/components/parameters/productprocessingid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureProductProcessingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductProcessing/{productprocessingid}/Retrieve':
+      get:
+        tags:
+           - BQ - ProductProcessing
+        summary: ReBQ Retrieve product processing event details
+        description: ReBQ Retrieve product processing event details
+        operationId: ProductProcessing/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/productprocessingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveProductProcessingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Fraud/{fraudid}/Update':
+      put:
+        tags:
+           - BQ - Fraud
+        summary: UpBQ Update captured fraud event details
+        description: UpBQ Update captured fraud event details
+        operationId: Fraud/Update
+        parameters:
+           - $ref: '#/components/parameters/fraudid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateFraudRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Fraud/{fraudid}/Capture':
+      put:
+        tags:
+           - BQ - Fraud
+        summary: CaBQ Capture fraud event details
+        description: CaBQ Capture fraud event details
+        operationId: Fraud/Capture
+        parameters:
+           - $ref: '#/components/parameters/fraudid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureFraudRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Fraud/{fraudid}/Retrieve':
+      get:
+        tags:
+           - BQ - Fraud
+        summary: ReBQ Retrieve fraud event details
+        description: ReBQ Retrieve fraud event details
+        operationId: Fraud/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/fraudid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveFraudResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Life/{lifeid}/Update':
+      put:
+        tags:
+           - BQ - Life
+        summary: UpBQ Update captured customer life event details
+        description: UpBQ Update captured customer life event details
+        operationId: Life/Update
+        parameters:
+           - $ref: '#/components/parameters/lifeid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateLifeRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Life/{lifeid}/Capture':
+      put:
+        tags:
+           - BQ - Life
+        summary: CaBQ Capture customer life event details
+        description: CaBQ Capture customer life event details
+        operationId: Life/Capture
+        parameters:
+           - $ref: '#/components/parameters/lifeid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureLifeRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Life/{lifeid}/Retrieve':
+      get:
+        tags:
+           - BQ - Life
+        summary: ReBQ Retrieve customer life event details
+        description: ReBQ Retrieve customer life event details
+        operationId: Life/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/lifeid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveLifeResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateCustomerEventLogRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateCustomerEventLogRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateCustomerEventLogResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateCustomerEventLog:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+     RetrieveCustomerEventLogResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveCustomerEventLog:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+     UpdateRelationshipRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerRelationshipEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipEventAction:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateRelationshipResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerRelationshipEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipEventAction:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateRelationship:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+     CaptureRelationshipRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerRelationshipEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerRelationshipEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipEventAction:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveRelationshipResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerRelationshipEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerRelationshipEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerRelationshipEventAction:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveRelationship:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+     UpdateSalesRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerSalesEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           LeadandOpportunityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSalesEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CommissionAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSalesResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerSalesEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           LeadandOpportunityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSalesEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CommissionAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateSales:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+     CaptureSalesRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerSalesEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           LeadandOpportunityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSalesEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CommissionAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveSalesResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSalesEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductandServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           LeadandOpportunityReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerSalesEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CommissionAgreementReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveSales:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+     UpdateServicingRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerServicingEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AccessedProductandService:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactResult:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerServicingEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateServicingResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerServicingEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AccessedProductandService:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactResult:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerServicingEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateServicing:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+     CaptureServicingRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerServicingEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AccessedProductandService:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactResult:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerServicingEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveServicingResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerServicingEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AccessedProductandService:
+              type: string
+              description: "\r\n"
+              format: String
+           ChannelDeviceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactPurpose:
+              type: string
+              description: "\r\n"
+              format: String
+           ContactResult:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerServicingEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveServicing:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+     UpdateProductProcessingRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductActionEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductActionEventDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductActionEventResult:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerProductandServiceEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateProductProcessingResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductActionEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductActionEventDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductActionEventResult:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerProductandServiceEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateProductProcessing:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+     CaptureProductProcessingRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductActionEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductActionEventDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductActionEventResult:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerProductandServiceEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveProductProcessingResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductActionEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductActionEventDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductActionEventResult:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerProductandServiceEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveProductProcessing:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+     UpdateFraudRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerFraudCaseEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AccessedProductandService:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudCaseReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateFraudResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerFraudCaseEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AccessedProductandService:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudCaseReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateFraud:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+     CaptureFraudRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerFraudCaseEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AccessedProductandService:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudCaseReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveFraudResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerFraudCaseEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AccessedProductandService:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudCaseReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveFraud:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+     UpdateLifeRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerLifeEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerLifeEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateLifeResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerLifeEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerLifeEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateLife:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+     CaptureLifeRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerLifeEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerLifeEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveLifeResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerLifeEventType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerLifeEventRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           DateTimeLocation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveLife:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the associated customer (can currently be a person
+                or a company)
+              format: Object
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateCustomerEventLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCustomerEventLogRequest'
+        required: true
+     UpdateCustomerEventLogRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerEventLogRequest'
+        required: true
+     RetrieveCustomerEventLogRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateRelationshipRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRelationshipRequest'
+        required: true
+     CaptureRelationshipRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureRelationshipRequest'
+        required: true
+     RetrieveRelationshipRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateSalesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSalesRequest'
+        required: true
+     CaptureSalesRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureSalesRequest'
+        required: true
+     RetrieveSalesRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateServicingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateServicingRequest'
+        required: true
+     CaptureServicingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureServicingRequest'
+        required: true
+     RetrieveServicingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateProductProcessingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProductProcessingRequest'
+        required: true
+     CaptureProductProcessingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureProductProcessingRequest'
+        required: true
+     RetrieveProductProcessingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateFraudRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFraudRequest'
+        required: true
+     CaptureFraudRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureFraudRequest'
+        required: true
+     RetrieveFraudRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateLifeRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateLifeRequest'
+        required: true
+     CaptureLifeRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureLifeRequest'
+        required: true
+     RetrieveLifeRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     customereventlogid:
+        name: customereventlogid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     relationshipid:
+        name: relationshipid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     salesid:
+        name: salesid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     servicingid:
+        name: servicingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     productprocessingid:
+        name: productprocessingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     fraudid:
+        name: fraudid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     lifeid:
+        name: lifeid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateCustomerEventLogResponse:
+        description: CustomerEventLogInitiate
+        content:
+          'application/json:':
+            schema:
+              type: string
+     UpdateCustomerEventLogResponse:
+        description: CustomerEventLogUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerEventLogResponse'
+     RetrieveCustomerEventLogResponse:
+        description: CustomerEventLogRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCustomerEventLogResponse'
+     UpdateRelationshipResponse:
+        description: RelationshipUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRelationshipResponse'
+     CaptureRelationshipResponse:
+        description: RelationshipCapture
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrieveRelationshipResponse:
+        description: RelationshipRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveRelationshipResponse'
+     UpdateSalesResponse:
+        description: SalesUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateSalesResponse'
+     CaptureSalesResponse:
+        description: SalesCapture
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrieveSalesResponse:
+        description: SalesRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveSalesResponse'
+     UpdateServicingResponse:
+        description: ServicingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateServicingResponse'
+     CaptureServicingResponse:
+        description: ServicingCapture
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrieveServicingResponse:
+        description: ServicingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveServicingResponse'
+     UpdateProductProcessingResponse:
+        description: ProductProcessingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProductProcessingResponse'
+     CaptureProductProcessingResponse:
+        description: ProductProcessingCapture
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrieveProductProcessingResponse:
+        description: ProductProcessingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveProductProcessingResponse'
+     UpdateFraudResponse:
+        description: FraudUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFraudResponse'
+     CaptureFraudResponse:
+        description: FraudCapture
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrieveFraudResponse:
+        description: FraudRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveFraudResponse'
+     UpdateLifeResponse:
+        description: LifeUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateLifeResponse'
+     CaptureLifeResponse:
+        description: LifeCapture
+        content:
+          'application/json:':
+            schema:
+              type: string
+     RetrieveLifeResponse:
+        description: LifeRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveLifeResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

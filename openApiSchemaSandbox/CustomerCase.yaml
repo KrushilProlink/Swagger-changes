@@ -1,0 +1,1450 @@
+openapi: 3.0.1
+info:
+  title: Customer Case
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain handles
+    the initiation, tracking, resolution and reporting on customer cases (issues
+    that typically require corrective response to some financial transaction)
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CustomerCase
+paths:
+   '/CustomerCaseProcedure/{customercaseprocedureid}/Initiate':
+      post:
+        tags:
+           - CR - CustomerCaseProcedure
+        summary: InCR Initiate a customer case procedure
+        description: InCR Initiate a customer case procedure
+        operationId: CustomerCaseProcedure/Initiate
+        parameters:
+           - $ref: '#/components/parameters/customercaseprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateCustomerCaseProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerCaseProcedure/{customercaseprocedureid}/Update':
+      put:
+        tags:
+           - CR - CustomerCaseProcedure
+        summary: UpCR Update details about a customer case
+        description: UpCR Update details about a customer case
+        operationId: CustomerCaseProcedure/Update
+        parameters:
+           - $ref: '#/components/parameters/customercaseprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCustomerCaseProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerCaseProcedure/{customercaseprocedureid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerCaseProcedure
+        summary: ReCR Retrieve details about a customer case
+        description: ReCR Retrieve details about a customer case
+        operationId: CustomerCaseProcedure/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customercaseprocedureid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCustomerCaseProcedureResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Analysis/{analysisid}/Update':
+      put:
+        tags:
+           - BQ - Analysis
+        summary: UpBQ Update details of the analysis in a customer case
+        description: UpBQ Update details of the analysis in a customer case
+        operationId: Analysis/Update
+        parameters:
+           - $ref: '#/components/parameters/analysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Analysis/{analysisid}/Retrieve':
+      get:
+        tags:
+           - BQ - Analysis
+        summary: ReBQ Retrieve details about the analysis of a customer case
+        description: ReBQ Retrieve details about the analysis of a customer case
+        operationId: Analysis/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/analysisid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAnalysisResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Determination/{determinationid}/Update':
+      put:
+        tags:
+           - BQ - Determination
+        summary: UpBQ Update details of the determination in a customer case
+        description: UpBQ Update details of the determination in a customer case
+        operationId: Determination/Update
+        parameters:
+           - $ref: '#/components/parameters/determinationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateDeterminationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Determination/{determinationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Determination
+        summary: ReBQ Retrieve details about the determination of a customer case
+        description: ReBQ Retrieve details about the determination of a customer case
+        operationId: Determination/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/determinationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveDeterminationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Resolution/{resolutionid}/Update':
+      put:
+        tags:
+           - BQ - Resolution
+        summary: UpBQ Update details of the resolution tasks of a customer case
+        description: UpBQ Update details of the resolution tasks of a customer case
+        operationId: Resolution/Update
+        parameters:
+           - $ref: '#/components/parameters/resolutionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateResolutionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Resolution/{resolutionid}/Retrieve':
+      get:
+        tags:
+           - BQ - Resolution
+        summary: ReBQ Retrieve details about the resolution actions for a customer case
+        description: ReBQ Retrieve details about the resolution actions for a customer case
+        operationId: Resolution/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/resolutionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveResolutionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateCustomerCaseProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCustomerCaseProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCustomerCaseProcedure:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: >-
+                The type of case being processed including any supporting
+                narrative (e.g. disputed charges, suspected account fraud,
+                stolen device, change of status)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the case was raised if appropriate
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more product transactions associated with
+                the case
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: >-
+                The complete transaction record for transactions associated with
+                the case (detailed attribute breakdown not included)
+              format: String
+           CaseLocation:
+              type: string
+              description: >-
+                Reference to the physical address or electronic venue the
+                customer case was detected
+              format: String
+           Date:
+              type: string
+              description: The date and time when the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: Employees involved in capturing the case
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: >-
+                The case processing schedule including key tasks and dates for
+                resolution (target and actual dates/times )
+              format: String
+     UpdateCustomerCaseProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCustomerCaseProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCustomerCaseProcedure:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: >-
+                The type of case being processed including any supporting
+                narrative (e.g. disputed charges, suspected account fraud,
+                stolen device, change of status)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the case was raised if appropriate
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more product transactions associated with
+                the case
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: >-
+                The complete transaction record for transactions associated with
+                the case (detailed attribute breakdown not included)
+              format: String
+           CaseLocation:
+              type: string
+              description: >-
+                Reference to the physical address or electronic venue the
+                customer case was detected
+              format: String
+           Date:
+              type: string
+              description: The date and time when the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: Employees involved in capturing the case
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: >-
+                The case processing schedule including key tasks and dates for
+                resolution (target and actual dates/times )
+              format: String
+     RetrieveCustomerCaseProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCustomerCaseProcedure:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: >-
+                The type of case being processed including any supporting
+                narrative (e.g. disputed charges, suspected account fraud,
+                stolen device, change of status)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the case was raised if appropriate
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more product transactions associated with
+                the case
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: >-
+                The complete transaction record for transactions associated with
+                the case (detailed attribute breakdown not included)
+              format: String
+           CaseLocation:
+              type: string
+              description: >-
+                Reference to the physical address or electronic venue the
+                customer case was detected
+              format: String
+           Date:
+              type: string
+              description: The date and time when the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: Employees involved in capturing the case
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: >-
+                The case processing schedule including key tasks and dates for
+                resolution (target and actual dates/times )
+              format: String
+     UpdateAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerContactRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseAnalysisWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseAnalysisWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerContactRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseAnalysisWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseAnalysisWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateAnalysis:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: >-
+                The type of case being processed including any supporting
+                narrative (e.g. disputed charges, suspected account fraud,
+                stolen device, change of status)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the case was raised if appropriate
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more product transactions associated with
+                the case
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: >-
+                The complete transaction record for transactions associated with
+                the case (detailed attribute breakdown not included)
+              format: String
+           CaseLocation:
+              type: string
+              description: >-
+                Reference to the physical address or electronic venue the
+                customer case was detected
+              format: String
+           Date:
+              type: string
+              description: The date and time when the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: Employees involved in capturing the case
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: >-
+                The case processing schedule including key tasks and dates for
+                resolution (target and actual dates/times )
+              format: String
+     RetrieveAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseAnalysisWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseAnalysisWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveAnalysis:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: >-
+                The type of case being processed including any supporting
+                narrative (e.g. disputed charges, suspected account fraud,
+                stolen device, change of status)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the case was raised if appropriate
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more product transactions associated with
+                the case
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: >-
+                The complete transaction record for transactions associated with
+                the case (detailed attribute breakdown not included)
+              format: String
+           CaseLocation:
+              type: string
+              description: >-
+                Reference to the physical address or electronic venue the
+                customer case was detected
+              format: String
+           Date:
+              type: string
+              description: The date and time when the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: Employees involved in capturing the case
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: >-
+                The case processing schedule including key tasks and dates for
+                resolution (target and actual dates/times )
+              format: String
+     UpdateDeterminationRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerAgreementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CaseDeterminationWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseDeterminationWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateDeterminationResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerAgreementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CaseDeterminationWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseDeterminationWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateDetermination:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: >-
+                The type of case being processed including any supporting
+                narrative (e.g. disputed charges, suspected account fraud,
+                stolen device, change of status)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the case was raised if appropriate
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more product transactions associated with
+                the case
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: >-
+                The complete transaction record for transactions associated with
+                the case (detailed attribute breakdown not included)
+              format: String
+           CaseLocation:
+              type: string
+              description: >-
+                Reference to the physical address or electronic venue the
+                customer case was detected
+              format: String
+           Date:
+              type: string
+              description: The date and time when the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: Employees involved in capturing the case
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: >-
+                The case processing schedule including key tasks and dates for
+                resolution (target and actual dates/times )
+              format: String
+     RetrieveDeterminationResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseAnalysisWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerAgreementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CaseDeterminationWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseDeterminationWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveDetermination:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: >-
+                The type of case being processed including any supporting
+                narrative (e.g. disputed charges, suspected account fraud,
+                stolen device, change of status)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the case was raised if appropriate
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more product transactions associated with
+                the case
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: >-
+                The complete transaction record for transactions associated with
+                the case (detailed attribute breakdown not included)
+              format: String
+           CaseLocation:
+              type: string
+              description: >-
+                Reference to the physical address or electronic venue the
+                customer case was detected
+              format: String
+           Date:
+              type: string
+              description: The date and time when the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: Employees involved in capturing the case
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: >-
+                The case processing schedule including key tasks and dates for
+                resolution (target and actual dates/times )
+              format: String
+     UpdateResolutionRequest:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentContent:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PaymentOrderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateResolutionResponse:
+        type: object
+        description: ''
+        properties:
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentContent:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PaymentOrderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateResolution:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: >-
+                The type of case being processed including any supporting
+                narrative (e.g. disputed charges, suspected account fraud,
+                stolen device, change of status)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the case was raised if appropriate
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more product transactions associated with
+                the case
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: >-
+                The complete transaction record for transactions associated with
+                the case (detailed attribute breakdown not included)
+              format: String
+           CaseLocation:
+              type: string
+              description: >-
+                Reference to the physical address or electronic venue the
+                customer case was detected
+              format: String
+           Date:
+              type: string
+              description: The date and time when the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: Employees involved in capturing the case
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: >-
+                The case processing schedule including key tasks and dates for
+                resolution (target and actual dates/times )
+              format: String
+     RetrieveResolutionResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseLocation:
+              type: string
+              description: "\r\n"
+              format: String
+           Date:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseAnalysisWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CaseDeterminationWorkTaskResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CorrespondenceInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CorrespondenceContent:
+              type: string
+              description: "\r\n"
+              format: String
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           DocumentContent:
+              type: string
+              description: "\r\n"
+              format: String
+           PaymentOrderReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveResolution:
+        type: object
+        description: ''
+        properties:
+           CustomerCaseType:
+              type: string
+              description: >-
+                The type of case being processed including any supporting
+                narrative (e.g. disputed charges, suspected account fraud,
+                stolen device, change of status)
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: >-
+                Reference to a specific product instance associated with the
+                case
+              format: Object
+           CustomerReference:
+              type: string
+              description: The customer raising the case
+              format: Object
+           CustomerContactRecordReference:
+              type: string
+              description: >-
+                Reference to the complete contact record assembled during the
+                contact where the case was raised if appropriate
+              format: Object
+           ProductTransactionReference:
+              type: string
+              description: >-
+                Reference to one or more product transactions associated with
+                the case
+              format: Object
+           ProductTransactionRecord:
+              type: string
+              description: >-
+                The complete transaction record for transactions associated with
+                the case (detailed attribute breakdown not included)
+              format: String
+           CaseLocation:
+              type: string
+              description: >-
+                Reference to the physical address or electronic venue the
+                customer case was detected
+              format: String
+           Date:
+              type: string
+              description: The date and time when the case was initiated
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: Employees involved in capturing the case
+              format: Object
+           CustomerCaseResolutionSchedule:
+              type: string
+              description: >-
+                The case processing schedule including key tasks and dates for
+                resolution (target and actual dates/times )
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateCustomerCaseProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCustomerCaseProcedureRequest'
+        required: true
+     UpdateCustomerCaseProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerCaseProcedureRequest'
+        required: true
+     RetrieveCustomerCaseProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAnalysisRequest'
+        required: true
+     RetrieveAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateDeterminationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateDeterminationRequest'
+        required: true
+     RetrieveDeterminationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateResolutionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateResolutionRequest'
+        required: true
+     RetrieveResolutionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     customercaseprocedureid:
+        name: customercaseprocedureid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     analysisid:
+        name: analysisid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     determinationid:
+        name: determinationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     resolutionid:
+        name: resolutionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateCustomerCaseProcedureResponse:
+        description: CustomerCaseProcedureInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCustomerCaseProcedureResponse'
+     UpdateCustomerCaseProcedureResponse:
+        description: CustomerCaseProcedureUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerCaseProcedureResponse'
+     RetrieveCustomerCaseProcedureResponse:
+        description: CustomerCaseProcedureRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCustomerCaseProcedureResponse'
+     UpdateAnalysisResponse:
+        description: AnalysisUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAnalysisResponse'
+     RetrieveAnalysisResponse:
+        description: AnalysisRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAnalysisResponse'
+     UpdateDeterminationResponse:
+        description: DeterminationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateDeterminationResponse'
+     RetrieveDeterminationResponse:
+        description: DeterminationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveDeterminationResponse'
+     UpdateResolutionResponse:
+        description: ResolutionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateResolutionResponse'
+     RetrieveResolutionResponse:
+        description: ResolutionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveResolutionResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

@@ -1,0 +1,1898 @@
+openapi: 3.0.1
+info:
+  title: Reward Points Awards And Redemption
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Handle the allocation and
+    redemption of rewards points for customer transaction activity
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/RewardPointsAwardsAndRedemption
+paths:
+   '/RewardPointsTransaction/{rewardpointstransactionid}/Exchange':
+      put:
+        tags:
+           - CR - RewardPointsTransaction
+        summary: >-
+          EcCR Accept, verify, etc. aspects of Reward Points Transaction
+          processing
+        description: >-
+          EcCR Accept, verify, etc. aspects of Reward Points Transaction
+          processing
+        operationId: RewardPointsTransaction/Exchange
+        parameters:
+           - $ref: '#/components/parameters/rewardpointstransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeRewardPointsTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RewardPointsTransaction/{rewardpointstransactionid}/Execute':
+      put:
+        tags:
+           - CR - RewardPointsTransaction
+        summary: >-
+          ExCR Execute an available automated action for Reward Points
+          Transaction
+        description: >-
+          ExCR Execute an available automated action for Reward Points
+          Transaction
+        operationId: RewardPointsTransaction/Execute
+        parameters:
+           - $ref: '#/components/parameters/rewardpointstransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteRewardPointsTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RewardPointsTransaction/{rewardpointstransactionid}/Initiate':
+      post:
+        tags:
+           - CR - RewardPointsTransaction
+        summary: InCR Instantiate a new Reward Points Transaction
+        description: InCR Instantiate a new Reward Points Transaction
+        operationId: RewardPointsTransaction/Initiate
+        parameters:
+           - $ref: '#/components/parameters/rewardpointstransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateRewardPointsTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RewardPointsTransaction/{rewardpointstransactionid}/Retrieve':
+      get:
+        tags:
+           - CR - RewardPointsTransaction
+        summary: ReCR Retrieve details about any aspect of Reward Points Transaction
+        description: ReCR Retrieve details about any aspect of Reward Points Transaction
+        operationId: RewardPointsTransaction/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/rewardpointstransactionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveRewardPointsTransactionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RewardPointsTransaction/{rewardpointstransactionid}/Request':
+      put:
+        tags:
+           - CR - RewardPointsTransaction
+        summary: >-
+          RqCR Request manual intervention or a decision with respect to Reward
+          Points Transaction
+        description: >-
+          RqCR Request manual intervention or a decision with respect to Reward
+          Points Transaction
+        operationId: RewardPointsTransaction/Request
+        parameters:
+           - $ref: '#/components/parameters/rewardpointstransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestRewardPointsTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/RewardPointsTransaction/{rewardpointstransactionid}/Update':
+      put:
+        tags:
+           - CR - RewardPointsTransaction
+        summary: UpCR Update details relating to Reward Points Transaction
+        description: UpCR Update details relating to Reward Points Transaction
+        operationId: RewardPointsTransaction/Update
+        parameters:
+           - $ref: '#/components/parameters/rewardpointstransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateRewardPointsTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Award/{awardid}/Exchange':
+      put:
+        tags:
+           - BQ - Award
+        summary: EcBQ Accept, verify, etc. aspects of Award processing
+        description: EcBQ Accept, verify, etc. aspects of Award processing
+        operationId: Award/Exchange
+        parameters:
+           - $ref: '#/components/parameters/awardid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeAwardRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Redemption/{redemptionid}/Exchange':
+      put:
+        tags:
+           - BQ - Redemption
+        summary: EcBQ Accept, verify, etc. aspects of Redemption processing
+        description: EcBQ Accept, verify, etc. aspects of Redemption processing
+        operationId: Redemption/Exchange
+        parameters:
+           - $ref: '#/components/parameters/redemptionid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeRedemptionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Award/{awardid}/Initiate':
+      post:
+        tags:
+           - BQ - Award
+        summary: InBQ Instantiate a new Award
+        description: InBQ Instantiate a new Award
+        operationId: Award/Initiate
+        parameters:
+           - $ref: '#/components/parameters/awardid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateAwardRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Redemption/{redemptionid}/Initiate':
+      post:
+        tags:
+           - BQ - Redemption
+        summary: InBQ Instantiate a new Redemption
+        description: InBQ Instantiate a new Redemption
+        operationId: Redemption/Initiate
+        parameters:
+           - $ref: '#/components/parameters/redemptionid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateRedemptionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Award/{awardid}/Retrieve':
+      get:
+        tags:
+           - BQ - Award
+        summary: ReBQ Retrieve details about any aspect of Award
+        description: ReBQ Retrieve details about any aspect of Award
+        operationId: Award/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/awardid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAwardResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Redemption/{redemptionid}/Retrieve':
+      get:
+        tags:
+           - BQ - Redemption
+        summary: ReBQ Retrieve details about any aspect of Redemption
+        description: ReBQ Retrieve details about any aspect of Redemption
+        operationId: Redemption/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/redemptionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveRedemptionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Award/{awardid}/Update':
+      put:
+        tags:
+           - BQ - Award
+        summary: UpBQ Update details relating to Award
+        description: UpBQ Update details relating to Award
+        operationId: Award/Update
+        parameters:
+           - $ref: '#/components/parameters/awardid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateAwardRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Redemption/{redemptionid}/Update':
+      put:
+        tags:
+           - BQ - Redemption
+        summary: UpBQ Update details relating to Redemption
+        description: UpBQ Update details relating to Redemption
+        operationId: Redemption/Update
+        parameters:
+           - $ref: '#/components/parameters/redemptionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateRedemptionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     ExchangeRewardPointsTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+     ExchangeRewardPointsTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     ExchangeRewardPointsTransaction:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service transaction within Reward Points Transaction
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Transaction
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: The status of Reward Points Transaction
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of business action
+                for this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of transaction for
+                this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransaction:
+              type: string
+              description: Reference to Reward Points Transaction
+              format: String
+     ExecuteRewardPointsTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteRewardPointsTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteRewardPointsTransaction:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service transaction within Reward Points Transaction
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Transaction
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: The status of Reward Points Transaction
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of business action
+                for this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of transaction for
+                this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransaction:
+              type: string
+              description: Reference to Reward Points Transaction
+              format: String
+     InitiateRewardPointsTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateRewardPointsTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateRewardPointsTransaction:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service transaction within Reward Points Transaction
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Transaction
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: The status of Reward Points Transaction
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of business action
+                for this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of transaction for
+                this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransaction:
+              type: string
+              description: Reference to Reward Points Transaction
+              format: String
+     RetrieveRewardPointsTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveRewardPointsTransaction:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service transaction within Reward Points Transaction
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Transaction
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: The status of Reward Points Transaction
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of business action
+                for this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of transaction for
+                this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransaction:
+              type: string
+              description: Reference to Reward Points Transaction
+              format: String
+     RequestRewardPointsTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestRewardPointsTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestRewardPointsTransaction:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service transaction within Reward Points Transaction
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Transaction
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: The status of Reward Points Transaction
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of business action
+                for this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of transaction for
+                this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransaction:
+              type: string
+              description: Reference to Reward Points Transaction
+              format: String
+     UpdateRewardPointsTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateRewardPointsTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateRewardPointsTransaction:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service transaction within Reward Points Transaction
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Transaction
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: The status of Reward Points Transaction
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of business action
+                for this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of transaction for
+                this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransaction:
+              type: string
+              description: Reference to Reward Points Transaction
+              format: String
+     ExchangeAwardRequest:
+        type: object
+        description: ''
+        properties:
+           AwardPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardTaskSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           Awards:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           AwardPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     BusinessService:
+        type: object
+        description: "\r\n - "
+        properties:
+           BusinessServiceType:
+              enum:
+                   -  Businessservicetypevalues
+              type: string
+              description: ">-\r\n* `Businessservicetypevalues` \r\n* "
+     ExchangeAwardResponse:
+        type: object
+        description: ''
+        properties:
+           AwardPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardTaskSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           Awards:
+              $ref: '#/components/schemas/BusinessService'
+           AwardPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExchangeAward:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service transaction within Reward Points Transaction
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Transaction
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: The status of Reward Points Transaction
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of business action
+                for this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of transaction for
+                this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransaction:
+              type: string
+              description: Reference to Reward Points Transaction
+              format: String
+     ExchangeRedemptionRequest:
+        type: object
+        description: ''
+        properties:
+           RedemptionPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionTaskSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardsRedemption:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           RedemptionPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExchangeRedemptionResponse:
+        type: object
+        description: ''
+        properties:
+           RedemptionPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionTaskSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardsRedemption:
+              $ref: '#/components/schemas/BusinessService'
+           RedemptionPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     ExchangeRedemption:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service transaction within Reward Points Transaction
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Transaction
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: The status of Reward Points Transaction
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of business action
+                for this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of transaction for
+                this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransaction:
+              type: string
+              description: Reference to Reward Points Transaction
+              format: String
+     InitiateAwardRequest:
+        type: object
+        description: ''
+        properties:
+           AwardPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardTaskSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           Awards:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           AwardPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateAwardResponse:
+        type: object
+        description: ''
+        properties:
+           AwardPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardTaskSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           Awards:
+              $ref: '#/components/schemas/BusinessService'
+           AwardPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateAward:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service transaction within Reward Points Transaction
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Transaction
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: The status of Reward Points Transaction
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of business action
+                for this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of transaction for
+                this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransaction:
+              type: string
+              description: Reference to Reward Points Transaction
+              format: String
+     InitiateRedemptionRequest:
+        type: object
+        description: ''
+        properties:
+           RedemptionPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionTaskSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardsRedemption:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           RedemptionPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateRedemptionResponse:
+        type: object
+        description: ''
+        properties:
+           RedemptionPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionTaskSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardsRedemption:
+              $ref: '#/components/schemas/BusinessService'
+           RedemptionPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateRedemption:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service transaction within Reward Points Transaction
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Transaction
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: The status of Reward Points Transaction
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of business action
+                for this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of transaction for
+                this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransaction:
+              type: string
+              description: Reference to Reward Points Transaction
+              format: String
+     RetrieveAwardResponse:
+        type: object
+        description: ''
+        properties:
+           AwardPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardTaskSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           Awards:
+              $ref: '#/components/schemas/BusinessService'
+           AwardPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveAward:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service transaction within Reward Points Transaction
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Transaction
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: The status of Reward Points Transaction
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of business action
+                for this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of transaction for
+                this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransaction:
+              type: string
+              description: Reference to Reward Points Transaction
+              format: String
+     RetrieveRedemptionResponse:
+        type: object
+        description: ''
+        properties:
+           RedemptionPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionTaskSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardsRedemption:
+              $ref: '#/components/schemas/BusinessService'
+           RedemptionPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveRedemption:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service transaction within Reward Points Transaction
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Transaction
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: The status of Reward Points Transaction
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of business action
+                for this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of transaction for
+                this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransaction:
+              type: string
+              description: Reference to Reward Points Transaction
+              format: String
+     UpdateAwardRequest:
+        type: object
+        description: ''
+        properties:
+           AwardPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardTaskSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           Awards:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           AwardPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateAwardResponse:
+        type: object
+        description: ''
+        properties:
+           AwardPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardTaskSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           Awards:
+              $ref: '#/components/schemas/BusinessService'
+           AwardPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardAwardsServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateAward:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service transaction within Reward Points Transaction
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Transaction
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: The status of Reward Points Transaction
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of business action
+                for this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of transaction for
+                this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransaction:
+              type: string
+              description: Reference to Reward Points Transaction
+              format: String
+     UpdateRedemptionRequest:
+        type: object
+        description: ''
+        properties:
+           RedemptionPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionTaskSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardsRedemption:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           RedemptionPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateRedemptionResponse:
+        type: object
+        description: ''
+        properties:
+           RedemptionPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionTaskSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           AwardsRedemption:
+              $ref: '#/components/schemas/BusinessService'
+           RedemptionPostconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           RedemptionAwardsRedemptionServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateRedemption:
+        type: object
+        description: ''
+        properties:
+           RewardPointsTransactionParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between business
+                service transaction within Reward Points Transaction
+              format: String
+           RewardPointsTransactionSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of Reward
+                Points Transaction
+              format: String
+           RewardPointsTransactionStatus:
+              type: string
+              description: The status of Reward Points Transaction
+              format: String
+           RewardPointsTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of business action
+                for this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransactionType:
+              type: string
+              description: >-
+                A Classification value that specifies type of transaction for
+                this  Reward Points Transaction
+              format: String
+           RewardPointsTransactionTransaction:
+              type: string
+              description: Reference to Reward Points Transaction
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     ExchangeRewardPointsTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeRewardPointsTransactionRequest'
+        required: true
+     ExecuteRewardPointsTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteRewardPointsTransactionRequest'
+        required: true
+     InitiateRewardPointsTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateRewardPointsTransactionRequest'
+        required: true
+     RetrieveRewardPointsTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RequestRewardPointsTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestRewardPointsTransactionRequest'
+        required: true
+     UpdateRewardPointsTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRewardPointsTransactionRequest'
+        required: true
+     ExchangeAwardRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeAwardRequest'
+        required: true
+     ExchangeRedemptionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeRedemptionRequest'
+        required: true
+     InitiateAwardRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateAwardRequest'
+        required: true
+     InitiateRedemptionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateRedemptionRequest'
+        required: true
+     RetrieveAwardRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveRedemptionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateAwardRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAwardRequest'
+        required: true
+     UpdateRedemptionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRedemptionRequest'
+        required: true
+  parameters:
+     rewardpointstransactionid:
+        name: rewardpointstransactionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     awardid:
+        name: awardid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     redemptionid:
+        name: redemptionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     ExchangeRewardPointsTransactionResponse:
+        description: RewardPointsTransactionExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeRewardPointsTransactionResponse'
+     ExecuteRewardPointsTransactionResponse:
+        description: RewardPointsTransactionExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteRewardPointsTransactionResponse'
+     InitiateRewardPointsTransactionResponse:
+        description: RewardPointsTransactionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateRewardPointsTransactionResponse'
+     RetrieveRewardPointsTransactionResponse:
+        description: RewardPointsTransactionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveRewardPointsTransactionResponse'
+     RequestRewardPointsTransactionResponse:
+        description: RewardPointsTransactionRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestRewardPointsTransactionResponse'
+     UpdateRewardPointsTransactionResponse:
+        description: RewardPointsTransactionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRewardPointsTransactionResponse'
+     ExchangeAwardResponse:
+        description: AwardExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeAwardResponse'
+     ExchangeRedemptionResponse:
+        description: RedemptionExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeRedemptionResponse'
+     InitiateAwardResponse:
+        description: AwardInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateAwardResponse'
+     InitiateRedemptionResponse:
+        description: RedemptionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateRedemptionResponse'
+     RetrieveAwardResponse:
+        description: AwardRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAwardResponse'
+     RetrieveRedemptionResponse:
+        description: RedemptionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveRedemptionResponse'
+     UpdateAwardResponse:
+        description: AwardUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAwardResponse'
+     UpdateRedemptionResponse:
+        description: RedemptionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRedemptionResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

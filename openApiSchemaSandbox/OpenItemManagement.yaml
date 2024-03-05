@@ -1,0 +1,1244 @@
+openapi: 3.0.1
+info:
+  title: Open Item Management
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain provides
+    a service for handling the resolution of open items against accounts (such
+    as overdue loan payments)
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/OpenItemManagement
+paths:
+   '/OpenItemProcedure/{openitemprocedureid}/Initiate':
+      post:
+        tags:
+           - CR - OpenItemProcedure
+        summary: InCR Initiate an open item procedure
+        description: InCR Initiate an open item procedure
+        operationId: OpenItemProcedure/Initiate
+        parameters:
+           - $ref: '#/components/parameters/openitemprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateOpenItemProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/OpenItemProcedure/{openitemprocedureid}/Update':
+      put:
+        tags:
+           - CR - OpenItemProcedure
+        summary: UpCR Update details of an active open item procedure
+        description: UpCR Update details of an active open item procedure
+        operationId: OpenItemProcedure/Update
+        parameters:
+           - $ref: '#/components/parameters/openitemprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateOpenItemProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/OpenItemProcedure/{openitemprocedureid}/Request':
+      put:
+        tags:
+           - CR - OpenItemProcedure
+        summary: RqCR Request manual intervention with an active open item procedure
+        description: RqCR Request manual intervention with an active open item procedure
+        operationId: OpenItemProcedure/Request
+        parameters:
+           - $ref: '#/components/parameters/openitemprocedureid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestOpenItemProcedureRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/OpenItemProcedure/{openitemprocedureid}/Retrieve':
+      get:
+        tags:
+           - CR - OpenItemProcedure
+        summary: ReCR Retrieve details about an open item
+        description: ReCR Retrieve details about an open item
+        operationId: OpenItemProcedure/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/openitemprocedureid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveOpenItemProcedureResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Tracking/{trackingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Tracking
+        summary: ReBQ Retrieve tracking details about an open item
+        description: ReBQ Retrieve tracking details about an open item
+        operationId: Tracking/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/trackingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveTrackingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Repayment/{repaymentid}/Initiate':
+      post:
+        tags:
+           - BQ - Repayment
+        summary: InBQ Initiate repayment transaction against an open item
+        description: InBQ Initiate repayment transaction against an open item
+        operationId: Repayment/Initiate
+        parameters:
+           - $ref: '#/components/parameters/repaymentid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateRepaymentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Repayment/{repaymentid}/Update':
+      put:
+        tags:
+           - BQ - Repayment
+        summary: UpBQ Update repayment transaction details
+        description: UpBQ Update repayment transaction details
+        operationId: Repayment/Update
+        parameters:
+           - $ref: '#/components/parameters/repaymentid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateRepaymentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Repayment/{repaymentid}/Execute':
+      put:
+        tags:
+           - BQ - Repayment
+        summary: >-
+          ExBQ Execute an automated repayment task (e.g. trigger scheduled
+          repayment)
+        description: >-
+          ExBQ Execute an automated repayment task (e.g. trigger scheduled
+          repayment)
+        operationId: Repayment/Execute
+        parameters:
+           - $ref: '#/components/parameters/repaymentid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteRepaymentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Repayment/{repaymentid}/Retrieve':
+      get:
+        tags:
+           - BQ - Repayment
+        summary: ReBQ retrieve details about a repayment transaction
+        description: ReBQ retrieve details about a repayment transaction
+        operationId: Repayment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/repaymentid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveRepaymentResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateOpenItemProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           OpenItemDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: "\r\n"
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     InitiateOpenItemProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           RepaymentStatement:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateOpenItemProcedure:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: The type of open item, typically an overdue payment
+              format: String
+           OpenItemDescription:
+              type: string
+              description: Specific detail of the open item for reference
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated loan account
+              format: Object
+           PartyReference:
+              type: string
+              description: Reference to the customer/party responsible
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: Payment schedule used for staged payments
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: The outstanding balance
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+           RepaymentStatement:
+              type: string
+              description: A statement of repayment transactions made against the item
+              format: String
+     UpdateOpenItemProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           OpenItemDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: "\r\n"
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           RepaymentStatement:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateOpenItemProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           OpenItemDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: "\r\n"
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+           RepaymentStatement:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateOpenItemProcedure:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: The type of open item, typically an overdue payment
+              format: String
+           OpenItemDescription:
+              type: string
+              description: Specific detail of the open item for reference
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated loan account
+              format: Object
+           PartyReference:
+              type: string
+              description: Reference to the customer/party responsible
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: Payment schedule used for staged payments
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: The outstanding balance
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+           RepaymentStatement:
+              type: string
+              description: A statement of repayment transactions made against the item
+              format: String
+     RequestOpenItemProcedureRequest:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           OpenItemDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: "\r\n"
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           RepaymentStatement:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestOpenItemProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           OpenItemDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: "\r\n"
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+           RepaymentStatement:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestOpenItemProcedure:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: The type of open item, typically an overdue payment
+              format: String
+           OpenItemDescription:
+              type: string
+              description: Specific detail of the open item for reference
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated loan account
+              format: Object
+           PartyReference:
+              type: string
+              description: Reference to the customer/party responsible
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: Payment schedule used for staged payments
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: The outstanding balance
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+           RepaymentStatement:
+              type: string
+              description: A statement of repayment transactions made against the item
+              format: String
+     RetrieveOpenItemProcedureResponse:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           OpenItemDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: "\r\n"
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+           RepaymentStatement:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveOpenItemProcedure:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: The type of open item, typically an overdue payment
+              format: String
+           OpenItemDescription:
+              type: string
+              description: Specific detail of the open item for reference
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated loan account
+              format: Object
+           PartyReference:
+              type: string
+              description: Reference to the customer/party responsible
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: Payment schedule used for staged payments
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: The outstanding balance
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+           RepaymentStatement:
+              type: string
+              description: A statement of repayment transactions made against the item
+              format: String
+     RetrieveTrackingResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerBillingProcedureInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerBillingParty:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBillingAddress:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBillingPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBillingStatement:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBillingAmount:
+              $ref: '#/components/schemas/Amount'
+     Amount:
+        type: object
+        description: ' CurrencyAndAmount|CurrencyAndAmount (https://www.iso20022.org/standardsrepository/type/CurrencyAndAmount)|Standard|ISO20022  ()'
+        properties:
+           AmountValue:
+              $ref: '#/components/schemas/Value'
+           AmountCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           DecimalPointPosition:
+              type: string
+              description: |
+                Decimal point position starts calulating from the right
+              format: String
+           AmountType:
+              enum:
+                   -  Principal
+                   -  Actual
+                   -  Estimated
+                   -  Maximum
+                   -  Default
+                   -  Replacement
+                   -  Incremental
+                   -  Decremental
+                   -  Reserved
+                   -  Available
+                   -  Used
+              type: string
+              description: ">-\r\n* `Principal` \r\n* `Actual` \r\n* `Estimated` \r\n* `Maximum` \r\n* `Default` \r\n* `Replacement` \r\n* `Incremental` \r\n* `Decremental` \r\n* `Reserved` \r\n* `Available` \r\n* `Used` \r\n* "
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Currencycode:
+        type: object
+        description: ' '
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     RetrieveTracking:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: The type of open item, typically an overdue payment
+              format: String
+           OpenItemDescription:
+              type: string
+              description: Specific detail of the open item for reference
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated loan account
+              format: Object
+           PartyReference:
+              type: string
+              description: Reference to the customer/party responsible
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: Payment schedule used for staged payments
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: The outstanding balance
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+           RepaymentStatement:
+              type: string
+              description: A statement of repayment transactions made against the item
+              format: String
+     InitiateRepaymentRequest:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           OpenItemDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: "\r\n"
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           RepaymentStatement:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionPayerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionPayerProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionPayerBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           TransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           TransactionDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     InitiateRepaymentResponse:
+        type: object
+        description: ''
+        properties:
+           TransactionDate:
+              $ref: '#/components/schemas/Date'
+     InitiateRepayment:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: The type of open item, typically an overdue payment
+              format: String
+           OpenItemDescription:
+              type: string
+              description: Specific detail of the open item for reference
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated loan account
+              format: Object
+           PartyReference:
+              type: string
+              description: Reference to the customer/party responsible
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: Payment schedule used for staged payments
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: The outstanding balance
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+           RepaymentStatement:
+              type: string
+              description: A statement of repayment transactions made against the item
+              format: String
+     UpdateRepaymentRequest:
+        type: object
+        description: ''
+        properties:
+           TransactionPayerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionPayerProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionPayerBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           TransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           TransactionDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     UpdateRepaymentResponse:
+        type: object
+        description: ''
+        properties:
+           TransactionPayerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionPayerProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionPayerBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           TransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TransactionDate:
+              $ref: '#/components/schemas/Date'
+     UpdateRepayment:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: The type of open item, typically an overdue payment
+              format: String
+           OpenItemDescription:
+              type: string
+              description: Specific detail of the open item for reference
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated loan account
+              format: Object
+           PartyReference:
+              type: string
+              description: Reference to the customer/party responsible
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: Payment schedule used for staged payments
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: The outstanding balance
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+           RepaymentStatement:
+              type: string
+              description: A statement of repayment transactions made against the item
+              format: String
+     ExecuteRepaymentRequest:
+        type: object
+        description: ''
+        properties:
+           TransactionPayerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionPayerProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionPayerBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionAmount:
+              $ref: '#/components/schemas/Amount'
+              description: ''
+           TransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: ''
+           TransactionDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     ExecuteRepaymentResponse:
+        type: object
+        description: ''
+        properties:
+           TransactionPayerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionPayerProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionPayerBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           TransactionType:
+              type: string
+              description: "\r\n"
+              format: String
+           TransactionAmount:
+              $ref: '#/components/schemas/Amount'
+           TransactionCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           TransactionDate:
+              $ref: '#/components/schemas/Date'
+     ExecuteRepayment:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: The type of open item, typically an overdue payment
+              format: String
+           OpenItemDescription:
+              type: string
+              description: Specific detail of the open item for reference
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated loan account
+              format: Object
+           PartyReference:
+              type: string
+              description: Reference to the customer/party responsible
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: Payment schedule used for staged payments
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: The outstanding balance
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+           RepaymentStatement:
+              type: string
+              description: A statement of repayment transactions made against the item
+              format: String
+     RetrieveRepaymentResponse:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: "\r\n"
+              format: String
+           OpenItemDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PartyReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveRepayment:
+        type: object
+        description: ''
+        properties:
+           OpenItemType:
+              type: string
+              description: The type of open item, typically an overdue payment
+              format: String
+           OpenItemDescription:
+              type: string
+              description: Specific detail of the open item for reference
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: Reference to the associated loan account
+              format: Object
+           PartyReference:
+              type: string
+              description: Reference to the customer/party responsible
+              format: Object
+           LoanRepaymentSchedule:
+              type: string
+              description: Payment schedule used for staged payments
+              format: String
+           LoanOutstandingBalance:
+              type: string
+              description: The outstanding balance
+              format: String
+           LoanTerminationDate:
+              $ref: '#/components/schemas/Date'
+           RepaymentStatement:
+              type: string
+              description: A statement of repayment transactions made against the item
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateOpenItemProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOpenItemProcedureRequest'
+        required: true
+     UpdateOpenItemProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateOpenItemProcedureRequest'
+        required: true
+     RequestOpenItemProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestOpenItemProcedureRequest'
+        required: true
+     RetrieveOpenItemProcedureRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveTrackingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     InitiateRepaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateRepaymentRequest'
+        required: true
+     UpdateRepaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRepaymentRequest'
+        required: true
+     ExecuteRepaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteRepaymentRequest'
+        required: true
+     RetrieveRepaymentRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     openitemprocedureid:
+        name: openitemprocedureid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     trackingid:
+        name: trackingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     repaymentid:
+        name: repaymentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateOpenItemProcedureResponse:
+        description: OpenItemProcedureInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateOpenItemProcedureResponse'
+     UpdateOpenItemProcedureResponse:
+        description: OpenItemProcedureUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateOpenItemProcedureResponse'
+     RequestOpenItemProcedureResponse:
+        description: OpenItemProcedureRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestOpenItemProcedureResponse'
+     RetrieveOpenItemProcedureResponse:
+        description: OpenItemProcedureRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveOpenItemProcedureResponse'
+     RetrieveTrackingResponse:
+        description: TrackingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveTrackingResponse'
+     InitiateRepaymentResponse:
+        description: RepaymentInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateRepaymentResponse'
+     UpdateRepaymentResponse:
+        description: RepaymentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateRepaymentResponse'
+     ExecuteRepaymentResponse:
+        description: RepaymentExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteRepaymentResponse'
+     RetrieveRepaymentResponse:
+        description: RepaymentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveRepaymentResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

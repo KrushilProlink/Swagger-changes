@@ -1,0 +1,3013 @@
+openapi: 3.0.1
+info:
+  title: Product Matching
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Capability used to match
+    eligible product and product combinations to a customer based on prevailing
+    conditions such as customer type, product interest, solicitation/retention,
+    campaign alignment
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/ProductMatching
+paths:
+   '/ProductCustomerCombinationAssessment/{productcustomercombinationassessmentid}/Exchange':
+      put:
+        tags:
+           - CR - ProductCustomerCombinationAssessment
+        summary: >-
+          EcCR Accept, verify, etc. aspects of Product/Customer Combination
+          Assessment processing
+        description: >-
+          EcCR Accept, verify, etc. aspects of Product/Customer Combination
+          Assessment processing
+        operationId: ProductCustomerCombinationAssessment/Exchange
+        parameters:
+           - $ref: '#/components/parameters/productcustomercombinationassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExchangeProductCustomerCombinationAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductCustomerCombinationAssessment/{productcustomercombinationassessmentid}/Execute':
+      put:
+        tags:
+           - CR - ProductCustomerCombinationAssessment
+        summary: >-
+          ExCR Execute an available automated action for Product/Customer
+          Combination Assessment
+        description: >-
+          ExCR Execute an available automated action for Product/Customer
+          Combination Assessment
+        operationId: ProductCustomerCombinationAssessment/Execute
+        parameters:
+           - $ref: '#/components/parameters/productcustomercombinationassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExecuteProductCustomerCombinationAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductCustomerCombinationAssessment/{productcustomercombinationassessmentid}/Grant':
+      put:
+        tags:
+           - CR - ProductCustomerCombinationAssessment
+        summary: >-
+          GrCR Obtain permission to act in relation to Product/Customer
+          Combination Assessment
+        description: >-
+          GrCR Obtain permission to act in relation to Product/Customer
+          Combination Assessment
+        operationId: ProductCustomerCombinationAssessment/Grant
+        parameters:
+           - $ref: '#/components/parameters/productcustomercombinationassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/GrantProductCustomerCombinationAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductCustomerCombinationAssessment/{productcustomercombinationassessmentid}/Evaluate':
+      post:
+        tags:
+           - CR - ProductCustomerCombinationAssessment
+        summary: EvCR Instantiate a new Product/Customer Combination Assessment
+        description: EvCR Instantiate a new Product/Customer Combination Assessment
+        operationId: ProductCustomerCombinationAssessment/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/productcustomercombinationassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/EvaluateProductCustomerCombinationAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductCustomerCombinationAssessment/{productcustomercombinationassessmentid}/Retrieve':
+      get:
+        tags:
+           - CR - ProductCustomerCombinationAssessment
+        summary: >-
+          ReCR Retrieve details about any aspect of Product/Customer Combination
+          Assessment
+        description: >-
+          ReCR Retrieve details about any aspect of Product/Customer Combination
+          Assessment
+        operationId: ProductCustomerCombinationAssessment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/productcustomercombinationassessmentid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveProductCustomerCombinationAssessmentResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductCustomerCombinationAssessment/{productcustomercombinationassessmentid}/Request':
+      put:
+        tags:
+           - CR - ProductCustomerCombinationAssessment
+        summary: >-
+          RqCR Request manual intervention or a decision with respect to
+          Product/Customer Combination Assessment
+        description: >-
+          RqCR Request manual intervention or a decision with respect to
+          Product/Customer Combination Assessment
+        operationId: ProductCustomerCombinationAssessment/Request
+        parameters:
+           - $ref: '#/components/parameters/productcustomercombinationassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestProductCustomerCombinationAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductCustomerCombinationAssessment/{productcustomercombinationassessmentid}/Update':
+      put:
+        tags:
+           - CR - ProductCustomerCombinationAssessment
+        summary: >-
+          UpCR Update details relating to Product/Customer Combination
+          Assessment
+        description: >-
+          UpCR Update details relating to Product/Customer Combination
+          Assessment
+        operationId: ProductCustomerCombinationAssessment/Update
+        parameters:
+           - $ref: '#/components/parameters/productcustomercombinationassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateProductCustomerCombinationAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BankandCampaignAlignment/{bankandcampaignalignmentid}/Evaluate':
+      post:
+        tags:
+           - BQ - BankandCampaignAlignment
+        summary: EvBQ Instantiate a new Bank and Campaign Alignment
+        description: EvBQ Instantiate a new Bank and Campaign Alignment
+        operationId: BankandCampaignAlignment/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/bankandcampaignalignmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateBankandCampaignAlignmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ContextCriteria/{contextcriteriaid}/Evaluate':
+      post:
+        tags:
+           - BQ - ContextCriteria
+        summary: EvBQ Instantiate a new Context Criteria
+        description: EvBQ Instantiate a new Context Criteria
+        operationId: ContextCriteria/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/contextcriteriaid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateContextCriteriaRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductEligibility/{producteligibilityid}/Evaluate':
+      post:
+        tags:
+           - BQ - ProductEligibility
+        summary: EvBQ Instantiate a new Product Eligibility
+        description: EvBQ Instantiate a new Product Eligibility
+        operationId: ProductEligibility/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/producteligibilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateProductEligibilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductTypeSelection/{producttypeselectionid}/Evaluate':
+      post:
+        tags:
+           - BQ - ProductTypeSelection
+        summary: EvBQ Instantiate a new Product Type Selection
+        description: EvBQ Instantiate a new Product Type Selection
+        operationId: ProductTypeSelection/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/producttypeselectionid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateProductTypeSelectionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BankandCampaignAlignment/{bankandcampaignalignmentid}/Retrieve':
+      get:
+        tags:
+           - BQ - BankandCampaignAlignment
+        summary: ReBQ Retrieve details about any aspect of Bank and Campaign Alignment
+        description: ReBQ Retrieve details about any aspect of Bank and Campaign Alignment
+        operationId: BankandCampaignAlignment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/bankandcampaignalignmentid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveBankandCampaignAlignmentResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ContextCriteria/{contextcriteriaid}/Retrieve':
+      get:
+        tags:
+           - BQ - ContextCriteria
+        summary: ReBQ Retrieve details about any aspect of Context Criteria
+        description: ReBQ Retrieve details about any aspect of Context Criteria
+        operationId: ContextCriteria/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/contextcriteriaid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveContextCriteriaResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductEligibility/{producteligibilityid}/Retrieve':
+      get:
+        tags:
+           - BQ - ProductEligibility
+        summary: ReBQ Retrieve details about any aspect of Product Eligibility
+        description: ReBQ Retrieve details about any aspect of Product Eligibility
+        operationId: ProductEligibility/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/producteligibilityid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveProductEligibilityResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductTypeSelection/{producttypeselectionid}/Retrieve':
+      get:
+        tags:
+           - BQ - ProductTypeSelection
+        summary: ReBQ Retrieve details about any aspect of Product Type Selection
+        description: ReBQ Retrieve details about any aspect of Product Type Selection
+        operationId: ProductTypeSelection/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/producttypeselectionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveProductTypeSelectionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/BankandCampaignAlignment/{bankandcampaignalignmentid}/Update':
+      put:
+        tags:
+           - BQ - BankandCampaignAlignment
+        summary: UpBQ Update details relating to Bank and Campaign Alignment
+        description: UpBQ Update details relating to Bank and Campaign Alignment
+        operationId: BankandCampaignAlignment/Update
+        parameters:
+           - $ref: '#/components/parameters/bankandcampaignalignmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateBankandCampaignAlignmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ContextCriteria/{contextcriteriaid}/Update':
+      put:
+        tags:
+           - BQ - ContextCriteria
+        summary: UpBQ Update details relating to Context Criteria
+        description: UpBQ Update details relating to Context Criteria
+        operationId: ContextCriteria/Update
+        parameters:
+           - $ref: '#/components/parameters/contextcriteriaid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateContextCriteriaRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductEligibility/{producteligibilityid}/Update':
+      put:
+        tags:
+           - BQ - ProductEligibility
+        summary: UpBQ Update details relating to Product Eligibility
+        description: UpBQ Update details relating to Product Eligibility
+        operationId: ProductEligibility/Update
+        parameters:
+           - $ref: '#/components/parameters/producteligibilityid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateProductEligibilityRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProductTypeSelection/{producttypeselectionid}/Update':
+      put:
+        tags:
+           - BQ - ProductTypeSelection
+        summary: UpBQ Update details relating to Product Type Selection
+        description: UpBQ Update details relating to Product Type Selection
+        operationId: ProductTypeSelection/Update
+        parameters:
+           - $ref: '#/components/parameters/producttypeselectionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateProductTypeSelectionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     ExchangeProductCustomerCombinationAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+     ProductMatching:
+        type: object
+        description: "\r\n - "
+        properties:
+           ProductMatchingContext:
+              type: string
+              description: e.g. solicitation, cross/upsell, retention, relationship review
+              format: String
+           ProductMatchingAuthorizationCode:
+              type: string
+              description: 'A code which is used when the match requires authorization. '
+              format: String
+     ProductMatchingInstruction:
+        type: object
+        description: "\r\n - "
+        properties:
+           ProductMatchingInstruction:
+              type: string
+              description: >-
+                An instruction to match eligible product and product
+                combinations to a customer 
+              format: Class
+     Schedule:
+        type: object
+        description: "\r\n - "
+        properties:
+           ScheduleType:
+              type: string
+              description: ''
+              format: String
+     Status:
+        type: object
+        description: ' Status |Status  (https://www.iso20022.org/standardsrepository/type/Status)|Standard|ISO20022 BM ()'
+        properties:
+           StatusReason:
+              $ref: '#/components/schemas/Text'
+              description: Specifies the reasons for the status.
+           StatusDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the status was assigned.
+           StatusValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: Period of time during which the status is valid.
+           StatusInvolvedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: >-
+                Party who plays a  specific role in the context of assigning a
+                status.
+     Text:
+        type: object
+        description: 'Specifies the reasons for the status. '
+        properties:
+           Text:
+              type: string
+              description: >-
+                Text is a character string such as a finite set of characters
+                generally in the form of words of a language. (UN/CEFACT)
+              format: DataType
+     Datetime:
+        type: object
+        description: 'Date and time at which the status was assigned. '
+        properties:
+           DateTimeContent:
+              type: string
+              description: ''
+              format: String
+           TimeZoneCode:
+              type: string
+              description: ''
+              format: String
+           DaylightSavingIndicator:
+              type: string
+              description: ''
+              format: String
+           Datetime:
+              type: string
+              description: >-
+                A date time identifies a date and time of day to various common
+                resolutions: year, month, week, day, hour, minute, second, and
+                fraction of second. (UN/CEFACT)
+
+
+                A particular point in the progression of time defined by a
+                mandatory date and a mandatory time component, expressed in
+                either UTC time format (YYYYMMDDThh:mm:ss.sssZ), local time
+                with UTC offset format (YYYYMMDDThh:mm:ss.sss/hh:mm), or
+                local time format (YYYYMMDDThh:mm:ss.sss). These
+                representations are defined in "XML Schema Part 2: Datatypes
+                Second Edition  W3C Recommendation 28 October 2004" which is
+                aligned with ISO 8601. (ISO20022)
+
+                Note on the time format:
+
+                1) beginning / end of calendar day
+
+                00:00:00  -  the beginning of a calendar day
+
+                24:00:00  -  the end of a calendar day
+
+                2) fractions of second in time format
+
+                Decimal fractions of seconds may be included. In this case, the
+                involved parties shall agree on the maximum number of digits
+                that are allowed.
+              format: DataType
+     Datetimeperiod:
+        type: object
+        description: 'Period of time during which the status is valid. '
+        properties:
+           FromDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range starts. (ISO20022)
+           ToDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range ends. (ISO20022)
+           Datetimeperiod:
+              type: string
+              description: >-
+                Time span defined by a start date and time, and an end date and
+                time. (ISO20022)
+              format: DataType
+     Involvedparty:
+        type: object
+        description: >-
+          Party who plays a  specific role in the context of assigning a
+          status. 
+        properties:
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyInvolvement:
+              $ref: '#/components/schemas/Partyrole'
+              description: ''
+     Party:
+        type: object
+        description: ' '
+        properties:
+           PartyName:
+              $ref: '#/components/schemas/Name'
+              description: >-
+                Name by which a party is known and which is usually used to
+                identify that party. (ISO20022)
+           PartyType:
+              enum:
+                   -  Person
+                   -  Organisation
+              type: string
+              description: ">-\r\n* `Person` \r\n* `Organisation` \r\n* "
+           PartyDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           PartyIdentification:
+              $ref: '#/components/schemas/Partyidentification'
+              description: ''
+           PartyLegalStructureType:
+              enum:
+                   -  Individual
+                   -  CommunityInterestCompany
+                   -  CoOperative
+                   -  Charity
+                   -  GeneralPartnership
+                   -  LimitedLiabilityPartnership
+                   -  ScottishLimitedPartnership
+                   -  LimitedPartnership
+                   -  PrivateLimitedCompany
+                   -  PublicLimitedCompany
+                   -  Sole(SoleTrader)
+              type: string
+              description: ">-\r\n* `Individual` \r\n* `CommunityInterestCompany` \r\n* `CoOperative` \r\n* `Charity` \r\n* `GeneralPartnership` \r\n* `LimitedLiabilityPartnership` \r\n* `ScottishLimitedPartnership` \r\n* `LimitedPartnership` \r\n* `PrivateLimitedCompany` \r\n* `PublicLimitedCompany` \r\n* `SoleSoleTrader` \r\n* "
+     Name:
+        type: object
+        description: >-
+          Name by which a party is known and which is usually used to identify
+          that party. (ISO20022)
+           
+        properties:
+           Name:
+              type: string
+              description: >-
+                A name is a word or phrase that constitutes the distinctive
+                designation of a person, place, thing or concept. (UN/CEFAT)
+              format: DataType
+     Partyidentification:
+        type: object
+        description: ' '
+        properties:
+           PartyIdentificationType:
+              enum:
+                   -  Taxidentificationnumber
+                   -  Nationalregistrationnumber
+                   -  LEI(LegalEntityIdentifier)
+                   -  Alienregistrationnumber
+                   -  Passportnumber
+                   -  Corporateidentification
+                   -  Driverlicensenumber
+                   -  Socialsecuritynumber
+                   -  Identitycardnumber
+                   -  Concat
+              type: string
+              description: ">-\r\n* `Taxidentificationnumber` \r\n* `Nationalregistrationnumber` \r\n* `LEILegalEntityIdentifier` \r\n* `Alienregistrationnumber` \r\n* `Passportnumber` \r\n* `Corporateidentification` \r\n* `Driverlicensenumber` \r\n* `Socialsecuritynumber` \r\n* `Identitycardnumber` \r\n* `Concat` \r\n* "
+           PartyIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           Partyidentification:
+              type: string
+              description: ''
+              format: DataType
+     Identifier:
+        type: object
+        description: ' '
+        properties:
+           IdentifierValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           IdentifierIssuingAuthority:
+              $ref: '#/components/schemas/Involvedparty'
+              description: Entity that assigns and manages the identification.
+           IdentifierStartDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           IdentifierEndDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Partyrole:
+        type: object
+        description: ' '
+        properties:
+           PartyRoleType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           PartyRoleName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           PartyRoleValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           PartyInvolvementType:
+              enum:
+                   -  Agreementinvolvement
+                   -  Partyinvolvement
+                   -  Arrangementinvolvement
+                   -  Relationshipinvolvement
+                   -  Locationinvolvement
+                   -  Bankguaranteeinvolvement
+              type: string
+              description: ">-\r\n* `Agreementinvolvement` \r\n* `Partyinvolvement` \r\n* `Arrangementinvolvement` \r\n* `Relationshipinvolvement` \r\n* `Locationinvolvement` \r\n* `Bankguaranteeinvolvement` \r\n* "
+     Log:
+        type: object
+        description: "\r\n - "
+        properties:
+           LogType:
+              type: string
+              description: ''
+              format: String
+           LogPeriod:
+              type: string
+              description: ''
+              format: String
+           LogDate:
+              type: string
+              description: Key dates associated with the log (e.g. start time).
+              format: String
+           LogIdentification:
+              type: string
+              description: ''
+              format: String
+     ExchangeProductCustomerCombinationAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+     ExchangeProductCustomerCombinationAssessment:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     CustomerRelationship:
+        type: object
+        description: " "
+        properties:
+           CustomerRelationship:
+              type: string
+              description: >-
+                A specific relationship between a specific Bank ( -  party acting
+                as a supplier of banking services) and one or more other
+                involved parties acting as (potential) consumers of banking
+                services as agreed in one or more banking product or service
+                offerings and/or agreements.
+              format: Class
+     ExecuteProductCustomerCombinationAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+     ExecuteProductCustomerCombinationAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+     ExecuteProductCustomerCombinationAssessment:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     GrantProductCustomerCombinationAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+     GrantProductCustomerCombinationAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+     GrantProductCustomerCombinationAssessment:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     EvaluateProductCustomerCombinationAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+     EvaluateProductCustomerCombinationAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+     EvaluateProductCustomerCombinationAssessment:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     RetrieveProductCustomerCombinationAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+     RetrieveProductCustomerCombinationAssessment:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     RequestProductCustomerCombinationAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+     RequestProductCustomerCombinationAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+     RequestProductCustomerCombinationAssessment:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     UpdateProductCustomerCombinationAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+     UpdateProductCustomerCombinationAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+     UpdateProductCustomerCombinationAssessment:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     EvaluateBankandCampaignAlignmentRequest:
+        type: object
+        description: ''
+        properties:
+           BankandCampaignAlignmentPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignment:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           BankandCampaignAlignmentServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     BusinessService:
+        type: object
+        description: "\r\n - "
+        properties:
+           BusinessServiceType:
+              enum:
+                   -  Businessservicetypevalues
+              type: string
+              description: ">-\r\n* `Businessservicetypevalues` \r\n* "
+     EvaluateBankandCampaignAlignmentResponse:
+        type: object
+        description: ''
+        properties:
+           BankandCampaignAlignmentPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignment:
+              $ref: '#/components/schemas/BusinessService'
+           BankandCampaignAlignmentServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateBankandCampaignAlignment:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     EvaluateContextCriteriaRequest:
+        type: object
+        description: ''
+        properties:
+           ContextCriteriaPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateContextCriteriaResponse:
+        type: object
+        description: ''
+        properties:
+           ContextCriteriaPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateContextCriteria:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     EvaluateProductEligibilityRequest:
+        type: object
+        description: ''
+        properties:
+           ProductEligibilityPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateProductEligibilityResponse:
+        type: object
+        description: ''
+        properties:
+           ProductEligibilityPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateProductEligibility:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     EvaluateProductTypeSelectionRequest:
+        type: object
+        description: ''
+        properties:
+           ProductTypeSelectionPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateProductTypeSelectionResponse:
+        type: object
+        description: ''
+        properties:
+           ProductTypeSelectionPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateProductTypeSelection:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     RetrieveBankandCampaignAlignmentResponse:
+        type: object
+        description: ''
+        properties:
+           BankandCampaignAlignmentPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignment:
+              $ref: '#/components/schemas/BusinessService'
+           BankandCampaignAlignmentServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveBankandCampaignAlignment:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     RetrieveContextCriteriaResponse:
+        type: object
+        description: ''
+        properties:
+           ContextCriteriaPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveContextCriteria:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     RetrieveProductEligibilityResponse:
+        type: object
+        description: ''
+        properties:
+           ProductEligibilityPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveProductEligibility:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     RetrieveProductTypeSelectionResponse:
+        type: object
+        description: ''
+        properties:
+           ProductTypeSelectionPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveProductTypeSelection:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     UpdateBankandCampaignAlignmentRequest:
+        type: object
+        description: ''
+        properties:
+           BankandCampaignAlignmentPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignment:
+              $ref: '#/components/schemas/BusinessService'
+              description: "\r\n"
+           BankandCampaignAlignmentServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateBankandCampaignAlignmentResponse:
+        type: object
+        description: ''
+        properties:
+           BankandCampaignAlignmentPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignment:
+              $ref: '#/components/schemas/BusinessService'
+           BankandCampaignAlignmentServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           BankandCampaignAlignmentServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateBankandCampaignAlignment:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     UpdateContextCriteriaRequest:
+        type: object
+        description: ''
+        properties:
+           ContextCriteriaPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateContextCriteriaResponse:
+        type: object
+        description: ''
+        properties:
+           ContextCriteriaPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ContextCriteriaServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateContextCriteria:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     UpdateProductEligibilityRequest:
+        type: object
+        description: ''
+        properties:
+           ProductEligibilityPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateProductEligibilityResponse:
+        type: object
+        description: ''
+        properties:
+           ProductEligibilityPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductEligibilityServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateProductEligibility:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     UpdateProductTypeSelectionRequest:
+        type: object
+        description: ''
+        properties:
+           ProductTypeSelectionPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateProductTypeSelectionResponse:
+        type: object
+        description: ''
+        properties:
+           ProductTypeSelectionPreconditions:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionVersionNumber:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceType:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceDescription:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceInputsandOuputs:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductTypeSelectionServiceName:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateProductTypeSelection:
+        type: object
+        description: ''
+        properties:
+           ProductCustomerCombinationAssessmentParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between Assessments
+                according to type of concern defined within Product/Customer
+                Combination Assessment . Eg Market Analysis, Risk Analysis,
+                Perfomance Analysis, etc.
+              format: String
+           ProductCustomerCombinationAssessmentSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service as subject matter of
+                assessment
+              format: String
+           ProductCustomerCombinationAssessmentType:
+              enum:
+                   -  Productmatchingtypevalues
+              type: string
+              description: ">-\r\n* `Productmatchingtypevalues` \r\n* "
+           ProductCustomerCombinationAssessmentReference:
+              $ref: '#/components/schemas/ProductMatching'
+           ProductCustomerCombinationAssessmentRequest:
+              $ref: '#/components/schemas/ProductMatchingInstruction'
+           ProductCustomerCombinationAssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+           ProductCustomerCombinationAssessmentStatus:
+              $ref: '#/components/schemas/Status'
+           ProductCustomerCombinationAssessmentUsageLog:
+              $ref: '#/components/schemas/Log'
+           ProductCustomerCombinationAssessmentAssociatedParty:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentServiceProviderReference:
+              $ref: '#/components/schemas/Involvedparty'
+           ProductCustomerCombinationAssessmentRequesterReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerReference:
+              $ref: '#/components/schemas/CustomerRelationship'
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     ExchangeProductCustomerCombinationAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExchangeProductCustomerCombinationAssessmentRequest
+        required: true
+     ExecuteProductCustomerCombinationAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteProductCustomerCombinationAssessmentRequest
+        required: true
+     GrantProductCustomerCombinationAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/GrantProductCustomerCombinationAssessmentRequest
+        required: true
+     EvaluateProductCustomerCombinationAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateProductCustomerCombinationAssessmentRequest
+        required: true
+     RetrieveProductCustomerCombinationAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RequestProductCustomerCombinationAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestProductCustomerCombinationAssessmentRequest
+        required: true
+     UpdateProductCustomerCombinationAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateProductCustomerCombinationAssessmentRequest
+        required: true
+     EvaluateBankandCampaignAlignmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateBankandCampaignAlignmentRequest'
+        required: true
+     EvaluateContextCriteriaRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateContextCriteriaRequest'
+        required: true
+     EvaluateProductEligibilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateProductEligibilityRequest'
+        required: true
+     EvaluateProductTypeSelectionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateProductTypeSelectionRequest'
+        required: true
+     RetrieveBankandCampaignAlignmentRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveContextCriteriaRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveProductEligibilityRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveProductTypeSelectionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateBankandCampaignAlignmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateBankandCampaignAlignmentRequest'
+        required: true
+     UpdateContextCriteriaRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateContextCriteriaRequest'
+        required: true
+     UpdateProductEligibilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProductEligibilityRequest'
+        required: true
+     UpdateProductTypeSelectionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProductTypeSelectionRequest'
+        required: true
+  parameters:
+     productcustomercombinationassessmentid:
+        name: productcustomercombinationassessmentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     bankandcampaignalignmentid:
+        name: bankandcampaignalignmentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     contextcriteriaid:
+        name: contextcriteriaid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     producteligibilityid:
+        name: producteligibilityid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     producttypeselectionid:
+        name: producttypeselectionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     ExchangeProductCustomerCombinationAssessmentResponse:
+        description: ProductCustomerCombinationAssessmentExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExchangeProductCustomerCombinationAssessmentResponse
+     ExecuteProductCustomerCombinationAssessmentResponse:
+        description: ProductCustomerCombinationAssessmentExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteProductCustomerCombinationAssessmentResponse
+     GrantProductCustomerCombinationAssessmentResponse:
+        description: ProductCustomerCombinationAssessmentGrant
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/GrantProductCustomerCombinationAssessmentResponse
+     EvaluateProductCustomerCombinationAssessmentResponse:
+        description: ProductCustomerCombinationAssessmentEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateProductCustomerCombinationAssessmentResponse
+     RetrieveProductCustomerCombinationAssessmentResponse:
+        description: ProductCustomerCombinationAssessmentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveProductCustomerCombinationAssessmentResponse
+     RequestProductCustomerCombinationAssessmentResponse:
+        description: ProductCustomerCombinationAssessmentRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestProductCustomerCombinationAssessmentResponse
+     UpdateProductCustomerCombinationAssessmentResponse:
+        description: ProductCustomerCombinationAssessmentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/UpdateProductCustomerCombinationAssessmentResponse
+     EvaluateBankandCampaignAlignmentResponse:
+        description: BankandCampaignAlignmentEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateBankandCampaignAlignmentResponse'
+     EvaluateContextCriteriaResponse:
+        description: ContextCriteriaEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateContextCriteriaResponse'
+     EvaluateProductEligibilityResponse:
+        description: ProductEligibilityEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateProductEligibilityResponse'
+     EvaluateProductTypeSelectionResponse:
+        description: ProductTypeSelectionEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateProductTypeSelectionResponse'
+     RetrieveBankandCampaignAlignmentResponse:
+        description: BankandCampaignAlignmentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveBankandCampaignAlignmentResponse'
+     RetrieveContextCriteriaResponse:
+        description: ContextCriteriaRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveContextCriteriaResponse'
+     RetrieveProductEligibilityResponse:
+        description: ProductEligibilityRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveProductEligibilityResponse'
+     RetrieveProductTypeSelectionResponse:
+        description: ProductTypeSelectionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveProductTypeSelectionResponse'
+     UpdateBankandCampaignAlignmentResponse:
+        description: BankandCampaignAlignmentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateBankandCampaignAlignmentResponse'
+     UpdateContextCriteriaResponse:
+        description: ContextCriteriaUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateContextCriteriaResponse'
+     UpdateProductEligibilityResponse:
+        description: ProductEligibilityUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProductEligibilityResponse'
+     UpdateProductTypeSelectionResponse:
+        description: ProductTypeSelectionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProductTypeSelectionResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

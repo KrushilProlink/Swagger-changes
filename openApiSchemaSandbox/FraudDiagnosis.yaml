@@ -1,0 +1,973 @@
+openapi: 3.0.1
+info:
+  title: Fraud Diagnosis
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain handles
+    the evaluation of detected possible fraud to support an appropriate response
+    to contain the exposure
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/FraudDiagnosis
+paths:
+   '/FraudDiagnosisAnalysis/{frauddiagnosisanalysisid}/Evaluate':
+      post:
+        tags:
+           - CR - FraudDiagnosisAnalysis
+        summary: EvCR Start a fraud diagnosis evaluation on a transaction
+        description: EvCR Start a fraud diagnosis evaluation on a transaction
+        operationId: FraudDiagnosisAnalysis/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/frauddiagnosisanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/EvaluateFraudDiagnosisAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FraudDiagnosisAnalysis/{frauddiagnosisanalysisid}/Update':
+      put:
+        tags:
+           - CR - FraudDiagnosisAnalysis
+        summary: UpCR Update details for an active fraud diagnosis
+        description: UpCR Update details for an active fraud diagnosis
+        operationId: FraudDiagnosisAnalysis/Update
+        parameters:
+           - $ref: '#/components/parameters/frauddiagnosisanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateFraudDiagnosisAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/FraudDiagnosisAnalysis/{frauddiagnosisanalysisid}/Retrieve':
+      get:
+        tags:
+           - CR - FraudDiagnosisAnalysis
+        summary: ReCR Retrieve details about a fraud diagnosis
+        description: ReCR Retrieve details about a fraud diagnosis
+        operationId: FraudDiagnosisAnalysis/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/frauddiagnosisanalysisid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveFraudDiagnosisAnalysisResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerBehavior/{customerbehaviorid}/Retrieve':
+      get:
+        tags:
+           - BQ - CustomerBehavior
+        summary: ReBQ Retrieve details about a customer behavior analysis
+        description: ReBQ Retrieve details about a customer behavior analysis
+        operationId: CustomerBehavior/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customerbehaviorid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCustomerBehaviorResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/EconomicModel/{economicmodelid}/Retrieve':
+      get:
+        tags:
+           - BQ - EconomicModel
+        summary: ReBQ Retrieve details about an economic model analysis
+        description: ReBQ Retrieve details about an economic model analysis
+        operationId: EconomicModel/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/economicmodelid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveEconomicModelResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/AnalystReview/{analystreviewid}/Request':
+      put:
+        tags:
+           - BQ - AnalystReview
+        summary: RqBQ Request access to an analist for an active diagnosis
+        description: RqBQ Request access to an analist for an active diagnosis
+        operationId: AnalystReview/Request
+        parameters:
+           - $ref: '#/components/parameters/analystreviewid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestAnalystReviewRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/AnalystReview/{analystreviewid}/Retrieve':
+      get:
+        tags:
+           - BQ - AnalystReview
+        summary: ReBQ Retrieve details about a analyst review of a transaction
+        description: ReBQ Retrieve details about a analyst review of a transaction
+        operationId: AnalystReview/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/analystreviewid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAnalystReviewResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateFraudDiagnosisAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ProductProductionSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudDiagnosisEvaluationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudDiagnosisTransactionConsolidationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudEvaluationProductionAnomalyRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudEvaluationProductionAnomalyProductionTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     EvaluateFraudDiagnosisAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           FraudDiagnosisEvaluationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudDiagnosisDetermination:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudDiagnosisRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateFraudDiagnosisAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductProductionSessionReference:
+              type: string
+              description: >-
+                Reference to the product fulfillment production session for
+                which fraud diagnosis is performed
+              format: Object
+           FraudDiagnosisEvaluationProfile:
+              type: string
+              description: >-
+                Details the types of fraud diagnosis algorithms and tests are
+                applied
+              format: String
+           FraudDiagnosisTransactionConsolidationRecord:
+              type: string
+              description: >-
+                The production transaction details that are submitted for fraud
+                diagnosis
+              format: String
+           FraudEvaluationProductionAnomalyRecord:
+              type: string
+              description: >-
+                Details of detected out of pattern production activity that
+                could be fraud highlighted by Fraud Evaluation
+              format: String
+           FraudEvaluationProductionAnomalyProductionTransactionReference:
+              type: string
+              description: >-
+                Reference to the one or more production transactions isolated by
+                the fraud evaluation tests identified by Fraud Evaluation
+              format: Object
+           FraudDiagnosisDetermination:
+              type: string
+              description: >-
+                Details the conclusion of the analysis and determination (e.g.
+                diagnosis of likely fraud)
+              format: String
+           FraudDiagnosisRecommendation:
+              type: string
+              description: >-
+                Details the recommended action in response to the analysis (e.g.
+                accept or reject the transaction, flag account for fraud)
+              format: String
+     UpdateFraudDiagnosisAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ProductProductionSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudDiagnosisEvaluationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudDiagnosisTransactionConsolidationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudEvaluationProductionAnomalyRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudEvaluationProductionAnomalyProductionTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateFraudDiagnosisAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ProductProductionSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudDiagnosisEvaluationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudDiagnosisTransactionConsolidationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudEvaluationProductionAnomalyRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudEvaluationProductionAnomalyProductionTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     UpdateFraudDiagnosisAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductProductionSessionReference:
+              type: string
+              description: >-
+                Reference to the product fulfillment production session for
+                which fraud diagnosis is performed
+              format: Object
+           FraudDiagnosisEvaluationProfile:
+              type: string
+              description: >-
+                Details the types of fraud diagnosis algorithms and tests are
+                applied
+              format: String
+           FraudDiagnosisTransactionConsolidationRecord:
+              type: string
+              description: >-
+                The production transaction details that are submitted for fraud
+                diagnosis
+              format: String
+           FraudEvaluationProductionAnomalyRecord:
+              type: string
+              description: >-
+                Details of detected out of pattern production activity that
+                could be fraud highlighted by Fraud Evaluation
+              format: String
+           FraudEvaluationProductionAnomalyProductionTransactionReference:
+              type: string
+              description: >-
+                Reference to the one or more production transactions isolated by
+                the fraud evaluation tests identified by Fraud Evaluation
+              format: Object
+           FraudDiagnosisDetermination:
+              type: string
+              description: >-
+                Details the conclusion of the analysis and determination (e.g.
+                diagnosis of likely fraud)
+              format: String
+           FraudDiagnosisRecommendation:
+              type: string
+              description: >-
+                Details the recommended action in response to the analysis (e.g.
+                accept or reject the transaction, flag account for fraud)
+              format: String
+     RetrieveFraudDiagnosisAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ProductProductionSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudDiagnosisEvaluationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudDiagnosisTransactionConsolidationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudEvaluationProductionAnomalyRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudEvaluationProductionAnomalyProductionTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudDiagnosisDetermination:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudDiagnosisRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveFraudDiagnosisAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductProductionSessionReference:
+              type: string
+              description: >-
+                Reference to the product fulfillment production session for
+                which fraud diagnosis is performed
+              format: Object
+           FraudDiagnosisEvaluationProfile:
+              type: string
+              description: >-
+                Details the types of fraud diagnosis algorithms and tests are
+                applied
+              format: String
+           FraudDiagnosisTransactionConsolidationRecord:
+              type: string
+              description: >-
+                The production transaction details that are submitted for fraud
+                diagnosis
+              format: String
+           FraudEvaluationProductionAnomalyRecord:
+              type: string
+              description: >-
+                Details of detected out of pattern production activity that
+                could be fraud highlighted by Fraud Evaluation
+              format: String
+           FraudEvaluationProductionAnomalyProductionTransactionReference:
+              type: string
+              description: >-
+                Reference to the one or more production transactions isolated by
+                the fraud evaluation tests identified by Fraud Evaluation
+              format: Object
+           FraudDiagnosisDetermination:
+              type: string
+              description: >-
+                Details the conclusion of the analysis and determination (e.g.
+                diagnosis of likely fraud)
+              format: String
+           FraudDiagnosisRecommendation:
+              type: string
+              description: >-
+                Details the recommended action in response to the analysis (e.g.
+                accept or reject the transaction, flag account for fraud)
+              format: String
+     RetrieveCustomerBehaviorResponse:
+        type: object
+        description: ''
+        properties:
+           ProductProductionSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudDiagnosisEvaluationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudDiagnosisTransactionConsolidationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudEvaluationProductionAnomalyRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudEvaluationProductionAnomalyProductionTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudDiagnosisDetermination:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudDiagnosisRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorAnalysisWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCustomerBehavior:
+        type: object
+        description: ''
+        properties:
+           ProductProductionSessionReference:
+              type: string
+              description: >-
+                Reference to the product fulfillment production session for
+                which fraud diagnosis is performed
+              format: Object
+           FraudDiagnosisEvaluationProfile:
+              type: string
+              description: >-
+                Details the types of fraud diagnosis algorithms and tests are
+                applied
+              format: String
+           FraudDiagnosisTransactionConsolidationRecord:
+              type: string
+              description: >-
+                The production transaction details that are submitted for fraud
+                diagnosis
+              format: String
+           FraudEvaluationProductionAnomalyRecord:
+              type: string
+              description: >-
+                Details of detected out of pattern production activity that
+                could be fraud highlighted by Fraud Evaluation
+              format: String
+           FraudEvaluationProductionAnomalyProductionTransactionReference:
+              type: string
+              description: >-
+                Reference to the one or more production transactions isolated by
+                the fraud evaluation tests identified by Fraud Evaluation
+              format: Object
+           FraudDiagnosisDetermination:
+              type: string
+              description: >-
+                Details the conclusion of the analysis and determination (e.g.
+                diagnosis of likely fraud)
+              format: String
+           FraudDiagnosisRecommendation:
+              type: string
+              description: >-
+                Details the recommended action in response to the analysis (e.g.
+                accept or reject the transaction, flag account for fraud)
+              format: String
+     RetrieveEconomicModelResponse:
+        type: object
+        description: ''
+        properties:
+           ProductProductionSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudDiagnosisEvaluationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudDiagnosisTransactionConsolidationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudEvaluationProductionAnomalyRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudEvaluationProductionAnomalyProductionTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudDiagnosisDetermination:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudDiagnosisRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+           EconomicModelAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           EconomicModelWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveEconomicModel:
+        type: object
+        description: ''
+        properties:
+           ProductProductionSessionReference:
+              type: string
+              description: >-
+                Reference to the product fulfillment production session for
+                which fraud diagnosis is performed
+              format: Object
+           FraudDiagnosisEvaluationProfile:
+              type: string
+              description: >-
+                Details the types of fraud diagnosis algorithms and tests are
+                applied
+              format: String
+           FraudDiagnosisTransactionConsolidationRecord:
+              type: string
+              description: >-
+                The production transaction details that are submitted for fraud
+                diagnosis
+              format: String
+           FraudEvaluationProductionAnomalyRecord:
+              type: string
+              description: >-
+                Details of detected out of pattern production activity that
+                could be fraud highlighted by Fraud Evaluation
+              format: String
+           FraudEvaluationProductionAnomalyProductionTransactionReference:
+              type: string
+              description: >-
+                Reference to the one or more production transactions isolated by
+                the fraud evaluation tests identified by Fraud Evaluation
+              format: Object
+           FraudDiagnosisDetermination:
+              type: string
+              description: >-
+                Details the conclusion of the analysis and determination (e.g.
+                diagnosis of likely fraud)
+              format: String
+           FraudDiagnosisRecommendation:
+              type: string
+              description: >-
+                Details the recommended action in response to the analysis (e.g.
+                accept or reject the transaction, flag account for fraud)
+              format: String
+     RequestAnalystReviewRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestAnalystReviewResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           OutboundContactReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AnalystReviewAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           AnalystReviewWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           AnalystReviewRecommendedAction:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestAnalystReview:
+        type: object
+        description: ''
+        properties:
+           ProductProductionSessionReference:
+              type: string
+              description: >-
+                Reference to the product fulfillment production session for
+                which fraud diagnosis is performed
+              format: Object
+           FraudDiagnosisEvaluationProfile:
+              type: string
+              description: >-
+                Details the types of fraud diagnosis algorithms and tests are
+                applied
+              format: String
+           FraudDiagnosisTransactionConsolidationRecord:
+              type: string
+              description: >-
+                The production transaction details that are submitted for fraud
+                diagnosis
+              format: String
+           FraudEvaluationProductionAnomalyRecord:
+              type: string
+              description: >-
+                Details of detected out of pattern production activity that
+                could be fraud highlighted by Fraud Evaluation
+              format: String
+           FraudEvaluationProductionAnomalyProductionTransactionReference:
+              type: string
+              description: >-
+                Reference to the one or more production transactions isolated by
+                the fraud evaluation tests identified by Fraud Evaluation
+              format: Object
+           FraudDiagnosisDetermination:
+              type: string
+              description: >-
+                Details the conclusion of the analysis and determination (e.g.
+                diagnosis of likely fraud)
+              format: String
+           FraudDiagnosisRecommendation:
+              type: string
+              description: >-
+                Details the recommended action in response to the analysis (e.g.
+                accept or reject the transaction, flag account for fraud)
+              format: String
+     RetrieveAnalystReviewResponse:
+        type: object
+        description: ''
+        properties:
+           ProductProductionSessionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudDiagnosisEvaluationProfile:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudDiagnosisTransactionConsolidationRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudEvaluationProductionAnomalyRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudEvaluationProductionAnomalyProductionTransactionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FraudDiagnosisDetermination:
+              type: string
+              description: "\r\n"
+              format: String
+           FraudDiagnosisRecommendation:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerBehaviorAnalysisWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           EconomicModelAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           EconomicModelWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           OutboundContactReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AnalystReviewAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           AnalystReviewWorkProduct:
+              type: string
+              description: "\r\n"
+              format: String
+           AnalystReviewRecommendedAction:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveAnalystReview:
+        type: object
+        description: ''
+        properties:
+           ProductProductionSessionReference:
+              type: string
+              description: >-
+                Reference to the product fulfillment production session for
+                which fraud diagnosis is performed
+              format: Object
+           FraudDiagnosisEvaluationProfile:
+              type: string
+              description: >-
+                Details the types of fraud diagnosis algorithms and tests are
+                applied
+              format: String
+           FraudDiagnosisTransactionConsolidationRecord:
+              type: string
+              description: >-
+                The production transaction details that are submitted for fraud
+                diagnosis
+              format: String
+           FraudEvaluationProductionAnomalyRecord:
+              type: string
+              description: >-
+                Details of detected out of pattern production activity that
+                could be fraud highlighted by Fraud Evaluation
+              format: String
+           FraudEvaluationProductionAnomalyProductionTransactionReference:
+              type: string
+              description: >-
+                Reference to the one or more production transactions isolated by
+                the fraud evaluation tests identified by Fraud Evaluation
+              format: Object
+           FraudDiagnosisDetermination:
+              type: string
+              description: >-
+                Details the conclusion of the analysis and determination (e.g.
+                diagnosis of likely fraud)
+              format: String
+           FraudDiagnosisRecommendation:
+              type: string
+              description: >-
+                Details the recommended action in response to the analysis (e.g.
+                accept or reject the transaction, flag account for fraud)
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateFraudDiagnosisAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateFraudDiagnosisAnalysisRequest'
+        required: true
+     UpdateFraudDiagnosisAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFraudDiagnosisAnalysisRequest'
+        required: true
+     RetrieveFraudDiagnosisAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveCustomerBehaviorRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveEconomicModelRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RequestAnalystReviewRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestAnalystReviewRequest'
+        required: true
+     RetrieveAnalystReviewRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     frauddiagnosisanalysisid:
+        name: frauddiagnosisanalysisid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     customerbehaviorid:
+        name: customerbehaviorid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     economicmodelid:
+        name: economicmodelid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     analystreviewid:
+        name: analystreviewid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateFraudDiagnosisAnalysisResponse:
+        description: FraudDiagnosisAnalysisEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/EvaluateFraudDiagnosisAnalysisResponse'
+     UpdateFraudDiagnosisAnalysisResponse:
+        description: FraudDiagnosisAnalysisUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateFraudDiagnosisAnalysisResponse'
+     RetrieveFraudDiagnosisAnalysisResponse:
+        description: FraudDiagnosisAnalysisRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveFraudDiagnosisAnalysisResponse'
+     RetrieveCustomerBehaviorResponse:
+        description: CustomerBehaviorRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCustomerBehaviorResponse'
+     RetrieveEconomicModelResponse:
+        description: EconomicModelRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveEconomicModelResponse'
+     RequestAnalystReviewResponse:
+        description: AnalystReviewRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestAnalystReviewResponse'
+     RetrieveAnalystReviewResponse:
+        description: AnalystReviewRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAnalystReviewResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

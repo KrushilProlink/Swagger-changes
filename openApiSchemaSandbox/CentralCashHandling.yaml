@@ -1,0 +1,4031 @@
+openapi: 3.0.1
+info:
+  title: Central Cash Handling
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Track cash inventory, project
+    demand and allocate inventory across the branch/ATM network
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CentralCashHandling
+paths:
+   '/CentralCashAllocation/{centralcashallocationid}/Capture':
+      put:
+        tags:
+           - CR - CentralCashAllocation
+        summary: >-
+          CaCR Capture Central Cash Allocation activity or event related
+          information
+        description: >-
+          CaCR Capture Central Cash Allocation activity or event related
+          information
+        operationId: CentralCashAllocation/Capture
+        parameters:
+           - $ref: '#/components/parameters/centralcashallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureCentralCashAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CentralCashAllocation/{centralcashallocationid}/Control':
+      put:
+        tags:
+           - CR - CentralCashAllocation
+        summary: CoCR Control the processing of Central Cash Allocation
+        description: CoCR Control the processing of Central Cash Allocation
+        operationId: CentralCashAllocation/Control
+        parameters:
+           - $ref: '#/components/parameters/centralcashallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/ControlCentralCashAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CentralCashAllocation/{centralcashallocationid}/Exchange':
+      put:
+        tags:
+           - CR - CentralCashAllocation
+        summary: >-
+          EcCR Accept, verify, etc. aspects of Central Cash Allocation
+          processing
+        description: >-
+          EcCR Accept, verify, etc. aspects of Central Cash Allocation
+          processing
+        operationId: CentralCashAllocation/Exchange
+        parameters:
+           - $ref: '#/components/parameters/centralcashallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeCentralCashAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CentralCashAllocation/{centralcashallocationid}/Initiate':
+      post:
+        tags:
+           - CR - CentralCashAllocation
+        summary: InCR Instantiate a new Central Cash Allocation
+        description: InCR Instantiate a new Central Cash Allocation
+        operationId: CentralCashAllocation/Initiate
+        parameters:
+           - $ref: '#/components/parameters/centralcashallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateCentralCashAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CentralCashAllocation/{centralcashallocationid}/Retrieve':
+      get:
+        tags:
+           - CR - CentralCashAllocation
+        summary: ReCR Retrieve details about any aspect of Central Cash Allocation
+        description: ReCR Retrieve details about any aspect of Central Cash Allocation
+        operationId: CentralCashAllocation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/centralcashallocationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveCentralCashAllocationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CentralCashAllocation/{centralcashallocationid}/Update':
+      put:
+        tags:
+           - CR - CentralCashAllocation
+        summary: UpCR Update details relating to Central Cash Allocation
+        description: UpCR Update details relating to Central Cash Allocation
+        operationId: CentralCashAllocation/Update
+        parameters:
+           - $ref: '#/components/parameters/centralcashallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateCentralCashAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProjectionandAllocation/{projectionandallocationid}/Capture':
+      put:
+        tags:
+           - BQ - ProjectionandAllocation
+        summary: >-
+          CaBQ Capture Projection and Allocation activity or event related
+          information
+        description: >-
+          CaBQ Capture Projection and Allocation activity or event related
+          information
+        operationId: ProjectionandAllocation/Capture
+        parameters:
+           - $ref: '#/components/parameters/projectionandallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureProjectionandAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TrackingandAllocation/{trackingandallocationid}/Capture':
+      put:
+        tags:
+           - BQ - TrackingandAllocation
+        summary: >-
+          CaBQ Capture Tracking and Allocation activity or event related
+          information
+        description: >-
+          CaBQ Capture Tracking and Allocation activity or event related
+          information
+        operationId: TrackingandAllocation/Capture
+        parameters:
+           - $ref: '#/components/parameters/trackingandallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/CaptureTrackingandAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProjectionandAllocation/{projectionandallocationid}/Control':
+      put:
+        tags:
+           - BQ - ProjectionandAllocation
+        summary: CoBQ Control the processing of Projection and Allocation
+        description: CoBQ Control the processing of Projection and Allocation
+        operationId: ProjectionandAllocation/Control
+        parameters:
+           - $ref: '#/components/parameters/projectionandallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/ControlProjectionandAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TrackingandAllocation/{trackingandallocationid}/Control':
+      put:
+        tags:
+           - BQ - TrackingandAllocation
+        summary: CoBQ Control the processing of Tracking and Allocation
+        description: CoBQ Control the processing of Tracking and Allocation
+        operationId: TrackingandAllocation/Control
+        parameters:
+           - $ref: '#/components/parameters/trackingandallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/ControlTrackingandAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProjectionandAllocation/{projectionandallocationid}/Exchange':
+      put:
+        tags:
+           - BQ - ProjectionandAllocation
+        summary: >-
+          EcBQ Accept, verify, etc. aspects of Projection and Allocation
+          processing
+        description: >-
+          EcBQ Accept, verify, etc. aspects of Projection and Allocation
+          processing
+        operationId: ProjectionandAllocation/Exchange
+        parameters:
+           - $ref: '#/components/parameters/projectionandallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeProjectionandAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TrackingandAllocation/{trackingandallocationid}/Exchange':
+      put:
+        tags:
+           - BQ - TrackingandAllocation
+        summary: >-
+          EcBQ Accept, verify, etc. aspects of Tracking and Allocation
+          processing
+        description: >-
+          EcBQ Accept, verify, etc. aspects of Tracking and Allocation
+          processing
+        operationId: TrackingandAllocation/Exchange
+        parameters:
+           - $ref: '#/components/parameters/trackingandallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExchangeTrackingandAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProjectionandAllocation/{projectionandallocationid}/Initiate':
+      post:
+        tags:
+           - BQ - ProjectionandAllocation
+        summary: InBQ Instantiate a new Projection and Allocation
+        description: InBQ Instantiate a new Projection and Allocation
+        operationId: ProjectionandAllocation/Initiate
+        parameters:
+           - $ref: '#/components/parameters/projectionandallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateProjectionandAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TrackingandAllocation/{trackingandallocationid}/Initiate':
+      post:
+        tags:
+           - BQ - TrackingandAllocation
+        summary: InBQ Instantiate a new Tracking and Allocation
+        description: InBQ Instantiate a new Tracking and Allocation
+        operationId: TrackingandAllocation/Initiate
+        parameters:
+           - $ref: '#/components/parameters/trackingandallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateTrackingandAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProjectionandAllocation/{projectionandallocationid}/Retrieve':
+      get:
+        tags:
+           - BQ - ProjectionandAllocation
+        summary: ReBQ Retrieve details about any aspect of Projection and Allocation
+        description: ReBQ Retrieve details about any aspect of Projection and Allocation
+        operationId: ProjectionandAllocation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/projectionandallocationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveProjectionandAllocationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TrackingandAllocation/{trackingandallocationid}/Retrieve':
+      get:
+        tags:
+           - BQ - TrackingandAllocation
+        summary: ReBQ Retrieve details about any aspect of Tracking and Allocation
+        description: ReBQ Retrieve details about any aspect of Tracking and Allocation
+        operationId: TrackingandAllocation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/trackingandallocationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveTrackingandAllocationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ProjectionandAllocation/{projectionandallocationid}/Update':
+      put:
+        tags:
+           - BQ - ProjectionandAllocation
+        summary: UpBQ Update details relating to Projection and Allocation
+        description: UpBQ Update details relating to Projection and Allocation
+        operationId: ProjectionandAllocation/Update
+        parameters:
+           - $ref: '#/components/parameters/projectionandallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateProjectionandAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/TrackingandAllocation/{trackingandallocationid}/Update':
+      put:
+        tags:
+           - BQ - TrackingandAllocation
+        summary: UpBQ Update details relating to Tracking and Allocation
+        description: UpBQ Update details relating to Tracking and Allocation
+        operationId: TrackingandAllocation/Update
+        parameters:
+           - $ref: '#/components/parameters/trackingandallocationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateTrackingandAllocationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     CaptureCentralCashAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: The curreny which is arranged/used for Central Cash Allocation
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+     Currencycode:
+        type: object
+        description: >-
+          The curreny which is arranged/used for Central Cash Allocation
+          CurrencyCode|CurrencyCode
+          (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022
+          BM ()
+        properties:
+           Currencycode:
+              type: string
+              description: >-
+                A code identifying a currency according to ISO4217.
+
+                A currency is a system of money in general use in a particular
+                country.
+
+
+                Code allocated to a currency, by a maintenance agency, under an
+                international identification scheme as described in the latest
+                edition of the international standard ISO 4217 "Codes for the
+                representation of currencies and funds". Valid currency codes
+                are registered with the ISO 4217 Maintenance Agency, and consist
+                of three contiguous letters. (ISO20022)
+
+              format: DataType
+     CaptureCentralCashAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+     CaptureCentralCashAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     ControlCentralCashAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: The curreny which is arranged/used for Central Cash Allocation
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+     ControlCentralCashAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+     ControlCentralCashAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     ExchangeCentralCashAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: The curreny which is arranged/used for Central Cash Allocation
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+     ExchangeCentralCashAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+     ExchangeCentralCashAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     InitiateCentralCashAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: The curreny which is arranged/used for Central Cash Allocation
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+     InitiateCentralCashAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+     InitiateCentralCashAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     RetrieveCentralCashAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+     RetrieveCentralCashAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     UpdateCentralCashAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+              description: The curreny which is arranged/used for Central Cash Allocation
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+     UpdateCentralCashAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+     UpdateCentralCashAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     CaptureProjectionandAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           ProjectionandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           ProjectionandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryProjection:
+              $ref: '#/components/schemas/BusinessService'
+              description: The Central Cash Allocation specific  Business Service
+           CashInventoryProjectionServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryProjectionServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryProjectionServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryProjectionServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryProjectionServiceName:
+              type: string
+              description: ''
+              format: String
+     BusinessService:
+        type: object
+        description: The Central Cash Allocation specific  Business Service - 
+        properties:
+           BusinessServiceType:
+              enum:
+                   -  Businessservicetypevalues
+              type: string
+              description: ">-\r\n* `Businessservicetypevalues` \r\n* "
+     CaptureProjectionandAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           ProjectionandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           ProjectionandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryProjection:
+              $ref: '#/components/schemas/BusinessService'
+           CashInventoryProjectionServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryProjectionServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryProjectionServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryProjectionServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryProjectionServiceName:
+              type: string
+              description: ''
+              format: String
+     CaptureProjectionandAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     CaptureTrackingandAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           TrackingandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           TrackingandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: The Central Cash Allocation specific  Business Service
+           ServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           ServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           ServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           ServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           ServiceName:
+              type: string
+              description: ''
+              format: String
+     CaptureTrackingandAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           TrackingandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           TrackingandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           ServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           ServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           ServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           ServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           ServiceName:
+              type: string
+              description: ''
+              format: String
+     CaptureTrackingandAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     ControlProjectionandAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           ProjectionandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           ProjectionandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryProjection:
+              $ref: '#/components/schemas/BusinessService'
+              description: The Central Cash Allocation specific  Business Service
+           CashInventoryProjectionServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryProjectionServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryProjectionServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryProjectionServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryProjectionServiceName:
+              type: string
+              description: ''
+              format: String
+     ControlProjectionandAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           ProjectionandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           ProjectionandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryProjection:
+              $ref: '#/components/schemas/BusinessService'
+           CashInventoryProjectionServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryProjectionServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryProjectionServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryProjectionServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryProjectionServiceName:
+              type: string
+              description: ''
+              format: String
+     ControlProjectionandAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     ControlTrackingandAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           TrackingandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           TrackingandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: The Central Cash Allocation specific  Business Service
+           ServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           ServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           ServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           ServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           ServiceName:
+              type: string
+              description: ''
+              format: String
+     ControlTrackingandAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           TrackingandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           TrackingandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           ServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           ServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           ServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           ServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           ServiceName:
+              type: string
+              description: ''
+              format: String
+     ControlTrackingandAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     ExchangeProjectionandAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           ProjectionandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           ProjectionandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryProjection:
+              $ref: '#/components/schemas/BusinessService'
+              description: The Central Cash Allocation specific  Business Service
+           CashInventoryProjectionServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryProjectionServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryProjectionServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryProjectionServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryProjectionServiceName:
+              type: string
+              description: ''
+              format: String
+     ExchangeProjectionandAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           ProjectionandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           ProjectionandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryProjection:
+              $ref: '#/components/schemas/BusinessService'
+           CashInventoryProjectionServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryProjectionServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryProjectionServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryProjectionServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryProjectionServiceName:
+              type: string
+              description: ''
+              format: String
+     ExchangeProjectionandAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     ExchangeTrackingandAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           TrackingandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           TrackingandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: The Central Cash Allocation specific  Business Service
+           ServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           ServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           ServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           ServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           ServiceName:
+              type: string
+              description: ''
+              format: String
+     ExchangeTrackingandAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           TrackingandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           TrackingandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           ServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           ServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           ServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           ServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           ServiceName:
+              type: string
+              description: ''
+              format: String
+     ExchangeTrackingandAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     InitiateProjectionandAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           ProjectionandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           ProjectionandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryProjection:
+              $ref: '#/components/schemas/BusinessService'
+              description: The Central Cash Allocation specific  Business Service
+           CashInventoryProjectionServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryProjectionServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryProjectionServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryProjectionServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryProjectionServiceName:
+              type: string
+              description: ''
+              format: String
+     InitiateProjectionandAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           ProjectionandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           ProjectionandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryProjection:
+              $ref: '#/components/schemas/BusinessService'
+           CashInventoryProjectionServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryProjectionServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryProjectionServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryProjectionServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryProjectionServiceName:
+              type: string
+              description: ''
+              format: String
+     InitiateProjectionandAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     InitiateTrackingandAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           TrackingandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           TrackingandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: The Central Cash Allocation specific  Business Service
+           ServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           ServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           ServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           ServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           ServiceName:
+              type: string
+              description: ''
+              format: String
+     InitiateTrackingandAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           TrackingandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           TrackingandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           ServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           ServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           ServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           ServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           ServiceName:
+              type: string
+              description: ''
+              format: String
+     InitiateTrackingandAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     RetrieveProjectionandAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           ProjectionandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           ProjectionandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryProjection:
+              $ref: '#/components/schemas/BusinessService'
+           CashInventoryProjectionServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryProjectionServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryProjectionServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryProjectionServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryProjectionServiceName:
+              type: string
+              description: ''
+              format: String
+     RetrieveProjectionandAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     RetrieveTrackingandAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           TrackingandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           TrackingandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           ServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           ServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           ServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           ServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           ServiceName:
+              type: string
+              description: ''
+              format: String
+     RetrieveTrackingandAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     UpdateProjectionandAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           ProjectionandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           ProjectionandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryProjection:
+              $ref: '#/components/schemas/BusinessService'
+              description: The Central Cash Allocation specific  Business Service
+           CashInventoryProjectionServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryProjectionServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryProjectionServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryProjectionServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryProjectionServiceName:
+              type: string
+              description: ''
+              format: String
+     UpdateProjectionandAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           ProjectionandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           ProjectionandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           CashInventoryProjection:
+              $ref: '#/components/schemas/BusinessService'
+           CashInventoryProjectionServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           CashInventoryProjectionServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           CashInventoryProjectionServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           CashInventoryProjectionServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           CashInventoryProjectionServiceName:
+              type: string
+              description: ''
+              format: String
+     UpdateProjectionandAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     UpdateTrackingandAllocationRequest:
+        type: object
+        description: ''
+        properties:
+           TrackingandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           TrackingandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+              description: The Central Cash Allocation specific  Business Service
+           ServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           ServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           ServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           ServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           ServiceName:
+              type: string
+              description: ''
+              format: String
+     UpdateTrackingandAllocationResponse:
+        type: object
+        description: ''
+        properties:
+           TrackingandAllocationPreconditions:
+              type: string
+              description: The required status/situation before the allocation can be made
+              format: String
+           TrackingandAllocationAllocationSchedule:
+              type: string
+              description: The schedule and timing of allocation decisions
+              format: String
+           BusinessService:
+              $ref: '#/components/schemas/BusinessService'
+           ServiceType:
+              type: string
+              description: Reference to the specific business service type
+              format: String
+           ServiceDescription:
+              type: string
+              description: Description of the performed business service
+              format: String
+           ServiceInputsandOuputs:
+              type: string
+              description: >-
+                Mandatory and optional inputs and output information for the
+                business service
+              format: String
+           ServiceWorkProduct:
+              type: string
+              description: >-
+                Documentation, meeting schedules, notes, reasearch. calculations
+                and any other work products produced by the business service
+              format: String
+           ServiceName:
+              type: string
+              description: ''
+              format: String
+     UpdateTrackingandAllocation:
+        type: object
+        description: ''
+        properties:
+           CentralCashAllocationParameterType:
+              type: string
+              description: >-
+                A Classification value that distinguishes between allocation
+                Options according to the optional business services defined
+                within Central Cash Allocation
+              format: String
+           CentralCashAllocationSelectedOption:
+              type: string
+              description: >-
+                A selected optional business service for which resources are
+                allocated
+              format: String
+           CentralCashAllocation<SubjectArea>-Type:
+              type: string
+              description: >-
+                A Classification value, that distinguishes between the the type
+                of resource allocated withing the Central Cash Allocation
+              format: String
+           CentralCashAllocationDescription:
+              type: string
+              description: Documentation of Central Cash Allocation
+              format: String
+           CentralCashAllocationRequest:
+              type: string
+              description: Request to allocate CentralCash
+              format: String
+           CentralCashAllocationSchedule:
+              type: string
+              description: Timetable to allocate CentralCash
+              format: String
+           CentralCashAllocationStatus:
+              type: string
+              description: The status of Central Cash Allocation
+              format: String
+           CentralCashAllocationReference:
+              type: string
+              description: >-
+                Reference to the party who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCustomerReference:
+              type: string
+              description: >-
+                Reference to the customer who is involved in Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationCurrency:
+              $ref: '#/components/schemas/Currencycode'
+           CentralCashAllocationRegulationReference:
+              type: string
+              description: >-
+                Reference to the regulation which is defined for Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationRegulationType:
+              type: string
+              description: >-
+                A Classification that distinguishes between the regularity
+                domains of Central Cash Allocation
+              format: String
+           CentralCashAllocationJurisdiction:
+              type: string
+              description: >-
+                Reference to the jurisdiction that is assigned to Central Cash
+                Allocation in case of legal dispute.
+              format: String
+           CentralCashAllocationBookingLocation:
+              type: string
+              description: >-
+                The financial accounting unit into which the financial events,
+                with regard to the origination and fulfillment of the agreement,
+                are entered.
+              format: String
+           CentralCashAllocationAccountType:
+              type: string
+              description: The type of account which is linked to Central Cash Allocation
+              format: String
+           CentralCashAllocationAccountReference:
+              type: string
+              description: >-
+                Reference to the account which is linked to Central Cash
+                Allocation
+              format: Object
+           CentralCashAllocationInstance:
+              type: string
+              description: Reference to Central Cash Allocation Instance
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     CaptureCentralCashAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureCentralCashAllocationRequest'
+        required: true
+     ControlCentralCashAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlCentralCashAllocationRequest'
+        required: true
+     ExchangeCentralCashAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeCentralCashAllocationRequest'
+        required: true
+     InitiateCentralCashAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCentralCashAllocationRequest'
+        required: true
+     RetrieveCentralCashAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateCentralCashAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCentralCashAllocationRequest'
+        required: true
+     CaptureProjectionandAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureProjectionandAllocationRequest'
+        required: true
+     CaptureTrackingandAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureTrackingandAllocationRequest'
+        required: true
+     ControlProjectionandAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlProjectionandAllocationRequest'
+        required: true
+     ControlTrackingandAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlTrackingandAllocationRequest'
+        required: true
+     ExchangeProjectionandAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeProjectionandAllocationRequest'
+        required: true
+     ExchangeTrackingandAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeTrackingandAllocationRequest'
+        required: true
+     InitiateProjectionandAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateProjectionandAllocationRequest'
+        required: true
+     InitiateTrackingandAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateTrackingandAllocationRequest'
+        required: true
+     RetrieveProjectionandAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     RetrieveTrackingandAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateProjectionandAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProjectionandAllocationRequest'
+        required: true
+     UpdateTrackingandAllocationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTrackingandAllocationRequest'
+        required: true
+  parameters:
+     centralcashallocationid:
+        name: centralcashallocationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     projectionandallocationid:
+        name: projectionandallocationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     trackingandallocationid:
+        name: trackingandallocationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     CaptureCentralCashAllocationResponse:
+        description: CentralCashAllocationCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureCentralCashAllocationResponse'
+     ControlCentralCashAllocationResponse:
+        description: CentralCashAllocationControl
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlCentralCashAllocationResponse'
+     ExchangeCentralCashAllocationResponse:
+        description: CentralCashAllocationExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeCentralCashAllocationResponse'
+     InitiateCentralCashAllocationResponse:
+        description: CentralCashAllocationInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateCentralCashAllocationResponse'
+     RetrieveCentralCashAllocationResponse:
+        description: CentralCashAllocationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveCentralCashAllocationResponse'
+     UpdateCentralCashAllocationResponse:
+        description: CentralCashAllocationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCentralCashAllocationResponse'
+     CaptureProjectionandAllocationResponse:
+        description: ProjectionandAllocationCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureProjectionandAllocationResponse'
+     CaptureTrackingandAllocationResponse:
+        description: TrackingandAllocationCapture
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/CaptureTrackingandAllocationResponse'
+     ControlProjectionandAllocationResponse:
+        description: ProjectionandAllocationControl
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlProjectionandAllocationResponse'
+     ControlTrackingandAllocationResponse:
+        description: TrackingandAllocationControl
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ControlTrackingandAllocationResponse'
+     ExchangeProjectionandAllocationResponse:
+        description: ProjectionandAllocationExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeProjectionandAllocationResponse'
+     ExchangeTrackingandAllocationResponse:
+        description: TrackingandAllocationExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExchangeTrackingandAllocationResponse'
+     InitiateProjectionandAllocationResponse:
+        description: ProjectionandAllocationInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateProjectionandAllocationResponse'
+     InitiateTrackingandAllocationResponse:
+        description: TrackingandAllocationInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateTrackingandAllocationResponse'
+     RetrieveProjectionandAllocationResponse:
+        description: ProjectionandAllocationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveProjectionandAllocationResponse'
+     RetrieveTrackingandAllocationResponse:
+        description: TrackingandAllocationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveTrackingandAllocationResponse'
+     UpdateProjectionandAllocationResponse:
+        description: ProjectionandAllocationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateProjectionandAllocationResponse'
+     UpdateTrackingandAllocationResponse:
+        description: TrackingandAllocationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateTrackingandAllocationResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

@@ -1,0 +1,843 @@
+openapi: 3.0.1
+info:
+  title: Disbursement
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain handles
+    the disbursement of funds to newly established loans/facilities as necessary
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/Disbursement
+paths:
+   '/DisbursementTransaction/{disbursementtransactionid}/Initiate':
+      post:
+        tags:
+           - CR - DisbursementTransaction
+        summary: InCR Initiate a disbursement
+        description: InCR Initiate a disbursement
+        operationId: DisbursementTransaction/Initiate
+        parameters:
+           - $ref: '#/components/parameters/disbursementtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/InitiateDisbursementTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/DisbursementTransaction/{disbursementtransactionid}/Update':
+      put:
+        tags:
+           - CR - DisbursementTransaction
+        summary: UpCR Update details of a disbursement
+        description: UpCR Update details of a disbursement
+        operationId: DisbursementTransaction/Update
+        parameters:
+           - $ref: '#/components/parameters/disbursementtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateDisbursementTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/DisbursementTransaction/{disbursementtransactionid}/Execute':
+      put:
+        tags:
+           - CR - DisbursementTransaction
+        summary: ExCR Execute an automated task against an active disbursement
+        description: ExCR Execute an automated task against an active disbursement
+        operationId: DisbursementTransaction/Execute
+        parameters:
+           - $ref: '#/components/parameters/disbursementtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecuteDisbursementTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/DisbursementTransaction/{disbursementtransactionid}/Request':
+      put:
+        tags:
+           - CR - DisbursementTransaction
+        summary: RqCR Request manual intervention with a disbursement transaction
+        description: RqCR Request manual intervention with a disbursement transaction
+        operationId: DisbursementTransaction/Request
+        parameters:
+           - $ref: '#/components/parameters/disbursementtransactionid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestDisbursementTransactionRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/DisbursementTransaction/{disbursementtransactionid}/Retrieve':
+      get:
+        tags:
+           - CR - DisbursementTransaction
+        summary: ReCR Retrieve details about a disbursement transaction
+        description: ReCR Retrieve details about a disbursement transaction
+        operationId: DisbursementTransaction/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/disbursementtransactionid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveDisbursementTransactionResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateDisbursementTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AuthorizingEmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FundingAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           Currency:
+              type: string
+              description: "\r\n"
+              format: String
+           ValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     InitiateDisbursementTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           ValueDate:
+              $ref: '#/components/schemas/Date'
+     InitiateDisbursementTransaction:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the loan account for which the disbursement is made
+              format: Object
+           AuthorizingEmployeeReference:
+              type: string
+              description: Reference to the authorizing employee
+              format: Object
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer owning the loan, used to obtain
+                payment arrangements
+              format: Object
+           FundingAccountReference:
+              type: string
+              description: Reference to the internal funding account for the disbursement
+              format: Object
+           PayeeReference:
+              type: string
+              description: Reference to the target for the disbursement
+              format: Object
+           PayeeProductInstanceReference:
+              type: string
+              description: >-
+                Reference to the account to where the disbursement payment is
+                made
+              format: Object
+           PayeeBankReference:
+              type: string
+              description: Reference to the payee account bank
+              format: Object
+           Amount:
+              type: string
+              description: The amount of the disbursement
+              format: String
+           Currency:
+              type: string
+              description: The currency for the payment
+              format: String
+           ValueDate:
+              $ref: '#/components/schemas/Date'
+     UpdateDisbursementTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AuthorizingEmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FundingAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           Currency:
+              type: string
+              description: "\r\n"
+              format: String
+           ValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     UpdateDisbursementTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AuthorizingEmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FundingAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           Currency:
+              type: string
+              description: "\r\n"
+              format: String
+           ValueDate:
+              $ref: '#/components/schemas/Date'
+     UpdateDisbursementTransaction:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the loan account for which the disbursement is made
+              format: Object
+           AuthorizingEmployeeReference:
+              type: string
+              description: Reference to the authorizing employee
+              format: Object
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer owning the loan, used to obtain
+                payment arrangements
+              format: Object
+           FundingAccountReference:
+              type: string
+              description: Reference to the internal funding account for the disbursement
+              format: Object
+           PayeeReference:
+              type: string
+              description: Reference to the target for the disbursement
+              format: Object
+           PayeeProductInstanceReference:
+              type: string
+              description: >-
+                Reference to the account to where the disbursement payment is
+                made
+              format: Object
+           PayeeBankReference:
+              type: string
+              description: Reference to the payee account bank
+              format: Object
+           Amount:
+              type: string
+              description: The amount of the disbursement
+              format: String
+           Currency:
+              type: string
+              description: The currency for the payment
+              format: String
+           ValueDate:
+              $ref: '#/components/schemas/Date'
+     ExecuteDisbursementTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AuthorizingEmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FundingAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           Currency:
+              type: string
+              description: "\r\n"
+              format: String
+           ValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     ExecuteDisbursementTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AuthorizingEmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FundingAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           Currency:
+              type: string
+              description: "\r\n"
+              format: String
+           ValueDate:
+              $ref: '#/components/schemas/Date'
+     ExecuteDisbursementTransaction:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the loan account for which the disbursement is made
+              format: Object
+           AuthorizingEmployeeReference:
+              type: string
+              description: Reference to the authorizing employee
+              format: Object
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer owning the loan, used to obtain
+                payment arrangements
+              format: Object
+           FundingAccountReference:
+              type: string
+              description: Reference to the internal funding account for the disbursement
+              format: Object
+           PayeeReference:
+              type: string
+              description: Reference to the target for the disbursement
+              format: Object
+           PayeeProductInstanceReference:
+              type: string
+              description: >-
+                Reference to the account to where the disbursement payment is
+                made
+              format: Object
+           PayeeBankReference:
+              type: string
+              description: Reference to the payee account bank
+              format: Object
+           Amount:
+              type: string
+              description: The amount of the disbursement
+              format: String
+           Currency:
+              type: string
+              description: The currency for the payment
+              format: String
+           ValueDate:
+              $ref: '#/components/schemas/Date'
+     RequestDisbursementTransactionRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AuthorizingEmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FundingAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           Currency:
+              type: string
+              description: "\r\n"
+              format: String
+           ValueDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     RequestDisbursementTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AuthorizingEmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FundingAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           Currency:
+              type: string
+              description: "\r\n"
+              format: String
+           ValueDate:
+              $ref: '#/components/schemas/Date'
+     RequestDisbursementTransaction:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the loan account for which the disbursement is made
+              format: Object
+           AuthorizingEmployeeReference:
+              type: string
+              description: Reference to the authorizing employee
+              format: Object
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer owning the loan, used to obtain
+                payment arrangements
+              format: Object
+           FundingAccountReference:
+              type: string
+              description: Reference to the internal funding account for the disbursement
+              format: Object
+           PayeeReference:
+              type: string
+              description: Reference to the target for the disbursement
+              format: Object
+           PayeeProductInstanceReference:
+              type: string
+              description: >-
+                Reference to the account to where the disbursement payment is
+                made
+              format: Object
+           PayeeBankReference:
+              type: string
+              description: Reference to the payee account bank
+              format: Object
+           Amount:
+              type: string
+              description: The amount of the disbursement
+              format: String
+           Currency:
+              type: string
+              description: The currency for the payment
+              format: String
+           ValueDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveDisbursementTransactionResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           AuthorizingEmployeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           FundingAccountReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           PayeeBankReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           Amount:
+              type: string
+              description: "\r\n"
+              format: String
+           Currency:
+              type: string
+              description: "\r\n"
+              format: String
+           ValueDate:
+              $ref: '#/components/schemas/Date'
+     RetrieveDisbursementTransaction:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the loan account for which the disbursement is made
+              format: Object
+           AuthorizingEmployeeReference:
+              type: string
+              description: Reference to the authorizing employee
+              format: Object
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer owning the loan, used to obtain
+                payment arrangements
+              format: Object
+           FundingAccountReference:
+              type: string
+              description: Reference to the internal funding account for the disbursement
+              format: Object
+           PayeeReference:
+              type: string
+              description: Reference to the target for the disbursement
+              format: Object
+           PayeeProductInstanceReference:
+              type: string
+              description: >-
+                Reference to the account to where the disbursement payment is
+                made
+              format: Object
+           PayeeBankReference:
+              type: string
+              description: Reference to the payee account bank
+              format: Object
+           Amount:
+              type: string
+              description: The amount of the disbursement
+              format: String
+           Currency:
+              type: string
+              description: The currency for the payment
+              format: String
+           ValueDate:
+              $ref: '#/components/schemas/Date'
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateDisbursementTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateDisbursementTransactionRequest'
+        required: true
+     UpdateDisbursementTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateDisbursementTransactionRequest'
+        required: true
+     ExecuteDisbursementTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteDisbursementTransactionRequest'
+        required: true
+     RequestDisbursementTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestDisbursementTransactionRequest'
+        required: true
+     RetrieveDisbursementTransactionRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     disbursementtransactionid:
+        name: disbursementtransactionid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateDisbursementTransactionResponse:
+        description: DisbursementTransactionInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/InitiateDisbursementTransactionResponse'
+     UpdateDisbursementTransactionResponse:
+        description: DisbursementTransactionUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateDisbursementTransactionResponse'
+     ExecuteDisbursementTransactionResponse:
+        description: DisbursementTransactionExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteDisbursementTransactionResponse'
+     RequestDisbursementTransactionResponse:
+        description: DisbursementTransactionRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestDisbursementTransactionResponse'
+     RetrieveDisbursementTransactionResponse:
+        description: DisbursementTransactionRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveDisbursementTransactionResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

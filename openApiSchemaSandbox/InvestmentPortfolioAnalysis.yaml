@@ -1,0 +1,1201 @@
+openapi: 3.0.1
+info:
+  title: Investment Portfolio Analysis
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | Assess and report on
+    investment portfolio makeup, valuation and performance
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/InvestmentPortfolioAnalysis
+paths:
+   '/ManagedInvestmentPortfolioAnalysis/{managedinvestmentportfolioanalysisid}/Evaluate':
+      post:
+        tags:
+           - CR - ManagedInvestmentPortfolioAnalysis
+        summary: EvCR perform an evaluation of an investment portfolio
+        description: EvCR perform an evaluation of an investment portfolio
+        operationId: ManagedInvestmentPortfolioAnalysis/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/managedinvestmentportfolioanalysisid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/EvaluateManagedInvestmentPortfolioAnalysisRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ManagedInvestmentPortfolioAnalysis/{managedinvestmentportfolioanalysisid}/Execute':
+      put:
+        tags:
+           - CR - ManagedInvestmentPortfolioAnalysis
+        summary: ExCR Execute an automated task for a evaluation
+        description: ExCR Execute an automated task for a evaluation
+        operationId: ManagedInvestmentPortfolioAnalysis/Execute
+        parameters:
+           - $ref: '#/components/parameters/managedinvestmentportfolioanalysisid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExecuteManagedInvestmentPortfolioAnalysisRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ManagedInvestmentPortfolioAnalysis/{managedinvestmentportfolioanalysisid}/Request':
+      put:
+        tags:
+           - CR - ManagedInvestmentPortfolioAnalysis
+        summary: RqCR Request manual intervention for an evaluation
+        description: RqCR Request manual intervention for an evaluation
+        operationId: ManagedInvestmentPortfolioAnalysis/Request
+        parameters:
+           - $ref: '#/components/parameters/managedinvestmentportfolioanalysisid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestManagedInvestmentPortfolioAnalysisRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/ManagedInvestmentPortfolioAnalysis/{managedinvestmentportfolioanalysisid}/Retrieve':
+      get:
+        tags:
+           - CR - ManagedInvestmentPortfolioAnalysis
+        summary: ReCR Retrieve details about an investment portfolio analysis
+        description: ReCR Retrieve details about an investment portfolio analysis
+        operationId: ManagedInvestmentPortfolioAnalysis/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/managedinvestmentportfolioanalysisid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveManagedInvestmentPortfolioAnalysisResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PerformanceAnalysis/{performanceanalysisid}/Execute':
+      put:
+        tags:
+           - BQ - PerformanceAnalysis
+        summary: ExBQ Execute an automated task for a specific type of analysis
+        description: ExBQ Execute an automated task for a specific type of analysis
+        operationId: PerformanceAnalysis/Execute
+        parameters:
+           - $ref: '#/components/parameters/performanceanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/ExecutePerformanceAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PerformanceAnalysis/{performanceanalysisid}/Request':
+      put:
+        tags:
+           - BQ - PerformanceAnalysis
+        summary: RqBQ Request manual intervention for a specific type of analysis
+        description: RqBQ Request manual intervention for a specific type of analysis
+        operationId: PerformanceAnalysis/Request
+        parameters:
+           - $ref: '#/components/parameters/performanceanalysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/RequestPerformanceAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/PerformanceAnalysis/{performanceanalysisid}/Retrieve':
+      get:
+        tags:
+           - BQ - PerformanceAnalysis
+        summary: >-
+          ReBQ Retrieve details about a specific type of investment portfolio
+          analysis
+        description: >-
+          ReBQ Retrieve details about a specific type of investment portfolio
+          analysis
+        operationId: PerformanceAnalysis/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/performanceanalysisid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrievePerformanceAnalysisResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateManagedInvestmentPortfolioAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     EvaluateManagedInvestmentPortfolioAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     EvaluateManagedInvestmentPortfolioAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the investment portfolio product instance
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                The employee/business unit with the relationship management
+                responsibilities for the customer
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: Reference to the investment portfolio record of all holdings
+              format: Object
+           InvestmentPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing investment portfolio analysis for
+                the account
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: Reference to the underlying investment account
+              format: Object
+           InvestmentPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the investment portfolio
+              format: String
+           InvestmentPortfolioAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. standard
+                regular scheduled review, specialist review, customer requested
+                review)
+              format: String
+           InvestmentPortfolioAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           InvestmentPortfolioAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     ExecuteManagedInvestmentPortfolioAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     ExecuteManagedInvestmentPortfolioAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     ExecuteManagedInvestmentPortfolioAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the investment portfolio product instance
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                The employee/business unit with the relationship management
+                responsibilities for the customer
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: Reference to the investment portfolio record of all holdings
+              format: Object
+           InvestmentPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing investment portfolio analysis for
+                the account
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: Reference to the underlying investment account
+              format: Object
+           InvestmentPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the investment portfolio
+              format: String
+           InvestmentPortfolioAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. standard
+                regular scheduled review, specialist review, customer requested
+                review)
+              format: String
+           InvestmentPortfolioAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           InvestmentPortfolioAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     RequestManagedInvestmentPortfolioAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+              description: ''
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestManagedInvestmentPortfolioAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RequestManagedInvestmentPortfolioAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the investment portfolio product instance
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                The employee/business unit with the relationship management
+                responsibilities for the customer
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: Reference to the investment portfolio record of all holdings
+              format: Object
+           InvestmentPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing investment portfolio analysis for
+                the account
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: Reference to the underlying investment account
+              format: Object
+           InvestmentPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the investment portfolio
+              format: String
+           InvestmentPortfolioAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. standard
+                regular scheduled review, specialist review, customer requested
+                review)
+              format: String
+           InvestmentPortfolioAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           InvestmentPortfolioAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     RetrieveManagedInvestmentPortfolioAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+     RetrieveManagedInvestmentPortfolioAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the investment portfolio product instance
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                The employee/business unit with the relationship management
+                responsibilities for the customer
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: Reference to the investment portfolio record of all holdings
+              format: Object
+           InvestmentPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing investment portfolio analysis for
+                the account
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: Reference to the underlying investment account
+              format: Object
+           InvestmentPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the investment portfolio
+              format: String
+           InvestmentPortfolioAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. standard
+                regular scheduled review, specialist review, customer requested
+                review)
+              format: String
+           InvestmentPortfolioAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           InvestmentPortfolioAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     ExecutePerformanceAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecutePerformanceAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecutePerformanceAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the investment portfolio product instance
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                The employee/business unit with the relationship management
+                responsibilities for the customer
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: Reference to the investment portfolio record of all holdings
+              format: Object
+           InvestmentPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing investment portfolio analysis for
+                the account
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: Reference to the underlying investment account
+              format: Object
+           InvestmentPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the investment portfolio
+              format: String
+           InvestmentPortfolioAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. standard
+                regular scheduled review, specialist review, customer requested
+                review)
+              format: String
+           InvestmentPortfolioAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           InvestmentPortfolioAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     RequestPerformanceAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestPerformanceAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           InvestmentPortfolioPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestPerformanceAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the investment portfolio product instance
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                The employee/business unit with the relationship management
+                responsibilities for the customer
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: Reference to the investment portfolio record of all holdings
+              format: Object
+           InvestmentPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing investment portfolio analysis for
+                the account
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: Reference to the underlying investment account
+              format: Object
+           InvestmentPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the investment portfolio
+              format: String
+           InvestmentPortfolioAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. standard
+                regular scheduled review, specialist review, customer requested
+                review)
+              format: String
+           InvestmentPortfolioAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           InvestmentPortfolioAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     RetrievePerformanceAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAnalysisSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioAnalysisReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisResult:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPortfolioPerformanceAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPortfolioPerformanceAnalysisTask:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceRequestSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceModelReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           InvestmentPerformanceProductandServiceActivityReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceFinancialMarketResearchReport:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           InvestmentPerformanceRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrievePerformanceAnalysis:
+        type: object
+        description: ''
+        properties:
+           ProductInstanceReference:
+              type: string
+              description: Reference to the investment portfolio product instance
+              format: Object
+           CustomerReference:
+              type: string
+              description: Reference to the account primary party/owner
+              format: Object
+           EmployeeBusinessUnitReference:
+              type: string
+              description: >-
+                The employee/business unit with the relationship management
+                responsibilities for the customer
+              format: Object
+           InvestmentPortfolioInstanceReference:
+              type: string
+              description: Reference to the investment portfolio record of all holdings
+              format: Object
+           InvestmentPortfolioAnalysisSchedule:
+              type: string
+              description: >-
+                The schedule for performing investment portfolio analysis for
+                the account
+              format: String
+           InvestmentAccountArrangementInstanceReference:
+              type: string
+              description: Reference to the underlying investment account
+              format: Object
+           InvestmentPortfolioAnalysisReport:
+              type: string
+              description: >-
+                A consolidated report containing the results of performance
+                analyses applied to the investment portfolio
+              format: String
+           InvestmentPortfolioAnalysisType:
+              type: string
+              description: >-
+                Defines a type of performance analysis performed (e.g. standard
+                regular scheduled review, specialist review, customer requested
+                review)
+              format: String
+           InvestmentPortfolioAnalysisResult:
+              type: string
+              description: >-
+                The consolidated report of the performance evaluation and
+                comparisons from the analysis
+              format: String
+           InvestmentPortfolioAnalysisReportingDate:
+              $ref: '#/components/schemas/Date'
+           DocumentDirectoryEntryInstanceReference:
+              type: string
+              description: Reference to associated performance analysis reporting documents
+              format: Object
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateManagedInvestmentPortfolioAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateManagedInvestmentPortfolioAnalysisRequest
+        required: true
+     ExecuteManagedInvestmentPortfolioAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteManagedInvestmentPortfolioAnalysisRequest
+        required: true
+     RequestManagedInvestmentPortfolioAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestManagedInvestmentPortfolioAnalysisRequest
+        required: true
+     RetrieveManagedInvestmentPortfolioAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     ExecutePerformanceAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePerformanceAnalysisRequest'
+        required: true
+     RequestPerformanceAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPerformanceAnalysisRequest'
+        required: true
+     RetrievePerformanceAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     managedinvestmentportfolioanalysisid:
+        name: managedinvestmentportfolioanalysisid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     performanceanalysisid:
+        name: performanceanalysisid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateManagedInvestmentPortfolioAnalysisResponse:
+        description: ManagedInvestmentPortfolioAnalysisEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateManagedInvestmentPortfolioAnalysisResponse
+     ExecuteManagedInvestmentPortfolioAnalysisResponse:
+        description: ManagedInvestmentPortfolioAnalysisExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteManagedInvestmentPortfolioAnalysisResponse
+     RequestManagedInvestmentPortfolioAnalysisResponse:
+        description: ManagedInvestmentPortfolioAnalysisRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestManagedInvestmentPortfolioAnalysisResponse
+     RetrieveManagedInvestmentPortfolioAnalysisResponse:
+        description: ManagedInvestmentPortfolioAnalysisRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveManagedInvestmentPortfolioAnalysisResponse
+     ExecutePerformanceAnalysisResponse:
+        description: PerformanceAnalysisExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecutePerformanceAnalysisResponse'
+     RequestPerformanceAnalysisResponse:
+        description: PerformanceAnalysisRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestPerformanceAnalysisResponse'
+     RetrievePerformanceAnalysisResponse:
+        description: PerformanceAnalysisRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrievePerformanceAnalysisResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

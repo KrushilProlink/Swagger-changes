@@ -1,0 +1,644 @@
+openapi: 3.0.1
+info:
+  title: Market Analysis
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain analyzes
+    internal and external market information sources as necessary to develop
+    specific market insights. It may maintain a collection of predefined market
+    analyses and may also offer specific adhoc analysis on request
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/MarketAnalysis
+paths:
+   '/GeneralMarketResearchAnalysis/{generalmarketresearchanalysisid}/Evaluate':
+      post:
+        tags:
+           - CR - GeneralMarketResearchAnalysis
+        summary: EvCR Initialize a market research analysis
+        description: EvCR Initialize a market research analysis
+        operationId: GeneralMarketResearchAnalysis/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/generalmarketresearchanalysisid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/EvaluateGeneralMarketResearchAnalysisRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/GeneralMarketResearchAnalysis/{generalmarketresearchanalysisid}/Execute':
+      put:
+        tags:
+           - CR - GeneralMarketResearchAnalysis
+        summary: ExCR Obtain an automated refresh of market research analysis
+        description: ExCR Obtain an automated refresh of market research analysis
+        operationId: GeneralMarketResearchAnalysis/Execute
+        parameters:
+           - $ref: '#/components/parameters/generalmarketresearchanalysisid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExecuteGeneralMarketResearchAnalysisRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/GeneralMarketResearchAnalysis/{generalmarketresearchanalysisid}/Request':
+      put:
+        tags:
+           - CR - GeneralMarketResearchAnalysis
+        summary: RqCR Request a manual refresh of market research analysis
+        description: RqCR Request a manual refresh of market research analysis
+        operationId: GeneralMarketResearchAnalysis/Request
+        parameters:
+           - $ref: '#/components/parameters/generalmarketresearchanalysisid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestGeneralMarketResearchAnalysisRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/GeneralMarketResearchAnalysis/{generalmarketresearchanalysisid}/Retrieve':
+      get:
+        tags:
+           - CR - GeneralMarketResearchAnalysis
+        summary: >-
+          ReCR Retrieve details about market research analysis, including recent
+          results
+        description: >-
+          ReCR Retrieve details about market research analysis, including recent
+          results
+        operationId: GeneralMarketResearchAnalysis/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/generalmarketresearchanalysisid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveGeneralMarketResearchAnalysisResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateGeneralMarketResearchAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisAlgorithmReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           GeneralMarketResearchAnalysisRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           GeneralMarketResearchAnalysisUsageRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisImpact:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateGeneralMarketResearchAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisGuidance:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisAlgorithmReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           GeneralMarketResearchAnalysisRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketAnalysisRequestWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisUsageRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisImpact:
+              type: string
+              description: "\r\n"
+              format: String
+     EvaluateGeneralMarketResearchAnalysis:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchAnalysisType:
+              type: string
+              description: >-
+                The type of research view provided by the research (e.g.
+                competitor analysis)
+              format: String
+           GeneralMarketResearchAnalysisSpecification:
+              type: string
+              description: The definition of the analysis
+              format: String
+           GeneralMarketResearchAnalysisGuidance:
+              type: string
+              description: Guidance on usage and interpretation of the analysis
+              format: String
+           GeneralMarketResearchAnalysisAlgorithmReference:
+              type: string
+              description: Reference to the algorithm used to generate the analysis
+              format: Object
+           GeneralMarketResearchAnalysisRequestRecord:
+              type: string
+              description: Request record of the general market analysis
+              format: String
+           GeneralMarketResearchAnalysisRequest:
+              type: string
+              description: The specific details of the request
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit requesting the analysis
+              format: Object
+           MarketAnalysisRequestWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           GeneralMarketResearchAnalysisRequestResult:
+              type: string
+              description: The output from performing the analysis
+              format: String
+           GeneralMarketResearchAnalysisUsageRecord:
+              type: string
+              description: Usage record of the general market analysis
+              format: String
+           GeneralMarketResearchAnalysisUsage:
+              type: string
+              description: A record of the usage of the analysis
+              format: String
+           GeneralMarketResearchAnalysisImpact:
+              type: string
+              description: A record of reported impact/accuracy of the analysis
+              format: String
+     ExecuteGeneralMarketResearchAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchAnalysisRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           GeneralMarketResearchAnalysisUsageRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisImpact:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteGeneralMarketResearchAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchAnalysisRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketAnalysisRequestWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     ExecuteGeneralMarketResearchAnalysis:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchAnalysisType:
+              type: string
+              description: >-
+                The type of research view provided by the research (e.g.
+                competitor analysis)
+              format: String
+           GeneralMarketResearchAnalysisSpecification:
+              type: string
+              description: The definition of the analysis
+              format: String
+           GeneralMarketResearchAnalysisGuidance:
+              type: string
+              description: Guidance on usage and interpretation of the analysis
+              format: String
+           GeneralMarketResearchAnalysisAlgorithmReference:
+              type: string
+              description: Reference to the algorithm used to generate the analysis
+              format: Object
+           GeneralMarketResearchAnalysisRequestRecord:
+              type: string
+              description: Request record of the general market analysis
+              format: String
+           GeneralMarketResearchAnalysisRequest:
+              type: string
+              description: The specific details of the request
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit requesting the analysis
+              format: Object
+           MarketAnalysisRequestWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           GeneralMarketResearchAnalysisRequestResult:
+              type: string
+              description: The output from performing the analysis
+              format: String
+           GeneralMarketResearchAnalysisUsageRecord:
+              type: string
+              description: Usage record of the general market analysis
+              format: String
+           GeneralMarketResearchAnalysisUsage:
+              type: string
+              description: A record of the usage of the analysis
+              format: String
+           GeneralMarketResearchAnalysisImpact:
+              type: string
+              description: A record of reported impact/accuracy of the analysis
+              format: String
+     RequestGeneralMarketResearchAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchAnalysisRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           GeneralMarketResearchAnalysisUsageRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisImpact:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestGeneralMarketResearchAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchAnalysisRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           MarketAnalysisRequestWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+     RequestGeneralMarketResearchAnalysis:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchAnalysisType:
+              type: string
+              description: >-
+                The type of research view provided by the research (e.g.
+                competitor analysis)
+              format: String
+           GeneralMarketResearchAnalysisSpecification:
+              type: string
+              description: The definition of the analysis
+              format: String
+           GeneralMarketResearchAnalysisGuidance:
+              type: string
+              description: Guidance on usage and interpretation of the analysis
+              format: String
+           GeneralMarketResearchAnalysisAlgorithmReference:
+              type: string
+              description: Reference to the algorithm used to generate the analysis
+              format: Object
+           GeneralMarketResearchAnalysisRequestRecord:
+              type: string
+              description: Request record of the general market analysis
+              format: String
+           GeneralMarketResearchAnalysisRequest:
+              type: string
+              description: The specific details of the request
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit requesting the analysis
+              format: Object
+           MarketAnalysisRequestWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           GeneralMarketResearchAnalysisRequestResult:
+              type: string
+              description: The output from performing the analysis
+              format: String
+           GeneralMarketResearchAnalysisUsageRecord:
+              type: string
+              description: Usage record of the general market analysis
+              format: String
+           GeneralMarketResearchAnalysisUsage:
+              type: string
+              description: A record of the usage of the analysis
+              format: String
+           GeneralMarketResearchAnalysisImpact:
+              type: string
+              description: A record of reported impact/accuracy of the analysis
+              format: String
+     RetrieveGeneralMarketResearchAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchAnalysisType:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisSpecification:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisGuidance:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisAlgorithmReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           GeneralMarketResearchAnalysisRequestRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           MarketAnalysisRequestWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisRequestResult:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisUsageRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           GeneralMarketResearchAnalysisImpact:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveGeneralMarketResearchAnalysis:
+        type: object
+        description: ''
+        properties:
+           GeneralMarketResearchAnalysisType:
+              type: string
+              description: >-
+                The type of research view provided by the research (e.g.
+                competitor analysis)
+              format: String
+           GeneralMarketResearchAnalysisSpecification:
+              type: string
+              description: The definition of the analysis
+              format: String
+           GeneralMarketResearchAnalysisGuidance:
+              type: string
+              description: Guidance on usage and interpretation of the analysis
+              format: String
+           GeneralMarketResearchAnalysisAlgorithmReference:
+              type: string
+              description: Reference to the algorithm used to generate the analysis
+              format: Object
+           GeneralMarketResearchAnalysisRequestRecord:
+              type: string
+              description: Request record of the general market analysis
+              format: String
+           GeneralMarketResearchAnalysisRequest:
+              type: string
+              description: The specific details of the request
+              format: String
+           EmployeeBusinessUnitReference:
+              type: string
+              description: The employee/business unit requesting the analysis
+              format: Object
+           MarketAnalysisRequestWorkProducts:
+              type: string
+              description: >-
+                Work documentation, forms and schedules produced and referenced
+                during the analysis
+              format: String
+           GeneralMarketResearchAnalysisRequestResult:
+              type: string
+              description: The output from performing the analysis
+              format: String
+           GeneralMarketResearchAnalysisUsageRecord:
+              type: string
+              description: Usage record of the general market analysis
+              format: String
+           GeneralMarketResearchAnalysisUsage:
+              type: string
+              description: A record of the usage of the analysis
+              format: String
+           GeneralMarketResearchAnalysisImpact:
+              type: string
+              description: A record of reported impact/accuracy of the analysis
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateGeneralMarketResearchAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateGeneralMarketResearchAnalysisRequest
+        required: true
+     ExecuteGeneralMarketResearchAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteGeneralMarketResearchAnalysisRequest'
+        required: true
+     RequestGeneralMarketResearchAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestGeneralMarketResearchAnalysisRequest'
+        required: true
+     RetrieveGeneralMarketResearchAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     generalmarketresearchanalysisid:
+        name: generalmarketresearchanalysisid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateGeneralMarketResearchAnalysisResponse:
+        description: GeneralMarketResearchAnalysisEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateGeneralMarketResearchAnalysisResponse
+     ExecuteGeneralMarketResearchAnalysisResponse:
+        description: GeneralMarketResearchAnalysisExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteGeneralMarketResearchAnalysisResponse
+     RequestGeneralMarketResearchAnalysisResponse:
+        description: GeneralMarketResearchAnalysisRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestGeneralMarketResearchAnalysisResponse
+     RetrieveGeneralMarketResearchAnalysisResponse:
+        description: GeneralMarketResearchAnalysisRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveGeneralMarketResearchAnalysisResponse
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

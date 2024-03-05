@@ -1,0 +1,1818 @@
+openapi: 3.0.1
+info:
+  title: Customer Product And Service Eligibility
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This Service Domain maintains
+    a list of products and services for which a customer is eligible.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CustomerProductAndServiceEligibility
+paths:
+   '/CustomerEligibilityAssessment/{customereligibilityassessmentid}/Evaluate':
+      post:
+        tags:
+           - CR - CustomerEligibilityAssessment
+        summary: EvCR Evaluate a customer's eligibility for a product/service
+        description: EvCR Evaluate a customer's eligibility for a product/service
+        operationId: CustomerEligibilityAssessment/Evaluate
+        parameters:
+           - $ref: '#/components/parameters/customereligibilityassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/EvaluateCustomerEligibilityAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerEligibilityAssessment/{customereligibilityassessmentid}/Update':
+      put:
+        tags:
+           - CR - CustomerEligibilityAssessment
+        summary: >-
+          UpCR Update the product/service eligibility record (e.g. for newly
+          sold products)
+        description: >-
+          UpCR Update the product/service eligibility record (e.g. for newly
+          sold products)
+        operationId: CustomerEligibilityAssessment/Update
+        parameters:
+           - $ref: '#/components/parameters/customereligibilityassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateCustomerEligibilityAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerEligibilityAssessment/{customereligibilityassessmentid}/Exchange':
+      put:
+        tags:
+           - CR - CustomerEligibilityAssessment
+        summary: EcCR Accept, reject, verify etc. an eligibility assessment
+        description: EcCR Accept, reject, verify etc. an eligibility assessment
+        operationId: CustomerEligibilityAssessment/Exchange
+        parameters:
+           - $ref: '#/components/parameters/customereligibilityassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExchangeCustomerEligibilityAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerEligibilityAssessment/{customereligibilityassessmentid}/Execute':
+      put:
+        tags:
+           - CR - CustomerEligibilityAssessment
+        summary: >-
+          ExCR Execute an automated action against an active evaluation (e.g.
+          provide additional data)
+        description: >-
+          ExCR Execute an automated action against an active evaluation (e.g.
+          provide additional data)
+        operationId: CustomerEligibilityAssessment/Execute
+        parameters:
+           - $ref: '#/components/parameters/customereligibilityassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/ExecuteCustomerEligibilityAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerEligibilityAssessment/{customereligibilityassessmentid}/Request':
+      put:
+        tags:
+           - CR - CustomerEligibilityAssessment
+        summary: >-
+          RqCR Request manual intervention in an evaluation (e.g. engage a
+          specialist or negotiator)
+        description: >-
+          RqCR Request manual intervention in an evaluation (e.g. engage a
+          specialist or negotiator)
+        operationId: CustomerEligibilityAssessment/Request
+        parameters:
+           - $ref: '#/components/parameters/customereligibilityassessmentid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/RequestCustomerEligibilityAssessmentRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerEligibilityAssessment/{customereligibilityassessmentid}/Grant':
+      put:
+        tags:
+           - CR - CustomerEligibilityAssessment
+        summary: >-
+          GrCR Obtain a permission grant reflecting eligibility (perhaps
+          defining a term or other considerations)
+        description: >-
+          GrCR Obtain a permission grant reflecting eligibility (perhaps
+          defining a term or other considerations)
+        operationId: CustomerEligibilityAssessment/Grant
+        parameters:
+           - $ref: '#/components/parameters/customereligibilityassessmentid'
+        requestBody:
+          $ref: '#/components/requestBodies/GrantCustomerEligibilityAssessmentRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerEligibilityAssessment/{customereligibilityassessmentid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerEligibilityAssessment
+        summary: ReCR Retrieve details about an eligibility request
+        description: ReCR Retrieve details about an eligibility request
+        operationId: CustomerEligibilityAssessment/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customereligibilityassessmentid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveCustomerEligibilityAssessmentResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/EligibilityCheck/{eligibilitycheckid}/Retrieve':
+      get:
+        tags:
+           - BQ - EligibilityCheck
+        summary: ReBQ Retrieve details about an eligibility assessment
+        description: ReBQ Retrieve details about an eligibility assessment
+        operationId: EligibilityCheck/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/eligibilitycheckid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveEligibilityCheckResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/NextBest/{nextbestid}/Update':
+      put:
+        tags:
+           - BQ - NextBest
+        summary: UpBQ Update details about a next best eligibility test
+        description: UpBQ Update details about a next best eligibility test
+        operationId: NextBest/Update
+        parameters:
+           - $ref: '#/components/parameters/nextbestid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateNextBestRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/NextBest/{nextbestid}/Retrieve':
+      get:
+        tags:
+           - BQ - NextBest
+        summary: ReBQ Retrieve details about a next best test
+        description: ReBQ Retrieve details about a next best test
+        operationId: NextBest/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/nextbestid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveNextBestResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     EvaluateCustomerEligibilityAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+              description: "\r\n"
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+              description: ''
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+              description: "\r\n"
+           Date:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     Involvedparty:
+        type: object
+        description: "\r\n - "
+        properties:
+           PartyReference:
+              $ref: '#/components/schemas/Party'
+              description: ''
+           PartyInvolvement:
+              $ref: '#/components/schemas/Partyrole'
+              description: ''
+     Party:
+        type: object
+        description: ' '
+        properties:
+           PartyName:
+              $ref: '#/components/schemas/Name'
+              description: >-
+                Name by which a party is known and which is usually used to
+                identify that party. (ISO20022)
+           PartyType:
+              enum:
+                   -  Person
+                   -  Organisation
+              type: string
+              description: ">-\r\n* `Person` \r\n* `Organisation` \r\n* "
+           PartyDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           PartyIdentification:
+              $ref: '#/components/schemas/Partyidentification'
+              description: ''
+           PartyLegalStructureType:
+              enum:
+                   -  Individual
+                   -  CommunityInterestCompany
+                   -  CoOperative
+                   -  Charity
+                   -  GeneralPartnership
+                   -  LimitedLiabilityPartnership
+                   -  ScottishLimitedPartnership
+                   -  LimitedPartnership
+                   -  PrivateLimitedCompany
+                   -  PublicLimitedCompany
+                   -  Sole(SoleTrader)
+              type: string
+              description: ">-\r\n* `Individual` \r\n* `CommunityInterestCompany` \r\n* `CoOperative` \r\n* `Charity` \r\n* `GeneralPartnership` \r\n* `LimitedLiabilityPartnership` \r\n* `ScottishLimitedPartnership` \r\n* `LimitedPartnership` \r\n* `PrivateLimitedCompany` \r\n* `PublicLimitedCompany` \r\n* `SoleSoleTrader` \r\n* "
+     Name:
+        type: object
+        description: >-
+          Name by which a party is known and which is usually used to identify
+          that party. (ISO20022)
+           
+        properties:
+           Name:
+              type: string
+              description: >-
+                A name is a word or phrase that constitutes the distinctive
+                designation of a person, place, thing or concept. (UN/CEFAT)
+              format: DataType
+     Datetime:
+        type: object
+        description: ' '
+        properties:
+           DateTimeContent:
+              type: string
+              description: ''
+              format: String
+           TimeZoneCode:
+              type: string
+              description: ''
+              format: String
+           DaylightSavingIndicator:
+              type: string
+              description: ''
+              format: String
+           Datetime:
+              type: string
+              description: >-
+                A date time identifies a date and time of day to various common
+                resolutions: year, month, week, day, hour, minute, second, and
+                fraction of second. (UN/CEFACT)
+
+
+                A particular point in the progression of time defined by a
+                mandatory date and a mandatory time component, expressed in
+                either UTC time format (YYYYMMDDThh:mm:ss.sssZ), local time
+                with UTC offset format (YYYYMMDDThh:mm:ss.sss/hh:mm), or
+                local time format (YYYYMMDDThh:mm:ss.sss). These
+                representations are defined in "XML Schema Part 2: Datatypes
+                Second Edition  W3C Recommendation 28 October 2004" which is
+                aligned with ISO 8601. (ISO20022)
+
+                Note on the time format:
+
+                1) beginning / end of calendar day
+
+                00:00:00  -  the beginning of a calendar day
+
+                24:00:00  -  the end of a calendar day
+
+                2) fractions of second in time format
+
+                Decimal fractions of seconds may be included. In this case, the
+                involved parties shall agree on the maximum number of digits
+                that are allowed.
+              format: DataType
+     Partyidentification:
+        type: object
+        description: ' '
+        properties:
+           PartyIdentificationType:
+              enum:
+                   -  Taxidentificationnumber
+                   -  Nationalregistrationnumber
+                   -  LEI(LegalEntityIdentifier)
+                   -  Alienregistrationnumber
+                   -  Passportnumber
+                   -  Corporateidentification
+                   -  Driverlicensenumber
+                   -  Socialsecuritynumber
+                   -  Identitycardnumber
+                   -  Concat
+              type: string
+              description: ">-\r\n* `Taxidentificationnumber` \r\n* `Nationalregistrationnumber` \r\n* `LEILegalEntityIdentifier` \r\n* `Alienregistrationnumber` \r\n* `Passportnumber` \r\n* `Corporateidentification` \r\n* `Driverlicensenumber` \r\n* `Socialsecuritynumber` \r\n* `Identitycardnumber` \r\n* `Concat` \r\n* "
+           PartyIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           Partyidentification:
+              type: string
+              description: ''
+              format: DataType
+     Identifier:
+        type: object
+        description: ' '
+        properties:
+           IdentifierValue:
+              $ref: '#/components/schemas/Value'
+              description: ''
+           IdentifierIssuingAuthority:
+              $ref: '#/components/schemas/Involvedparty'
+              description: Entity that assigns and manages the identification.
+           IdentifierStartDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           IdentifierEndDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           Identifier:
+              type: string
+              description: >-
+                An identifier is a character string used to uniquely identify
+                one instance of an object within an identification scheme that
+                is managed by an agency. (UN/CEFAT)
+              format: DataType
+     Value:
+        type: object
+        description: ' '
+        properties:
+           Value:
+              type: string
+              description: >-
+                Data or set of data 
+
+
+                 A value is the concept of worth in general that is assigned or
+                is determined by measurement, assessment or calculation.
+                (UN/CEFACT)
+              format: DataType
+     Partyrole:
+        type: object
+        description: ' '
+        properties:
+           PartyRoleType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           PartyRoleName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           PartyRoleValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           PartyInvolvementType:
+              enum:
+                   -  Agreementinvolvement
+                   -  Partyinvolvement
+                   -  Arrangementinvolvement
+                   -  Relationshipinvolvement
+                   -  Locationinvolvement
+                   -  Bankguaranteeinvolvement
+              type: string
+              description: ">-\r\n* `Agreementinvolvement` \r\n* `Partyinvolvement` \r\n* `Arrangementinvolvement` \r\n* `Relationshipinvolvement` \r\n* `Locationinvolvement` \r\n* `Bankguaranteeinvolvement` \r\n* "
+     Text:
+        type: object
+        description: ' '
+        properties:
+           Text:
+              type: string
+              description: >-
+                Text is a character string such as a finite set of characters
+                generally in the form of words of a language. (UN/CEFACT)
+              format: DataType
+     Datetimeperiod:
+        type: object
+        description: ' '
+        properties:
+           FromDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range starts. (ISO20022)
+           ToDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the range ends. (ISO20022)
+           Datetimeperiod:
+              type: string
+              description: >-
+                Time span defined by a start date and time, and an end date and
+                time. (ISO20022)
+              format: DataType
+     CustomerProductAndServiceProfile:
+        type: object
+        description: "\r\n - "
+        properties:
+           ProfileType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerReference:
+              $ref: '#/components/schemas/Customerrelationship'
+              description: ''
+           ProductReference:
+              $ref: '#/components/schemas/Bankingproduct'
+              description: ''
+           ServiceReference:
+              $ref: '#/components/schemas/Service'
+              description: ''
+     Customerrelationship:
+        type: object
+        description: ' '
+        properties:
+           CustomerRelationship:
+              type: string
+              description: >-
+                A specific relationship between a specific Bank ( -  party acting
+                as a supplier of banking services) and one or more other
+                involved parties acting as (potential) consumers of banking
+                services as agreed in one or more banking product or service
+                offerings and/or agreements.
+              format: Class
+     Bankingproduct:
+        type: object
+        description: ' '
+        properties:
+           ProductIdentification:
+              $ref: '#/components/schemas/Productidentification'
+              description: The identifier of product e.g. ISIN Code.
+           ProductType:
+              enum:
+                   -  LoanProduct
+                   -  CurrentAccountProduct
+                   -  SavingAccountProduct
+                   -  BrokeredProduct
+                   -  TermDepositProduct
+              type: string
+              description: ">-\r\n* `LoanProduct` \r\n* `CurrentAccountProduct` \r\n* `SavingAccountProduct` \r\n* `BrokeredProduct` \r\n* `TermDepositProduct` \r\n* "
+           ProductLifecycleStatus:
+              $ref: '#/components/schemas/Productlifecyclestatus'
+              description: >-
+                Refers to the lifecycle of a product (e.g., initiated,
+                announced, active, obsolete, withdrawn).
+           ProductPriority:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           ProductDescription:
+              $ref: '#/components/schemas/Text'
+              description: A detailed explanation or commentary of product.
+           ProductVersion:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           ProductName:
+              $ref: '#/components/schemas/Name'
+              description: >-
+                The name of Product. 
+
+
+                Open Banking: 
+
+                The name of the product used for marketing purposes from a
+                customer perspective. I.e. what the customer would recognise.
+     Productidentification:
+        type: object
+        description: 'The identifier of product e.g. ISIN Code. '
+        properties:
+           ProductIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           ProductIdentificationType:
+              enum:
+                   -  ISINCode
+                   -  PackageCode
+                   -  Buyersitemnumber
+                   -  EAN
+                   -  Harmonizedtariffcodename
+                   -  Manufacturersitemnumber
+                   -  Modelnumber
+                   -  Partnumber
+                   -  Quotacategory
+                   -  Stylenumber
+                   -  Suppliersitemnumber
+                   -  Universalproductcode
+              type: string
+              description: ">-\r\n* `ISINCode` \r\n* `PackageCode` \r\n* `Buyersitemnumber` \r\n* `EAN` \r\n* `Harmonizedtariffcodename` \r\n* `Manufacturersitemnumber` \r\n* `Modelnumber` \r\n* `Partnumber` \r\n* `Quotacategory` \r\n* `Stylenumber` \r\n* `Suppliersitemnumber` \r\n* `Universalproductcode` \r\n* "
+     Productlifecyclestatus:
+        type: object
+        description: >-
+          Refers to the lifecycle of a product (e.g., initiated, announced,
+          active, obsolete, withdrawn). 
+        properties:
+           ProductLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           ProductLifecycleStatusType:
+              enum:
+                   -  Initiated
+                   -  Announced
+                   -  Sold
+                   -  Obsolete
+                   -  Active
+              type: string
+              description: ">-\r\n* `Initiated` \r\n* `Announced` \r\n* `Sold` \r\n* `Obsolete` \r\n* `Active` \r\n* "
+     Status:
+        type: object
+        description: ' '
+        properties:
+           StatusReason:
+              $ref: '#/components/schemas/Text'
+              description: Specifies the reasons for the status.
+           StatusDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: Date and time at which the status was assigned.
+           StatusValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: Period of time during which the status is valid.
+           StatusInvolvedParty:
+              $ref: '#/components/schemas/Involvedparty'
+              description: >-
+                Party who plays a  specific role in the context of assigning a
+                status.
+           Status:
+              type: string
+              description: >-
+                A characteristic that describe the object by referring to a
+                state transition in its lifecycle.
+              format: DataType
+     Service:
+        type: object
+        description: ' '
+        properties:
+           ServiceName:
+              $ref: '#/components/schemas/Name'
+              description: 'The name of service. '
+           ServiceDescription:
+              $ref: '#/components/schemas/Text'
+              description: A detailed explanation or commentary of service
+           ServiceType:
+              enum:
+                   -  ITService
+                   -  AdministrativeService
+                   -  SystemService
+                   -  FinancialService
+                   -  InformationService
+                   -  BusinessService
+              type: string
+              description: ">-\r\n* `ITService` \r\n* `AdministrativeService` \r\n* `SystemService` \r\n* `FinancialService` \r\n* `InformationService` \r\n* `BusinessService` \r\n* "
+           ServiceIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: The identifier of service.
+           ServiceLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: >-
+                A characteristic of service which refers to the lifecycle of
+                service (e.g., initiated, active, deactive, etc.) 
+           ServiceFeature:
+              $ref: '#/components/schemas/Feature'
+              description: >-
+                A characteristic of service which refers 1) mainly to the
+                function or condition of service. 2) to nonfunctional features
+                like quality and security
+     Feature:
+        type: object
+        description: >-
+          A characteristic of service which refers 1) mainly to the function or
+          condition of service. 2) to nonfunctional features like quality and
+          security 
+        properties:
+           FeatureType:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           FeatureIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: ''
+           FeatureName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           FeatureLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           FeatureDescription:
+              $ref: '#/components/schemas/Text'
+              description: ''
+     Arrangement:
+        type: object
+        description: ' Obligation|Obligation (https://www.iso20022.org/standardsrepository/type/Obligation)|Standard|ISO20022 BM ()'
+        properties:
+           ArrangementAction:
+              $ref: '#/components/schemas/Action'
+              description: ''
+           ArrangementStartDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           ArrangementEndDate:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           ArrangementStatus:
+              $ref: '#/components/schemas/Arrangementlifecyclestatus'
+              description: >-
+                A characteristic of arrangement which refers to the
+                LifecycleStatus of arrangement (e.g., requested, proposed,
+                offered, accepted, cancelled, terminated, fulfilled, etc.)
+           ArrangementSubjectMatter:
+              $ref: '#/components/schemas/Subject'
+              description: ''
+           Arrangementtype:
+              enum:
+                   -  SweepArrangement
+                   -  WithdrawalArrangement
+                   -  DepositArrangement
+                   -  InterestArrangement
+                   -  FeeArrangement
+                   -  LienArrangement
+                   -  InformationArrangement
+                   -  PaymentArrangement
+                   -  EntitlementArrangement
+                   -  PeriodArrangement
+                   -  CollateralArrangement
+                   -  LimitArrangement
+                   -  AccessArrangement
+                   -  CardPaymentArrangement
+                   -  StandingOrderArrangement
+                   -  OverdraftArrangement
+                   -  RepaymentArrangement
+                   -  StatementArrangement
+                   -  CreditTransferArrangement
+                   -  ProductAndServiceArrangement
+                   -  FactoringArrangement
+                   -  RolloverArrangement
+                   -  RestructuringArrangement
+                   -  InsuranceArrangement
+                   -  CollectionArrangement
+                   -  UnderwritingArrangement
+                   -  TerminationArrangement
+                   -  MaturityArrangement
+              type: string
+              description: ">-\r\n* `SweepArrangement` \r\n* `WithdrawalArrangement` \r\n* `DepositArrangement` \r\n* `InterestArrangement` \r\n* `FeeArrangement` \r\n* `LienArrangement` \r\n* `InformationArrangement` \r\n* `PaymentArrangement` \r\n* `EntitlementArrangement` \r\n* `PeriodArrangement` \r\n* `CollateralArrangement` \r\n* `LimitArrangement` \r\n* `AccessArrangement` \r\n* `CardPaymentArrangement` \r\n* `StandingOrderArrangement` \r\n* `OverdraftArrangement` \r\n* `RepaymentArrangement` \r\n* `StatementArrangement` \r\n* `CreditTransferArrangement` \r\n* `ProductAndServiceArrangement` \r\n* `FactoringArrangement` \r\n* `RolloverArrangement` \r\n* `RestructuringArrangement` \r\n* `InsuranceArrangement` \r\n* `CollectionArrangement` \r\n* `UnderwritingArrangement` \r\n* `TerminationArrangement` \r\n* `MaturityArrangement` \r\n* "
+     Action:
+        type: object
+        description: ' '
+        properties:
+           ActionType:
+              enum:
+                   -  Initiate
+                   -  Execute
+                   -  Create
+                   -  Transfer
+                   -  Pay
+                   -  Deliver
+                   -  Apply
+                   -  Calculate
+              type: string
+              description: ">-\r\n* `Initiate` \r\n* `Execute` \r\n* `Create` \r\n* `Transfer` \r\n* `Pay` \r\n* `Deliver` \r\n* `Apply` \r\n* `Calculate` \r\n* "
+     Arrangementlifecyclestatus:
+        type: object
+        description: >-
+          A characteristic of arrangement which refers to the LifecycleStatus of
+          arrangement (e.g., requested, proposed, offered, accepted, cancelled,
+          terminated, fulfilled, etc.) 
+        properties:
+           ArrangementLifecycleStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+           ArrangementLifecycleStatusType:
+              enum:
+                   -  Requested
+                   -  Proposed
+                   -  Offered
+                   -  Accepted
+                   -  Cancelled
+                   -  Fulfilled
+                   -  Terminated
+              type: string
+              description: ">-\r\n* `Requested` \r\n* `Proposed` \r\n* `Offered` \r\n* `Accepted` \r\n* `Cancelled` \r\n* `Fulfilled` \r\n* `Terminated` \r\n* "
+     Subject:
+        type: object
+        description: ' '
+        properties:
+           Subject:
+              type: string
+              description: >-
+                A thing that is discussed or dealt whit in agreement/arrangement
+                about doing or not doing (as action) something.
+              format: Class
+     ProductUsage:
+        type: object
+        description: "\r\n - "
+        properties:
+           ProductUsageDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           ProductUsageVolume:
+              $ref: '#/components/schemas/Text'
+              description: Usage volume/frequency for inforce product.
+           ProductUsageIndicator:
+              $ref: '#/components/schemas/Yesnoindicator'
+              description: >-
+                An indicator specifying if the whether the customer has bought 
+                the banking product or not. 
+     Yesnoindicator:
+        type: object
+        description: >-
+          An indicator specifying if the whether the customer has bought  the
+          banking product or not.  
+        properties:
+           Yesnoindicator:
+              type: string
+              description: >-
+                Indicates a "Yes" or "No" type of answer for an element.
+                (ISO20022)
+
+                true: Yes
+
+                false: No
+              format: DataType
+     Date:
+        type: object
+        description: ' ISODate|ISODate (https://www.iso20022.org/standardsrepository/type/ISODate)|Standard|ISO20022 BM ()'
+        properties:
+           DateContent:
+              type: string
+              description: ''
+              format: String
+     EvaluateCustomerEligibilityAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     EvaluateCustomerEligibilityAssessment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     UpdateCustomerEligibilityAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+              description: "\r\n"
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+              description: ''
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+              description: "\r\n"
+           Date:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     UpdateCustomerEligibilityAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     UpdateCustomerEligibilityAssessment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     ExchangeCustomerEligibilityAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+              description: "\r\n"
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+              description: ''
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+              description: "\r\n"
+           Date:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     ExchangeCustomerEligibilityAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     ExchangeCustomerEligibilityAssessment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     ExecuteCustomerEligibilityAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+              description: "\r\n"
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+              description: ''
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+              description: "\r\n"
+           Date:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     ExecuteCustomerEligibilityAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     ExecuteCustomerEligibilityAssessment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     RequestCustomerEligibilityAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+              description: "\r\n"
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+              description: ''
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+              description: "\r\n"
+           Date:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     RequestCustomerEligibilityAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     RequestCustomerEligibilityAssessment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     GrantCustomerEligibilityAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+              description: "\r\n"
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+              description: ''
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+              description: "\r\n"
+           Date:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     GrantCustomerEligibilityAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     GrantCustomerEligibilityAssessment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     RetrieveCustomerEligibilityAssessmentRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+              description: "\r\n"
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+              description: "\r\n"
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+              description: ''
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+              description: "\r\n"
+           Date:
+              $ref: '#/components/schemas/Date'
+              description: ''
+     RetrieveCustomerEligibilityAssessmentResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     RetrieveCustomerEligibilityAssessment:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     RetrieveEligibilityCheckRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerProductandServiceEligibilityAssessmentResult:
+              $ref: '#/components/schemas/CustomerProductProfileAssessment'
+              description: "\r\n"
+     CustomerProductProfileAssessment:
+        type: object
+        description: "\r\n - "
+        properties:
+           CustomerProductProfileAssessment:
+              type: string
+              description: >-
+                Evaluation of the product eligibility profile for a specific
+                customer or customer relationship. 
+              format: Class
+     RetrieveEligibilityCheckResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerProductandServiceEligibilityAssessmentResult:
+              $ref: '#/components/schemas/CustomerProductProfileAssessment'
+     RetrieveEligibilityCheck:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     UpdateNextBestRequest:
+        type: object
+        description: ''
+        properties:
+           RequestedProductandServiceProperties:
+              $ref: '#/components/schemas/ProductFeature'
+              description: "\r\n"
+           ProductServiceType:
+              $ref: '#/components/schemas/Bankingproducttype'
+              description: "\r\n"
+           CustomerProductandServiceNextBestAssessmentResult:
+              $ref: '#/components/schemas/Assessment'
+              description: ''
+     ProductFeature:
+        type: object
+        description: "\r\n - "
+        properties:
+           ProductFeatureType:
+              $ref: '#/components/schemas/Productfeaturetype'
+              description: The type or category of product/service features
+           ProductFeatureSpecification:
+              $ref: '#/components/schemas/Text'
+              description: ''
+     Productfeaturetype:
+        type: object
+        description: 'The type or category of product/service features '
+        properties:
+           ProductFeatureTypeValues:
+              enum:
+                   -  Bankingservice
+                   -  Administrationservice
+                   -  Accessservice
+                   -  Pricefeature
+              type: string
+              description: ">-\r\n* `Bankingservice` \r\n* `Administrationservice` \r\n* `Accessservice` \r\n* `Pricefeature` \r\n* "
+     Bankingproducttype:
+        type: object
+        description: "\r\n - "
+        properties:
+           ProductTypeDefinition:
+              type: string
+              description: ''
+              format: String
+           ProductType:
+              enum:
+                   -  LoanProduct
+                   -  CurrentAccountProduct
+                   -  SavingAccountProduct
+                   -  BrokeredProduct
+                   -  TermDepositProduct
+              type: string
+              description: ">-\r\n* `LoanProduct` \r\n* `CurrentAccountProduct` \r\n* `SavingAccountProduct` \r\n* `BrokeredProduct` \r\n* `TermDepositProduct` \r\n* "
+           ProductClassificationIssuingAuthority:
+              type: string
+              description: ''
+              format: String
+     Assessment:
+        type: object
+        description: ' Assessment|Assessment (https://www.iso20022.org/standardsrepository/type/Assessment)|Standard|ISO20022 BM ()'
+        properties:
+           AssessmentType:
+              enum:
+                   -  AssetValuation
+                   -  ProductMatching
+                   -  Authorization
+                   -  Authentication
+                   -  QualityAssurance
+                   -  Audit
+                   -  ComplianceCheck
+                   -  FundingCheck
+                   -  SuitabilityCheck
+                   -  PerformanceCheck
+                   -  ImpactAssessment
+                   -  RiskAssessment
+                   -  Rating
+                   -  UnderwritingAssessment
+                   -  Qualification
+                   -  Verification
+                   -  KYCAssessment
+                   -  PEPAssessment
+                   -  AMLAssessment
+              type: string
+              description: ">-\r\n* `AssetValuation` \r\n* `ProductMatching` \r\n* `Authorization` \r\n* `Authentication` \r\n* `QualityAssurance` \r\n* `Audit` \r\n* `ComplianceCheck` \r\n* `FundingCheck` \r\n* `SuitabilityCheck` \r\n* `PerformanceCheck` \r\n* `ImpactAssessment` \r\n* `RiskAssessment` \r\n* `Rating` \r\n* `UnderwritingAssessment` \r\n* `Qualification` \r\n* `Verification` \r\n* `KYCAssessment` \r\n* `PEPAssessment` \r\n* `AMLAssessment` \r\n* "
+           AssessmentMethod:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           AssessmentSchedule:
+              $ref: '#/components/schemas/Schedule'
+              description: ''
+           AssessmentDescription:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           AssessmentModel:
+              $ref: '#/components/schemas/Model'
+              description: ''
+           AssessmentDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           AssessmentResult:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           AssessmentSupportingDocument:
+              $ref: '#/components/schemas/Document'
+              description: >-
+                Document that provides background or corroborating information
+                regarding an assessment(s).
+           AssessmentRepresentingDocument:
+              $ref: '#/components/schemas/Document'
+              description: Document that represents the result of an assessment(s).
+           AssessmentRequiredAdjustment:
+              $ref: '#/components/schemas/Text'
+              description: Change that the assessment reveals is needed.
+           AssessmentRequirement:
+              $ref: '#/components/schemas/Requirement'
+              description: ''
+           AssessmentExpiryDate:
+              $ref: '#/components/schemas/Date'
+              description: Date when the assessment expires. (ISO20022)
+           AssessmentStatus:
+              $ref: '#/components/schemas/Status'
+              description: ''
+     Schedule:
+        type: object
+        description: ' '
+        properties:
+           ScheduleType:
+              type: string
+              description: ''
+              format: String
+     Model:
+        type: object
+        description: ' '
+        properties:
+           ModelType:
+              type: string
+              description: 'The type or category of model  '
+              format: String
+           ModelPurpose:
+              type: string
+              description: >-
+                A description of the model that clarifies the intended
+                analysis/insights provided
+              format: String
+           ModelVersion:
+              type: string
+              description: ''
+              format: String
+     Document:
+        type: object
+        description: >-
+          Document that provides background or corroborating information
+          regarding an assessment(s). 
+        properties:
+           DocumentIdentification:
+              $ref: '#/components/schemas/Identifier'
+              description: >-
+                An identifier that allows to uniquely refer to an instance of a
+                Document.
+           DocumentVersion:
+              type: string
+              description: ''
+              format: Number
+           DocumentType:
+              enum:
+                   -  Meteredserviceinvoice
+                   -  Commercialinvoice
+                   -  Creditnote
+                   -  Debitnote
+                   -  Hireinvoice
+                   -  Selfbilledinvoice
+                   -  Remittanceadvicemessage
+                   -  Relatedpaymentinstruction
+                   -  Commercialcontract
+                   -  Foreignexchangedealreference
+                   -  Statementofaccount
+                   -  Dispatchadvice
+                   -  Purchaseorder
+                   -  Billoflading
+                   -  Voucher
+                   -  Accountreceivableopenitem
+                   -  Cashierreceipt
+                   -  Customerreceipt
+                   -  Journal
+                   -  Salereceipt
+              type: string
+              description: ">-\r\n* `Meteredserviceinvoice` \r\n* `Commercialinvoice` \r\n* `Creditnote` \r\n* `Debitnote` \r\n* `Hireinvoice` \r\n* `Selfbilledinvoice` \r\n* `Remittanceadvicemessage` \r\n* `Relatedpaymentinstruction` \r\n* `Commercialcontract` \r\n* `Foreignexchangedealreference` \r\n* `Statementofaccount` \r\n* `Dispatchadvice` \r\n* `Purchaseorder` \r\n* `Billoflading` \r\n* `Voucher` \r\n* `Accountreceivableopenitem` \r\n* `Cashierreceipt` \r\n* `Customerreceipt` \r\n* `Journal` \r\n* `Salereceipt` \r\n* "
+           DocumentStatus:
+              $ref: '#/components/schemas/Status'
+              description: Status of the document (e.g. delivered, paid, etc.). ISO20022
+           DocumentDateTime:
+              $ref: '#/components/schemas/Datetime'
+              description: ''
+           DocumentName:
+              $ref: '#/components/schemas/Name'
+              description: ''
+           DocumentDateTimeType:
+              enum:
+                   -  CreationDate
+                   -  CapturingDate
+                   -  VersionDate
+                   -  ValueDate
+                   -  IssueDate
+              type: string
+              description: ">-\r\n* `CreationDate` \r\n* `CapturingDate` \r\n* `VersionDate` \r\n* `ValueDate` \r\n* `IssueDate` \r\n* "
+           DocumentPurpose:
+              $ref: '#/components/schemas/Text'
+              description: Specifies the function of the document. (ISO20022)
+           DocumentFormat:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           DocumentSubject:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           DocumentDescription:
+              $ref: '#/components/schemas/Text'
+              description: ''
+           DocumentValidityPeriod:
+              $ref: '#/components/schemas/Datetimeperiod'
+              description: ''
+           Document:
+              type: string
+              description: >-
+                Something tangible that records something, such as a recording
+                or a photograph, or a writing that can be used to furnish
+                evidence or information (FIBO)
+
+
+                Definition: A physical or digital representation of something
+                meaningful to the audience.
+
+
+                Comment: 
+
+                1.Technical: Manuals, instructions, tutorials, procedures,
+                specifications, etc., that accompany a piece of equipment or
+                software, and provide guidance for its proper use and
+                maintenance.
+
+                2.Trading: Preparation of a set of commercial and financial
+                documents that record or support a business transaction.
+                International trade documentations include air waybill, bill of
+                exchange, bill of lading, certificate of inspection, certificate
+                of insurance, certificate of origin, commercial invoice, and
+                consular invoice.
+
+
+
+                Read more:
+                http://www.businessdictionary.com/definition/documentation.html#ixzz3EQGRGC4W
+              format: Class
+     Requirement:
+        type: object
+        description: ' '
+        properties:
+           RequirementType:
+              type: string
+              description: ''
+              format: String
+     UpdateNextBestResponse:
+        type: object
+        description: ''
+        properties:
+           RequestedProductandServiceProperties:
+              $ref: '#/components/schemas/ProductFeature'
+           ProductServiceType:
+              $ref: '#/components/schemas/Bankingproducttype'
+           CustomerProductandServiceNextBestAssessmentResult:
+              $ref: '#/components/schemas/Assessment'
+     UpdateNextBest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     RetrieveNextBestRequest:
+        type: object
+        description: ''
+        properties:
+           RequestedProductandServiceProperties:
+              $ref: '#/components/schemas/ProductFeature'
+              description: "\r\n"
+           ProductServiceType:
+              $ref: '#/components/schemas/Bankingproducttype'
+              description: "\r\n"
+           CustomerProductandServiceNextBestAssessmentResult:
+              $ref: '#/components/schemas/Assessment'
+              description: ''
+     RetrieveNextBestResponse:
+        type: object
+        description: ''
+        properties:
+           RequestedProductandServiceProperties:
+              $ref: '#/components/schemas/ProductFeature'
+           ProductServiceType:
+              $ref: '#/components/schemas/Bankingproducttype'
+           CustomerProductandServiceNextBestAssessmentResult:
+              $ref: '#/components/schemas/Assessment'
+     RetrieveNextBest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              $ref: '#/components/schemas/Involvedparty'
+           CustomerProductandServiceProfile:
+              $ref: '#/components/schemas/CustomerProductAndServiceProfile'
+           ProductandServiceType:
+              enum: []
+              type: string
+              description: ">-\r\n*"
+           CustomerProductandServiceTypeEligibility:
+              $ref: '#/components/schemas/Arrangement'
+           CustomerProductandServiceTypeUsage:
+              $ref: '#/components/schemas/ProductUsage'
+           Date:
+              $ref: '#/components/schemas/Date'
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     EvaluateCustomerEligibilityAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateCustomerEligibilityAssessmentRequest
+        required: true
+     UpdateCustomerEligibilityAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerEligibilityAssessmentRequest'
+        required: true
+     ExchangeCustomerEligibilityAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExchangeCustomerEligibilityAssessmentRequest
+        required: true
+     ExecuteCustomerEligibilityAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/ExecuteCustomerEligibilityAssessmentRequest'
+        required: true
+     RequestCustomerEligibilityAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RequestCustomerEligibilityAssessmentRequest'
+        required: true
+     GrantCustomerEligibilityAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/GrantCustomerEligibilityAssessmentRequest'
+        required: true
+     RetrieveCustomerEligibilityAssessmentRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveCustomerEligibilityAssessmentRequest
+        required: true
+     RetrieveEligibilityCheckRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveEligibilityCheckRequest'
+        required: true
+     UpdateNextBestRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateNextBestRequest'
+        required: true
+     RetrieveNextBestRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveNextBestRequest'
+        required: true
+  parameters:
+     customereligibilityassessmentid:
+        name: customereligibilityassessmentid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     eligibilitycheckid:
+        name: eligibilitycheckid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     nextbestid:
+        name: nextbestid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     EvaluateCustomerEligibilityAssessmentResponse:
+        description: CustomerEligibilityAssessmentEvaluate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/EvaluateCustomerEligibilityAssessmentResponse
+     UpdateCustomerEligibilityAssessmentResponse:
+        description: CustomerEligibilityAssessmentUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerEligibilityAssessmentResponse'
+     ExchangeCustomerEligibilityAssessmentResponse:
+        description: CustomerEligibilityAssessmentExchange
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExchangeCustomerEligibilityAssessmentResponse
+     ExecuteCustomerEligibilityAssessmentResponse:
+        description: CustomerEligibilityAssessmentExecute
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/ExecuteCustomerEligibilityAssessmentResponse
+     RequestCustomerEligibilityAssessmentResponse:
+        description: CustomerEligibilityAssessmentRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RequestCustomerEligibilityAssessmentResponse
+     GrantCustomerEligibilityAssessmentResponse:
+        description: CustomerEligibilityAssessmentGrant
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/GrantCustomerEligibilityAssessmentResponse'
+     RetrieveCustomerEligibilityAssessmentResponse:
+        description: CustomerEligibilityAssessmentRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveCustomerEligibilityAssessmentResponse
+     RetrieveEligibilityCheckResponse:
+        description: EligibilityCheckRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveEligibilityCheckResponse'
+     UpdateNextBestResponse:
+        description: NextBestUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateNextBestResponse'
+     RetrieveNextBestResponse:
+        description: NextBestRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveNextBestResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'

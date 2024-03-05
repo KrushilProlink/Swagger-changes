@@ -1,0 +1,1293 @@
+openapi: 3.0.1
+info:
+  title: Customer Tax Handling
+  description: >-
+    BIAN Service Domain (expanded with BIAN BOM) | This service domain handles
+    consumer tax reporting obligations including the consolidation and reporting
+    of customer tax related financial activity
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/apis/B154/BIAN/CustomerTaxHandling
+paths:
+   '/CustomerTaxObligationFacility/{customertaxobligationfacilityid}/Initiate':
+      post:
+        tags:
+           - CR - CustomerTaxObligationFacility
+        summary: InCR Initiate customer tax handling
+        description: InCR Initiate customer tax handling
+        operationId: CustomerTaxObligationFacility/Initiate
+        parameters:
+           - $ref: '#/components/parameters/customertaxobligationfacilityid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/InitiateCustomerTaxObligationFacilityRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerTaxObligationFacility/{customertaxobligationfacilityid}/Update':
+      put:
+        tags:
+           - CR - CustomerTaxObligationFacility
+        summary: UpCR Update details of the customer tax handling facility
+        description: UpCR Update details of the customer tax handling facility
+        operationId: CustomerTaxObligationFacility/Update
+        parameters:
+           - $ref: '#/components/parameters/customertaxobligationfacilityid'
+        requestBody:
+          $ref: >-
+            #/components/requestBodies/UpdateCustomerTaxObligationFacilityRequest
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/CustomerTaxObligationFacility/{customertaxobligationfacilityid}/Retrieve':
+      get:
+        tags:
+           - CR - CustomerTaxObligationFacility
+        summary: ReCR Retrieve details relating to the customer tax handling
+        description: ReCR Retrieve details relating to the customer tax handling
+        operationId: CustomerTaxObligationFacility/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/customertaxobligationfacilityid'
+        responses:
+          '200':
+            $ref: >-
+              #/components/responses/RetrieveCustomerTaxObligationFacilityResponse
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Consolidation/{consolidationid}/Update':
+      put:
+        tags:
+           - BQ - Consolidation
+        summary: UpCR Update consolidated product reports
+        description: UpCR Update consolidated product reports
+        operationId: Consolidation/Update
+        parameters:
+           - $ref: '#/components/parameters/consolidationid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateConsolidationRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Consolidation/{consolidationid}/Retrieve':
+      get:
+        tags:
+           - BQ - Consolidation
+        summary: >-
+          ReCR Retrieve details about the consolidated reports used for tax
+          reporting
+        description: >-
+          ReCR Retrieve details about the consolidated reports used for tax
+          reporting
+        operationId: Consolidation/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/consolidationid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveConsolidationResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Analysis/{analysisid}/Update':
+      put:
+        tags:
+           - BQ - Analysis
+        summary: UpBQ Update aspects of the tax handling analysis
+        description: UpBQ Update aspects of the tax handling analysis
+        operationId: Analysis/Update
+        parameters:
+           - $ref: '#/components/parameters/analysisid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateAnalysisRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Analysis/{analysisid}/Retrieve':
+      get:
+        tags:
+           - BQ - Analysis
+        summary: ReBQ Retrieve details about the tax reporting analysis
+        description: ReBQ Retrieve details about the tax reporting analysis
+        operationId: Analysis/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/analysisid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveAnalysisResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Reporting/{reportingid}/Update':
+      put:
+        tags:
+           - BQ - Reporting
+        summary: UpBQ Update customer tax reporting details
+        description: UpBQ Update customer tax reporting details
+        operationId: Reporting/Update
+        parameters:
+           - $ref: '#/components/parameters/reportingid'
+        requestBody:
+          $ref: '#/components/requestBodies/UpdateReportingRequest'
+        responses:
+          '200':
+            $ref: '#/components/responses/BadRequest'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+   '/Reporting/{reportingid}/Retrieve':
+      get:
+        tags:
+           - BQ - Reporting
+        summary: ReBQ Retrieve details about the customer tax reporting
+        description: ReBQ Retrieve details about the customer tax reporting
+        operationId: Reporting/Retrieve
+        parameters:
+           - $ref: '#/components/parameters/reportingid'
+        responses:
+          '200':
+            $ref: '#/components/responses/RetrieveReportingResponse'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '401':
+            $ref: '#/components/responses/Unauthorized'
+          '403':
+            $ref: '#/components/responses/Forbidden'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '429':
+            $ref: '#/components/responses/TooManyRequests'
+          '500':
+            $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+     InitiateCustomerTaxObligationFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCustomerTaxObligationFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: "\r\n"
+              format: String
+     InitiateCustomerTaxObligationFacility:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer for whom the consolidated tax position
+                is maintained
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: >-
+                The consolidated record of the customer tax reporting position 
+                basis for generating tax reports
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: >-
+                Reference to the applicable tax authority/jurisdiction that
+                applies for the customer  can be multiple for the customer
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: >-
+                Tax handling and reporting regulation that is applied to this
+                customer
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: >-
+                Covers all tax reporting guidelines, schedule and position
+                reporting requirements for the customer
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: >-
+                Defines the customer tax reporting obligations, recording target
+                and actual dates
+              format: String
+     UpdateCustomerTaxObligationFacilityRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCustomerTaxObligationFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateCustomerTaxObligationFacility:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer for whom the consolidated tax position
+                is maintained
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: >-
+                The consolidated record of the customer tax reporting position 
+                basis for generating tax reports
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: >-
+                Reference to the applicable tax authority/jurisdiction that
+                applies for the customer  can be multiple for the customer
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: >-
+                Tax handling and reporting regulation that is applied to this
+                customer
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: >-
+                Covers all tax reporting guidelines, schedule and position
+                reporting requirements for the customer
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: >-
+                Defines the customer tax reporting obligations, recording target
+                and actual dates
+              format: String
+     RetrieveCustomerTaxObligationFacilityResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveCustomerTaxObligationFacility:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer for whom the consolidated tax position
+                is maintained
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: >-
+                The consolidated record of the customer tax reporting position 
+                basis for generating tax reports
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: >-
+                Reference to the applicable tax authority/jurisdiction that
+                applies for the customer  can be multiple for the customer
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: >-
+                Tax handling and reporting regulation that is applied to this
+                customer
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: >-
+                Covers all tax reporting guidelines, schedule and position
+                reporting requirements for the customer
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: >-
+                Defines the customer tax reporting obligations, recording target
+                and actual dates
+              format: String
+     UpdateConsolidationRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductArrangementInstanceReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportOptionsSelectionCriteria:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportFormatTemplate:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxHandlingConsolidationWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateConsolidationResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductArrangementInstanceReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportOptionsSelectionCriteria:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportFormatTemplate:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxHandlingConsolidationWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateConsolidation:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer for whom the consolidated tax position
+                is maintained
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: >-
+                The consolidated record of the customer tax reporting position 
+                basis for generating tax reports
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: >-
+                Reference to the applicable tax authority/jurisdiction that
+                applies for the customer  can be multiple for the customer
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: >-
+                Tax handling and reporting regulation that is applied to this
+                customer
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: >-
+                Covers all tax reporting guidelines, schedule and position
+                reporting requirements for the customer
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: >-
+                Defines the customer tax reporting obligations, recording target
+                and actual dates
+              format: String
+     RetrieveConsolidationResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           ProductInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ProductArrangementInstanceReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportOptionsSelectionCriteria:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           ReportFormatTemplate:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxHandlingConsolidationWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveConsolidation:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer for whom the consolidated tax position
+                is maintained
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: >-
+                The consolidated record of the customer tax reporting position 
+                basis for generating tax reports
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: >-
+                Reference to the applicable tax authority/jurisdiction that
+                applies for the customer  can be multiple for the customer
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: >-
+                Tax handling and reporting regulation that is applied to this
+                customer
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: >-
+                Covers all tax reporting guidelines, schedule and position
+                reporting requirements for the customer
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: >-
+                Defines the customer tax reporting obligations, recording target
+                and actual dates
+              format: String
+     UpdateAnalysisRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxHandlingAnalysisWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxHandlingAnalysisWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateAnalysis:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer for whom the consolidated tax position
+                is maintained
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: >-
+                The consolidated record of the customer tax reporting position 
+                basis for generating tax reports
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: >-
+                Reference to the applicable tax authority/jurisdiction that
+                applies for the customer  can be multiple for the customer
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: >-
+                Tax handling and reporting regulation that is applied to this
+                customer
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: >-
+                Covers all tax reporting guidelines, schedule and position
+                reporting requirements for the customer
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: >-
+                Defines the customer tax reporting obligations, recording target
+                and actual dates
+              format: String
+     RetrieveAnalysisResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxHandlingAnalysisWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveAnalysis:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer for whom the consolidated tax position
+                is maintained
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: >-
+                The consolidated record of the customer tax reporting position 
+                basis for generating tax reports
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: >-
+                Reference to the applicable tax authority/jurisdiction that
+                applies for the customer  can be multiple for the customer
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: >-
+                Tax handling and reporting regulation that is applied to this
+                customer
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: >-
+                Covers all tax reporting guidelines, schedule and position
+                reporting requirements for the customer
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: >-
+                Defines the customer tax reporting obligations, recording target
+                and actual dates
+              format: String
+     UpdateReportingRequest:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxHandlingReportingWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateReportingResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxHandlingReportingWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     UpdateReporting:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer for whom the consolidated tax position
+                is maintained
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: >-
+                The consolidated record of the customer tax reporting position 
+                basis for generating tax reports
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: >-
+                Reference to the applicable tax authority/jurisdiction that
+                applies for the customer  can be multiple for the customer
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: >-
+                Tax handling and reporting regulation that is applied to this
+                customer
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: >-
+                Covers all tax reporting guidelines, schedule and position
+                reporting requirements for the customer
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: >-
+                Defines the customer tax reporting obligations, recording target
+                and actual dates
+              format: String
+     RetrieveReportingResponse:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: "\r\n"
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportInstanceReference:
+              type: string
+              description: "\r\n"
+              format: Object
+           CustomerTaxReportType:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportPeriod:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxReportReport:
+              type: string
+              description: "\r\n"
+              format: String
+           CustomerTaxHandlingReportingWorkProducts:
+              type: string
+              description: "\r\n"
+              format: String
+     RetrieveReporting:
+        type: object
+        description: ''
+        properties:
+           CustomerReference:
+              type: string
+              description: >-
+                Reference to the customer for whom the consolidated tax position
+                is maintained
+              format: Object
+           CustomerTaxHandlingArrangementRecord:
+              type: string
+              description: >-
+                The consolidated record of the customer tax reporting position 
+                basis for generating tax reports
+              format: String
+           TaxationJurisdictionReference:
+              type: string
+              description: >-
+                Reference to the applicable tax authority/jurisdiction that
+                applies for the customer  can be multiple for the customer
+              format: Object
+           ApplicableTaxationRuleReference:
+              type: string
+              description: >-
+                Tax handling and reporting regulation that is applied to this
+                customer
+              format: Object
+           ApplicableTaxationRuleDefinition:
+              type: string
+              description: >-
+                Covers all tax reporting guidelines, schedule and position
+                reporting requirements for the customer
+              format: String
+           CustomerTaxReportingSchedule:
+              type: string
+              description: >-
+                Defines the customer tax reporting obligations, recording target
+                and actual dates
+              format: String
+     HTTPError:
+        type: object
+        properties:
+          status_code:
+            type: string
+            format: string
+          status:
+            type: string
+            format: string
+          message:
+            type: string
+            format: string
+        description: Status Attributes
+  requestBodies:
+     InitiateCustomerTaxObligationFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateCustomerTaxObligationFacilityRequest
+        required: true
+     UpdateCustomerTaxObligationFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerTaxObligationFacilityRequest'
+        required: true
+     RetrieveCustomerTaxObligationFacilityRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateConsolidationRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateConsolidationRequest'
+        required: true
+     RetrieveConsolidationRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAnalysisRequest'
+        required: true
+     RetrieveAnalysisRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+     UpdateReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateReportingRequest'
+        required: true
+     RetrieveReportingRequest:
+        content:
+          'application/json:':
+            schema:
+              type: string
+        required: true
+  parameters:
+     customertaxobligationfacilityid:
+        name: customertaxobligationfacilityid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     consolidationid:
+        name: consolidationid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     analysisid:
+        name: analysisid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+     reportingid:
+        name: reportingid
+        in: path
+        required: true
+        style: simple
+        schema:
+          type: string
+  responses:
+     InitiateCustomerTaxObligationFacilityResponse:
+        description: CustomerTaxObligationFacilityInitiate
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/InitiateCustomerTaxObligationFacilityResponse
+     UpdateCustomerTaxObligationFacilityResponse:
+        description: CustomerTaxObligationFacilityUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerTaxObligationFacilityResponse'
+     RetrieveCustomerTaxObligationFacilityResponse:
+        description: CustomerTaxObligationFacilityRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: >-
+                #/components/schemas/RetrieveCustomerTaxObligationFacilityResponse
+     UpdateConsolidationResponse:
+        description: ConsolidationUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateConsolidationResponse'
+     RetrieveConsolidationResponse:
+        description: ConsolidationRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveConsolidationResponse'
+     UpdateAnalysisResponse:
+        description: AnalysisUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateAnalysisResponse'
+     RetrieveAnalysisResponse:
+        description: AnalysisRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveAnalysisResponse'
+     UpdateReportingResponse:
+        description: ReportingUpdate
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/UpdateReportingResponse'
+     RetrieveReportingResponse:
+        description: ReportingRetrieve
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/RetrieveReportingResponse'
+     BadRequest:
+        description: BadRequest
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Unauthorized:
+        description: Unauthorized
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     Forbidden:
+        description: Forbidden
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     NotFound:
+        description: NotFound
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     TooManyRequests:
+        description: TooManyRequests
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
+     InternalServerError:
+        description: InternalServerError
+        content:
+          'application/json:':
+            schema:
+              $ref: '#/components/schemas/HTTPError'
